@@ -5,11 +5,9 @@ using UnityEngine;
 
 //basic player movement and actions
 
+[RequireComponent(typeof(Equipment))]
 public class PlayerInput : MonoBehaviour
 {
-    public GameObject CurrentWeapon;
-    public Transform PlayerRightHand;
-    public GameObject ItemZone;
     public Rigidbody Body;
     public GameObject ReferenceFrame;
     public Camera Cam;
@@ -35,20 +33,34 @@ public class PlayerInput : MonoBehaviour
     public string HeavyAttack = "HeavyAttack";
     [HideInInspector]
     public string Item = "Item";
+    [HideInInspector]
+    public string Dash = "Dash";
+    [HideInInspector]
+    public string Trigger = "Trigger";
 
     public long LightCooldown;
     public long HeavyCooldown;
     public long InteractCooldown = 500;
+    public long DashCooldown = 500;
+
+    private GameObject CurrentWeapon;
+    private Transform PlayerRightHand;
+    private GameObject ItemZone;
 
     private Quaternion camRot;
     private Animator animator;
 
     private Stopwatch lastAttack = new Stopwatch();
+    private Stopwatch lastDash = new Stopwatch();
     private Stopwatch lastInteract = new Stopwatch();
 
     // Start is called before the first frame update
     void Start()
     {
+        CurrentWeapon = GetComponent<Equipment>().CurrentWeapon;
+        PlayerRightHand = GetComponent<Equipment>().DomHand;
+        ItemZone = GetComponent<Equipment>().ItemZone;
+
         camRot = ReferenceFrame.transform.rotation;
         animator = GetComponent<Animator>();
     }
@@ -64,7 +76,7 @@ public class PlayerInput : MonoBehaviour
             camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
         }
         
-        if ((Input.GetButton(LightAttack) || Input.GetAxis(LightAttack) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
+        if ((Input.GetButton(LightAttack) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
         {
             animator.SetTrigger("Swing");
             lastAttack.Restart();
@@ -95,6 +107,11 @@ public class PlayerInput : MonoBehaviour
 
     void FixedUpdate()
     {
+        if ((Input.GetButton(Dash) || Input.GetAxis(Trigger) < -0.2) && (!lastDash.IsRunning || lastDash.ElapsedMilliseconds > DashCooldown) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
+        {
+            lastDash.Restart();
+            UnityEngine.Debug.Log("Dash");
+        }
         if (Input.GetAxis(MoveVert) != 0 || Input.GetAxis(MoveHoriz) != 0)
         {
             Vector3 moveForce = new Vector3(Input.GetAxis(MoveHoriz), 0, Input.GetAxis(MoveVert));
@@ -141,24 +158,5 @@ public class PlayerInput : MonoBehaviour
         ReferenceFrame.transform.rotation = camRot;
     }
 
-    public void Equip(GameObject newWeapon)
-    {
-        if (newWeapon == CurrentWeapon) return;
 
-        UnityEngine.Debug.Log("Equipped weapon");
-
-        CurrentWeapon.transform.parent = newWeapon.transform.parent;
-        CurrentWeapon.transform.position = new Vector3(CurrentWeapon.transform.position.x, CurrentWeapon.transform.position.y, CurrentWeapon.transform.position.z+0.2f);
-        //CurrentWeapon.transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
-        CurrentWeapon.GetComponent<Rigidbody>().isKinematic = false;
-
-        newWeapon.transform.parent = PlayerRightHand;
-        newWeapon.transform.localPosition = new Vector3(0, 0, 0);
-        newWeapon.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        newWeapon.GetComponent<Rigidbody>().isKinematic = true;
-
-        CurrentWeapon = newWeapon;
-
-        ItemZone.GetComponent<Collider>().enabled = false;
-    }
 }

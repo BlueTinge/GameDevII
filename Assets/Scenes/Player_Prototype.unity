@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 872363657}
   - component: {fileID: 872363658}
   - component: {fileID: 872363659}
+  - component: {fileID: 872363654}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -404,6 +405,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &872363654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872363652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ba05b5415a454429f41374279eb32d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentWeapon: {fileID: 370759310}
+  DomHand: {fileID: 1622975223}
+  ItemZone: {fileID: 652658334}
 --- !u!4 &872363656
 Transform:
   m_ObjectHideFlags: 0
@@ -434,9 +450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d52e105eb43c7469338cf673e51fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentWeapon: {fileID: 370759310}
-  PlayerRightHand: {fileID: 1622975223}
-  ItemZone: {fileID: 652658334}
   Body: {fileID: 872363658}
   ReferenceFrame: {fileID: 933603504}
   Cam: {fileID: 959602499}
@@ -454,6 +467,7 @@ MonoBehaviour:
   LightCooldown: 500
   HeavyCooldown: 1000
   InteractCooldown: 500
+  DashCooldown: 500
 --- !u!54 &872363658
 Rigidbody:
   m_ObjectHideFlags: 0
