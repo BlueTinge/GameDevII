@@ -11,7 +11,7 @@ public class Equipment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        CurrentWeapon.GetComponent<Weapon>().Holder = gameObject;
     }
 
     // Update is called once per frame
@@ -22,19 +22,19 @@ public class Equipment : MonoBehaviour
 
     public void Equip(GameObject newWeapon)
     {
-        if (newWeapon == CurrentWeapon) return;
+        if (newWeapon.GetComponent<Weapon>().IsHeld) return;
 
         UnityEngine.Debug.Log("Equipped weapon");
 
         CurrentWeapon.transform.parent = newWeapon.transform.parent;
         CurrentWeapon.transform.position = new Vector3(CurrentWeapon.transform.position.x, CurrentWeapon.transform.position.y, CurrentWeapon.transform.position.z + 0.2f);
         //CurrentWeapon.transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
-        CurrentWeapon.GetComponent<Weapon>().IsHeld = false;
+        CurrentWeapon.GetComponent<Weapon>().Holder = null;
 
         newWeapon.transform.parent = DomHand;
         newWeapon.transform.localPosition = new Vector3(0, 0, 0);
         newWeapon.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        newWeapon.GetComponent<Weapon>().IsHeld = true;
+        newWeapon.GetComponent<Weapon>().Holder = gameObject;
 
         CurrentWeapon = newWeapon;
 
@@ -42,5 +42,18 @@ public class Equipment : MonoBehaviour
         {
             ItemZone.GetComponent<Collider>().enabled = false;
         }
+    }
+
+    //ANIMATION EVENTS used for attack controlling
+    //Just delegate to weapon
+
+    public void MakeLightAttack(float ttl)
+    {
+        CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl);
+    }
+
+    public void MakeHeavyAttack(float ttl)
+    {
+        CurrentWeapon.GetComponent<Weapon>().MakeHeavyAttack(ttl);
     }
 }

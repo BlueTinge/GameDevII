@@ -6,7 +6,8 @@ using UnityEngine;
 //basic player movement and actions
 
 [RequireComponent(typeof(Equipment))]
-public class PlayerInput : MonoBehaviour
+[RequireComponent(typeof(HealthStats))]
+public class PlayerController : MonoBehaviour
 {
     public Rigidbody Body;
     public GameObject ReferenceFrame;
@@ -43,7 +44,6 @@ public class PlayerInput : MonoBehaviour
     public long InteractCooldown = 500;
     public long DashCooldown = 500;
 
-    private GameObject CurrentWeapon;
     private Transform PlayerRightHand;
     private GameObject ItemZone;
 
@@ -57,7 +57,6 @@ public class PlayerInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentWeapon = GetComponent<Equipment>().CurrentWeapon;
         PlayerRightHand = GetComponent<Equipment>().DomHand;
         ItemZone = GetComponent<Equipment>().ItemZone;
 
@@ -90,6 +89,7 @@ public class PlayerInput : MonoBehaviour
             UnityEngine.Debug.Log("Heavy Attack");
         }
 
+        //TODO move somewhere better? Invoke method in Equipment, maybe?
         if (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown) 
         {
             if (Input.GetButton(Item))
@@ -150,7 +150,6 @@ public class PlayerInput : MonoBehaviour
         if (Body.velocity.z < -MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, -MaxSpeed);
 
         //UnityEngine.Debug.Log(Body.velocity);
-        ReferenceFrame.transform.rotation = camRot;
     }
 
     private void LateUpdate()
