@@ -5,8 +5,11 @@ using UnityEngine;
 
 //basic player movement and actions
 
-public class Player_Movement : MonoBehaviour
+public class PlayerInput : MonoBehaviour
 {
+    public GameObject CurrentWeapon;
+    public Transform PlayerRightHand;
+    public GameObject ItemZone;
     public Rigidbody Body;
     public GameObject ReferenceFrame;
     public Camera Cam;
@@ -18,17 +21,30 @@ public class Player_Movement : MonoBehaviour
 
     //input axis/sticks
     //separated in case we want specific options for joysticks vs. keyb/mouse
+    [HideInInspector]
     public string MoveHoriz = "LeftHoriz";
+    [HideInInspector]
     public string MoveVert = "LeftVert";
+    [HideInInspector]
     public string CamHoriz = "RightHoriz";
+    [HideInInspector]
     public string CamVert = "RightVert";
+    [HideInInspector]
+    public string LightAttack = "Attack";
+    [HideInInspector]
+    public string HeavyAttack = "HeavyAttack";
+    [HideInInspector]
+    public string Item = "Item";
 
-    public long SwingCooldown;
+    public long LightCooldown;
+    public long HeavyCooldown;
+    public long InteractCooldown = 500;
 
     private Quaternion camRot;
     private Animator animator;
 
     private Stopwatch lastAttack = new Stopwatch();
+    private Stopwatch lastInteract = new Stopwatch();
 
     // Start is called before the first frame update
     void Start()
@@ -42,16 +58,39 @@ public class Player_Movement : MonoBehaviour
         if (Input.GetAxis(CamHoriz) != 0 || Input.GetAxis(CamVert) != 0)
         {
             Vector3 ang = camRot.eulerAngles;
-            camRot = Quaternion.Euler(new Vector3(ang.x + (camRotationSpeed * Input.GetAxis(CamVert) * Time.deltaTime), ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
+            float pitch = ang.x + (camRotationSpeed * Input.GetAxis(CamVert) * Time.deltaTime);
+            if (Cam.transform.eulerAngles.x > 350 && pitch < ang.x) pitch = ang.x;
+            if (Cam.transform.eulerAngles.x < 350 && Cam.transform.eulerAngles.x > 85 && pitch > ang.x) pitch = ang.x;
+            camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
         }
         
-        if (Input.GetButton("Attack") && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > SwingCooldown))
+        if ((Input.GetButton(LightAttack) || Input.GetAxis(LightAttack) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
         {
             animator.SetTrigger("Swing");
             lastAttack.Restart();
+            UnityEngine.Debug.Log("Swing Attack");
         }
 
-        
+        if ((Input.GetButton(HeavyAttack)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
+        {
+            animator.SetTrigger("Heavy");
+            lastAttack.Restart();
+            UnityEngine.Debug.Log("Heavy Attack");
+        }
+
+        if (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown) 
+        {
+            if (Input.GetButton(Item))
+            {
+                lastInteract.Restart();
+                ItemZone.GetComponent<Collider>().enabled = true;
+            }
+            else
+            {
+                ItemZone.GetComponent<Collider>().enabled = false;
+            }
+
+        }
     }
 
     void FixedUpdate()
@@ -100,5 +139,26 @@ public class Player_Movement : MonoBehaviour
     private void LateUpdate()
     {
         ReferenceFrame.transform.rotation = camRot;
+    }
+
+    public void Equip(GameObject newWeapon)
+    {
+        if (newWeapon == CurrentWeapon) return;
+
+        UnityEngine.Debug.Log("Equipped weapon");
+
+        CurrentWeapon.transform.parent = newWeapon.transform.parent;
+        CurrentWeapon.transform.position = new Vector3(CurrentWeapon.transform.position.x, CurrentWeapon.transform.position.y, CurrentWeapon.transform.position.z+0.2f);
+        //CurrentWeapon.transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
+        CurrentWeapon.GetComponent<Rigidbody>().isKinematic = false;
+
+        newWeapon.transform.parent = PlayerRightHand;
+        newWeapon.transform.localPosition = new Vector3(0, 0, 0);
+        newWeapon.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        newWeapon.GetComponent<Rigidbody>().isKinematic = true;
+
+        CurrentWeapon = newWeapon;
+
+        ItemZone.GetComponent<Collider>().enabled = false;
     }
 }
