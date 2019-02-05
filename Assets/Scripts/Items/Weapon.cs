@@ -67,7 +67,7 @@ public class Weapon : MonoBehaviour
     public void MakeLightAttack(float ttl)
     {
         //TODO: use rotation instead of velocity somehow
-        gameObject.AddComponent<Attack>().Initialize(BaseDamage, Holder.GetComponent<Rigidbody>().velocity.normalized * BaseKnockback, ttl, Holder);
+        gameObject.AddComponent<Attack>().Initialize(BaseDamage, (Holder.GetComponent<Rigidbody>().rotation * Vector3.forward) * BaseKnockback, ttl, Holder);
     }
 
     public void MakeHeavyAttack(float ttl)
