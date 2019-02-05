@@ -28,6 +28,8 @@ public class HealthStats : MonoBehaviour
     public DeathDelegate OnDeath;
     public delegate void DamageDelegate(float damage);
     public DamageDelegate OnDamage;
+    public delegate void KnockbackDelegate(Vector3 knockback);
+    public KnockbackDelegate OnKnockback;
     public delegate void ImmunityEndDelegate();
     public ImmunityEndDelegate OnImmunityEnd;
 
@@ -35,6 +37,13 @@ public class HealthStats : MonoBehaviour
     void Start()
     {
         _currentHealth = MaxHealth;
+
+        OnKnockback = delegate (Vector3 knockback)
+        {
+            Rigidbody rb= gameObject.GetComponent<Rigidbody>();
+            if (rb != null) rb.AddForce(knockback);
+            UnityEngine.Debug.Log(knockback);
+        };
     }
 
     //return actual amount taken
@@ -60,10 +69,10 @@ public class HealthStats : MonoBehaviour
                 //TODO: allow specific attacks to influence immunity period
                 isImmune = true;
                 Invoke("EndImmunity", BaseImmunityPeriod);
-                //TODO: knockback (direction??)
             }
 
-
+            Vector3 knockback = attack.GetKnockbackFor(gameObject);
+            OnKnockback(knockback);
         }
     }
 
