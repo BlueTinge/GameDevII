@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -22,4 +23,21 @@ public class UIManager : MonoBehaviour
                 Time.timeScale = 1f;
             }
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    
+    public void Continue()
+    {
+        Canvas.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 }
