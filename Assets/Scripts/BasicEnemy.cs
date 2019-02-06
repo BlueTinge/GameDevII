@@ -29,6 +29,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     private bool shouldJump;
     private bool shouldLunge;
     private Vector3 targetPos;
+    private HealthStats healthStats;
 
     void Awake()
     {
@@ -46,6 +47,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     {
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
+        healthStats = GetComponent<HealthStats>();
+        healthStats.OnDeath = (overkill) => {Destroy(gameObject);};
         behaviorTree = new BehaviorTree
         (
             new SelectorTask(new ITreeTask[]
@@ -133,11 +136,5 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     public void Move()
     {
         shouldJump = true;
-    }
-
-    // Testing purposes
-    public void Die(float overkill)
-    {
-        Destroy(gameObject);
     }
 }
