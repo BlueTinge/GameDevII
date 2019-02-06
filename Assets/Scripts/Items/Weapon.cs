@@ -14,6 +14,10 @@ public class Weapon : MonoBehaviour
     public float BaseKnockback;
 
     public bool IsHeld {get; private set;}
+
+    [Tooltip("True if the weapon should use physics system to collide with stuff when held")]
+    public bool IsPhysical = true;
+
     private GameObject _holder;
     public GameObject Holder
     {
@@ -25,11 +29,21 @@ public class Weapon : MonoBehaviour
             {
                 GetComponent<Rigidbody>().isKinematic = false;
                 IsHeld = false;
+                
+                if (!IsPhysical) foreach (Collider c in GetComponentsInChildren<Collider>())
+                {
+                    c.isTrigger = false;
+                }
             }
             else
             {
                 GetComponent<Rigidbody>().isKinematic = true;
                 IsHeld = true;
+                if (!IsPhysical) foreach (Collider c in GetComponentsInChildren<Collider>())
+                {
+                    c.isTrigger = true;
+                    //note: this may need to be expanded upon but seems fine for right now
+                }
             }
         }
     }
@@ -72,6 +86,6 @@ public class Weapon : MonoBehaviour
 
     public void MakeHeavyAttack(float ttl)
     {
-        gameObject.AddComponent<Attack>().Initialize(BaseDamage*2, Holder.GetComponent<Rigidbody>().velocity.normalized * BaseKnockback * 2, ttl, Holder);
+        gameObject.AddComponent<Attack>().Initialize(BaseDamage*2, (Holder.GetComponent<Rigidbody>().rotation * Vector3.forward) * BaseKnockback * 2, ttl, Holder);
     }
 }

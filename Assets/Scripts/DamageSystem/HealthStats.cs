@@ -56,9 +56,9 @@ public class HealthStats : MonoBehaviour
         return taken;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Attack attack = collision.gameObject.GetComponentInParent<Attack>();
+        Attack attack = other.gameObject.GetComponentInParent<Attack>();
         if (attack != null && gameObject != attack.Origin)
         {
             float damage = attack.GetDamageFor(gameObject);
@@ -69,11 +69,17 @@ public class HealthStats : MonoBehaviour
                 //TODO: allow specific attacks to influence immunity period
                 isImmune = true;
                 Invoke("EndImmunity", BaseImmunityPeriod);
+
+                Vector3 knockback = attack.GetKnockbackFor(gameObject);
+                OnKnockback(knockback);
             }
 
-            Vector3 knockback = attack.GetKnockbackFor(gameObject);
-            OnKnockback(knockback);
         }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        OnTriggerEnter(other.collider);
     }
 
     public void EndImmunity()

@@ -43,17 +43,4 @@ public class Equipment : MonoBehaviour
             ItemZone.GetComponent<Collider>().enabled = false;
         }
     }
-
-    //ANIMATION EVENTS used for attack controlling
-    //Just delegate to weapon
-
-    public void MakeLightAttack(float ttl)
-    {
-        CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl);
-    }
-
-    public void MakeHeavyAttack(float ttl)
-    {
-        CurrentWeapon.GetComponent<Weapon>().MakeHeavyAttack(ttl);
-    }
 }

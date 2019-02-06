@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
+public enum PlayerState { IDLE, WALKING, DASHING, LIGHT_ATTACKING, HEAVY_ATTACKING, HURT}
+
+//
 //basic player movement and actions
+//also acts as controller for other modules (eg HealthStats)
 
 [RequireComponent(typeof(Equipment))]
 [RequireComponent(typeof(HealthStats))]
@@ -17,6 +21,12 @@ public class PlayerController : MonoBehaviour
     public float MaxSpeed;
     public float rotationSpeed;
     public float camRotationSpeed;
+    public float DashSpeed;
+    [Tooltip("Time dash movement takes (does not count recovery)")]
+    public float DashTime;
+    [Tooltip("Time dash recovery takes (period after dash finishes)")]
+    public float DashRecoveryTime;
+
 
     //input axis/sticks
     //separated in case we want specific options for joysticks vs. keyb/mouse
@@ -29,13 +39,13 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public string CamVert = "RightVert";
     [HideInInspector]
-    public string LightAttack = "Attack";
+    public string LightAttackButton = "Attack";
     [HideInInspector]
-    public string HeavyAttack = "HeavyAttack";
+    public string HeavyAttackButton = "HeavyAttack";
     [HideInInspector]
-    public string Item = "Item";
+    public string ItemButton = "Item";
     [HideInInspector]
-    public string Dash = "Dash";
+    public string DashButton = "Dash";
     [HideInInspector]
     public string Trigger = "Trigger";
 
@@ -43,6 +53,8 @@ public class PlayerController : MonoBehaviour
     public long HeavyCooldown;
     public long InteractCooldown = 500;
     public long DashCooldown = 500;
+
+    public PlayerState State = PlayerState.IDLE;
 
     private Transform PlayerRightHand;
     private GameObject ItemZone;
@@ -64,6 +76,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    //Check for player input for non-physics stuff every update
     void Update()
     {
         if (Input.GetAxis(CamHoriz) != 0 || Input.GetAxis(CamVert) != 0)
@@ -75,14 +88,14 @@ public class PlayerController : MonoBehaviour
             camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
         }
         
-        if ((Input.GetButton(LightAttack) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
+        if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButton(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
         {
             animator.SetTrigger("Swing");
             lastAttack.Restart();
             UnityEngine.Debug.Log("Swing Attack");
         }
 
-        if ((Input.GetButton(HeavyAttack)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
+        if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButton(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
         {
             animator.SetTrigger("Heavy");
             lastAttack.Restart();
@@ -92,7 +105,7 @@ public class PlayerController : MonoBehaviour
         //TODO move somewhere better? Invoke method in Equipment, maybe?
         if (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown) 
         {
-            if (Input.GetButton(Item))
+            if (Input.GetButton(ItemButton))
             {
                 lastInteract.Restart();
                 ItemZone.GetComponent<Collider>().enabled = true;
@@ -105,51 +118,67 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Check for player input for physics stuff every fixed update
     void FixedUpdate()
     {
-        if ((Input.GetButton(Dash) || Input.GetAxis(Trigger) < -0.2) && (!lastDash.IsRunning || lastDash.ElapsedMilliseconds > DashCooldown) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
+
+        //whitelist of states we can move in
+        if(State == PlayerState.IDLE || State == PlayerState.WALKING)
         {
-            lastDash.Restart();
-            UnityEngine.Debug.Log("Dash");
+            if (Input.GetAxis(MoveVert) != 0 || Input.GetAxis(MoveHoriz) != 0)
+            {
+                Vector3 inputForce = new Vector3(Input.GetAxis(MoveHoriz), 0, Input.GetAxis(MoveVert));
+                Quaternion moveDirection = Quaternion.Euler(0, camRot.eulerAngles.y, 0);
+
+                if ((Input.GetButton(DashButton) || Input.GetAxis(Trigger) < -0.2) && (!lastDash.IsRunning || lastDash.ElapsedMilliseconds > DashCooldown) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
+                {
+                    lastDash.Restart();
+                    UnityEngine.Debug.Log("Dash");
+                    StartCoroutine(Dash(moveDirection * inputForce));
+                }
+                else
+                {
+                    State = PlayerState.WALKING;
+
+                    //Move the player in the direction of the control stick relative to the camera
+                    //TODO: Evaluate whether player should be moved via forces, or just have its velocity modified directly.
+                    Body.AddForce(moveDirection * inputForce * WalkForce /* * Time.deltaTime*/);
+
+                    //Find amount and direction player should rotate to/in
+                    Vector3 angFrom = Body.rotation.eulerAngles;
+                    Vector3 angTo = Quaternion.LookRotation(moveDirection * inputForce).eulerAngles;
+
+                    float sign = 0;
+                    if (angTo.y > angFrom.y)
+                    {
+                        if (angTo.y - angFrom.y >= 180) sign = -1;
+                        else sign = 1;
+                    }
+                    else
+                    {
+                        if (angFrom.y - angTo.y >= 180) sign = 1;
+                        else sign = -1;
+                    }
+
+                    if (Mathf.Abs(angFrom.y - angTo.y) < rotationSpeed * inputForce.magnitude)
+                    {
+                        Body.MoveRotation(Quaternion.Euler(new Vector3(angTo.x, angTo.y, angTo.z)));
+                    }
+                    else Body.MoveRotation(Quaternion.Euler(new Vector3(angFrom.x, angFrom.y + (sign * rotationSpeed * inputForce.magnitude), angFrom.z)));
+                }
+            }
+            else State = PlayerState.IDLE;
+
+            //max speed: the lazy way
+            //note that this does not apply in non-movement states (e.g. you can go flying if hurt, or go faster if dashing)
+            if(State == PlayerState.IDLE || State == PlayerState.WALKING)
+            {
+                if (Body.velocity.x > MaxSpeed) Body.velocity = new Vector3(MaxSpeed, Body.velocity.y, Body.velocity.z);
+                if (Body.velocity.z > MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, MaxSpeed);
+                if (Body.velocity.x < -MaxSpeed) Body.velocity = new Vector3(-MaxSpeed, Body.velocity.y, Body.velocity.z);
+                if (Body.velocity.z < -MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, -MaxSpeed);
+            }
         }
-        if (Input.GetAxis(MoveVert) != 0 || Input.GetAxis(MoveHoriz) != 0)
-        {
-            Vector3 moveForce = new Vector3(Input.GetAxis(MoveHoriz), 0, Input.GetAxis(MoveVert));
-            Quaternion moveDirection =  Quaternion.Euler(0, camRot.eulerAngles.y, 0);
-
-            Body.AddForce(moveDirection * moveForce * WalkForce /* * Time.deltaTime*/);
-
-            Vector3 angFrom = Body.rotation.eulerAngles;
-            Vector3 angTo = Quaternion.LookRotation(moveDirection * moveForce).eulerAngles;
-
-            float sign = 0;
-            if (angTo.y > angFrom.y)
-            {
-                if (angTo.y - angFrom.y >= 180) sign = -1;
-                else sign = 1;
-            }
-            else
-            {
-                if (angFrom.y - angTo.y >= 180) sign = 1;
-                else sign = -1;
-            }
-
-            if (Mathf.Abs(angFrom.y - angTo.y) < rotationSpeed * moveForce.magnitude)
-            {
-                Body.MoveRotation(Quaternion.Euler(new Vector3(angTo.x, angTo.y, angTo.z)));
-            }
-            else Body.MoveRotation(Quaternion.Euler(new Vector3(angFrom.x, angFrom.y + (sign * rotationSpeed * moveForce.magnitude), angFrom.z)));
-            //UnityEngine.Debug.Log(Body.velocity);
-            //UnityEngine.Debug.Log("After: ");
-        }
-
-        //max speed: the lazy way
-        if (Body.velocity.x > MaxSpeed) Body.velocity = new Vector3(MaxSpeed, Body.velocity.y, Body.velocity.z);
-        if (Body.velocity.z > MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, MaxSpeed);
-        if (Body.velocity.x < -MaxSpeed) Body.velocity = new Vector3(-MaxSpeed, Body.velocity.y, Body.velocity.z);
-        if (Body.velocity.z < -MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, -MaxSpeed);
-
-        //UnityEngine.Debug.Log(Body.velocity);
     }
 
     private void LateUpdate()
@@ -157,5 +186,40 @@ public class PlayerController : MonoBehaviour
         ReferenceFrame.transform.rotation = camRot;
     }
 
+    public IEnumerator Dash(Vector3 Direction)
+    {
+        State = PlayerState.DASHING;
 
+        Body.velocity = Direction.normalized * DashSpeed;
+        UnityEngine.Debug.Log(Body.velocity);
+        yield return new WaitForSeconds(DashTime);
+        UnityEngine.Debug.Log("A:");
+        UnityEngine.Debug.Log(Body.velocity);
+        Body.velocity = new Vector3(0, 0, 0);
+        yield return new WaitForSeconds(DashRecoveryTime);
+        State = PlayerState.IDLE;
+    }
+
+    //ANIMATION EVENTS used for attack controlling
+    //Just delegate to weapon
+    //Should these be refactored into a specific Player Attack Controller class?
+
+    public void MakeLightAttack(float ttl)
+    {
+        GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl);
+        State = PlayerState.LIGHT_ATTACKING;
+        Invoke("SetStateIdle", ttl);
+    }
+
+    public void MakeHeavyAttack(float ttl)
+    {
+        GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeHeavyAttack(ttl);
+        State = PlayerState.HEAVY_ATTACKING;
+        Invoke("SetStateIdle", ttl);
+    }
+
+    private void SetStateIdle()
+    {
+        State = PlayerState.IDLE;
+    }
 }
