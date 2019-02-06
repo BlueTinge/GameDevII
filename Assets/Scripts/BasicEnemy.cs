@@ -4,6 +4,7 @@ using UnityEngine;
 using Stargaze.AI;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(HealthStats))]
 public class BasicEnemy : MonoBehaviour, IEnemy
 {
     [SerializeField] private float hopDistance;
@@ -125,10 +126,18 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     public void Attack()
     {
         shouldLunge = true;
+        gameObject.AddComponent<Attack>().Initialize(5, (targetPos - transform.position).normalized,
+            lungeTime, gameObject);
     }
 
     public void Move()
     {
         shouldJump = true;
+    }
+
+    // Testing purposes
+    public void Die(float overkill)
+    {
+        Destroy(gameObject);
     }
 }
