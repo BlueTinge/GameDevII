@@ -3,94 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Stargaze.AI;
 
-class BasicTarget : ITreeTask
-{
-    public TaskState state{get; private set;}
-    private BasicEnemy self;
-
-    public BasicTarget(BasicEnemy self)
-    {
-        this.self = self;
-        state = TaskState.ready;
-    }
-
-    public IEnumerable Update()
-    {
-        self.Target();
-        state = TaskState.success;
-        yield break;
-    }
-
-    public void Reset()
-    {
-        state = TaskState.ready;
-    }
-}
-
-class BasicAttack : ITreeTask
-{
-    public TaskState state{get; private set;}
-    private BasicEnemy self;
-    private DelayTask delay;
-
-    public BasicAttack(BasicEnemy self, float attackTime)
-    {
-        this.self = self;
-        delay = new DelayTask(attackTime);
-        state = TaskState.ready;
-    }
-
-    public IEnumerable Update()
-    {
-        state = TaskState.continuing;
-        self.Attack();
-        foreach(object _ in delay.Update())
-        {
-            yield return null;
-        }
-        state = TaskState.success;
-    }
-
-    public void Reset()
-    {
-        delay.Reset();
-        state = TaskState.ready;
-    }
-}
-
-class BasicMove : ITreeTask
-{
-    public TaskState state{get; private set;}
-    private BasicEnemy self;
-    private DelayTask delay;
-
-    public BasicMove(BasicEnemy self, float moveTime)
-    {
-        this.self = self;
-        delay = new DelayTask(moveTime);
-        state = TaskState.ready;
-    }
-
-    public IEnumerable Update()
-    {
-        state = TaskState.continuing;
-        self.Move();
-        foreach(object _ in delay.Update())
-        {
-            yield return null;
-        }
-        state = TaskState.success;
-    }
-
-    public void Reset()
-    {
-        delay.Reset();
-        state = TaskState.ready;
-    }
-}
-
 [RequireComponent(typeof(Rigidbody))]
-public class BasicEnemy : MonoBehaviour
+[RequireComponent(typeof(HealthStats))]
+public class BasicEnemy : MonoBehaviour, IEnemy
 {
     [SerializeField] private float hopDistance;
     [SerializeField] private float hopTime;
@@ -200,7 +115,7 @@ public class BasicEnemy : MonoBehaviour
 
     void OnCollisionEnter(Collision c)
     {
-        rb.velocity = Vector3.zero;
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
     }
 
     public void Target()
@@ -211,6 +126,8 @@ public class BasicEnemy : MonoBehaviour
     public void Attack()
     {
         shouldLunge = true;
+        gameObject.AddComponent<Attack>().Initialize(5, (targetPos - transform.position).normalized,
+            lungeTime, gameObject);
     }
 
     public void Move()
@@ -218,8 +135,9 @@ public class BasicEnemy : MonoBehaviour
         shouldJump = true;
     }
 
-    public bool isHurtActive()
+    // Testing purposes
+    public void Die(float overkill)
     {
-        return rb.velocity.y < 0;
+        Destroy(gameObject);
     }
 }
