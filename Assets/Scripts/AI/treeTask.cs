@@ -247,6 +247,63 @@ namespace Stargaze.AI
         }
     }
 
+    public class WhileTask : ITreeTask
+    {
+        ITreeTask predicate;
+        ITreeTask iterator;
+        public TaskState state{get; private set;}
+        
+        public WhileTask(ITreeTask predicate, ITreeTask iterator)
+        {
+            this.predicate = predicate;
+            this.iterator = iterator;
+        }
+
+        public IEnumerable Update()
+        {
+            state = TaskState.continuing;
+            TaskState predState;
+            while(true)
+            {
+                IEnumerator itr = iterator.Update().GetEnumerator();
+                foreach(Object _ in predicate.Update())
+                {
+                    itr.MoveNext();
+                    if(iterator.state == TaskState.success || iterator.state == TaskState.failure || 
+                        iterator.state == TaskState.successImmediate || iterator.state == TaskState.failureImmediate)
+                    {
+                        iterator.Reset();
+                        itr = iterator.Update().GetEnumerator();
+                    }
+                    yield return null;
+                }
+
+                predState = predicate.state;
+                if(predState != TaskState.success && predState != TaskState.successImmediate)
+                {
+                    state = TaskState.success;
+                    yield break;
+                }
+
+                predicate.Reset();
+
+                while(iterator.state == TaskState.ready || iterator.state == TaskState.continuing)
+                {
+                    itr.MoveNext();
+                    yield return null;
+                }
+                iterator.Reset();
+            }
+        }
+
+        public void Reset()
+        {
+            state = TaskState.ready;
+            predicate.Reset();
+            iterator.Reset();
+        }
+    }
+
     public class BehaviorTree
     {
         private ITreeTask root;
@@ -263,14 +320,10 @@ namespace Stargaze.AI
                 state = root.Update().GetEnumerator();
             }
             state.MoveNext();
-            if(root.state == TaskState.success || root.state == TaskState.failure)
+            if(root.state == TaskState.success || root.state == TaskState.failure ||
+                root.state == TaskState.successImmediate || root.state == TaskState.failureImmediate)
             {
                 root.Reset();
-            }
-            else if(root.state == TaskState.successImmediate || root.state == TaskState.failureImmediate)
-            {
-                root.Reset();
-                state = root.Update().GetEnumerator();
             }
         }
     }
