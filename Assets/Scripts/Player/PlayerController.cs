@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
 
     private Transform PlayerRightHand;
     private GameObject ItemZone;
+    private HealthStats PlayerHealth;
 
     private Quaternion camRot;
     private Animator animator;
@@ -74,6 +75,9 @@ public class PlayerController : MonoBehaviour
 
         camRot = ReferenceFrame.transform.rotation;
         animator = GetComponent<Animator>();
+
+        PlayerHealth = GetComponent<HealthStats>();
+        PlayerHealth.OnDeath = OnDeath;
     }
 
     //Check for player input for non-physics stuff every update
@@ -207,13 +211,25 @@ public class PlayerController : MonoBehaviour
         State = PlayerState.IDLE;
     }
 
+    public void OnDamage(float damage)
+    {
+        State = PlayerState.HURT;
+        Invoke("SetStateIdle", 0.5f);
+    }
+
+    public void OnDeath(float overkill)
+    {
+        Destroy(gameObject, 1f);
+    }
+
+
     //ANIMATION EVENTS used for controlling the SPECIFIC moment in an animation where an attack is made (as opposed to player input which controls state)
     //Just delegate to weapon
     //Note that they are called at the specific point in an animation where the attack is made
     //Should these be refactored into a specific Player Attack Controller class?
     //Note that if ttls vary by weapon (not just weapon class or animation) this will need to be edited
     //Note that recovery animations should probably have a "set state idle" event after the attack finishes, as opposed to cramming it in the "make attack" methods
-    
+
     public void MakeLightAttack(float ttl)
     {
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl);
