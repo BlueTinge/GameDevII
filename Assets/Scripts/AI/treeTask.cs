@@ -216,6 +216,54 @@ namespace Stargaze.AI
         }
     }
 
+    public class RandomSelectTask : ITreeTask
+    {
+        private float[] weights;
+        private float total;
+        private ITreeTask[] children;
+        public TaskState state{get; private set;}
+
+        public RandomSelectTask(float[] weights, IEnumerable<ITreeTask> choices)
+        {
+            this.weights = weights;
+            foreach(float w in weights)
+            {
+                total += w;
+            }
+
+            children = choices.ToArray();
+        }
+
+        public IEnumerable Update()
+        {
+            state = TaskState.continuing;
+            int index = -1;
+            float rng = Random.value * total;
+            while(rng > 0 && index < weights.Count() - 1)
+            {
+                rng -= weights[++index];
+            }
+            ITreeTask child = children[index];
+
+
+            foreach(Object _ in child.Update())
+            {
+                yield return null;
+            }
+
+            state = child.state;
+        }
+
+        public void Reset()
+        {
+            state = TaskState.ready;
+            foreach(ITreeTask t in children)
+            {
+                t.Reset();
+            }
+        }
+    }
+
     public class DelayTask : ITreeTask
     {
         private float startTime;
