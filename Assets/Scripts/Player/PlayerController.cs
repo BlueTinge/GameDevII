@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
         PlayerHealth = GetComponent<HealthStats>();
         PlayerHealth.OnDeath = OnDeath;
+        PlayerHealth.OnDamage = OnDamage;
     }
 
     //Check for player input for non-physics stuff every update
