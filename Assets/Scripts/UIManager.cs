@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
     {
         Canvas.gameObject.SetActive(false);
         Time.timeScale = 1f;
+        Debug.Log("I am Continuing");
     }
 
     public void Restart()
@@ -40,4 +41,8 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void Pressed()
+    {
+        Debug.Log("I am pressed");
+    }
 }

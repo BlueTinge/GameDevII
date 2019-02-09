@@ -67,6 +67,15 @@ public class PlayerController : MonoBehaviour
     private Stopwatch lastDash = new Stopwatch();
     private Stopwatch lastInteract = new Stopwatch();
 
+    public AudioSource audio;
+    public AudioClip footstep1;
+    public AudioClip footstep2;
+    public AudioClip footstep3;
+    public AudioClip footstep4;
+    public AudioClip footstep5;
+    public AudioClip footstep6;
+    public AudioClip dashing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +87,9 @@ public class PlayerController : MonoBehaviour
 
         PlayerHealth = GetComponent<HealthStats>();
         PlayerHealth.OnDeath = OnDeath;
+        PlayerHealth.OnDamage = OnDamage;
+
+        audio = GetComponent<AudioSource>();
     }
 
     //Check for player input for non-physics stuff every update
@@ -92,7 +104,7 @@ public class PlayerController : MonoBehaviour
             camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
         }
         
-        if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButton(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
+        if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButtonDown(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
         {
             animator.SetTrigger("Swing");
             lastAttack.Restart();
@@ -102,7 +114,7 @@ public class PlayerController : MonoBehaviour
             UnityEngine.Debug.Log("Swing Attack");
         }
 
-        if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButton(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
+        if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButtonDown(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
         {
             animator.SetTrigger("Heavy");
             lastAttack.Restart();
@@ -203,7 +215,11 @@ public class PlayerController : MonoBehaviour
 
         Body.velocity = Direction.normalized * DashSpeed;
         UnityEngine.Debug.Log(Body.velocity);
+        audio.clip = dashing;
+        audio.Play();
+        PlayerHealth.isImmune = true;
         yield return new WaitForSeconds(DashTime);
+        PlayerHealth.isImmune = false;
         UnityEngine.Debug.Log("A:");
         UnityEngine.Debug.Log(Body.velocity);
         Body.velocity = new Vector3(0, 0, 0);
