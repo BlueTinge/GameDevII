@@ -45,7 +45,6 @@ public class HealthStats : MonoBehaviour
         {
             Rigidbody rb= gameObject.GetComponent<Rigidbody>();
             if (rb != null) rb.AddForce(knockback);
-            UnityEngine.Debug.Log(knockback);
         };
     }
 

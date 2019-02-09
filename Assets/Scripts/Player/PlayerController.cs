@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
             camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
         }
         
-        if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButton(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
+        if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButtonDown(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
         {
             animator.SetTrigger("Swing");
             lastAttack.Restart();
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
             UnityEngine.Debug.Log("Swing Attack");
         }
 
-        if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButton(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
+        if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButtonDown(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
         {
             animator.SetTrigger("Heavy");
             lastAttack.Restart();
@@ -217,7 +217,9 @@ public class PlayerController : MonoBehaviour
         UnityEngine.Debug.Log(Body.velocity);
         audio.clip = dashing;
         audio.Play();
+        PlayerHealth.isImmune = true;
         yield return new WaitForSeconds(DashTime);
+        PlayerHealth.isImmune = false;
         UnityEngine.Debug.Log("A:");
         UnityEngine.Debug.Log(Body.velocity);
         Body.velocity = new Vector3(0, 0, 0);
