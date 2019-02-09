@@ -38,6 +38,9 @@ public class HealthStats : MonoBehaviour
     {
         _currentHealth = MaxHealth;
 
+        OnDeath = delegate (float damage) { UnityEngine.Debug.Log("OnDeath not set"); };
+        OnDamage = delegate (float damage) { UnityEngine.Debug.Log("OnDamage not set"); };
+        OnImmunityEnd = delegate () { UnityEngine.Debug.Log("OnImmunityEnd not set"); };
         OnKnockback = delegate (Vector3 knockback)
         {
             Rigidbody rb= gameObject.GetComponent<Rigidbody>();
