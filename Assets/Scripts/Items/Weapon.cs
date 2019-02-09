@@ -10,6 +10,9 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 
+    public AudioSource audio;
+    public AudioClip swing;
+
     public float BaseDamage;
     public float BaseKnockback;
 
@@ -51,7 +54,7 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -82,10 +85,12 @@ public class Weapon : MonoBehaviour
     {
         //TODO: use rotation instead of velocity somehow
         gameObject.AddComponent<Attack>().Initialize(BaseDamage, (Holder.GetComponent<Rigidbody>().rotation * Vector3.forward) * BaseKnockback, ttl, Holder);
+        audio.Play();
     }
 
     public void MakeHeavyAttack(float ttl)
     {
         gameObject.AddComponent<Attack>().Initialize(BaseDamage*2, (Holder.GetComponent<Rigidbody>().rotation * Vector3.forward) * BaseKnockback * 2, ttl, Holder);
+        audio.Play();
     }
 }

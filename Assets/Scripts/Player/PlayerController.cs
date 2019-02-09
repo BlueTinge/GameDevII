@@ -67,6 +67,15 @@ public class PlayerController : MonoBehaviour
     private Stopwatch lastDash = new Stopwatch();
     private Stopwatch lastInteract = new Stopwatch();
 
+    public AudioSource audio;
+    public AudioClip footstep1;
+    public AudioClip footstep2;
+    public AudioClip footstep3;
+    public AudioClip footstep4;
+    public AudioClip footstep5;
+    public AudioClip footstep6;
+    public AudioClip dashing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +88,8 @@ public class PlayerController : MonoBehaviour
         PlayerHealth = GetComponent<HealthStats>();
         PlayerHealth.OnDeath = OnDeath;
         PlayerHealth.OnDamage = OnDamage;
+
+        audio = GetComponent<AudioSource>();
     }
 
     //Check for player input for non-physics stuff every update
@@ -204,6 +215,8 @@ public class PlayerController : MonoBehaviour
 
         Body.velocity = Direction.normalized * DashSpeed;
         UnityEngine.Debug.Log(Body.velocity);
+        audio.clip = dashing;
+        audio.Play();
         yield return new WaitForSeconds(DashTime);
         UnityEngine.Debug.Log("A:");
         UnityEngine.Debug.Log(Body.velocity);
