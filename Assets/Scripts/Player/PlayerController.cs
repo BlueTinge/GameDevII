@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip footstep5;
     public AudioClip footstep6;
     public AudioClip dashing;
+    public GameObject damagenoise;
 
     // Start is called before the first frame update
     void Start()
@@ -230,6 +231,7 @@ public class PlayerController : MonoBehaviour
     public void OnDamage(float damage)
     {
         State = PlayerState.HURT;
+        Instantiate(damagenoise);
         Invoke("SetStateIdle", 0.5f);
     }
 

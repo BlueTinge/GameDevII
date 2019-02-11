@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -851,6 +851,17 @@ PrefabInstance:
       propertyPath: footstep6
       value: 
       objectReference: {fileID: 8300000, guid: 1556bbc6fc19ba449a0895bfc56a4b2b, type: 3}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: takedamage
+      value: 
+      objectReference: {fileID: 8300000, guid: 237faf2bc36b7df47b56930e2f3fba1a, type: 3}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: damagenoise
+      value: 
+      objectReference: {fileID: 4829007781587304456, guid: 4d7ab17548df8b24f802d59d1fad0431,
+        type: 3}
     - target: {fileID: 7176674447748376277, guid: eba1bdb6e9e65af4a85c834be393c0ef,
         type: 3}
       propertyPath: swing
