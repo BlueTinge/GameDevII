@@ -1,58 +1,62 @@
 fileFormatVersion: 2
-guid: 7e23ec4f5a5afb440b5ea45248c157ef
+guid: 8b9aad6355fa09b41b5d361ccfbeba60
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: Abomination2
-    100002: //RootNode
-    100004: AbominationSkeleton
-    100006: AbominationSquashHandle
-    100008: joint10
-    100010: joint11
-    100012: joint12
-    100014: joint13
-    100016: joint14
-    100018: joint15
-    100020: joint16
-    100022: joint17
-    100024: joint18
-    100026: joint19
-    100028: joint2
-    100030: joint20
-    100032: joint21
-    100034: joint23
-    100036: joint3
-    100038: joint4
-    100040: joint5
-    100042: joint6
-    100044: joint7
-    100046: joint8
-    100048: joint9
+    100002: AbominationSkeleton
+    100004: AbominationSquashHandle
+    100006: arm1
+    100008: arm2
+    100010: arm2_1
+    100012: arm2_2
+    100014: arm3
+    100016: index1
+    100018: index2
+    100020: index3
+    100022: middle1
+    100024: middle2
+    100026: middle3
+    100028: pinky1
+    100030: pinky2
+    100032: pinky3
+    100034: ring1
+    100036: ring2
+    100038: ring3
+    100040: root
+    100042: //RootNode
+    100044: Tail
+    100046: thumb1
+    100048: thumb2
+    100050: thumb3
+    100052: wrist
     400000: Abomination2
-    400002: //RootNode
-    400004: AbominationSkeleton
-    400006: AbominationSquashHandle
-    400008: joint10
-    400010: joint11
-    400012: joint12
-    400014: joint13
-    400016: joint14
-    400018: joint15
-    400020: joint16
-    400022: joint17
-    400024: joint18
-    400026: joint19
-    400028: joint2
-    400030: joint20
-    400032: joint21
-    400034: joint23
-    400036: joint3
-    400038: joint4
-    400040: joint5
-    400042: joint6
-    400044: joint7
-    400046: joint8
-    400048: joint9
+    400002: AbominationSkeleton
+    400004: AbominationSquashHandle
+    400006: arm1
+    400008: arm2
+    400010: arm2_1
+    400012: arm2_2
+    400014: arm3
+    400016: index1
+    400018: index2
+    400020: index3
+    400022: middle1
+    400024: middle2
+    400026: middle3
+    400028: pinky1
+    400030: pinky2
+    400032: pinky3
+    400034: ring1
+    400036: ring2
+    400038: ring3
+    400040: root
+    400042: //RootNode
+    400044: Tail
+    400046: thumb1
+    400048: thumb2
+    400050: thumb3
+    400052: wrist
     2100000: lambert1
     4300000: Abomination2
     9500000: //RootNode
@@ -88,7 +92,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 10
+    globalScale: 20
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -109,7 +113,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.19999999
+    previousCalculatedGlobalScale: 0.099999994
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
