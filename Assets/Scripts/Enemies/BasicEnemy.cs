@@ -13,21 +13,26 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     [SerializeField] private float coolDown;
     [SerializeField] private float lungeDistance;
     [SerializeField] private float lungeDelay;
+    [SerializeField] private float targetTimeout;
     [SerializeField] private float lungeTime;
     [SerializeField] private float lungeCooldown;
     [SerializeField] private float visionRadius;
     [SerializeField] private float attackRadius;
+    [SerializeField] private float rotateSpeed;
+    [SerializeField] private float seekAngle;
     
     private Transform target;
     private BehaviorTree behaviorTree;
     private float jumpSpeed;
     private float horizontalJumpSpeed;
-
     private float lungeVSpeed;
     private float lungeHSpeed;
+    private float targetTime;
+    private bool targeting;
     private Rigidbody rb;
     private bool shouldJump;
     private bool shouldLunge;
+    private bool shouldTurn;
     private Vector3 targetPos;
     private HealthStats healthStats;
 
@@ -42,6 +47,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         lungeVSpeed = Mathf.Sqrt(2 * -Physics.gravity.y * lungeHeight);
         shouldLunge = false;
         shouldJump = false;
+        shouldTurn = false;
+        targeting = false;
     }
     void Start()
     {
@@ -92,15 +99,42 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     void FixedUpdate()
     {
+        Vector3 forward = transform.forward;
+        Vector3 faceTarget = targetPos - transform.position;
+        forward.y = 0;
+        faceTarget.y = 0;
+
+        float angle = Vector3.SignedAngle(forward, faceTarget, Vector3.up);
+
+        if(shouldTurn)
+        {
+            Vector3 impulse = rotateSpeed * Mathf.Deg2Rad * Vector3.up;
+            shouldTurn = false;
+            if(Mathf.Abs(angle) < seekAngle)
+            {
+                impulse *= angle / seekAngle;
+            }
+            else if(angle < 0)
+            {
+                impulse *= -1;
+            }
+            rb.AddTorque(impulse - rb.angularVelocity, ForceMode.VelocityChange);
+        }
+        else
+        {
+            rb.angularVelocity = Vector3.zero;
+        }
+
         Vector3 velocity = rb.velocity;
         if(shouldLunge)
         {
-            velocity = targetPos - transform.position;
+            velocity = transform.forward;
             velocity.y = 0;
             velocity = velocity.normalized;
             velocity *= lungeHSpeed;
             velocity.y = lungeVSpeed;
-            rb.velocity = velocity;
+
+            rb.AddForce(velocity - rb.velocity, ForceMode.VelocityChange);
         }
         else if(shouldJump)
         {
@@ -109,7 +143,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
             velocity = velocity.normalized;
             velocity *= horizontalJumpSpeed;
             velocity.y = jumpSpeed;
-            rb.velocity = velocity;
+
+            rb.AddForce(velocity - rb.velocity, ForceMode.VelocityChange);
         }
 
         shouldLunge = false;
@@ -121,9 +156,32 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
     }
 
-    public void Target()
+    public bool Target()
     {
         targetPos = target.position;
+        shouldTurn = true;
+        Vector3 t = targetPos - transform.position;
+        t.y = 0;
+        Vector3 f = transform.forward;
+        f.y = 0;
+        if(Vector3.Angle(f, t) < seekAngle)
+        {
+            targeting = false;
+            return true;
+        }
+        if(targeting)
+        {
+            if(Time.time - targetTime >= targetTimeout)
+            {
+                return true;
+            }
+        }
+        else
+        {
+            targetTime = Time.time;
+            targeting = true;
+        }
+        return false;
     }
 
     public void Attack()

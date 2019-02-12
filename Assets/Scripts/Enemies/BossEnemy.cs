@@ -156,7 +156,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
         behaviorTree.Update();
     }
 
-    public void Target(){}
+    public bool Target(){return true;}
     public void Move(){}
 
     public void Attack(){}

@@ -16,7 +16,11 @@ class BasicTarget : ITreeTask
 
     public IEnumerable Update()
     {
-        self.Target();
+        state = TaskState.continuing;
+        while(!self.Target())
+        {
+            yield return null;
+        }
         state = TaskState.success;
         yield break;
     }
@@ -91,7 +95,7 @@ class BasicMove : ITreeTask
 
 public interface IEnemy
 {
-    void Target();
+    bool Target();
     void Move();
     void Attack();
 }

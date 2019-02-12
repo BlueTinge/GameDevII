@@ -327,12 +327,6 @@ namespace Stargaze.AI
                 }
 
                 predState = predicate.state;
-                if(predState != TaskState.success && predState != TaskState.successImmediate)
-                {
-                    state = TaskState.success;
-                    yield break;
-                }
-
                 predicate.Reset();
 
                 while(iterator.state == TaskState.ready || iterator.state == TaskState.continuing)
@@ -341,6 +335,12 @@ namespace Stargaze.AI
                     yield return null;
                 }
                 iterator.Reset();
+
+                if(predState != TaskState.success && predState != TaskState.successImmediate)
+                {
+                    state = TaskState.success;
+                    yield break;
+                }
             }
         }
 
