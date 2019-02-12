@@ -48,6 +48,7 @@ public class HealthStats : MonoBehaviour
         };
     }
 
+    //sets new health value
     //return actual amount taken
     public float TakeDamage(float damage)
     {
@@ -58,14 +59,15 @@ public class HealthStats : MonoBehaviour
         return taken;
     }
 
-    private void OnTriggerEnter(Collider other)
+    //called internally from a collision with Attack
+    //call this externally to send an attack to this HealthStats
+    public void RecieveAttack(Attack attack)
     {
-        Attack attack = other.gameObject.GetComponentInParent<Attack>();
         if (attack != null && gameObject != attack.Origin)
         {
             float damage = attack.GetDamageFor(gameObject);
 
-            if(TakeDamage(damage) > 0)
+            if (TakeDamage(damage) > 0)
             {
                 //immunity period
                 //TODO: allow specific attacks to influence immunity period
@@ -79,9 +81,22 @@ public class HealthStats : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Attack attack = other.gameObject.GetComponentInParent<Attack>();
+        if (attack != null)
+        {
+            RecieveAttack(attack);
+        }
+    }
+
     private void OnCollisionEnter(Collision other)
     {
-        OnTriggerEnter(other.collider);
+        Attack attack = other.gameObject.GetComponentInParent<Attack>();
+        if (attack != null)
+        {
+            RecieveAttack(attack);
+        }
     }
 
     public void EndImmunity()

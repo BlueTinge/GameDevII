@@ -63,14 +63,25 @@ public class Weapon : MonoBehaviour
         
     }
 
+    public void RecieveAttack(Attack attack)
+    {
+        //if (attack != null) Holder?.GetComponent<HealthStats>()?.RecieveAttack(attack); //this line disables weapon blocking
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("ItemZone") && other.GetComponentInParent<Equipment>() != null)
         {
             other.GetComponentInParent<Equipment>().Equip(gameObject);
         }
+
+        RecieveAttack(other.gameObject.GetComponentInParent<Attack>());
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        RecieveAttack(other.gameObject.GetComponentInParent<Attack>());
+    }
 
     public void SetIsHeld(bool isHeld)
     {
