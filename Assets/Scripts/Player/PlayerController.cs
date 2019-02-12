@@ -75,7 +75,10 @@ public class PlayerController : MonoBehaviour
     public AudioClip footstep5;
     public AudioClip footstep6;
     public AudioClip dashing;
-    public GameObject damagenoise;
+    public GameObject damagesound;
+    public GameObject dashsound;
+    public List<AudioClip> steps = new List<AudioClip>();
+    int randomer;
 
     // Start is called before the first frame update
     void Start()
@@ -91,7 +94,13 @@ public class PlayerController : MonoBehaviour
         PlayerHealth.OnDamage = OnDamage;
 
         audio = GetComponent<AudioSource>();
-    }
+        steps.Add(footstep1);
+        steps.Add(footstep2);
+        steps.Add(footstep3);
+        steps.Add(footstep4);
+        steps.Add(footstep5);
+        steps.Add(footstep6);
+}
 
     //Check for player input for non-physics stuff every update
     void Update()
@@ -168,6 +177,15 @@ public class PlayerController : MonoBehaviour
                     //TODO: Evaluate whether player should be moved via forces, or just have its velocity modified directly.
                     Body.AddForce(moveDirection * inputForce * WalkForce /* * Time.deltaTime*/);
 
+                    //WHENYOUWALKING
+
+                    if(audio.isPlaying == false)
+                    {
+                        randomer = Random.Range(0, 5);
+                        audio.clip = steps[randomer];
+                        audio.Play();
+                    }
+
                     //Find amount and direction player should rotate to/in
                     Vector3 angFrom = Body.rotation.eulerAngles;
                     Vector3 angTo = Quaternion.LookRotation(moveDirection * inputForce).eulerAngles;
@@ -214,10 +232,10 @@ public class PlayerController : MonoBehaviour
     {
         State = PlayerState.DASHING;
 
+        Instantiate(dashsound);
+
         Body.velocity = Direction.normalized * DashSpeed;
         UnityEngine.Debug.Log(Body.velocity);
-        audio.clip = dashing;
-        audio.Play();
         PlayerHealth.isImmune = true;
         yield return new WaitForSeconds(DashTime);
         PlayerHealth.isImmune = false;
@@ -231,7 +249,7 @@ public class PlayerController : MonoBehaviour
     public void OnDamage(float damage)
     {
         State = PlayerState.HURT;
-        Instantiate(damagenoise);
+        Instantiate(damagesound);
         Invoke("SetStateIdle", 0.5f);
     }
 
