@@ -322,15 +322,17 @@ MonoBehaviour:
   DashCooldown: 500
   State: 0
   audio: {fileID: 0}
-  footstep1: {fileID: 8300000, guid: 1556bbc6fc19ba449a0895bfc56a4b2b, type: 3}
-  footstep2: {fileID: 8300000, guid: 1556bbc6fc19ba449a0895bfc56a4b2b, type: 3}
-  footstep3: {fileID: 8300000, guid: 1556bbc6fc19ba449a0895bfc56a4b2b, type: 3}
-  footstep4: {fileID: 8300000, guid: 1556bbc6fc19ba449a0895bfc56a4b2b, type: 3}
-  footstep5: {fileID: 8300000, guid: 1556bbc6fc19ba449a0895bfc56a4b2b, type: 3}
-  footstep6: {fileID: 8300000, guid: 1556bbc6fc19ba449a0895bfc56a4b2b, type: 3}
-  dashing: {fileID: 8300000, guid: 76b1788bf682ab54a86b5ceef7f320d5, type: 3}
-  damagenoise: {fileID: 4829007781587304456, guid: 4d7ab17548df8b24f802d59d1fad0431,
+  footstep1: {fileID: 8300000, guid: 11e908c2b3c0cb449aa45228ae1229c0, type: 3}
+  footstep2: {fileID: 8300000, guid: 3dc8805f2df3bc643985f11236811790, type: 3}
+  footstep3: {fileID: 8300000, guid: b7dbc9776756c6b46b2bd59cc20e9c1c, type: 3}
+  footstep4: {fileID: 8300000, guid: 532d7a1d0523dd84d8d9625875e3cc1f, type: 3}
+  footstep5: {fileID: 8300000, guid: 50ef7e06333ea54448a9ec426734d316, type: 3}
+  footstep6: {fileID: 8300000, guid: d2434d569cc640144bde2f472dc0a44e, type: 3}
+  damagesound: {fileID: 4829007781587304456, guid: 4d7ab17548df8b24f802d59d1fad0431,
     type: 3}
+  dashsound: {fileID: 8230747560546384943, guid: 186525ef7d979404cb7aa4af7a4354e4,
+    type: 3}
+  steps: []
 --- !u!54 &7176674447155021519
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -421,8 +423,9 @@ AudioSource:
   m_GameObject: {fileID: 7176674447155021505}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 76b1788bf682ab54a86b5ceef7f320d5, type: 3}
+  OutputAudioMixerGroup: {fileID: 243508324460447356, guid: 3ee3c89aace150347acf7504ad166b2c,
+    type: 2}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

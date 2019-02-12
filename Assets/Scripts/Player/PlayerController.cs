@@ -74,7 +74,6 @@ public class PlayerController : MonoBehaviour
     public AudioClip footstep4;
     public AudioClip footstep5;
     public AudioClip footstep6;
-    public AudioClip dashing;
     public GameObject damagesound;
     public GameObject dashsound;
     public List<AudioClip> steps = new List<AudioClip>();
