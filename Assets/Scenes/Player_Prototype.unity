@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -714,6 +714,67 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: footstep1
+      value: 
+      objectReference: {fileID: 8300000, guid: 11e908c2b3c0cb449aa45228ae1229c0, type: 3}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: footstep2
+      value: 
+      objectReference: {fileID: 8300000, guid: 3dc8805f2df3bc643985f11236811790, type: 3}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: footstep3
+      value: 
+      objectReference: {fileID: 8300000, guid: b7dbc9776756c6b46b2bd59cc20e9c1c, type: 3}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: footstep4
+      value: 
+      objectReference: {fileID: 8300000, guid: 532d7a1d0523dd84d8d9625875e3cc1f, type: 3}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: footstep5
+      value: 
+      objectReference: {fileID: 8300000, guid: 50ef7e06333ea54448a9ec426734d316, type: 3}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: footstep6
+      value: 
+      objectReference: {fileID: 8300000, guid: d2434d569cc640144bde2f472dc0a44e, type: 3}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: damagesound
+      value: 
+      objectReference: {fileID: 4829007781587304456, guid: 4d7ab17548df8b24f802d59d1fad0431,
+        type: 3}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: dashsound
+      value: 
+      objectReference: {fileID: 8230747560546384943, guid: 186525ef7d979404cb7aa4af7a4354e4,
+        type: 3}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: deathsound
+      value: 
+      objectReference: {fileID: 8300000, guid: eb225586e9980b649a1ccfa42b8bd2ed, type: 3}
+    - target: {fileID: 253391705, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243508324460447356, guid: 3ee3c89aace150347acf7504ad166b2c,
+        type: 2}
+    - target: {fileID: 253391705, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1377925855, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243508324460447356, guid: 3ee3c89aace150347acf7504ad166b2c,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
 --- !u!1 &1115901672

@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip footstep4;
     public AudioClip footstep5;
     public AudioClip footstep6;
+    public AudioClip deathsound;
     public GameObject damagesound;
     public GameObject dashsound;
     public List<AudioClip> steps = new List<AudioClip>();
@@ -254,7 +255,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnDeath(float overkill)
     {
-        Destroy(gameObject, 1f);
+        audio.clip = deathsound;
+        audio.Play();
+        print("TEST");
+        Destroy(gameObject, 4f);
     }
 
 
