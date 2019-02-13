@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class killafteraudio : MonoBehaviour{
 
-    public AudioSource audio;
+    AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
-    audio = GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
