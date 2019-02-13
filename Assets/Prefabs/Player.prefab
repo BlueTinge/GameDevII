@@ -303,7 +303,7 @@ MonoBehaviour:
   WalkForce: 100
   MaxSpeed: 3
   rotationSpeed: 8
-  camRotationSpeed: 20
+  camRotationSpeed: 100
   DashSpeed: 60
   DashTime: 0.05
   DashRecoveryTime: 0.1
