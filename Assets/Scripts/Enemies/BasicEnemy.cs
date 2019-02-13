@@ -35,6 +35,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     private bool shouldTurn;
     private Vector3 targetPos;
     private HealthStats healthStats;
+    private SkinnedMeshRenderer renderer;
+    private Color[] colors;
 
     void Awake()
     {
@@ -56,6 +58,13 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         rb = GetComponent<Rigidbody>();
         healthStats = GetComponent<HealthStats>();
         healthStats.OnDeath = (overkill) => {Destroy(gameObject);};
+        healthStats.OnDamage = (damage) => {StartCoroutine(TakeDamage());};
+        renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        colors = new Color[renderer.materials.Length];
+        for(int i = 0; i < colors.Length; ++i)
+        {
+            colors[i] = renderer.materials[i].color;
+        }
         behaviorTree = new BehaviorTree
         (
             new SelectorTask(new ITreeTask[]
@@ -195,5 +204,19 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     public void Move()
     {
         shouldJump = true;
+    }
+
+    private IEnumerator TakeDamage()
+    {
+        
+        foreach(var v in renderer.materials)
+        {
+            v.color = Color.red;
+        }
+        yield return new WaitForSeconds(healthStats.GetImmunity());
+        for(int i = 0; i < colors.Length; ++i)
+        {
+            renderer.materials[i].color = colors[i];
+        }
     }
 }
