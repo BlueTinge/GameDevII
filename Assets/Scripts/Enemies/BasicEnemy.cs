@@ -37,6 +37,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     private HealthStats healthStats;
     private SkinnedMeshRenderer renderer;
     private Color[] colors;
+    private Animator animator;
 
     void Awake()
     {
@@ -61,6 +62,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         healthStats.OnDamage = (damage) => {StartCoroutine(TakeDamage());};
         renderer = GetComponentInChildren<SkinnedMeshRenderer>();
         colors = new Color[renderer.materials.Length];
+        animator = GetComponentInChildren<Animator>();
+        animator.SetBool("attacking", false);
         for(int i = 0; i < colors.Length; ++i)
         {
             colors[i] = renderer.materials[i].color;
@@ -197,6 +200,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     public void Attack()
     {
         shouldLunge = true;
+        animator.SetBool("attacking", true);
         gameObject.AddComponent<Attack>().Initialize(5, (targetPos - transform.position).normalized,
             lungeTime, gameObject);
     }
@@ -204,6 +208,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     public void Move()
     {
         shouldJump = true;
+        animator.SetBool("attacking", false);
     }
 
     private IEnumerator TakeDamage()
