@@ -104,4 +104,9 @@ public class HealthStats : MonoBehaviour
         isImmune = false;
         OnImmunityEnd();
     }
+
+    public float GetImmunity()
+    {
+        return BaseImmunityPeriod;
+    }
 }
