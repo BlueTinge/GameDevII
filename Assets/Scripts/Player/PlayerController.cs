@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-public enum PlayerState { IDLE, WALKING, DASHING, LIGHT_ATTACKING, HEAVY_ATTACKING, HURT}
+public enum PlayerState { IDLE, WALKING, DASHING, LIGHT_ATTACKING, HEAVY_ATTACKING, HURT, DEATH}
 
 //
 //basic player movement and actions
@@ -248,17 +248,22 @@ public class PlayerController : MonoBehaviour
 
     public void OnDamage(float damage)
     {
-        State = PlayerState.HURT;
-        Instantiate(damagesound);
-        Invoke("SetStateIdle", 0.5f);
+        if (State != PlayerState.DEATH)
+        {
+            State = PlayerState.HURT;
+            Instantiate(damagesound);
+            Invoke("SetStateIdle", 0.5f);
+        }
     }
 
     public void OnDeath(float overkill)
     {
+        State = PlayerState.DEATH;
+
         audio.clip = deathsound;
         audio.Play();
         print("TEST");
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 2f);
     }
 
 
@@ -283,6 +288,6 @@ public class PlayerController : MonoBehaviour
 
     private void SetStateIdle()
     {
-        State = PlayerState.IDLE;
+        if(State!=PlayerState.DEATH) State = PlayerState.IDLE;
     }
 }

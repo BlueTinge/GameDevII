@@ -101,8 +101,11 @@ public class HealthStats : MonoBehaviour
 
     public void EndImmunity()
     {
-        isImmune = false;
-        OnImmunityEnd();
+        if(CurrentHealth > 0)
+        {
+            isImmune = false;
+            OnImmunityEnd();
+        }
     }
 
     public float GetImmunity()
