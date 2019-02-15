@@ -262,8 +262,6 @@ public class PlayerController : MonoBehaviour
 
         audio.clip = deathsound;
         audio.Play();
-        print("TEST");
-        Destroy(gameObject, 2f);
     }
 
 

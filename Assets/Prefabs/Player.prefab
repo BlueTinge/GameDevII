@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7176674445758550707}
   m_LocalRotation: {x: 0.106243476, y: 0.014521182, z: -0.13377428, w: 0.9851934}
-  m_LocalPosition: {x: 0.39, y: 0, z: 0.86}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7176674447748376266}
@@ -411,10 +411,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.36
+  m_Radius: 0.3
+  m_Height: 2.2943923
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.032803655, z: 0}
 --- !u!82 &253391705
 AudioSource:
   m_ObjectHideFlags: 0
@@ -569,7 +569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7176674447259152132}
   m_LocalRotation: {x: 0.27267432, y: -0, z: -0, w: 0.9621064}
-  m_LocalPosition: {x: 0, y: 3.88, z: -6.38}
+  m_LocalPosition: {x: 0, y: 2.65, z: -5.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7176674447218628852}
@@ -674,8 +674,8 @@ MonoBehaviour:
   audio: {fileID: 0}
   swing: {fileID: 8300000, guid: 44d6f968062f59d4cb5b4a5f5e40285f, type: 3}
   BaseDamage: 5
-  BaseKnockback: 200
-  IsPhysical: 1
+  BaseKnockback: 400
+  IsPhysical: 0
 --- !u!54 &7176674447748376276
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -701,7 +701,8 @@ AudioSource:
   m_GameObject: {fileID: 7176674447748376267}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243508324460447356, guid: 3ee3c89aace150347acf7504ad166b2c,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 44d6f968062f59d4cb5b4a5f5e40285f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
