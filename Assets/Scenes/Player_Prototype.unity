@@ -628,51 +628,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7176674445758550706, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.106243476
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176674445758550706, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.014521182
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176674445758550706, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.13377428
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176674445758550706, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9851934
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176674445758550706, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 12.311001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176674445758550706, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.011000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176674445758550706, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -15.464001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176674447259152129, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176674447259152129, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.97
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
 --- !u!1 &1115901672
