@@ -229,6 +229,11 @@ MonoBehaviour:
   DashSpeed: 60
   DashTime: 0.05
   DashRecoveryTime: 0.1
+  DashCooldown: 500
+  LightCooldown: 500
+  HeavyCooldown: 1000
+  HeavyAttackForce: 500
+  InteractCooldown: 500
   MoveHoriz: LeftHoriz
   MoveVert: LeftVert
   CamHoriz: RightHoriz
@@ -238,10 +243,6 @@ MonoBehaviour:
   ItemButton: Item
   DashButton: Dash
   Trigger: Trigger
-  LightCooldown: 500
-  HeavyCooldown: 1000
-  InteractCooldown: 500
-  DashCooldown: 500
   State: 0
   audio: {fileID: 0}
   footstep1: {fileID: 8300000, guid: 11e908c2b3c0cb449aa45228ae1229c0, type: 3}

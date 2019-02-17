@@ -101,7 +101,7 @@ public class Weapon : MonoBehaviour
 
     public void MakeHeavyAttack(float ttl)
     {
-        gameObject.AddComponent<Attack>().Initialize(BaseDamage*2, (Holder.GetComponent<Rigidbody>().rotation * Vector3.forward) * BaseKnockback * 2, ttl, Holder);
+        gameObject.AddComponent<Attack>().Initialize(BaseDamage*2, (Holder.GetComponent<Rigidbody>().rotation * Vector3.forward) * BaseKnockback * 3, ttl, Holder);
         audio.Play();
     }
 }

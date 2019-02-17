@@ -26,7 +26,12 @@ public class PlayerController : MonoBehaviour
     public float DashTime;
     [Tooltip("Time dash recovery takes (period after dash finishes)")]
     public float DashRecoveryTime;
+    public long DashCooldown = 500;
 
+    public long LightCooldown;
+    public long HeavyCooldown;
+    public float HeavyAttackForce;
+    public long InteractCooldown = 500;
 
     //input axis/sticks
     //separated in case we want specific options for joysticks vs. keyb/mouse
@@ -48,11 +53,6 @@ public class PlayerController : MonoBehaviour
     public string DashButton = "Dash";
     [HideInInspector]
     public string Trigger = "Trigger";
-
-    public long LightCooldown;
-    public long HeavyCooldown;
-    public long InteractCooldown = 500;
-    public long DashCooldown = 500;
 
     public PlayerState State = PlayerState.IDLE;
 
@@ -228,6 +228,15 @@ public class PlayerController : MonoBehaviour
         ReferenceFrame.transform.rotation = camRot;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(State == PlayerState.DASHING)
+        {
+            if(collision.rigidbody!=null)collision.rigidbody.velocity = new Vector3(0, 0, 0);
+            Body.velocity = new Vector3(0, 0, 0);
+        }
+    }
+
     public IEnumerator Dash(Vector3 Direction)
     {
         State = PlayerState.DASHING;
@@ -239,8 +248,6 @@ public class PlayerController : MonoBehaviour
         PlayerHealth.isImmune = true;
         yield return new WaitForSeconds(DashTime);
         PlayerHealth.isImmune = false;
-        UnityEngine.Debug.Log("A:");
-        UnityEngine.Debug.Log(Body.velocity);
         Body.velocity = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(DashRecoveryTime);
         State = PlayerState.IDLE;
@@ -272,16 +279,23 @@ public class PlayerController : MonoBehaviour
     //Note that if ttls vary by weapon (not just weapon class or animation) this will need to be edited
     //Note that recovery animations should probably have a "set state idle" event after the attack finishes, as opposed to cramming it in the "make attack" methods
 
-    public void MakeLightAttack(float ttl)
+    public IEnumerator MakeLightAttack(float ttl)
     {
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl);
-        Invoke("SetStateIdle", ttl); //questionable: should this be somewhere else?
+        yield return new WaitForSeconds(ttl);
+        if (State == PlayerState.LIGHT_ATTACKING) State = PlayerState.IDLE;
     }
 
-    public void MakeHeavyAttack(float ttl)
+    public IEnumerator MakeHeavyAttack(float ttl)
     {
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeHeavyAttack(ttl);
-        Invoke("SetStateIdle", ttl); //questionable: should this be somewhere else?
+        Body.AddRelativeForce(Vector3.forward * HeavyAttackForce);
+        yield return new WaitForSeconds(ttl);
+        if (State == PlayerState.HEAVY_ATTACKING)
+        {
+            State = PlayerState.IDLE;
+            //Body.velocity = new Vector3(0, 0, 0); //enable if it should stop abruptly after attack ends
+        }
     }
 
     private void SetStateIdle()
