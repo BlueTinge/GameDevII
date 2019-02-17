@@ -11,6 +11,7 @@ public enum PlayerState { IDLE, WALKING, DASHING, LIGHT_ATTACKING, HEAVY_ATTACKI
 
 [RequireComponent(typeof(Equipment))]
 [RequireComponent(typeof(HealthStats))]
+[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody Body;
@@ -258,17 +259,25 @@ public class PlayerController : MonoBehaviour
         if (State != PlayerState.DEATH)
         {
             State = PlayerState.HURT;
-            Instantiate(damagesound);
+            animator.SetTrigger("Damage");
+            animator.ResetTrigger("Idle");
             Invoke("SetStateIdle", 0.5f);
+
+            Instantiate(damagesound);
+
+            
         }
     }
 
     public void OnDeath(float overkill)
     {
         State = PlayerState.DEATH;
+        animator.SetTrigger("Death");
 
         audio.clip = deathsound;
         audio.Play();
+
+        foreach (Attack a in GetComponent<Equipment>().CurrentWeapon.GetComponents<Attack>()) {Destroy(a);}
     }
 
 
@@ -300,6 +309,10 @@ public class PlayerController : MonoBehaviour
 
     private void SetStateIdle()
     {
-        if(State!=PlayerState.DEATH) State = PlayerState.IDLE;
+        if (State != PlayerState.DEATH)
+        {
+            State = PlayerState.IDLE;
+            animator.SetTrigger("Idle");
+        }
     }
 }
