@@ -230,7 +230,7 @@ MonoBehaviour:
   DashTime: 0.05
   DashRecoveryTime: 0.1
   DashCooldown: 500
-  LightCooldown: 500
+  LightCooldown: 200
   HeavyCooldown: 1000
   HeavyAttackForce: 500
   InteractCooldown: 500
