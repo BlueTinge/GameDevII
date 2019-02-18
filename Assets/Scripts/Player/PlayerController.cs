@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PlayerState { IDLE, WALKING, DASHING, LIGHT_ATTACKING, HEAVY_ATTACKING, HURT, DEATH}
 
@@ -33,6 +34,8 @@ public class PlayerController : MonoBehaviour
     public long HeavyCooldown;
     public float HeavyAttackForce;
     public long InteractCooldown = 500;
+
+    public Slider HealthBarSlider;
 
     //input axis/sticks
     //separated in case we want specific options for joysticks vs. keyb/mouse
@@ -256,13 +259,13 @@ public class PlayerController : MonoBehaviour
 
     public void OnDamage(float damage)
     {
+        HealthBarSlider.value -= damage;
         if (State != PlayerState.DEATH)
         {
             State = PlayerState.HURT;
             animator.SetTrigger("Damage");
             animator.ResetTrigger("Idle");
             Invoke("SetStateIdle", 0.5f);
-
             Instantiate(damagesound);
 
             
