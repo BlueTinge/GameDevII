@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PlayerState { IDLE, WALKING, DASHING, LIGHT_ATTACKING, HEAVY_ATTACKING, HURT, DEATH}
 
@@ -33,6 +34,8 @@ public class PlayerController : MonoBehaviour
     public long HeavyCooldown;
     public float HeavyAttackForce;
     public long InteractCooldown = 500;
+
+    public Slider HealthBarSlider;
 
     //input axis/sticks
     //separated in case we want specific options for joysticks vs. keyb/mouse
@@ -233,6 +236,8 @@ public class PlayerController : MonoBehaviour
     {
         if(State == PlayerState.DASHING)
         {
+            //This code prevents dashing into objects to send them flying, but is sloppy and may introduce bugs
+            //TODO: edit this code so that you can't stop every rb from moving just by dashing into it 
             if(collision.rigidbody!=null)collision.rigidbody.velocity = new Vector3(0, 0, 0);
             Body.velocity = new Vector3(0, 0, 0);
         }
@@ -256,13 +261,13 @@ public class PlayerController : MonoBehaviour
 
     public void OnDamage(float damage)
     {
-        if (State != PlayerState.DEATH)
+        HealthBarSlider.value -= damage;
+        if (State != PlayerState.DEATH && damage > 0)
         {
             State = PlayerState.HURT;
             animator.SetTrigger("Damage");
             animator.ResetTrigger("Idle");
             Invoke("SetStateIdle", 0.5f);
-
             Instantiate(damagesound);
 
             

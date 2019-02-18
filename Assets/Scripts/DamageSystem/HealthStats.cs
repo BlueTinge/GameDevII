@@ -81,7 +81,12 @@ public class HealthStats : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    //I hate using "stay" as it may potentially lead to performance issues
+    //but not using stay means attack is ignored if created after collider has already entered collision
+    //potential solution: check for collisions in attack, when attack is initialized?
+    //  --this "solution" does not account for immunity when you first collide w/ an attack, and immunity ending afterwards. 
+
+    private void OnTriggerStay(Collider other)
     {
         Attack attack = other.gameObject.GetComponentInParent<Attack>();
         if (attack != null)
@@ -90,7 +95,7 @@ public class HealthStats : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionStay(Collision other)
     {
         Attack attack = other.gameObject.GetComponentInParent<Attack>();
         if (attack != null)
