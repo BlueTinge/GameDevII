@@ -233,6 +233,8 @@ public class PlayerController : MonoBehaviour
     {
         if(State == PlayerState.DASHING)
         {
+            //This code prevents dashing into objects to send them flying, but is sloppy and may introduce bugs
+            //TODO: edit this code so that you can't stop every rb from moving just by dashing into it 
             if(collision.rigidbody!=null)collision.rigidbody.velocity = new Vector3(0, 0, 0);
             Body.velocity = new Vector3(0, 0, 0);
         }
@@ -256,7 +258,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnDamage(float damage)
     {
-        if (State != PlayerState.DEATH)
+        if (State != PlayerState.DEATH && damage > 0)
         {
             State = PlayerState.HURT;
             animator.SetTrigger("Damage");
