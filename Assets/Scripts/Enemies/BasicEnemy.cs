@@ -75,15 +75,21 @@ public class BasicEnemy : MonoBehaviour, IEnemy
                 new SequenceTask(new ITreeTask[]
                 {
                     new CloseTo(transform, target, attackRadius),
+                    new CallTask(() => {Windup(); return true;}),
                     new WhileTask
                     (
-                        new NotTask
-                        (
-                            new DelayTask(lungeDelay)
-                        ),
+                        new SequenceTask(new ITreeTask[]{
+                            new NotTask
+                            (
+                                new DelayTask(lungeDelay)
+                            ),
+                            new CallTask(() => {animator.speed = 0; return true;})
+                        }),
                         new BasicTarget(this)
                     ),
+                    new CallTask(() => {animator.speed = 1; return true;}),
                     new BasicAttack(this, lungeTime),
+                    new CallTask(()=>{animator.SetBool("attacking", false); return true;}),
                     new DelayTask(lungeCooldown),
                 }),
                 new SequenceTask(new ITreeTask[]
@@ -91,14 +97,19 @@ public class BasicEnemy : MonoBehaviour, IEnemy
                     new CloseTo(transform, target, visionRadius),
                     new WhileTask
                     (
-                        new NotTask
-                        (
-                            new DelayTask(hopDelay)
-                        ),
+                        new SequenceTask(new ITreeTask[]{
+                            new NotTask
+                            (
+                                new DelayTask(hopDelay)
+                            ),
+                            new CallTask(() => {animator.speed = 0; return true;})
+                        }),
                         new BasicTarget(this)
                     ),
+                    new CallTask(() => {animator.speed = 1; return true;}),
                     new BasicMove(this, hopTime),
-                    new DelayTask(coolDown),
+                    new CallTask(()=>{animator.SetBool("moving", false); return true;}),
+                    new DelayTask(coolDown)
                 })
             })
         );
@@ -111,6 +122,11 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     void FixedUpdate()
     {
+        if(transform.up != Vector3.up)
+        {
+            rb.MoveRotation(Quaternion.LookRotation(new Vector3(transform.forward.x, 0, transform.forward.z)));
+        }
+
         Vector3 forward = transform.forward;
         Vector3 faceTarget = targetPos - transform.position;
         forward.y = 0;
@@ -200,7 +216,6 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     public void Attack()
     {
         shouldLunge = true;
-        animator.SetBool("attacking", true);
         gameObject.AddComponent<Attack>().Initialize(5, (targetPos - transform.position).normalized,
             lungeTime, gameObject);
     }
@@ -208,7 +223,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     public void Move()
     {
         shouldJump = true;
-        animator.SetBool("attacking", false);
+        animator.SetBool("moving", true);
     }
 
     private IEnumerator TakeDamage()
@@ -223,5 +238,10 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         {
             renderer.materials[i].color = colors[i];
         }
+    }
+
+    private void Windup()
+    {
+        animator.SetBool("attacking", true);
     }
 }

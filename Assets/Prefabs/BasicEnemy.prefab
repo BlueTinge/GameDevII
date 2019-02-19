@@ -67,15 +67,15 @@ MonoBehaviour:
   hopDistance: 1
   hopTime: 0.5
   hopDelay: 0.1
-  coolDown: 0.1
+  coolDown: 0.5
   lungeDistance: 3
   lungeDelay: 0.5
   targetTimeout: 1
   lungeTime: 0.5
   lungeCooldown: 1
   visionRadius: 10
-  attackRadius: 3
-  rotateSpeed: 360
+  attackRadius: 4
+  rotateSpeed: 180
   seekAngle: 15
 --- !u!114 &7817360383801815265
 MonoBehaviour:
@@ -142,11 +142,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.459
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.793
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_LocalRotation.x
