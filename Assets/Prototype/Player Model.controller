@@ -361,7 +361,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ef452b75f6ef76e41aa5d8b8eb4bc656, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6e021ee7406e9d740b2dd22e7a0bd245, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -374,7 +374,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestSwordSecondSwing
+  m_Name: LightSwing2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -389,7 +389,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 950a5c97f0945be43b5a969ec4a9a004, type: 2}
+  m_Motion: {fileID: 7400000, guid: af254c0f1bb4ce143b79d06ac590858f, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -415,7 +415,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 24cbf8fcb5561b6499f8289418d777c6, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6e021ee7406e9d740b2dd22e7a0bd245, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -428,7 +428,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestSwordSwing
+  m_Name: LightSwing1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -443,7 +443,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c79a2c3a57e9fc14dbcaf1331bda8e12, type: 2}
+  m_Motion: {fileID: 7400000, guid: a9eb32bfe2213d742b4b95aa628dd5a9, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -456,7 +456,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestSwordHeavy
+  m_Name: Heavy
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -470,7 +470,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a62cd8aef3503534d89bc17a36d4057a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9a73eb1e8c3d9b345adbd40302516a2b, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -483,7 +483,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestIdle
+  m_Name: Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -497,7 +497,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d2beec190a5f0d14b9fb03ec09bb5590, type: 2}
+  m_Motion: {fileID: 7400000, guid: 97b77d08c3e7cfd42b99c3c9ef796d2f, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -517,16 +517,16 @@ AnimatorStateMachine:
     m_Position: {x: 132, y: 84, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102422069998691416}
-    m_Position: {x: -12, y: 240, z: 0}
+    m_Position: {x: -12, y: 216, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102546135973142636}
-    m_Position: {x: 372, y: 12, z: 0}
+    m_Position: {x: 360, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102152299578940076}
-    m_Position: {x: -72, y: 0, z: 0}
+    m_Position: {x: -84, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102365026431995972}
-    m_Position: {x: 156, y: -156, z: 0}
+    m_Position: {x: 144, y: -156, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102216235412212408}
     m_Position: {x: 288, y: 216, z: 0}
@@ -540,6 +540,6 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 168, y: -60, z: 0}
   m_EntryPosition: {x: -96, y: 108, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ExitPosition: {x: 648, y: 72, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102690531813517930}
