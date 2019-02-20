@@ -78,35 +78,27 @@ public class BasicEnemy : MonoBehaviour, IEnemy
                     new CallTask(() => {Windup(); return true;}),
                     new WhileTask
                     (
-                        new SequenceTask(new ITreeTask[]{
-                            new NotTask
-                            (
-                                new DelayTask(lungeDelay)
-                            ),
-                            new CallTask(() => {animator.speed = 0; return true;})
-                        }),
+                        new NotTask
+                        (
+                            new DelayTask(lungeDelay)
+                        ),
                         new BasicTarget(this)
                     ),
-                    new CallTask(() => {animator.speed = 1; return true;}),
                     new BasicAttack(this, lungeTime),
                     new CallTask(()=>{animator.SetBool("attacking", false); return true;}),
-                    new DelayTask(lungeCooldown),
+                    new DelayTask(lungeCooldown)
                 }),
                 new SequenceTask(new ITreeTask[]
                 {
                     new CloseTo(transform, target, visionRadius),
                     new WhileTask
                     (
-                        new SequenceTask(new ITreeTask[]{
-                            new NotTask
-                            (
-                                new DelayTask(hopDelay)
-                            ),
-                            new CallTask(() => {animator.speed = 0; return true;})
-                        }),
+                        new NotTask
+                        (
+                            new DelayTask(hopDelay)
+                        ),
                         new BasicTarget(this)
                     ),
-                    new CallTask(() => {animator.speed = 1; return true;}),
                     new BasicMove(this, hopTime),
                     new CallTask(()=>{animator.SetBool("moving", false); return true;}),
                     new DelayTask(coolDown)
@@ -215,6 +207,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     public void Attack()
     {
+        animator.SetBool("windup", false);
+        animator.SetBool("attacking", true);
         shouldLunge = true;
         gameObject.AddComponent<Attack>().Initialize(5, (targetPos - transform.position).normalized,
             lungeTime, gameObject);
@@ -242,6 +236,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     private void Windup()
     {
-        animator.SetBool("attacking", true);
+        animator.SetBool("windup", true);
+        animator.SetBool("attacking", false);
     }
 }

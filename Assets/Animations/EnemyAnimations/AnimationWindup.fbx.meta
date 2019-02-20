@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c76fbe2bdf1c21045999393cb9224cc5
+guid: 94789cce63f2deb4fbc625239ac43667
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -91,8 +91,8 @@ ModelImporter:
     - serializedVersion: 16
       name: AnimationAttack
       takeName: AnimationAttack
-      firstFrame: 64
-      lastFrame: 75
+      firstFrame: 50
+      lastFrame: 64
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
