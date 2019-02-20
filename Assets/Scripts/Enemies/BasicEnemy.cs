@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Stargaze.AI;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -38,6 +39,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     private SkinnedMeshRenderer renderer;
     private Color[] colors;
     private Animator animator;
+
+    public Image HealthBar;
 
     void Awake()
     {
@@ -228,8 +231,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     private IEnumerator TakeDamage()
     {
-        
-        foreach(var v in renderer.materials)
+        HealthBar.fillAmount = healthStats.CurrentHealth / healthStats.MaxHealth;
+        foreach (var v in renderer.materials)
         {
             v.color = Color.red;
         }
@@ -238,6 +241,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         {
             renderer.materials[i].color = colors[i];
         }
+
     }
 
     private void Windup()
