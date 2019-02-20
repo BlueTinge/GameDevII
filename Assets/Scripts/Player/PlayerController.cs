@@ -12,12 +12,12 @@ public enum PlayerState { IDLE, WALKING, DASHING, LIGHT_ATTACKING, HEAVY_ATTACKI
 
 [RequireComponent(typeof(Equipment))]
 [RequireComponent(typeof(HealthStats))]
-[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody Body;
     public GameObject ReferenceFrame;
     public Camera Cam;
+    public Animator PlayerAnimator;
 
     public float WalkForce;
     public float MaxSpeed;
@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
     private HealthStats PlayerHealth;
 
     private Quaternion camRot;
-    private Animator animator;
 
     private Stopwatch lastAttack = new Stopwatch();
     private Stopwatch lastDash = new Stopwatch();
@@ -91,7 +90,6 @@ public class PlayerController : MonoBehaviour
         ItemZone = GetComponent<Equipment>().ItemZone;
 
         camRot = ReferenceFrame.transform.rotation;
-        animator = GetComponent<Animator>();
 
         PlayerHealth = GetComponent<HealthStats>();
         PlayerHealth.OnDeath = OnDeath;
@@ -120,7 +118,7 @@ public class PlayerController : MonoBehaviour
         
         if ((State == PlayerState.IDLE || State == PlayerState.WALKING || State == PlayerState.LIGHT_ATTACKING) && (Input.GetButtonDown(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
         {
-            animator.SetTrigger("Swing");
+            PlayerAnimator.SetTrigger("Swing");
             lastAttack.Restart();
             State = PlayerState.LIGHT_ATTACKING;
             //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
@@ -130,7 +128,7 @@ public class PlayerController : MonoBehaviour
 
         if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButtonDown(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
         {
-            animator.SetTrigger("Heavy");
+            PlayerAnimator.SetTrigger("Heavy");
             lastAttack.Restart();
             State = PlayerState.HEAVY_ATTACKING;
             //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
@@ -265,8 +263,8 @@ public class PlayerController : MonoBehaviour
         if (State != PlayerState.DEATH && damage > 0)
         {
             State = PlayerState.HURT;
-            animator.SetTrigger("Damage");
-            animator.ResetTrigger("Idle");
+            PlayerAnimator.SetTrigger("Damage");
+            PlayerAnimator.ResetTrigger("Idle");
             Invoke("SetStateIdle", 0.5f);
             Instantiate(damagesound);
 
@@ -277,7 +275,7 @@ public class PlayerController : MonoBehaviour
     public void OnDeath(float overkill)
     {
         State = PlayerState.DEATH;
-        animator.SetTrigger("Death");
+        PlayerAnimator.SetTrigger("Death");
 
         audio.clip = deathsound;
         audio.Play();
@@ -317,7 +315,7 @@ public class PlayerController : MonoBehaviour
         if (State != PlayerState.DEATH)
         {
             State = PlayerState.IDLE;
-            animator.SetTrigger("Idle");
+            PlayerAnimator.SetTrigger("Idle");
         }
     }
 }
