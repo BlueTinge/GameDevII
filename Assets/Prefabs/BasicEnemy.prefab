@@ -75,7 +75,7 @@ MonoBehaviour:
   fadeoutDelay: 0.625
   fadeoutLength: 2
   visionRadius: 10
-  attackRadius: 3
+  attackRadius: 2
   rotateSpeed: 180
   seekAngle: 15
   deathFade:
