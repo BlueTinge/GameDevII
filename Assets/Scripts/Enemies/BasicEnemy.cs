@@ -10,55 +10,49 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     [SerializeField] private float hopDistance;
     [SerializeField] private float hopTime;
     [SerializeField] private float hopDelay;
+    [SerializeField] private float dragForce;
     [SerializeField] private float coolDown;
-    [SerializeField] private float lungeDistance;
     [SerializeField] private float lungeDelay;
     [SerializeField] private float targetTimeout;
     [SerializeField] private float lungeTime;
     [SerializeField] private float lungeCooldown;
+    [SerializeField] private float fadeoutDelay;
+    [SerializeField] private float fadeoutLength;
     [SerializeField] private float visionRadius;
     [SerializeField] private float attackRadius;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float seekAngle;
+    [SerializeField] private AnimationCurve deathFade;
+    [SerializeField] private GameObject hurtBox;
     
     private Transform target;
     private BehaviorTree behaviorTree;
-    private float jumpSpeed;
-    private float horizontalJumpSpeed;
-    private float lungeVSpeed;
-    private float lungeHSpeed;
     private float targetTime;
     private bool targeting;
     private Rigidbody rb;
     private bool shouldJump;
-    private bool shouldLunge;
     private bool shouldTurn;
     private Vector3 targetPos;
     private HealthStats healthStats;
     private SkinnedMeshRenderer renderer;
     private Color[] colors;
     private Animator animator;
+    private bool dead;
+    private float deathTime;
 
     void Awake()
     {
-        horizontalJumpSpeed = hopDistance / hopTime;
-        float hopHeight = 0.5f * Physics.gravity.y * hopTime * hopTime / 4;
-        jumpSpeed = Mathf.Sqrt(2 * Physics.gravity.y * hopHeight);
-
-        lungeHSpeed = lungeDistance / lungeTime;
-        float lungeHeight = 0.5f * -Physics.gravity.y * lungeTime * lungeTime;
-        lungeVSpeed = Mathf.Sqrt(2 * -Physics.gravity.y * lungeHeight);
-        shouldLunge = false;
         shouldJump = false;
         shouldTurn = false;
         targeting = false;
+        dead = false;
     }
     void Start()
     {
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         healthStats = GetComponent<HealthStats>();
-        healthStats.OnDeath = (overkill) => {Destroy(gameObject);};
+        healthStats.OnDeath = (overkill) => {Die();};
         healthStats.OnDamage = (damage) => {StartCoroutine(TakeDamage());};
         renderer = GetComponentInChildren<SkinnedMeshRenderer>();
         colors = new Color[renderer.materials.Length];
@@ -78,37 +72,29 @@ public class BasicEnemy : MonoBehaviour, IEnemy
                     new CallTask(() => {Windup(); return true;}),
                     new WhileTask
                     (
-                        new SequenceTask(new ITreeTask[]{
-                            new NotTask
-                            (
-                                new DelayTask(lungeDelay)
-                            ),
-                            new CallTask(() => {animator.speed = 0; return true;})
-                        }),
+                        new NotTask
+                        (
+                            new DelayTask(lungeDelay)
+                        ),
                         new BasicTarget(this)
                     ),
-                    new CallTask(() => {animator.speed = 1; return true;}),
                     new BasicAttack(this, lungeTime),
                     new CallTask(()=>{animator.SetBool("attacking", false); return true;}),
-                    new DelayTask(lungeCooldown),
+                    new DelayTask(lungeCooldown)
                 }),
                 new SequenceTask(new ITreeTask[]
                 {
                     new CloseTo(transform, target, visionRadius),
                     new WhileTask
                     (
-                        new SequenceTask(new ITreeTask[]{
-                            new NotTask
-                            (
-                                new DelayTask(hopDelay)
-                            ),
-                            new CallTask(() => {animator.speed = 0; return true;})
-                        }),
+                        new NotTask
+                        (
+                            new DelayTask(hopDelay)
+                        ),
                         new BasicTarget(this)
                     ),
-                    new CallTask(() => {animator.speed = 1; return true;}),
                     new BasicMove(this, hopTime),
-                    new CallTask(()=>{animator.SetBool("moving", false); return true;}),
+                    new CallTask(()=>{StopMove(); return true;}),
                     new DelayTask(coolDown)
                 })
             })
@@ -117,7 +103,25 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     void Update()
     {
-        behaviorTree.Update();
+        if(!dead)
+        {
+            behaviorTree.Update();
+        }
+        else
+        {
+            if(Time.time - deathTime > fadeoutDelay + fadeoutLength)
+            {
+                Destroy(gameObject);
+            }
+            else if(Time.time - deathTime > fadeoutDelay)
+            {
+                float opacity = deathFade.Evaluate((Time.time - (deathTime + fadeoutDelay))/fadeoutLength);
+                foreach(Material m in renderer.materials)
+                {
+                    m.color = new Color(m.color.g, m.color.g, m.color.b, opacity);
+                }
+            }
+        }
     }
 
     void FixedUpdate()
@@ -154,35 +158,17 @@ public class BasicEnemy : MonoBehaviour, IEnemy
             rb.angularVelocity = Vector3.zero;
         }
 
-        Vector3 velocity = rb.velocity;
-        if(shouldLunge)
+        if(shouldJump)
         {
-            velocity = transform.forward;
-            velocity.y = 0;
-            velocity = velocity.normalized;
-            velocity *= lungeHSpeed;
-            velocity.y = lungeVSpeed;
+            Vector3 force = targetPos - transform.position;
+            force.y = 0;
+            force = force.normalized;
+            force *= dragForce;
+            force += Vector3.up * (-Physics.gravity.y);
+            Debug.DrawRay(transform.position, force, Color.yellow);
 
-            rb.AddForce(velocity - rb.velocity, ForceMode.VelocityChange);
+            rb.AddForce(force, ForceMode.Acceleration);
         }
-        else if(shouldJump)
-        {
-            velocity = targetPos - transform.position;
-            velocity.y = 0;
-            velocity = velocity.normalized;
-            velocity *= horizontalJumpSpeed;
-            velocity.y = jumpSpeed;
-
-            rb.AddForce(velocity - rb.velocity, ForceMode.VelocityChange);
-        }
-
-        shouldLunge = false;
-        shouldJump = false;
-    }
-
-    void OnCollisionEnter(Collision c)
-    {
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
     }
 
     public bool Target()
@@ -215,8 +201,9 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     public void Attack()
     {
-        shouldLunge = true;
-        gameObject.AddComponent<Attack>().Initialize(5, (targetPos - transform.position).normalized,
+        animator.SetBool("windup", false);
+        animator.SetBool("attacking", true);
+        hurtBox.AddComponent<Attack>().Initialize(5, (targetPos - transform.position).normalized,
             lungeTime, gameObject);
     }
 
@@ -224,6 +211,24 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     {
         shouldJump = true;
         animator.SetBool("moving", true);
+    }
+    private void StopMove()
+    {
+        animator.SetBool("moving", false);
+        shouldJump = false;
+    }
+
+    private void Windup()
+    {
+        animator.SetBool("windup", true);
+        animator.SetBool("attacking", false);
+    }
+
+    private void Die()
+    {
+        animator.SetBool("dead", true);
+        dead = true;
+        deathTime = Time.time;
     }
 
     private IEnumerator TakeDamage()
@@ -238,10 +243,5 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         {
             renderer.materials[i].color = colors[i];
         }
-    }
-
-    private void Windup()
-    {
-        animator.SetBool("attacking", true);
     }
 }

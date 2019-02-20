@@ -60,7 +60,12 @@ ModelImporter:
     7400000: Idle
     9500000: //RootNode
     13700000: Reference_EnemyOnly1:Abomination2
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: af9e262862e415d4f9817f7dc660b98e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
