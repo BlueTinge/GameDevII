@@ -119,6 +119,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
+      propertyPath: m_Name
+      value: Character Sword
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.4052296
@@ -175,10 +179,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.2343
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
-      propertyPath: m_Name
-      value: Character Sword
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
 --- !u!1 &441961320
@@ -213,7 +213,7 @@ RectTransform:
   m_Children:
   - {fileID: 451503337}
   m_Father: {fileID: 1820105425}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -282,7 +282,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a6b143ce5f3606a438d3ce6c732096b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8f6d574099d5e8d4c8e5de114bc500ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -905,8 +905,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 2001013994}
   - {fileID: 441961321}
+  - {fileID: 2001013994}
   - {fileID: 798817175}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1027,7 +1027,7 @@ RectTransform:
   m_Children:
   - {fileID: 1078299990}
   m_Father: {fileID: 1820105425}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
