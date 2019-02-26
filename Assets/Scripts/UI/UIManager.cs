@@ -42,6 +42,11 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void Journal()
+    {
+
+    }
+
     public void Pressed()
     {
         Debug.Log("I am pressed");
