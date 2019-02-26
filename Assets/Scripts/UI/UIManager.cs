@@ -39,6 +39,12 @@ public class UIManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+    }
+
+    public void Journal()
+    {
+
     }
 
     public void Pressed()
