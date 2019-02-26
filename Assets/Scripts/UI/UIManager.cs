@@ -7,19 +7,20 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     bool paused = false;
-    public Transform Canvas;
+    public Transform PauseMenu;
+    public Transform JournalMenu;
 
     void Update()
     {
         if (Input.GetButtonDown("Cancel"))
-            if (Canvas.gameObject.activeInHierarchy == false)
+            if (PauseMenu.gameObject.activeInHierarchy == false)
             {
-                Canvas.gameObject.SetActive(true);
+                PauseMenu.gameObject.SetActive(true);
                 Time.timeScale = 0f;
             }
             else
             {
-                Canvas.gameObject.SetActive(false);
+                PauseMenu.gameObject.SetActive(false);
                 Time.timeScale = 1f;
             }
     }
@@ -31,7 +32,7 @@ public class UIManager : MonoBehaviour
     
     public void Continue()
     {
-        Canvas.gameObject.SetActive(false);
+        PauseMenu.gameObject.SetActive(false);
         Time.timeScale = 1f;
         Debug.Log("I am Continuing");
     }
@@ -44,6 +45,8 @@ public class UIManager : MonoBehaviour
 
     public void Journal()
     {
+        PauseMenu.gameObject.SetActive(false);
+        JournalMenu.gameObject.SetActive(true);
 
     }
 

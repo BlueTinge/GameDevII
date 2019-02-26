@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
 
-    public bool IsStart;
-    public bool IsQuit;
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +20,14 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    void OnMouseUp()
+
+    public void Quit()
     {
-        if (IsStart)
-        {
-            SceneManager.LoadScene(1);
-        }
-        if (IsQuit)
-        {
-            Application.Quit();
-        }
+        Application.Quit();
+    }
+
+    public void StartButton()
+    {
+        SceneManager.LoadScene(1);
     }
 }
