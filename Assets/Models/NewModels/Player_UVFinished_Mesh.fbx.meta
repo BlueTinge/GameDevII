@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 7e4084bbc7b78e6409d0b4058998958a
-=======
-guid: 69e096cc83f4ab449b7929651a52b050
->>>>>>> dev
+guid: a9a98dc333c75e04fabeaee5be5bf1b4
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -40,42 +36,31 @@ ModelImporter:
     100060: LT2
     100062: Neck
     100064: //RootNode
-    100066: PlayerController
-    100068: PlayerHipsController
-    100070: PlayerRightShoulderController
-    100072: PlayerShoulderController
-    100074: PlayerSkeleton
-    100076: PlayerSwordGroup2
-    100078: PlayerWaistController
-    100080: RI1
-    100082: RI2
-    100084: RightandController1
-    100086: RightElbow
-    100088: RightFoot
-    100090: RightHandCenterPalm
-    100092: RightIndex
-    100094: RightKnee
-    100096: RightLeg
-    100098: RightMiddle
-    100100: RightOuterShoulder
-    100102: RightPinky
-    100104: RightRing
-    100106: RightShoulder
-    100108: RightThumb
-    100110: RightToe
-    100112: RightWrist
-    100114: RM1
-    100116: RM2
-    100118: RP1
-    100120: RP2
-    100122: RR1
-    100124: RR2
-    100126: RT1
-    100128: RT2
-    100130: SwordBase
-    100132: SwordOffset
-    100134: Swordtip
-    100136: Waist
+    100066: PlayerSkeleton
+    100068: RI1
+    100070: RI2
+    100072: RightElbow
+    100074: RightFoot
+    100076: RightIndex
+    100078: RightKnee
+    100080: RightLeg
+    100082: RightMiddle
+    100084: RightOuterShoulder
+    100086: RightPinky
+    100088: RightRing
+    100090: RightShoulder
+    100092: RightThumb
+    100094: RightToe
+    100096: RightWrist
+    100098: RM1
+    100100: RM2
+    100102: RP1
+    100104: RP2
+    100106: RR1
+    100108: RR2
+    100110: RT1
+    100112: RT2
+    100114: Waist
     400000: Body
     400002: Chest
     400004: Collar
@@ -109,42 +94,31 @@ ModelImporter:
     400060: LT2
     400062: Neck
     400064: //RootNode
-    400066: PlayerController
-    400068: PlayerHipsController
-    400070: PlayerRightShoulderController
-    400072: PlayerShoulderController
-    400074: PlayerSkeleton
-    400076: PlayerSwordGroup2
-    400078: PlayerWaistController
-    400080: RI1
-    400082: RI2
-    400084: RightandController1
-    400086: RightElbow
-    400088: RightFoot
-    400090: RightHandCenterPalm
-    400092: RightIndex
-    400094: RightKnee
-    400096: RightLeg
-    400098: RightMiddle
-    400100: RightOuterShoulder
-    400102: RightPinky
-    400104: RightRing
-    400106: RightShoulder
-    400108: RightThumb
-    400110: RightToe
-    400112: RightWrist
-    400114: RM1
-    400116: RM2
-    400118: RP1
-    400120: RP2
-    400122: RR1
-    400124: RR2
-    400126: RT1
-    400128: RT2
-    400130: SwordBase
-    400132: SwordOffset
-    400134: Swordtip
-    400136: Waist
+    400066: PlayerSkeleton
+    400068: RI1
+    400070: RI2
+    400072: RightElbow
+    400074: RightFoot
+    400076: RightIndex
+    400078: RightKnee
+    400080: RightLeg
+    400082: RightMiddle
+    400084: RightOuterShoulder
+    400086: RightPinky
+    400088: RightRing
+    400090: RightShoulder
+    400092: RightThumb
+    400094: RightToe
+    400096: RightWrist
+    400098: RM1
+    400100: RM2
+    400102: RP1
+    400104: RP2
+    400106: RR1
+    400108: RR2
+    400110: RT1
+    400112: RT2
+    400114: Waist
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -177,11 +151,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-<<<<<<< HEAD
     globalScale: 1
-=======
-    globalScale: 20
->>>>>>> dev
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -202,11 +172,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-<<<<<<< HEAD
     previousCalculatedGlobalScale: 0.01
-=======
-    previousCalculatedGlobalScale: 0.19999999
->>>>>>> dev
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60

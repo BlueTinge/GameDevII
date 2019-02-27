@@ -1,45 +1,16 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 847f554c6822af0418a3c12c5d4d8fb9
-=======
-guid: 7c66772cc67137d448783f13faf01cdd
->>>>>>> dev
+guid: e16f578969edb0c4b9234c9f95d7791a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Components_Combined_Armor_AssArmor
-    100002: Components_Combined_Armor_CrotchArmor
-    100004: Components_Combined_Armor_LeftHipArmor
-    100006: Components_Combined_Armor_LeftPauldron
-    100008: Components_Combined_Armor_RightHipArmor
-    100010: Components_Combined_Armor_RightPauldron
-    100012: //RootNode
-    400000: Components_Combined_Armor_AssArmor
-    400002: Components_Combined_Armor_CrotchArmor
-    400004: Components_Combined_Armor_LeftHipArmor
-    400006: Components_Combined_Armor_LeftPauldron
-    400008: Components_Combined_Armor_RightHipArmor
-    400010: Components_Combined_Armor_RightPauldron
-    400012: //RootNode
-    2100000: defaultPolygonShader2
-    2300000: Components_Combined_Armor_AssArmor
-    2300002: Components_Combined_Armor_CrotchArmor
-    2300004: Components_Combined_Armor_LeftHipArmor
-    2300006: Components_Combined_Armor_LeftPauldron
-    2300008: Components_Combined_Armor_RightHipArmor
-    2300010: Components_Combined_Armor_RightPauldron
-    3300000: Components_Combined_Armor_AssArmor
-    3300002: Components_Combined_Armor_CrotchArmor
-    3300004: Components_Combined_Armor_LeftHipArmor
-    3300006: Components_Combined_Armor_LeftPauldron
-    3300008: Components_Combined_Armor_RightHipArmor
-    3300010: Components_Combined_Armor_RightPauldron
-    4300000: Components_Combined_Armor_RightPauldron
-    4300002: Components_Combined_Armor_RightHipArmor
-    4300004: Components_Combined_Armor_LeftHipArmor
-    4300006: Components_Combined_Armor_LeftPauldron
-    4300008: Components_Combined_Armor_CrotchArmor
-    4300010: Components_Combined_Armor_AssArmor
+    100000: //RootNode
+    400000: //RootNode
+    2100000: lambert1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Body1
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -52,7 +23,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -60,7 +32,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -71,7 +43,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 20
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -92,8 +64,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.19999999
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -107,7 +79,12 @@ ModelImporter:
   humanDescription:
     serializedVersion: 2
     human: []
-    skeleton: []
+    skeleton:
+    - name: Player_UVFinished_Mesh2(Clone)
+      parentName: 
+      position: {x: -0, y: 0.96467584, z: 0.044153966}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
