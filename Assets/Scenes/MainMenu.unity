@@ -255,10 +255,10 @@ RectTransform:
   m_Father: {fileID: 1567471087}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -92}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.4144045, y: 0.097}
+  m_AnchorMax: {x: 0.58980906, y: 0.16900001}
+  m_AnchoredPosition: {x: -1.5, y: 6.399994}
+  m_SizeDelta: {x: 35, y: 7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &677803286
 MonoBehaviour:
@@ -333,8 +333,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 8f6d574099d5e8d4c8e5de114bc500ba, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -463,10 +463,10 @@ RectTransform:
   m_Father: {fileID: 1567471087}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.4144045, y: 0.29440442}
+  m_AnchorMax: {x: 0.581382, y: 0.37146083}
+  m_AnchoredPosition: {x: 1.5, y: 3.5}
+  m_SizeDelta: {x: 41, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1117203562
 MonoBehaviour:
@@ -541,8 +541,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 8f6d574099d5e8d4c8e5de114bc500ba, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1104,7 +1104,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4dac21cc4d11a7148816179b6c27dd98, type: 2}
+  - {fileID: 2100000, guid: 854416962ba1e7b4cb2dd5bf7b621894, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
