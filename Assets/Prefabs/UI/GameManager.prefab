@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &413507912588426024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 413507912588426026}
+  - component: {fileID: 413507912588426027}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &413507912588426026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413507912588426024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.8512626, y: 5.951333, z: -10.991522}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &413507912588426027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413507912588426024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c17db4b03468b74bbb9b6c7646d0b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuState: 0
+  PauseMenu: {fileID: 0}
+  JournalMenu: {fileID: 0}
+  Journal1Button: {fileID: 0}
+  Journal2Button: {fileID: 0}
+  Journal3Button: {fileID: 0}
+  Journal4Button: {fileID: 0}
+  Journal5Button: {fileID: 0}
+  JournalBackButton: {fileID: 0}
+  Player: {fileID: 0}
+  Journal1Data: {fileID: 4900000, guid: 8aebd52d2deb8314da8d2f2f7b709007, type: 3}
+  Journal2Data: {fileID: 4900000, guid: 148da5389f9fc7e449bf9d39b44f12a0, type: 3}
+  Journal3Data: {fileID: 4900000, guid: 7ea1279d48c96d64bb3efbc8094ce315, type: 3}
+  Journal4Data: {fileID: 4900000, guid: 879162799a24b924fb305b58c9f40de4, type: 3}
+  Journal5Data: {fileID: 4900000, guid: 28008bfc6c35c2749aea7dc89140fe7e, type: 3}
