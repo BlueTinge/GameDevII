@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public Slider HealthBarSlider;
     public Text img;
     public Text txt;
+    public bool AnyJournal = false;
     public bool JournalColllect1 = false;
 
 
@@ -333,6 +334,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 JournalColllect1 = true;
+                AnyJournal = true;
                 img.text = other.GetComponent<TextHolder>().TextData.ToString();
                 Destroy(other.gameObject);
                 txt.text = "";
