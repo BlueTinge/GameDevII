@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
                 camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
             }
 
-            if ((State == PlayerState.IDLE || State == PlayerState.WALKING || State == PlayerState.LIGHT_ATTACKING) && (Input.GetButtonDown(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
+            if ((State == PlayerState.IDLE || State == PlayerState.WALKING /*Disabled for vert slice|| State == PlayerState.LIGHT_ATTACKING */) && (Input.GetButtonDown(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
             {
                 PlayerAnimator.SetTrigger("Swing");
                 lastAttack.Restart();
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
                 UnityEngine.Debug.Log("Swing Attack");
             }
 
-            if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButtonDown(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
+            if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButtonDown(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown) && false)//disabled for vert slice
             {
                 PlayerAnimator.SetTrigger("Heavy");
                 lastAttack.Restart();
@@ -299,7 +299,7 @@ public class PlayerController : MonoBehaviour
         {
 
         }
-        return null;
+        yield return null;
     }
 
     public void OnDamage(float damage)
