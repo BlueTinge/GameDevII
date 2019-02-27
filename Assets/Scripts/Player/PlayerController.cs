@@ -114,120 +114,127 @@ public class PlayerController : MonoBehaviour
     //Check for player input for non-physics stuff every update
     void Update()
     {
-        if (Input.GetAxis(CamHoriz) != 0 || Input.GetAxis(CamVert) != 0)
+        if (UIManager.isInputEnabled)
         {
-            Vector3 ang = camRot.eulerAngles;
-            float pitch = ang.x + (camRotationSpeed * Input.GetAxis(CamVert) * Time.deltaTime);
-            if (Cam.transform.eulerAngles.x > 350 && pitch < ang.x) pitch = ang.x;
-            if (Cam.transform.eulerAngles.x < 350 && Cam.transform.eulerAngles.x > 85 && pitch > ang.x) pitch = ang.x;
-            camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
-        }
-
-        if ((State == PlayerState.IDLE || State == PlayerState.WALKING || State == PlayerState.LIGHT_ATTACKING) && (Input.GetButtonDown(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
-        {
-            PlayerAnimator.SetTrigger("Swing");
-            lastAttack.Restart();
-            State = PlayerState.LIGHT_ATTACKING;
-            //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
-
-            UnityEngine.Debug.Log("Swing Attack");
-        }
-
-        if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButtonDown(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
-        {
-            PlayerAnimator.SetTrigger("Heavy");
-            lastAttack.Restart();
-            State = PlayerState.HEAVY_ATTACKING;
-            //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
-
-            UnityEngine.Debug.Log("Heavy Attack");
-
-        }
-
-        //TODO move somewhere better? Invoke method in Equipment, maybe?
-        if (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown)
-        {
-            if (Input.GetButton(ItemButton))
+            if (Input.GetAxis(CamHoriz) != 0 || Input.GetAxis(CamVert) != 0)
             {
-                lastInteract.Restart();
-                ItemZone.GetComponent<Collider>().enabled = true;
-            }
-            else
-            {
-                ItemZone.GetComponent<Collider>().enabled = false;
+                Vector3 ang = camRot.eulerAngles;
+                float pitch = ang.x + (camRotationSpeed * Input.GetAxis(CamVert) * Time.deltaTime);
+                if (Cam.transform.eulerAngles.x > 350 && pitch < ang.x) pitch = ang.x;
+                if (Cam.transform.eulerAngles.x < 350 && Cam.transform.eulerAngles.x > 85 && pitch > ang.x) pitch = ang.x;
+                camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
             }
 
+            if ((State == PlayerState.IDLE || State == PlayerState.WALKING || State == PlayerState.LIGHT_ATTACKING) && (Input.GetButtonDown(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
+            {
+                PlayerAnimator.SetTrigger("Swing");
+                lastAttack.Restart();
+                State = PlayerState.LIGHT_ATTACKING;
+                //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
+
+                StartCoroutine(TargetNearestEnemy());
+
+                UnityEngine.Debug.Log("Swing Attack");
+            }
+
+            if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButtonDown(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
+            {
+                PlayerAnimator.SetTrigger("Heavy");
+                lastAttack.Restart();
+                State = PlayerState.HEAVY_ATTACKING;
+                //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
+
+                UnityEngine.Debug.Log("Heavy Attack");
+
+            }
+
+            //TODO move somewhere better? Invoke method in Equipment, maybe?
+            if (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown)
+            {
+                if (Input.GetButton(ItemButton))
+                {
+                    lastInteract.Restart();
+                    ItemZone.GetComponent<Collider>().enabled = true;
+                }
+                else
+                {
+                    ItemZone.GetComponent<Collider>().enabled = false;
+                }
+
+            }
         }
     }
 
     //Check for player input for physics stuff every fixed update
     void FixedUpdate()
     {
-
-        //whitelist of states we can move in
-        if (State == PlayerState.IDLE || State == PlayerState.WALKING)
+        if (UIManager.isInputEnabled)
         {
-            if (Input.GetAxis(MoveVert) != 0 || Input.GetAxis(MoveHoriz) != 0)
+            //whitelist of states we can move in
+            if (State == PlayerState.IDLE || State == PlayerState.WALKING)
             {
-                Vector3 inputForce = new Vector3(Input.GetAxis(MoveHoriz), 0, Input.GetAxis(MoveVert));
-                Quaternion moveDirection = Quaternion.Euler(0, camRot.eulerAngles.y, 0);
-
-                if ((Input.GetButton(DashButton) || Input.GetAxis(Trigger) < -0.2) && (!lastDash.IsRunning || lastDash.ElapsedMilliseconds > DashCooldown) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
+                if (Input.GetAxis(MoveVert) != 0 || Input.GetAxis(MoveHoriz) != 0)
                 {
-                    lastDash.Restart();
-                    UnityEngine.Debug.Log("Dash");
-                    StartCoroutine(Dash(moveDirection * inputForce));
-                }
-                else
-                {
-                    State = PlayerState.WALKING;
+                    Vector3 inputForce = new Vector3(Input.GetAxis(MoveHoriz), 0, Input.GetAxis(MoveVert));
+                    Quaternion moveDirection = Quaternion.Euler(0, camRot.eulerAngles.y, 0);
 
-                    //Move the player in the direction of the control stick relative to the camera
-                    //TODO: Evaluate whether player should be moved via forces, or just have its velocity modified directly.
-                    Body.AddForce(moveDirection * inputForce * WalkForce /* * Time.deltaTime*/);
-
-                    //WHENYOUWALKING
-
-                    if (audio.isPlaying == false)
+                    if ((Input.GetButton(DashButton) || Input.GetAxis(Trigger) < -0.2) && (!lastDash.IsRunning || lastDash.ElapsedMilliseconds > DashCooldown) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
                     {
-                        randomer = Random.Range(0, 5);
-                        audio.clip = steps[randomer];
-                        audio.Play();
-                    }
-
-                    //Find amount and direction player should rotate to/in
-                    Vector3 angFrom = Body.rotation.eulerAngles;
-                    Vector3 angTo = Quaternion.LookRotation(moveDirection * inputForce).eulerAngles;
-
-                    float sign = 0;
-                    if (angTo.y > angFrom.y)
-                    {
-                        if (angTo.y - angFrom.y >= 180) sign = -1;
-                        else sign = 1;
+                        lastDash.Restart();
+                        UnityEngine.Debug.Log("Dash");
+                        StartCoroutine(Dash(moveDirection * inputForce));
                     }
                     else
                     {
-                        if (angFrom.y - angTo.y >= 180) sign = 1;
-                        else sign = -1;
-                    }
+                        State = PlayerState.WALKING;
 
-                    if (Mathf.Abs(angFrom.y - angTo.y) < rotationSpeed * inputForce.magnitude)
-                    {
-                        Body.MoveRotation(Quaternion.Euler(new Vector3(angTo.x, angTo.y, angTo.z)));
+                        //Move the player in the direction of the control stick relative to the camera
+                        //TODO: Evaluate whether player should be moved via forces, or just have its velocity modified directly.
+                        Body.AddForce(moveDirection * inputForce * WalkForce /* * Time.deltaTime*/);
+
+                        //WHENYOUWALKING
+
+                        if (audio.isPlaying == false)
+                        {
+                            randomer = Random.Range(0, 5);
+                            audio.clip = steps[randomer];
+                            audio.Play();
+                        }
+
+                        //Find amount and direction player should rotate to/in
+                        Vector3 angFrom = Body.rotation.eulerAngles;
+                        Vector3 angTo = Quaternion.LookRotation(moveDirection * inputForce).eulerAngles;
+
+                        float sign = 0;
+                        if (angTo.y > angFrom.y)
+                        {
+                            if (angTo.y - angFrom.y >= 180) sign = -1;
+                            else sign = 1;
+                        }
+                        else
+                        {
+                            if (angFrom.y - angTo.y >= 180) sign = 1;
+                            else sign = -1;
+                        }
+
+                        if (Mathf.Abs(angFrom.y - angTo.y) < rotationSpeed * inputForce.magnitude)
+                        {
+                            Body.MoveRotation(Quaternion.Euler(new Vector3(angTo.x, angTo.y, angTo.z)));
+                        }
+                        else Body.MoveRotation(Quaternion.Euler(new Vector3(angFrom.x, angFrom.y + (sign * rotationSpeed * inputForce.magnitude), angFrom.z)));
                     }
-                    else Body.MoveRotation(Quaternion.Euler(new Vector3(angFrom.x, angFrom.y + (sign * rotationSpeed * inputForce.magnitude), angFrom.z)));
                 }
-            }
-            else State = PlayerState.IDLE;
+                else State = PlayerState.IDLE;
 
-            //max speed: the lazy way
-            //note that this does not apply in non-movement states (e.g. you can go flying if hurt, or go faster if dashing)
-            if (State == PlayerState.IDLE || State == PlayerState.WALKING)
-            {
-                if (Body.velocity.x > MaxSpeed) Body.velocity = new Vector3(MaxSpeed, Body.velocity.y, Body.velocity.z);
-                if (Body.velocity.z > MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, MaxSpeed);
-                if (Body.velocity.x < -MaxSpeed) Body.velocity = new Vector3(-MaxSpeed, Body.velocity.y, Body.velocity.z);
-                if (Body.velocity.z < -MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, -MaxSpeed);
+                //max speed: the lazy way
+                //note that this does not apply in non-movement states (e.g. you can go flying if hurt, or go faster if dashing)
+                if (State == PlayerState.IDLE || State == PlayerState.WALKING)
+                {
+                    if (Body.velocity.x > MaxSpeed) Body.velocity = new Vector3(MaxSpeed, Body.velocity.y, Body.velocity.z);
+                    if (Body.velocity.z > MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, MaxSpeed);
+                    if (Body.velocity.x < -MaxSpeed) Body.velocity = new Vector3(-MaxSpeed, Body.velocity.y, Body.velocity.z);
+                    if (Body.velocity.z < -MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, -MaxSpeed);
+                }
             }
         }
     }
@@ -262,6 +269,33 @@ public class PlayerController : MonoBehaviour
         Body.velocity = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(DashRecoveryTime);
         State = PlayerState.IDLE;
+    }
+
+    //Snap to nearest enemy and attack
+    //Both turn towards it and move towards it, depending on tweakables.
+    public IEnumerator TargetNearestEnemy()
+    {
+        //find closest enemy within range
+        GameObject closestEnemy = null;
+        float closestEnemyDistance = float.PositiveInfinity;
+
+        foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            if (ItemZone.GetComponent<Collider>().bounds.Contains(e.transform.position))
+            {
+                if(Vector3.Distance(transform.position, e.transform.position) < closestEnemyDistance)
+                {
+                    closestEnemy = e;
+                    closestEnemyDistance = Vector3.Distance(transform.position, e.transform.position);
+                }
+            }
+        }
+
+        if(closestEnemy != null)
+        {
+
+        }
+        return null;
     }
 
     public void OnDamage(float damage)
