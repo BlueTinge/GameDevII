@@ -40,6 +40,10 @@ public class PlayerController : MonoBehaviour
     public Text txt;
     public bool AnyJournal = false;
     public bool JournalColllect1 = false;
+    public bool JournalColllect2 = false;
+    public bool JournalColllect3 = false;
+    public bool JournalColllect4 = false;
+    public bool JournalColllect5 = false;
 
 
     //input axis/sticks
