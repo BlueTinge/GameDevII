@@ -2450,6 +2450,10 @@ MonoBehaviour:
   HeavyAttackForce: 500
   InteractCooldown: 500
   HealthBarSlider: {fileID: 0}
+  img: {fileID: 0}
+  txt: {fileID: 0}
+  AnyJournal: 0
+  JournalColllect1: 0
   MoveHoriz: LeftHoriz
   MoveVert: LeftVert
   CamHoriz: RightHoriz
