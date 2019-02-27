@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
     public long InteractCooldown = 500;
 
     public Slider HealthBarSlider;
+    public Text img;
+    public Text txt;
+    public bool JournalColllect1 = false;
+
 
     //input axis/sticks
     //separated in case we want specific options for joysticks vs. keyb/mouse
@@ -102,7 +106,9 @@ public class PlayerController : MonoBehaviour
         steps.Add(footstep4);
         steps.Add(footstep5);
         steps.Add(footstep6);
-}
+
+        img.gameObject.SetActive(false);
+    }
 
     //Check for player input for non-physics stuff every update
     void Update()
@@ -115,7 +121,7 @@ public class PlayerController : MonoBehaviour
             if (Cam.transform.eulerAngles.x < 350 && Cam.transform.eulerAngles.x > 85 && pitch > ang.x) pitch = ang.x;
             camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
         }
-        
+
         if ((State == PlayerState.IDLE || State == PlayerState.WALKING || State == PlayerState.LIGHT_ATTACKING) && (Input.GetButtonDown(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
         {
             PlayerAnimator.SetTrigger("Swing");
@@ -138,7 +144,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //TODO move somewhere better? Invoke method in Equipment, maybe?
-        if (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown) 
+        if (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown)
         {
             if (Input.GetButton(ItemButton))
             {
@@ -158,7 +164,7 @@ public class PlayerController : MonoBehaviour
     {
 
         //whitelist of states we can move in
-        if(State == PlayerState.IDLE || State == PlayerState.WALKING)
+        if (State == PlayerState.IDLE || State == PlayerState.WALKING)
         {
             if (Input.GetAxis(MoveVert) != 0 || Input.GetAxis(MoveHoriz) != 0)
             {
@@ -181,7 +187,7 @@ public class PlayerController : MonoBehaviour
 
                     //WHENYOUWALKING
 
-                    if(audio.isPlaying == false)
+                    if (audio.isPlaying == false)
                     {
                         randomer = Random.Range(0, 5);
                         audio.clip = steps[randomer];
@@ -215,7 +221,7 @@ public class PlayerController : MonoBehaviour
 
             //max speed: the lazy way
             //note that this does not apply in non-movement states (e.g. you can go flying if hurt, or go faster if dashing)
-            if(State == PlayerState.IDLE || State == PlayerState.WALKING)
+            if (State == PlayerState.IDLE || State == PlayerState.WALKING)
             {
                 if (Body.velocity.x > MaxSpeed) Body.velocity = new Vector3(MaxSpeed, Body.velocity.y, Body.velocity.z);
                 if (Body.velocity.z > MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, MaxSpeed);
@@ -232,11 +238,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(State == PlayerState.DASHING)
+        if (State == PlayerState.DASHING)
         {
             //This code prevents dashing into objects to send them flying, but is sloppy and may introduce bugs
             //TODO: edit this code so that you can't stop every rb from moving just by dashing into it 
-            if(collision.rigidbody!=null)collision.rigidbody.velocity = new Vector3(0, 0, 0);
+            if (collision.rigidbody != null) collision.rigidbody.velocity = new Vector3(0, 0, 0);
             Body.velocity = new Vector3(0, 0, 0);
         }
     }
@@ -268,7 +274,7 @@ public class PlayerController : MonoBehaviour
             Invoke("SetStateIdle", 0.5f);
             Instantiate(damagesound);
 
-            
+
         }
     }
 
@@ -280,7 +286,7 @@ public class PlayerController : MonoBehaviour
         audio.clip = deathsound;
         audio.Play();
 
-        foreach (Attack a in GetComponent<Equipment>().CurrentWeapon.GetComponents<Attack>()) {Destroy(a);}
+        foreach (Attack a in GetComponent<Equipment>().CurrentWeapon.GetComponents<Attack>()) { Destroy(a); }
     }
 
 
@@ -318,4 +324,20 @@ public class PlayerController : MonoBehaviour
             PlayerAnimator.SetTrigger("Idle");
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Journal")
+        {
+            txt.text = "Press E to pick up";
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                JournalColllect1 = true;
+                img.text = other.GetComponent<TextHolder>().TextData.ToString();
+                Destroy(other.gameObject);
+                txt.text = "";
+            }
+        }
+    }
 }
+

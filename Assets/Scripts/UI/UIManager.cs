@@ -6,9 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    bool paused = false;
+    //bool paused = false;
+
     public Transform PauseMenu;
     public Transform JournalMenu;
+    public Transform Journal1Button;
+
+    public GameObject Player;
+    
+
+    void Start()
+    {
+
+    }
 
     void Update()
     {
@@ -43,13 +53,22 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Journal()
+    public void JournalButton()
     {
         PauseMenu.gameObject.SetActive(false);
         JournalMenu.gameObject.SetActive(true);
+        
+        if (Player.GetComponent<PlayerController>().JournalColllect1 == true)
+        {
+            Journal1Button.gameObject.SetActive(true);
+        }
 
     }
 
+    public void Journal1()
+    {
+        Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+    }
     public void Pressed()
     {
         Debug.Log("I am pressed");

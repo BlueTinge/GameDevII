@@ -7,6 +7,7 @@ TagManager:
   - Weapon
   - ItemZone
   - Enemy
+  - Journal
   layers:
   - Default
   - TransparentFX
