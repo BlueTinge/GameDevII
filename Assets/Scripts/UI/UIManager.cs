@@ -11,10 +11,21 @@ public class UIManager : MonoBehaviour
     public Transform PauseMenu;
     public Transform JournalMenu;
     public Transform Journal1Button;
+    public Transform Journal2Button;
+    public Transform Journal3Button;
+    public Transform Journal4Button;
+    public Transform Journal5Button;
+
     public Transform JournalBackButton;
 
     public GameObject Player;
-    
+
+    public TextAsset Journal1Data;
+    public TextAsset Journal2Data;
+    public TextAsset Journal3Data;
+    public TextAsset Journal4Data;
+    public TextAsset Journal5Data;
+
 
     void Start()
     {
@@ -50,6 +61,10 @@ public class UIManager : MonoBehaviour
             {
                 Player.GetComponent<PlayerController>().img.gameObject.SetActive(false);
                 Journal1Button.gameObject.SetActive(true);
+                Journal2Button.gameObject.SetActive(true);
+                Journal3Button.gameObject.SetActive(true);
+                Journal4Button.gameObject.SetActive(true);
+                Journal5Button.gameObject.SetActive(true);
                 JournalBackButton.gameObject.SetActive(false);
                 MenuState -= 1;
             }
@@ -85,13 +100,86 @@ public class UIManager : MonoBehaviour
         {
             Journal1Button.gameObject.SetActive(true);
         }
+        if (Player.GetComponent<PlayerController>().JournalColllect2 == true)
+        {
+            Journal2Button.gameObject.SetActive(true);
+        }
+        if (Player.GetComponent<PlayerController>().JournalColllect3 == true)
+        {
+            Journal3Button.gameObject.SetActive(true);
+        }
+        if (Player.GetComponent<PlayerController>().JournalColllect4 == true)
+        {
+            Journal4Button.gameObject.SetActive(true);
+        }
+        if (Player.GetComponent<PlayerController>().JournalColllect5 == true)
+        {
+            Journal5Button.gameObject.SetActive(true);
+        }
 
     }
 
-    public void Journal1()
+    public void Journal1Menu()
     {
+        Player.GetComponent<PlayerController>().img.text = Journal1Data.ToString();
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
         Journal1Button.gameObject.SetActive(false);
+        Journal2Button.gameObject.SetActive(false);
+        Journal3Button.gameObject.SetActive(false);
+        Journal4Button.gameObject.SetActive(false);
+        Journal5Button.gameObject.SetActive(false);
+        JournalBackButton.gameObject.SetActive(true);
+        MenuState += 1;
+    }
+
+    public void Journal2Menu()
+    {
+        Player.GetComponent<PlayerController>().img.text = Journal2Data.ToString();
+        Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        Journal1Button.gameObject.SetActive(false);
+        Journal2Button.gameObject.SetActive(false);
+        Journal3Button.gameObject.SetActive(false);
+        Journal4Button.gameObject.SetActive(false);
+        Journal5Button.gameObject.SetActive(false);
+        JournalBackButton.gameObject.SetActive(true);
+        MenuState += 1;
+    }
+
+    public void Journal3Menu()
+    {
+        Player.GetComponent<PlayerController>().img.text = Journal3Data.ToString();
+        Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        Journal1Button.gameObject.SetActive(false);
+        Journal2Button.gameObject.SetActive(false);
+        Journal3Button.gameObject.SetActive(false);
+        Journal4Button.gameObject.SetActive(false);
+        Journal5Button.gameObject.SetActive(false);
+        JournalBackButton.gameObject.SetActive(true);
+        MenuState += 1;
+    }
+
+    public void Journal4Menu()
+    {
+        Player.GetComponent<PlayerController>().img.text = Journal4Data.ToString();
+        Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        Journal1Button.gameObject.SetActive(false);
+        Journal2Button.gameObject.SetActive(false);
+        Journal3Button.gameObject.SetActive(false);
+        Journal4Button.gameObject.SetActive(false);
+        Journal5Button.gameObject.SetActive(false);
+        JournalBackButton.gameObject.SetActive(true);
+        MenuState += 1;
+    }
+
+    public void Journal5Menu()
+    {
+        Player.GetComponent<PlayerController>().img.text = Journal5Data.ToString();
+        Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        Journal1Button.gameObject.SetActive(false);
+        Journal2Button.gameObject.SetActive(false);
+        Journal3Button.gameObject.SetActive(false);
+        Journal4Button.gameObject.SetActive(false);
+        Journal5Button.gameObject.SetActive(false);
         JournalBackButton.gameObject.SetActive(true);
         MenuState += 1;
     }
