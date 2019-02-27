@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager ActiveUIManager;
+
     public int MenuState = 0;
 
     public Transform PauseMenu;
@@ -27,6 +29,8 @@ public class UIManager : MonoBehaviour
     public TextAsset Journal5Data;
 
 
+    public static bool isInputEnabled = true;
+
     void Start()
     {
 
@@ -41,6 +45,7 @@ public class UIManager : MonoBehaviour
                 PauseMenu.gameObject.SetActive(true);
                 Time.timeScale = 0f;
                 MenuState += 1;
+                StartCoroutine(SetInputActive());
             }
 
             else if (MenuState == 1 & PauseMenu.gameObject.activeInHierarchy == true)
@@ -48,6 +53,7 @@ public class UIManager : MonoBehaviour
                 PauseMenu.gameObject.SetActive(false);
                 Time.timeScale = 1f;
                 MenuState -= 1;
+                isInputEnabled = false;
             }
 
             else if (PauseMenu.gameObject.activeInHierarchy == false & MenuState == 2)
@@ -83,6 +89,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
         Debug.Log("I am Continuing");
         MenuState -= 1;
+        StartCoroutine(SetInputActive());
     }
 
     public void Restart()
@@ -205,5 +212,14 @@ public class UIManager : MonoBehaviour
     public void Pressed()
     {
         Debug.Log("I am pressed");
+    }
+
+    private IEnumerator SetInputActive()
+    {
+        yield return new WaitForFixedUpdate();
+        yield return new WaitForFixedUpdate();
+
+        isInputEnabled = true;
+        Debug.Log(isInputEnabled);
     }
 }

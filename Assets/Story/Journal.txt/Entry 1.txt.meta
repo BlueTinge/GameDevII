@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Story/Iustum's Journal/Entry1.txt.meta
+<<<<<<< HEAD
+guid: 173e83475a7c03644a590e2a9446178d
+=======
+guid: 9917e34ba42d45b47a208577f906ffa9
+>>>>>>> dev
+=======
 guid: 8aebd52d2deb8314da8d2f2f7b709007
+>>>>>>> dev:Assets/Story/Journal.txt/Entry 1.txt.meta
 TextScriptImporter:
   externalObjects: {}
   userData: 
