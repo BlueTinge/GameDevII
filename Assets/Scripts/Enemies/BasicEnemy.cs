@@ -43,6 +43,13 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     public Image HealthBar;
 
+    AudioSource audio;
+    public AudioClip walkingsfx;
+    public AudioClip windupsfx;
+    public AudioClip attacksfx;
+    public AudioClip hurtingsfx;
+    public AudioClip diessfx;
+
     void Awake()
     {
         shouldJump = false;
@@ -52,6 +59,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     }
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         healthStats = GetComponent<HealthStats>();
@@ -204,6 +212,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     public void Attack()
     {
+        audio.clip = attacksfx;
+        audio.Play();
         animator.SetBool("windup", false);
         animator.SetBool("attacking", true);
         hurtBox.AddComponent<Attack>().Initialize(5, (targetPos - transform.position).normalized,
@@ -223,6 +233,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     private void Windup()
     {
+        audio.clip = windupsfx;
+        audio.Play();
         animator.SetBool("windup", true);
         animator.SetBool("attacking", false);
     }
