@@ -520,6 +520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: attacksfx
       value: 
-      objectReference: {fileID: 8300000, guid: e5914767c951b6042934c485df8b7733, type: 3}
+      objectReference: {fileID: 8300000, guid: 09b4c18b8694d0f45a8640a0b2758355, type: 3}
+    - target: {fileID: 3818841895341921836, guid: a4e519558f4b62241af4bedd7348243c,
+        type: 3}
+      propertyPath: walkingsfx
+      value: 
+      objectReference: {fileID: 8300000, guid: a5099e0e5eb63bf46b03ae3a2265bf70, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4e519558f4b62241af4bedd7348243c, type: 3}

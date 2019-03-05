@@ -213,6 +213,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     public void Attack()
     {
         audio.clip = attacksfx;
+        audio.volume = 1f;
         audio.Play();
         animator.SetBool("windup", false);
         animator.SetBool("attacking", true);
@@ -222,6 +223,9 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     public void Move()
     {
+        audio.clip = walkingsfx;
+        audio.volume = 0.7f;
+        audio.Play();
         shouldJump = true;
         animator.SetBool("moving", true);
     }
@@ -234,6 +238,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     private void Windup()
     {
         audio.clip = windupsfx;
+        audio.volume = 1f;
         audio.Play();
         animator.SetBool("windup", true);
         animator.SetBool("attacking", false);
