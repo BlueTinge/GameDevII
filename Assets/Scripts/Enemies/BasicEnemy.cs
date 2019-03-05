@@ -47,7 +47,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     public AudioClip walkingsfx;
     public AudioClip windupsfx;
     public AudioClip attacksfx;
-    public AudioClip hurtingsfx;
+    public GameObject hurtingsfx;
+    public bool hurting = false;
     public AudioClip diessfx;
 
     void Awake()
@@ -213,7 +214,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     public void Attack()
     {
         audio.clip = attacksfx;
-        audio.volume = 1f;
+        audio.volume = 0.7f;
         audio.Play();
         animator.SetBool("windup", false);
         animator.SetBool("attacking", true);
@@ -246,6 +247,9 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     private void Die()
     {
+        audio.clip = diessfx;
+        audio.volume = 1f;
+        audio.Play();
         animator.SetBool("dead", true);
         dead = true;
         deathTime = Time.time;
@@ -253,16 +257,21 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     private IEnumerator TakeDamage()
     {
+        if(hurting == false)
+        {
+            Instantiate(hurtingsfx);
+            hurting = true;
+        }
         HealthBar.fillAmount = healthStats.CurrentHealth / healthStats.MaxHealth;
         foreach (var v in renderer.materials)
         {
             v.color = Color.red;
         }
         yield return new WaitForSeconds(healthStats.GetImmunity());
-        for(int i = 0; i < colors.Length; ++i)
+        for (int i = 0; i < colors.Length; ++i)
         {
             renderer.materials[i].color = colors[i];
         }
-
+        hurting = false;
     }
 }

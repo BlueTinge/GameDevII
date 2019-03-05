@@ -526,5 +526,16 @@ PrefabInstance:
       propertyPath: walkingsfx
       value: 
       objectReference: {fileID: 8300000, guid: a5099e0e5eb63bf46b03ae3a2265bf70, type: 3}
+    - target: {fileID: 3818841895341921836, guid: a4e519558f4b62241af4bedd7348243c,
+        type: 3}
+      propertyPath: hurtingsfx
+      value: 
+      objectReference: {fileID: 8034661767974578478, guid: ba4f5bfa9c3812947b57817cb417561f,
+        type: 3}
+    - target: {fileID: 3818841895341921836, guid: a4e519558f4b62241af4bedd7348243c,
+        type: 3}
+      propertyPath: diessfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 9650949d39b167a4c8c7526566417a72, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4e519558f4b62241af4bedd7348243c, type: 3}
