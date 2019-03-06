@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4b2389ecad14ebe4fb3c7fb1804d9882
+guid: df551ed0f7b8366409309d83d748fe18
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -155,8 +155,7 @@ ModelImporter:
     400146: PlayerReference:SwordOffset
     400148: PlayerReference:Swordtip
     400150: PlayerReference:Waist
-    2100000: lambert1
-    2100002: PlayerReference_defaultPolygonShader2
+    2100000: PlayerReference_defaultPolygonShader2
     2300000: PlayerReference:Components_Combined_Armor_AssArmor
     2300002: PlayerReference:Components_Combined_Armor_CrotchArmor
     2300004: PlayerReference:Components_Combined_Armor_LeftHipArmor
@@ -169,16 +168,14 @@ ModelImporter:
     3300006: PlayerReference:Components_Combined_Armor_LeftPauldron
     3300008: PlayerReference:Components_Combined_Armor_RightHipArmor
     3300010: PlayerReference:Components_Combined_Armor_RightPauldron
-    4300000: PlayerReference:Body
-    4300002: PlayerReference:Components_Combined_Armor_RightPauldron
-    4300004: PlayerReference:Components_Combined_Armor_RightHipArmor
-    4300006: PlayerReference:Components_Combined_Armor_LeftHipArmor
-    4300008: PlayerReference:Components_Combined_Armor_LeftPauldron
-    4300010: PlayerReference:Components_Combined_Armor_CrotchArmor
-    4300012: PlayerReference:Components_Combined_Armor_AssArmor
+    4300000: PlayerReference:Components_Combined_Armor_RightPauldron
+    4300002: PlayerReference:Components_Combined_Armor_RightHipArmor
+    4300004: PlayerReference:Components_Combined_Armor_LeftHipArmor
+    4300006: PlayerReference:Components_Combined_Armor_LeftPauldron
+    4300008: PlayerReference:Components_Combined_Armor_CrotchArmor
+    4300010: PlayerReference:Components_Combined_Armor_AssArmor
     7400000: Take 001
     9500000: //RootNode
-    13700000: PlayerReference:Body
   externalObjects: {}
   materials:
     importMaterials: 1
