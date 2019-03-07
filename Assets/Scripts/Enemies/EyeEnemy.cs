@@ -15,16 +15,30 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     private EyeCharge laserCharge;
     private HealthStats healthStats;
     private Rigidbody rb;
+    private Transform target;
 
-    void Start()
+    void Awake()
     {
         healthStats = GetComponent<HealthStats>();
         laserCharge = GetComponentInChildren<EyeCharge>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        behaviorTree = new BehaviorTree
+        (
+            new SequenceTask(new ITreeTask[]
+            {
+                new BasicAttack(this, windupTime),
+                new DelayTask(coolDown)
+            })
+        );
     }
 
     void Update()
     {
-        
+        Vector3 dir = target.position - transform.position;
+        dir.y = 0;
+        transform.rotation = Quaternion.LookRotation(dir.normalized, Vector3.up);
+ 
+        behaviorTree.Update();
     }
 
     void FixedUpdate()

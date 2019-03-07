@@ -36,7 +36,7 @@ public class EyeCharge : MonoBehaviour
         transform.localScale = initalSize * Mathf.Clamp01(scale);
         if(Time.time - triggerTime >= chargeTime)
         {
-            isComplete = true;
+            Fire();
         }
     }
 
