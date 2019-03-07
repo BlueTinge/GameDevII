@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 7301254376286689025}
-  swing: {fileID: 8300000, guid: 44d6f968062f59d4cb5b4a5f5e40285f, type: 3}
+  swing: {fileID: 0}
   BaseDamage: 5
   BaseKnockback: 400
   IsPhysical: 0
@@ -199,7 +199,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243508324460447356, guid: 3ee3c89aace150347acf7504ad166b2c,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 44d6f968062f59d4cb5b4a5f5e40285f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2b5fdb794c930cf4e835d1e88433c558, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
