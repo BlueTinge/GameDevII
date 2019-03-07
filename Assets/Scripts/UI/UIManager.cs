@@ -204,6 +204,10 @@ public class UIManager : MonoBehaviour
         {
             Player.GetComponent<PlayerController>().img.gameObject.SetActive(false);
             Journal1Button.gameObject.SetActive(true);
+            Journal2Button.gameObject.SetActive(true);
+            Journal3Button.gameObject.SetActive(true);
+            Journal4Button.gameObject.SetActive(true);
+            Journal5Button.gameObject.SetActive(true);
             JournalBackButton.gameObject.SetActive(false);
             MenuState -= 1;
         }
