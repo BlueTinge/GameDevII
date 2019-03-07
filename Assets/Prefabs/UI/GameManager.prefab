@@ -53,7 +53,7 @@ MonoBehaviour:
   Journal5Button: {fileID: 0}
   JournalBackButton: {fileID: 0}
   Player: {fileID: 0}
-  Journal1Data: {fileID: 4900000, guid: 8aebd52d2deb8314da8d2f2f7b709007, type: 3}
+  Journal1Data: {fileID: 4900000, guid: 173e83475a7c03644a590e2a9446178d, type: 3}
   Journal2Data: {fileID: 4900000, guid: 148da5389f9fc7e449bf9d39b44f12a0, type: 3}
   Journal3Data: {fileID: 4900000, guid: 7ea1279d48c96d64bb3efbc8094ce315, type: 3}
   Journal4Data: {fileID: 4900000, guid: 879162799a24b924fb305b58c9f40de4, type: 3}
