@@ -4,8 +4,6 @@ using UnityEngine;
 
 public abstract class LevelComponent
 {
-    public virtual LevelComponent Parent { get; set; }
-
     public bool IsTranslated { get; set; }
 
     /**
@@ -15,20 +13,14 @@ public abstract class LevelComponent
     public abstract void Translate();
 }
 
+public abstract class NodeComponent : LevelComponent
+{
+    public Node Parent { get; set; }
+}
+
 public abstract class EdgeComponent : LevelComponent
 {
-    public new Edge Parent
-    {
-        get
-        {
-            return this.Parent;
-        }
-
-        set
-        {
-            this.Parent = value;
-        }
-    }
+    public Edge Parent { get; set; }
 
     public abstract bool IsOrientationLegal(Orientation o);
 

@@ -46,7 +46,7 @@ public class Edge : LevelComponent
         while (d != CS.GetWiddershins(CS.GetLeftDirection(Or), CS.GetForwardDirection(Or)))
         {
             d = CS.GetClockwise(d, CS.GetForwardDirection(Or));
-            ls.Add(CS.GetUnityCoordinates(CS.Translate(ls[ls.Count], d, 1f)));
+            ls.Add(CS.GetUnityCoordinates(CS.Translate(ls[ls.Count-1], d, 1f)));
         }
 
         return ls.ToArray();
@@ -71,15 +71,7 @@ public class Edge : LevelComponent
     //Return direction-edge pairs, in clockwise order, intersecting with this edge at dir
     public Tuple<Direction, Edge>[] GetEdgesAt(Direction dir)
     {
-        List <Tuple <Direction, Edge >> ls = new List<Tuple<Direction, Edge>>();
-        if (CS.IsLeft(Or, dir))
-        {
-            Edge current = Backward.Edges[Backward.CS.ToInt(CS.GetLeftDirection(Or))];
-        }
-        else if (CS.IsRight(Or, dir))
-        {
-
-        }
+        return CS.GetEdgesAt(node1,node2,dir);
     }
 
     public bool IsPassable(Direction dir, List<int> keys)

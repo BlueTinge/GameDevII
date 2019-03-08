@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,11 +11,11 @@ public class Cartesian : ICoordSystem
     public Node[,,] Nodes;
     public Edge[,,,] Edges;
 
-    public int XDim;
-    public int YDim;
-    public int ZDim;
+    public float XDim;
+    public float YDim;
+    public float ZDim;
 
-    public Cartesian(Transform origin, int numX, int numY, int numZ, int xDim, int yDim, int zDim)
+    public Cartesian(Transform origin, int numX, int numY, int numZ, float xDim, float yDim, float zDim)
     {
         Origin = origin;
         Nodes = new Node[numX, numY, numZ];
@@ -36,11 +37,11 @@ public class Cartesian : ICoordSystem
         }
 
         //make edge grid
-        for (int x = 0; x < numX; x++)
+        for (int x = 0; x <= numX; x++)
         {
-            for (int y = 0; y < numY; y++)
+            for (int y = 0; y <= numY; y++)
             {
-                for (int z = 0; z < numZ; z++)
+                for (int z = 0; z <= numZ; z++)
                 {
                     Edges[x, y, z, ToInt(Orientation.WEST_TO_EAST)] = new Edge(this, new Vector3(x-1, y, z), new Vector3(x, y, z));
                     Edges[x, y, z, ToInt(Orientation.SOUTH_TO_NORTH)] = new Edge(this, new Vector3(x, y, z), new Vector3(x, y, z-1));
@@ -137,20 +138,26 @@ public class Cartesian : ICoordSystem
         Vector3 backward_coords = GetBackward(or, node1, node2);
 
         Edges[(int)coords.x, (int)coords.y, (int)coords.z, ToInt(or)] = edge;
-        edge.Forward = Nodes[(int)coords.x, (int)coords.y, (int)coords.z];
-        edge.Backward = Nodes[(int)backward_coords.x, (int)backward_coords.y, (int)backward_coords.z];
+        if (IsValidNode(coords))
+        {
+            edge.Forward = Nodes[(int)coords.x, (int)coords.y, (int)coords.z];
+            Nodes[(int)coords.x, (int)coords.y, (int)coords.z].Edges[ToInt(GetBackwardDirection(or))] = edge;
+        }
+        if (IsValidNode(backward_coords))
+        {
+            Nodes[(int)backward_coords.x, (int)backward_coords.y, (int)backward_coords.z].Edges[ToInt(GetForwardDirection(or))] = edge;
+            edge.Backward = Nodes[(int)backward_coords.x, (int)backward_coords.y, (int)backward_coords.z];
+        }
 
         edge.node1 = backward_coords;
         edge.node2 = coords;
-
-        Nodes[(int)coords.x, (int)coords.y, (int)coords.z].Edges[ToInt(GetBackwardDirection(or))] = edge;
-        Nodes[(int)backward_coords.x, (int)backward_coords.y, (int)backward_coords.z].Edges[ToInt(GetForwardDirection(or))] = edge;
     }
 
     //Get the node at these co-ordinates
     public Node GetNode(Vector3 coords)
     {
-        return Nodes[(int)coords.x, (int)coords.y, (int)coords.z];
+        if (IsValidNode(coords)) return Nodes[(int)coords.x, (int)coords.y, (int)coords.z];
+        else return null;
     }
 
     //Get the edge between these two node co-ordinates
@@ -183,6 +190,52 @@ public class Cartesian : ICoordSystem
     {
         Orientation o = GetOrientation(node1, node2);
         return GetEdge(Translate(GetForward(o, node1, node2), GetRightDirection(o), 1f), GetForwardDirection(o));
+    }
+    //Return direction-edge pairs intersecting with the edge at node1/node2 on side dir
+    //Direction supplied points outward from vertex
+    public Tuple<Direction, Edge>[] GetEdgesAt(Vector3 node1, Vector3 node2, Direction dir)
+    {
+        Orientation or = GetOrientation(node1, node2);
+
+        List<Tuple<Direction, Edge>> ls = new List<Tuple<Direction, Edge>>();
+
+        if (IsLeft(or, dir))
+        {
+            Vector3 node3 = Translate(node2, dir, 1f);  // n4 | n3
+            Vector3 node4 = Translate(node1, dir, 1f);  // n1 | n2
+
+            if (IsValidEdge(node1, node2)) ls.Add(Tuple.Create(GetInverse(dir), GetEdge(node1, node2)));
+            if (IsValidEdge(node1, node4)) ls.Add(Tuple.Create(GetWiddershins(dir, Direction.DOWN), GetEdge(node1, node4)));
+            if (IsValidEdge(node3, node4)) ls.Add(Tuple.Create(dir, GetEdge(node3, node4)));
+            if (IsValidEdge(node2, node3)) ls.Add(Tuple.Create(GetClockwise(dir, Direction.DOWN), GetEdge(node2, node3)));
+
+            return ls.ToArray();
+        }
+        else if (IsRight(or, dir))
+        {
+            Vector3 node3 = Translate(node2, dir, 1f);  // n1 | n2
+            Vector3 node4 = Translate(node1, dir, 1f);  // n4 | n3
+
+            if (IsValidEdge(node1, node2)) ls.Add(Tuple.Create(GetInverse(dir), GetEdge(node1, node2)));
+            if (IsValidEdge(node1, node4)) ls.Add(Tuple.Create(GetClockwise(dir, Direction.DOWN), GetEdge(node1, node4)));
+            if (IsValidEdge(node3, node4)) ls.Add(Tuple.Create(dir, GetEdge(node3, node4)));
+            if (IsValidEdge(node2, node3)) ls.Add(Tuple.Create(GetWiddershins(dir, Direction.DOWN), GetEdge(node2, node3)));
+
+            return ls.ToArray();
+
+        } else return new Tuple<Direction, Edge>[] { };
+    }
+
+    public bool IsValidNode(Vector3 node)
+    {
+        if (node.x >= 0 && node.y > 0 && node.z >= 0 &&
+           node.x < Nodes.Length && node.y < Nodes.GetLength(1) && node.z < Nodes.GetLength(2)) return true;
+        else return false;
+    }
+
+    public bool IsValidEdge(Vector3 node1, Vector3 node2)
+    {
+        return IsValidNode(node1) || IsValidNode(node2);
     }
 
     //Translate origin in dir by distance

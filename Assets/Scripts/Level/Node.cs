@@ -11,13 +11,13 @@ public class Node : LevelComponent
     public ICoordSystem CS { get; protected set; }
     public Vector3 Coords { get; set; }
     public Edge[] Edges; //invariant: none of these are null (once they have been assigned)
-    public List<LevelComponent> Components { get; protected set; }
+    public List<NodeComponent> Components { get; protected set; }
 
     public Node(ICoordSystem _coordSystem, Vector3 coords)
     {
         CS = _coordSystem;
         Edges = new Edge[CS.GetLegalDirections().Length];
-        Components = new List<LevelComponent>();
+        Components = new List<NodeComponent>();
     }
 
     public List<Node> GetAdjNodes()
@@ -81,14 +81,14 @@ public class Node : LevelComponent
         return null;
     }
 
-    public bool AddComponent(LevelComponent c)
+    public bool AddComponent(NodeComponent c)
     {
         c.Parent = this;
         Components.Add(c);
         return true;
     }
 
-    public List<LevelComponent> GetComponents()
+    public List<NodeComponent> GetComponents()
     {
         return Components;
     }
@@ -97,7 +97,7 @@ public class Node : LevelComponent
     {
         IsTranslated = true;
 
-        foreach (LevelComponent c in Components)
+        foreach (NodeComponent c in Components)
         {
             if (!c.IsTranslated) c.Translate();
         }

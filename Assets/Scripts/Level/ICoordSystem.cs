@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,6 +39,16 @@ public interface ICoordSystem
     Edge GetEdgeLeftOf(Vector3 node1, Vector3 node2);
     //Get the edge just right (relative to its orientation) of these two node co-ordinates
     Edge GetEdgeRightOf(Vector3 node1, Vector3 node2);
+    //Return direction-edge pairs, in clockwise order, intersecting with this edge at dir
+    Tuple<Direction, Edge>[] GetEdgesAt(Vector3 node1, Vector3 node2, Direction dir);
+
+    /// <summary>
+    /// True if the node co-ordinates point to a valid node, false otherwise
+    /// </summary>
+    /// <param name="node"></param>
+    /// <returns></returns>
+    bool IsValidNode(Vector3 node);
+    bool IsValidEdge(Vector3 node1, Vector3 node2);
 
     //Translate origin in dir by distance
     Vector3 Translate(Vector3 origin, Direction dir, float distance);

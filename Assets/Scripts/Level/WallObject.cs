@@ -6,8 +6,8 @@ using UnityEngine;
 public class WallObject : MonoBehaviour
 {
     public Mesh Mesh;
-    private List<Vector3> Vertices;
-    private List<int> Triangles;
+    public List<Vector3> Vertices;
+    public List<int> Triangles;
 
     // Start is called before the first frame update
     void Start()

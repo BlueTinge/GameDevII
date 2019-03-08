@@ -9,7 +9,7 @@ public class Wall : EdgeComponent
     public WallObject WallObject;
     public float Thickness;
 
-    Wall(WallObject wallObject, float thickness)
+    public Wall(WallObject wallObject, float thickness)
     {
         WallObject = wallObject;
         Thickness = thickness;
