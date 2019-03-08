@@ -69,7 +69,7 @@ public class Edge : LevelComponent
     }
 
     //Return direction-edge pairs, in clockwise order, intersecting with this edge at dir
-    public Tuple<Direction, Edge>[] GetEdgesAt(Direction dir)
+    public Tuple<Direction, Edge>[]GetEdgesAt(Direction dir)
     {
         List <Tuple <Direction, Edge >> ls = new List<Tuple<Direction, Edge>>();
         if (CS.IsLeft(Or, dir))
