@@ -4,93 +4,102 @@ using UnityEngine;
 
 //Represents a "zone" of a level, whether that is a room, corridor, or designated space
 //Adjacent to other zones via edges
+//Nodes are intended to be "holders" of other LevelComponents
 
-public abstract class Node<C> : ILevelComponent where C : ICoordSystem
+public class Node : LevelComponent
 {
-    public C cs { get; protected set; }
-    public Vector3 Coords { get; protected set; }
-    public Edge<C>[] Edges; //invariant: none of these are null (once they have been assigned)
-    public List<ILevelComponent> Components { get; protected set; }
+    public ICoordSystem CS { get; protected set; }
+    public Vector3 Coords { get; set; }
+    public Edge[] Edges; //invariant: none of these are null (once they have been assigned)
+    public List<LevelComponent> Components { get; protected set; }
 
-    public Node(C _coordSystem, Vector3 coords)
+    public Node(ICoordSystem _coordSystem, Vector3 coords)
     {
-        cs = _coordSystem;
-        cs.AssignNode<C>(this, coords);
-        Edges = new Edge<C>[cs.GetLegalDirections().Length];
-        Components = new List<ILevelComponent>();
+        CS = _coordSystem;
+        Edges = new Edge[CS.GetLegalDirections().Length];
+        Components = new List<LevelComponent>();
     }
 
-    public List<Node<C>> GetAdjNodes()
+    public List<Node> GetAdjNodes()
     {
-        List<Node<C>> ls = new List<Node<C>>();
-        foreach (Direction d in cs.GetLegalDirections())
+        List<Node> ls = new List<Node>();
+        foreach (Direction d in CS.GetLegalDirections())
         {
-            if(Edges[(int)d].GetNode(d) != null)
+            if(Edges[CS.ToInt(d)].GetNode(d) != null)
             {
-                ls.Add(Edges[(int)d].GetNode(d));
+                ls.Add(Edges[CS.ToInt(d)].GetNode(d));
             }
         }
         return ls;
     }
 
-    public List<Node<C>> GetPassableNodes()
+    public List<Node> GetPassableNodes()
     {
         return GetPassableNodes(new List<int>());
     }
 
-    public List<Node<C>> GetPassableNodes(List<int> keys)
+    public List<Node> GetPassableNodes(List<int> keys)
     {
-        List<Node<C>> ls = new List<Node<C>>();
-        foreach (Direction d in cs.GetLegalDirections())
+        List<Node> ls = new List<Node>();
+        foreach (Direction d in CS.GetLegalDirections())
         {
-            if (Edges[(int)d].GetNode(d) != null && Edges[(int)d].IsPassable(d, keys))
+            if (Edges[CS.ToInt(d)].GetNode(d) != null && Edges[CS.ToInt(d)].IsPassable(d, keys))
             {
-                ls.Add(Edges[(int)d].GetNode(d));
+                ls.Add(Edges[CS.ToInt(d)].GetNode(d));
             }
         }
         return ls;
     }
 
-    public List<Edge<C>> GetAdjEdges()
+    public List<Edge> GetAdjEdges()
     {
-        return new List<Edge<C>>(Edges);
+        return new List<Edge>(Edges);
     }
 
-    public Node<C> GetNode(Direction dir)
+    public Node GetNode(Direction dir)
     {
-        foreach (Direction d in cs.GetLegalDirections()){
+        foreach (Direction d in CS.GetLegalDirections()){
             if (d == dir)
             {
                 //is valid direction
-                return Edges[(int)dir].GetNode(dir);
+                return Edges[CS.ToInt(dir)].GetNode(dir);
             }
         }
         return null;
     }
 
-    public Edge<C> GetEdge(Direction dir)
+    public Edge GetEdge(Direction dir)
     {
-        foreach (Direction d in cs.GetLegalDirections())
+        foreach (Direction d in CS.GetLegalDirections())
         {
             if (d == dir)
             {
                 //is valid direction
-                return Edges[(int)dir];
+                return Edges[CS.ToInt(dir)];
             }
         }
         return null;
     }
 
-    public bool AddComponent(ILevelComponent c)
+    public bool AddComponent(LevelComponent c)
     {
+        c.Parent = this;
         Components.Add(c);
         return true;
     }
 
-    public List<ILevelComponent> GetComponents()
+    public List<LevelComponent> GetComponents()
     {
         return Components;
     }
 
-    public abstract void Translate();
+    public override void Translate()
+    {
+        IsTranslated = true;
+
+        foreach (LevelComponent c in Components)
+        {
+            if (!c.IsTranslated) c.Translate();
+        }
+    }
 }
