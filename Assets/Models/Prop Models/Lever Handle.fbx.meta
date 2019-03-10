@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8551c246d02bdd44dae5540d90675ada
+guid: abe81e5ab71b2fc49a0af18f9bc27a01
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     2100000: lambert1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Long_Table
+    4300000: Lever
   externalObjects: {}
   materials:
     importMaterials: 1
