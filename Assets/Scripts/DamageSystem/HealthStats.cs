@@ -86,7 +86,7 @@ public class HealthStats : MonoBehaviour
     //potential solution: check for collisions in attack, when attack is initialized?
     //  --this "solution" does not account for immunity when you first collide w/ an attack, and immunity ending afterwards. 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         Attack attack = other.gameObject.GetComponentInParent<Attack>();
         if (attack != null)
@@ -95,7 +95,7 @@ public class HealthStats : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionStay(Collision other)
     {
         Attack attack = other.gameObject.GetComponentInParent<Attack>();
         if (attack != null)

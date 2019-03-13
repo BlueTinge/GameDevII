@@ -34,8 +34,14 @@ public class Projectile : MonoBehaviour
         rb.velocity = transform.forward * speed;
     }
 
-    // void OnCollisionEnter(Collision c)
-    // {
-    //     Destroy(gameObject);
-    // }
+    private void OnCollisionEnter(Collision c)
+    {
+        StartCoroutine(Kill());
+    }
+
+    private IEnumerator Kill()
+    {
+        yield return new WaitForEndOfFrame();
+        Destroy(gameObject);
+    }
 }

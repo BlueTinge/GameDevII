@@ -23,6 +23,8 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     [SerializeField]private float focusTime;
     [SerializeField]private float coolDown;
     [SerializeField]private float range;
+    // [SerializeField]private AudioClip chargesound;
+    // [SerializeField]private AudioClip shootsound;
     private BehaviorTree behaviorTree;
     private EyeCharge laserCharge;
     private HealthStats healthStats;
@@ -34,9 +36,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     private bool canTurn;
     private new MeshRenderer renderer;
     private Color[] colors;
-    public AudioSource audio;
-    public AudioClip chargesound;
-    public AudioClip shootsound;
+    // private AudioSource audio;
 
     void Awake()
     {
@@ -77,7 +77,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
         healthStats = GetComponent<HealthStats>();
         healthStats.OnDeath = (overkill) => {Die();};
         healthStats.OnDamage = (damage) => {StartCoroutine(TakeDamage());};
-        audio = GetComponent<AudioSource>();
+        //audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -215,9 +215,9 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     {
         if(!laserCharge.IsTriggered())
         {
-            print("GO");
-            audio.clip = chargesound;
-            audio.Play();
+            // print("GO");
+            // audio.clip = chargesound;
+            // audio.Play();
             laserCharge.SetChargeTime(windupTime);
             laserCharge.Trigger();
         }
