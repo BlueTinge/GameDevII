@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     public bool JournalColllect4 = false;
     public bool JournalColllect5 = false;
 
+    public int NumPotions { get; set; }
 
     //input axis/sticks
     //separated in case we want specific options for joysticks vs. keyb/mouse
@@ -129,7 +130,7 @@ public class PlayerController : MonoBehaviour
                 camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
             }
 
-            if ((State == PlayerState.IDLE || State == PlayerState.WALKING /*Disabled for vert slice|| State == PlayerState.LIGHT_ATTACKING */) && (Input.GetButtonDown(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
+            if ((State == PlayerState.IDLE || State == PlayerState.WALKING || State == PlayerState.LIGHT_ATTACKING) && (Input.GetButtonDown(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
             {
                 PlayerAnimator.SetTrigger("Swing");
                 lastAttack.Restart();
@@ -141,7 +142,7 @@ public class PlayerController : MonoBehaviour
                 UnityEngine.Debug.Log("Swing Attack");
             }
 
-            if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButtonDown(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown) && false)//disabled for vert slice
+            if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButtonDown(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
             {
                 PlayerAnimator.SetTrigger("Heavy");
                 lastAttack.Restart();
