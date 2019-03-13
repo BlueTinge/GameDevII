@@ -25,6 +25,8 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     [SerializeField]private float range;
     // [SerializeField]private AudioClip chargesound;
     // [SerializeField]private AudioClip shootsound;
+    [SerializeField]private GameObject spawnOnDeath;
+
     private BehaviorTree behaviorTree;
     private EyeCharge laserCharge;
     private HealthStats healthStats;
@@ -225,6 +227,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
 
     private void Die()
     {
+        if(spawnOnDeath) Instantiate(spawnOnDeath, transform.position, Quaternion.identity);`
         Destroy(gameObject);
     }
 
