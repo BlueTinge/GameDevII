@@ -306,7 +306,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnDamage(float damage)
     {
-        HealthBarSlider.value -= damage;
+        // HealthBarSlider.value -= damage;
         if (State != PlayerState.DEATH && damage > 0)
         {
             State = PlayerState.HURT;

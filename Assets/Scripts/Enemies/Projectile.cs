@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Attack>().Initialize(damage, Vector3.zero, killTime, gameObject);
+        GetComponent<Attack>().Initialize(damage, Vector3.zero, 0, gameObject);
         startTime = Time.time;
     }
 
@@ -34,8 +34,14 @@ public class Projectile : MonoBehaviour
         rb.velocity = transform.forward * speed;
     }
 
-    public void OnCollisionEnter()
+    private void OnCollisionEnter(Collision c)
     {
+        StartCoroutine(Kill());
+    }
+
+    private IEnumerator Kill()
+    {
+        yield return new WaitForEndOfFrame();
         Destroy(gameObject);
     }
 }

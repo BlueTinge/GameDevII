@@ -15,6 +15,7 @@ public class ColorFlash : MonoBehaviour
         mr = GetComponent<MeshRenderer>();
         index = 0;
         switchTime = Time.time;
+        Switch();
     }
 
     // Update is called once per frame
@@ -23,12 +24,17 @@ public class ColorFlash : MonoBehaviour
         if(Time.time - switchTime > switchDelay)
         {
             switchTime = Time.time;
-            for(int i = 0; i < mr.materials.Length; ++i)
-            {
-                mr.materials[i].color = colors[index];
-            }
-            ++index;
-            index %= colors.Length;
+            Switch();
         }
+    }
+
+    void Switch()
+    {
+        for(int i = 0; i < mr.materials.Length; ++i)
+        {
+            mr.materials[i].color = colors[index];
+        }
+        ++index;
+        index %= colors.Length;
     }
 }

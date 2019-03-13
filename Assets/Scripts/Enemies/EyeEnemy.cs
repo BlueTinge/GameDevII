@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Stargaze.AI;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(HealthStats))]
+[RequireComponent(typeof(MeshRenderer))]
 public class EyeEnemy : MonoBehaviour, IEnemy
 {
     [SerializeField]private float moveTime;
@@ -13,42 +15,56 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     [SerializeField]private float slowRadius;
     [SerializeField]private float targetRadius;
     [SerializeField]private float accelTime;
+    [SerializeField]private float maxOmega;
+    [SerializeField]protected float maxAlpha;
+    [SerializeField]protected float slowDistance;
     [SerializeField]private float goalDistance;
     [SerializeField]private float windupTime;
+    [SerializeField]private float focusTime;
     [SerializeField]private float coolDown;
+    [SerializeField]private float range;
+    // [SerializeField]private AudioClip chargesound;
+    // [SerializeField]private AudioClip shootsound;
     private BehaviorTree behaviorTree;
     private EyeCharge laserCharge;
     private HealthStats healthStats;
     private Rigidbody rb;
     private Transform target;
     private Vector3 accel;
+    private float alpha;
     private bool canMove;
-    public AudioSource audio;
-    public AudioClip chargesound;
-    public AudioClip shootsound;
+    private bool canTurn;
+    private new MeshRenderer renderer;
+    private Color[] colors;
+    // private AudioSource audio;
 
     void Awake()
     {
-        healthStats = GetComponent<HealthStats>();
         laserCharge = GetComponentInChildren<EyeCharge>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         accel = Vector3.zero;
         canMove = true;
         behaviorTree = new BehaviorTree
         (
-            new SequenceTask(new ITreeTask[]
+            new SelectorTask(new ITreeTask[]
             {
-                new WhileTask
-                (
-                    new NotTask
+                new SequenceTask(new ITreeTask[]
+                {
+                    new CloseTo(transform, target, range),
+                    new WhileTask
                     (
-                        new DelayTask(moveTime)
+                        new NotTask
+                        (
+                            new DelayTask(moveTime)
+                        ),
+                        new BasicMove(this, 0)
                     ),
-                    new BasicMove(this, 0)
-                ),
-                new CallTask(() => {EndMove(); return true;}),
-                new BasicAttack(this, windupTime),
-                new DelayTask(coolDown)
+                    new CallTask(() => {EndMove(); return true;}),
+                    new BasicAttack(this, windupTime - focusTime),
+                    new CallTask(() => {EndTurn(); return true;}),
+                    new DelayTask(coolDown + focusTime)
+                }),
+                new CallTask(() => {EndMove(); EndTurn(); return true;})
             })
         );
     }
@@ -56,22 +72,39 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        audio = GetComponent<AudioSource>();
+        renderer = GetComponent<MeshRenderer>();
+        colors = renderer.materials.Select(m => m.color).ToArray();
+        healthStats = GetComponent<HealthStats>();
+        healthStats.OnDeath = (overkill) => {Die();};
+        healthStats.OnDamage = (damage) => {StartCoroutine(TakeDamage());};
+        //audio = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        Vector3 dir = target.position - transform.position;
-        dir.y = 0;
-        transform.rotation = Quaternion.LookRotation(dir.normalized, Vector3.up);
- 
         behaviorTree.Update();
     }
 
     void FixedUpdate()
     {
+        if(transform.up != Vector3.up)
+        {
+            rb.MoveRotation(Quaternion.LookRotation(new Vector3(transform.forward.x, 0, transform.forward.z)));
+        }
+
         if(!canMove) Stop();
         rb.AddForce(accel, ForceMode.Acceleration);
+
+        if(canTurn)
+        {
+            Face();
+        }
+        else
+        {
+            StopTurn();
+        }
+
+        rb.AddTorque(alpha * Vector3.up, ForceMode.Acceleration);
     }
 
     public bool Target()
@@ -81,6 +114,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     public void Move()
     {
         canMove = true;
+        canTurn = true;
         Vector3 dir = transform.position - target.position;
         dir.y = 0;
         dir = dir.normalized * goalDistance;
@@ -113,6 +147,35 @@ public class EyeEnemy : MonoBehaviour, IEnemy
         }
     }
 
+    private void Face()
+    {
+        Vector3 dir = target.position - transform.position;
+        dir.y = 0;
+        dir = dir.normalized;
+        float angle = Vector3.SignedAngle(transform.forward, dir, Vector3.up) * Mathf.Deg2Rad;
+        float rotationSize = Mathf.Abs(angle);
+
+        float targetOmega = 0;
+        if(rotationSize > slowDistance)
+        {
+            targetOmega = maxOmega * Mathf.Sign(angle);
+        }
+        
+        else
+        {
+            targetOmega = maxOmega * angle / slowDistance;
+        }
+        
+        float targetAlpha = (targetOmega - rb.angularVelocity.y)/accelTime;
+        
+        if(Mathf.Abs(targetAlpha) > maxAlpha)
+        {
+            targetAlpha = Mathf.Sign(targetAlpha) * maxAlpha;
+        }
+        
+        alpha = targetAlpha;
+    }
+
     private void Stop()
     {
         if(rb.velocity.sqrMagnitude <= accelTime * accelTime * maxAccel * maxAccel)
@@ -125,20 +188,56 @@ public class EyeEnemy : MonoBehaviour, IEnemy
             accel = -maxAccel * rb.velocity.normalized;
         }
     }
+
+    private void StopTurn()
+    {
+        if(Mathf.Abs(rb.angularVelocity.y) <= accelTime * maxAlpha)
+        {
+            alpha = 0;
+            rb.angularVelocity = Vector3.zero;
+        }
+        else
+        {
+            alpha = -maxAlpha;
+        }
+    }
+
     public void EndMove()
     {
         canMove = false;
+    }
+    private void EndTurn()
+    {
+        canTurn = false;
     }
 
     public void Attack()
     {
         if(!laserCharge.IsTriggered())
         {
-            print("GO");
-            audio.clip = chargesound;
-            audio.Play();
+            // print("GO");
+            // audio.clip = chargesound;
+            // audio.Play();
             laserCharge.SetChargeTime(windupTime);
             laserCharge.Trigger();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    private IEnumerator TakeDamage()
+    {
+        foreach (var v in renderer.materials)
+        {
+            v.color = Color.red;
+        }
+        yield return new WaitForSeconds(healthStats.GetImmunity());
+        for (int i = 0; i < colors.Length; ++i)
+        {
+            renderer.materials[i].color = colors[i];
         }
     }
 }

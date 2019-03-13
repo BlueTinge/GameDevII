@@ -8,7 +8,7 @@ public class HealthStats : MonoBehaviour
     public float Defense = 0;
     public float BaseImmunityPeriod = 1f;
 
-    protected float _currentHealth;
+    [SerializeField]protected float _currentHealth;
     public float CurrentHealth
     {
         get { return _currentHealth; }
