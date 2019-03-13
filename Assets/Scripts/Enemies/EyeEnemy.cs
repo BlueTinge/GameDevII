@@ -23,6 +23,9 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     private Transform target;
     private Vector3 accel;
     private bool canMove;
+    public AudioSource audio;
+    public AudioClip chargesound;
+    public AudioClip shootsound;
 
     void Awake()
     {
@@ -53,6 +56,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -130,6 +134,9 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     {
         if(!laserCharge.IsTriggered())
         {
+            print("GO");
+            audio.clip = chargesound;
+            audio.Play();
             laserCharge.SetChargeTime(windupTime);
             laserCharge.Trigger();
         }
