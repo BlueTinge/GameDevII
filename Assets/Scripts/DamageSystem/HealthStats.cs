@@ -8,7 +8,7 @@ public class HealthStats : MonoBehaviour
     public float Defense = 0;
     public float BaseImmunityPeriod = 1f;
 
-    protected float _currentHealth;
+    [SerializeField]protected float _currentHealth;
     public float CurrentHealth
     {
         get { return _currentHealth; }
@@ -86,7 +86,7 @@ public class HealthStats : MonoBehaviour
     //potential solution: check for collisions in attack, when attack is initialized?
     //  --this "solution" does not account for immunity when you first collide w/ an attack, and immunity ending afterwards. 
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         Attack attack = other.gameObject.GetComponentInParent<Attack>();
         if (attack != null)
@@ -95,7 +95,7 @@ public class HealthStats : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision other)
+    private void OnCollisionEnter(Collision other)
     {
         Attack attack = other.gameObject.GetComponentInParent<Attack>();
         if (attack != null)

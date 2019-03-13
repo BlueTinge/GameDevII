@@ -748,9 +748,14 @@ MonoBehaviour:
   slowRadius: 0.5
   targetRadius: 0
   accelTime: 0.1
+  maxOmega: 6
+  maxAlpha: 12
+  slowDistance: 2
   goalDistance: 5
   windupTime: 1
+  focusTime: 0.1
   coolDown: 0.5
+  range: 10
 --- !u!114 &2085931506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -763,9 +768,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc5e913b2a69af4fadd9f8ca6df3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 5
+  MaxHealth: 10
   Defense: 0
   BaseImmunityPeriod: 1
+  _currentHealth: 0
   isImmune: 0
 --- !u!54 &2085931507
 Rigidbody:
