@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad5f0725f8d63324985f9fb7ba891082
+guid: 562e878b13758924586d921d44f09273
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     2100000: lambert1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Wood
+    4300000: Gate_Lever
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -48,7 +48,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    swapUVChannels: 1
+    swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1

@@ -105,6 +105,13 @@ MonoBehaviour:
     m_RotationOrder: 4
   hurtBox: {fileID: 7595083516547303340}
   HealthBar: {fileID: 4446883826677053214}
+  walkingsfx: {fileID: 8300000, guid: a5099e0e5eb63bf46b03ae3a2265bf70, type: 3}
+  windupsfx: {fileID: 8300000, guid: 7ad8455395744a94f86c41ea4908d188, type: 3}
+  attacksfx: {fileID: 8300000, guid: 09b4c18b8694d0f45a8640a0b2758355, type: 3}
+  hurtingsfx: {fileID: 8034661767974578478, guid: ba4f5bfa9c3812947b57817cb417561f,
+    type: 3}
+  hurting: 0
+  diessfx: {fileID: 8300000, guid: 9650949d39b167a4c8c7526566417a72, type: 3}
 --- !u!114 &7817360383801815265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +127,6 @@ MonoBehaviour:
   MaxHealth: 15
   Defense: 1
   BaseImmunityPeriod: 0.5
-  _currentHealth: 0
   isImmune: 0
 --- !u!65 &2470776492243205333
 BoxCollider:
@@ -303,6 +309,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932325429489359764, guid: 0710ddd1f319b2e4db68b72850de8e11,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0016645233
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0710ddd1f319b2e4db68b72850de8e11, type: 3}

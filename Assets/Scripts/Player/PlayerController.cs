@@ -262,7 +262,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator Dash(Vector3 Direction)
     {
         State = PlayerState.DASHING;
-
+        PlayerAnimator.SetBool("IsDashing", true);
         Instantiate(dashsound);
 
         Body.velocity = Direction.normalized * DashSpeed;
@@ -271,6 +271,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(DashTime);
         PlayerHealth.isImmune = false;
         Body.velocity = new Vector3(0, 0, 0);
+        PlayerAnimator.SetBool("IsDashing", false);
         yield return new WaitForSeconds(DashRecoveryTime);
         State = PlayerState.IDLE;
     }
