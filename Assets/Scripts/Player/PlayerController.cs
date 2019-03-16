@@ -340,6 +340,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator MakeLightAttack(float ttl)
     {
+        print("SWING1");
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl);
         yield return new WaitForSeconds(ttl);
         if (State == PlayerState.LIGHT_ATTACKING) State = PlayerState.IDLE;
