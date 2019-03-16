@@ -38,7 +38,9 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     private bool canTurn;
     private new MeshRenderer renderer;
     private Color[] colors;
-    // private AudioSource audio;
+    private AudioSource audio;
+    public AudioClip takesdamagesoundeffect;
+    public AudioClip diessoundeffect;
 
     void Awake()
     {
@@ -79,7 +81,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
         healthStats = GetComponent<HealthStats>();
         healthStats.OnDeath = (overkill) => {Die();};
         healthStats.OnDamage = (damage) => {StartCoroutine(TakeDamage());};
-        //audio = GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -227,12 +229,14 @@ public class EyeEnemy : MonoBehaviour, IEnemy
 
     private void Die()
     {
-        if(spawnOnDeath) Instantiate(spawnOnDeath, transform.position, Quaternion.identity);`
+        if(spawnOnDeath) Instantiate(spawnOnDeath, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
     private IEnumerator TakeDamage()
     {
+        audio.clip = takesdamagesoundeffect;
+        audio.Play();
         foreach (var v in renderer.materials)
         {
             v.color = Color.red;
