@@ -14,7 +14,7 @@ public class HealthStats : MonoBehaviour
         get { return _currentHealth; }
         set
         {
-            if (!isImmune)
+            if (!isImmune || value > _currentHealth)
             {
                 _currentHealth = value;
                 if (_currentHealth <= 0) OnDeath(_currentHealth);

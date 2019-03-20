@@ -148,6 +148,7 @@ MonoBehaviour:
   MaxHealth: 1000
   Defense: 0
   BaseImmunityPeriod: 1
+  _currentHealth: 0
   isImmune: 0
 --- !u!65 &94173932
 BoxCollider:
@@ -282,6 +283,7 @@ MonoBehaviour:
   MaxHealth: 20
   Defense: 0
   BaseImmunityPeriod: 1
+  _currentHealth: 0
   isImmune: 0
 --- !u!54 &108592769
 Rigidbody:
@@ -607,6 +609,97 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &395793599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 395793603}
+  - component: {fileID: 395793602}
+  - component: {fileID: 395793601}
+  - component: {fileID: 395793600}
+  m_Layer: 0
+  m_Name: Ramp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &395793600
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395793599}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &395793601
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395793599}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &395793602
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395793599}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &395793603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395793599}
+  m_LocalRotation: {x: -0.14793397, y: -0, z: -0, w: 0.9889972}
+  m_LocalPosition: {x: 2.1617317, y: -0.54, z: 7.31}
+  m_LocalScale: {x: 3.836, y: 0.45299, z: 3.0412}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: -17.014, y: 0, z: 0}
 --- !u!1 &465736324
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +826,7 @@ MonoBehaviour:
   MaxHealth: 20
   Defense: 0
   BaseImmunityPeriod: 1
+  _currentHealth: 0
   isImmune: 0
 --- !u!114 &465736331
 MonoBehaviour:
@@ -1307,6 +1401,7 @@ MonoBehaviour:
   MaxHealth: 20
   Defense: 0
   BaseImmunityPeriod: 1
+  _currentHealth: 0
   isImmune: 0
 --- !u!54 &1359960384
 Rigidbody:
@@ -1474,6 +1569,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361793089}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1373882863
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1994556432, guid: 114e664197791fd4d8260646df74bb27, type: 3}
+      propertyPath: m_Name
+      value: Healing Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994556436, guid: 114e664197791fd4d8260646df74bb27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.272
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994556436, guid: 114e664197791fd4d8260646df74bb27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.133
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994556436, guid: 114e664197791fd4d8260646df74bb27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.291
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994556436, guid: 114e664197791fd4d8260646df74bb27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994556436, guid: 114e664197791fd4d8260646df74bb27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994556436, guid: 114e664197791fd4d8260646df74bb27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994556436, guid: 114e664197791fd4d8260646df74bb27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994556436, guid: 114e664197791fd4d8260646df74bb27, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994556436, guid: 114e664197791fd4d8260646df74bb27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994556436, guid: 114e664197791fd4d8260646df74bb27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994556436, guid: 114e664197791fd4d8260646df74bb27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 114e664197791fd4d8260646df74bb27, type: 3}
 --- !u!1001 &1376363382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1936,6 +2088,7 @@ MonoBehaviour:
   MaxHealth: 15
   Defense: 1
   BaseImmunityPeriod: 0.5
+  _currentHealth: 0
   isImmune: 0
 --- !u!114 &1883649079
 MonoBehaviour:
@@ -5861,4 +6014,5 @@ MonoBehaviour:
   MaxHealth: 15
   Defense: 1
   BaseImmunityPeriod: 0.5
+  _currentHealth: 0
   isImmune: 0

@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public GameObject ReferenceFrame;
     public Camera Cam;
     public Animator PlayerAnimator;
+    public ParticleSystem HealParticleSystem;
 
     public float WalkForce;
     public float MaxSpeed;
@@ -45,7 +46,8 @@ public class PlayerController : MonoBehaviour
     public bool JournalColllect4 = false;
     public bool JournalColllect5 = false;
 
-    public int NumPotions { get; set; }
+    public int NumPotions = 0;
+    public float HealAmount = 10;
 
     //input axis/sticks
     //separated in case we want specific options for joysticks vs. keyb/mouse
@@ -66,6 +68,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public string DashButton = "Dash";
     [HideInInspector]
+    public string HealButton = "Heal";
+    [HideInInspector]
     public string Trigger = "Trigger";
 
     public PlayerState State = PlayerState.IDLE;
@@ -79,6 +83,7 @@ public class PlayerController : MonoBehaviour
     private Stopwatch lastAttack = new Stopwatch();
     private Stopwatch lastDash = new Stopwatch();
     private Stopwatch lastInteract = new Stopwatch();
+    private Stopwatch lastHeal = new Stopwatch();
 
     public AudioSource audio;
     public AudioClip footstep1;
@@ -165,7 +170,12 @@ public class PlayerController : MonoBehaviour
                 {
                     ItemZone.GetComponent<Collider>().enabled = false;
                 }
+            }
 
+            if ((!lastHeal.IsRunning || lastHeal.ElapsedMilliseconds > InteractCooldown) && Input.GetButton(HealButton))
+            {
+                lastHeal.Restart();
+                StartCoroutine(UsePotion());
             }
         }
     }
@@ -277,6 +287,25 @@ public class PlayerController : MonoBehaviour
         State = PlayerState.IDLE;
     }
 
+    //Attempt to use potion
+    public IEnumerator UsePotion()
+    {
+        if(NumPotions > 0 && PlayerHealth.CurrentHealth < PlayerHealth.MaxHealth)
+        {
+            NumPotions--;
+            PlayerHealth.CurrentHealth = Mathf.Min(PlayerHealth.CurrentHealth + HealAmount, PlayerHealth.MaxHealth);
+            HealParticleSystem.Play();
+            yield return new WaitForSeconds(HealParticleSystem.main.startLifetime.constant+1);
+            HealParticleSystem.Stop();
+        }
+        else
+        {
+            //TODO: play sound for when you have no potions
+        }
+
+        yield return null;
+    }
+
     //Snap to nearest enemy and attack
     //Both turn towards it and move towards it, depending on tweakables.
     public IEnumerator TargetNearestEnemy()
@@ -303,6 +332,7 @@ public class PlayerController : MonoBehaviour
         }
         yield return null;
     }
+
 
     public void OnDamage(float damage)
     {
