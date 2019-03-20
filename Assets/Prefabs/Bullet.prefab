@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1613766380158486836}
   - component: {fileID: 298985197592335910}
   - component: {fileID: 981137819032127369}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 8709138522009908040}
   - component: {fileID: 8709138522009908047}
   - component: {fileID: 8709138522009908046}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Flasher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
