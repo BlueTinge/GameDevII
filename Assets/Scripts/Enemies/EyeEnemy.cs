@@ -18,7 +18,8 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     [SerializeField]private float maxOmega;
     [SerializeField]protected float maxAlpha;
     [SerializeField]protected float slowDistance;
-    [SerializeField]private float goalDistance;
+    [SerializeField]private float minGoalDistance;
+    [SerializeField]private float maxGoalDistance;
     [SerializeField]private float windupTime;
     [SerializeField]private float focusTime;
     [SerializeField]private float coolDown;
@@ -38,6 +39,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     private bool canTurn;
     private new MeshRenderer renderer;
     private Color[] colors;
+    private float goalDistance;
     private AudioSource audio;
     public AudioClip takesdamagesoundeffect;
     public AudioClip diessoundeffect;
@@ -55,6 +57,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
                 new SequenceTask(new ITreeTask[]
                 {
                     new CloseTo(transform, target, range),
+                    new CallTask(() => {goalDistance = Random.Range(minGoalDistance, maxGoalDistance);  return true;}),
                     new WhileTask
                     (
                         new NotTask
