@@ -19,13 +19,22 @@ public class Potion : MonoBehaviour
         
     }
 
+    public void CollectThis(PlayerController pl)
+    {
+        if (pl == null) return;
+
+        pl.NumPotions++;
+
+        canCollect = false;
+
+        Destroy(gameObject);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (canCollect && other.tag.Equals("ItemZone") && other.GetComponentInParent<Equipment>() != null)
         {
-            canCollect = false;
-            other.GetComponentInParent<PlayerController>().NumPotions++;
-
+            CollectThis(other.GetComponentInParent<PlayerController>());
         }
     }
 }
