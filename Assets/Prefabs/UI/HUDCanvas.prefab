@@ -195,7 +195,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+          type: 3}
         m_MethodName: Journal5Menu
         m_Mode: 1
         m_Arguments:
@@ -690,7 +691,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+          type: 3}
         m_MethodName: Back
         m_Mode: 1
         m_Arguments:
@@ -819,7 +821,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+          type: 3}
         m_MethodName: Journal1Menu
         m_Mode: 1
         m_Arguments:
@@ -1043,7 +1046,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+          type: 3}
         m_MethodName: Journal3Menu
         m_Mode: 1
         m_Arguments:
@@ -1267,7 +1271,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+          type: 3}
         m_MethodName: JournalBack
         m_Mode: 1
         m_Arguments:
@@ -1871,7 +1876,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+          type: 3}
         m_MethodName: Journal2Menu
         m_Mode: 1
         m_Arguments:
@@ -2000,7 +2006,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+          type: 3}
         m_MethodName: Journal4Menu
         m_Mode: 1
         m_Arguments:
@@ -2511,7 +2518,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+          type: 3}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -2714,7 +2722,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+          type: 3}
         m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
@@ -3212,7 +3221,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+          type: 3}
         m_MethodName: JournalButton
         m_Mode: 1
         m_Arguments:
@@ -3436,7 +3446,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+          type: 3}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
