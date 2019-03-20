@@ -150,11 +150,12 @@ MonoBehaviour:
   maxOmega: 6
   maxAlpha: 12
   slowDistance: 2
-  goalDistance: 5
+  minGoalDistance: 5
+  maxGoalDistance: 10
   windupTime: 1
   focusTime: 0.1
   coolDown: 0.5
-  range: 10
+  range: 15
   spawnOnDeath: {fileID: 0}
   takesdamagesoundeffect: {fileID: 8300000, guid: e9bc3ae4b098b184e90fd764135f1671,
     type: 3}
