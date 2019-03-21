@@ -112,7 +112,7 @@ MonoBehaviour:
   hurtingsfx: {fileID: 8034661767974578478, guid: ba4f5bfa9c3812947b57817cb417561f,
     type: 3}
   hurting: 0
-  diessfx: {fileID: 8300000, guid: 7bbb17ed04b440240ab5a0f0cba99852, type: 3}
+  diessfx: {fileID: 8300000, guid: 9650949d39b167a4c8c7526566417a72, type: 3}
 --- !u!114 &7817360383801815265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,22 +455,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3818841895341921843}
     m_Modifications:
-    - target: {fileID: 100008, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100014, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100040, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 100052, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Name
       value: Reference_EnemyOnly1_Abomination2
@@ -488,6 +472,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
@@ -543,7 +531,15 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 100042, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100040, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
@@ -651,6 +647,10 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 7595083516547537800}
+    - target: {fileID: 100014, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Layer
       value: 2
