@@ -80,10 +80,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b5ef78b52433a43907558fb30f2ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  con: []
   Connected: []
   StartActive: 0
-  CanDeactivate: 1
+  CanDeactivate: 0
 --- !u!1 &5694379155339319103
 GameObject:
   m_ObjectHideFlags: 0
