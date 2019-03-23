@@ -11,9 +11,9 @@ public class PlayerAnimationEventProxy : MonoBehaviour
 {
     public PlayerController player;
 
-    public void MakeLightAttack(float ttl)
+    public void MakeLightAttack(AnimationEvent e)
     {
-        StartCoroutine(player.MakeLightAttack(ttl));
+        StartCoroutine(player.MakeLightAttack(e));
     }
 
     public void MakeHeavyAttack(float ttl)

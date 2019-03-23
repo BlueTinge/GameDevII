@@ -92,11 +92,13 @@ public class Weapon : MonoBehaviour
     //if theres a way to call these directly from a parent thatd be great
     //otherwise these methods are called from Equipment
 
-    public void MakeLightAttack(float ttl)
+    public void MakeLightAttack(float ttl, bool isSecondSwing)
     {
         //TODO: use rotation instead of velocity somehow
         gameObject.AddComponent<Attack>().Initialize(BaseDamage, (Holder.GetComponent<Rigidbody>().rotation * Vector3.forward) * BaseKnockback, ttl, Holder);
-        audio.Play();
+
+        if (!isSecondSwing) audio.Play();
+        //else audio.Play();
     }
 
     public void MakeHeavyAttack(float ttl)
