@@ -250,21 +250,22 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.15
-  m_Center: {x: 0, y: -0.05, z: 0}
---- !u!135 &4106244278811189342
-SphereCollider:
+  m_Radius: 0.2
+  m_Center: {x: -0.05, y: 0, z: 0}
+--- !u!136 &6633840291081328618
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7595083516547303332}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Height: 0.5
+  m_Direction: 1
+  m_Center: {x: 0.02, y: 0.1, z: 0}
 --- !u!135 &5739524806841078002
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -276,8 +277,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.15
-  m_Center: {x: 0, y: -0.05, z: 0}
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &1886062892679925235
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -290,7 +291,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: 0, y: -0.1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2839096229696711932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -647,6 +648,10 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 7595083516547537800}
+    - target: {fileID: 13700000, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 06949f4fc6ddee843b53bc8668bd6e6d, type: 3}
     - target: {fileID: 100014, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Layer
       value: 2
