@@ -179,8 +179,6 @@ public class PlayerController : MonoBehaviour
             if ((!lastHeal.IsRunning || lastHeal.ElapsedMilliseconds > InteractCooldown) && Input.GetButton(HealButton))
             {
                 lastHeal.Restart();
-                audio.clip = healsound;
-                audio.Play();
                 StartCoroutine(UsePotion());
             }
         }
@@ -293,11 +291,20 @@ public class PlayerController : MonoBehaviour
         State = PlayerState.IDLE;
     }
 
+    void playhealsound(AudioClip theclip)
+    {
+        audio = transform.GetChild(6).GetComponent<AudioSource>();
+        audio.clip = theclip;
+        audio.Play();
+        audio = GetComponent<AudioSource>();
+    }
+
     //Attempt to use potion
     public IEnumerator UsePotion()
     {
         if(NumPotions > 0 && PlayerHealth.CurrentHealth < PlayerHealth.MaxHealth)
         {
+            playhealsound(healsound);
             NumPotions--;
             PlayerHealth.CurrentHealth = Mathf.Min(PlayerHealth.CurrentHealth + HealAmount, PlayerHealth.MaxHealth);
             HealParticleSystem.Play();
@@ -307,6 +314,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             //TODO: play sound for when you have no potions
+            playhealsound(failedhealsound);
         }
 
         yield return null;
@@ -374,9 +382,12 @@ public class PlayerController : MonoBehaviour
     //Note that if ttls vary by weapon (not just weapon class or animation) this will need to be edited
     //Note that recovery animations should probably have a "set state idle" event after the attack finishes, as opposed to cramming it in the "make attack" methods
 
-    public IEnumerator MakeLightAttack(float ttl)
+    public IEnumerator MakeLightAttack(AnimationEvent e)
     {
-        GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl);
+        float ttl = e.floatParameter;
+        bool isSecondSwing = false;
+        if (e.stringParameter == "LightSwing2") isSecondSwing = true;
+        GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl, isSecondSwing);
         yield return new WaitForSeconds(ttl);
         if (State == PlayerState.LIGHT_ATTACKING) State = PlayerState.IDLE;
     }
