@@ -92,6 +92,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip footstep4;
     public AudioClip footstep5;
     public AudioClip footstep6;
+    public AudioClip heavyswing;
+    public AudioClip healsound;
+    public AudioClip failedhealsound;
     public AudioClip deathsound;
     public GameObject damagesound;
     public GameObject dashsound;
@@ -143,7 +146,7 @@ public class PlayerController : MonoBehaviour
                 //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
 
                 StartCoroutine(TargetNearestEnemy());
-
+                print("SWINGBATTABATTABATTA");
                 UnityEngine.Debug.Log("Swing Attack");
             }
 
@@ -153,7 +156,8 @@ public class PlayerController : MonoBehaviour
                 lastAttack.Restart();
                 State = PlayerState.HEAVY_ATTACKING;
                 //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
-
+                audio.clip = heavyswing;
+                audio.Play();
                 UnityEngine.Debug.Log("Heavy Attack");
 
             }
@@ -175,6 +179,8 @@ public class PlayerController : MonoBehaviour
             if ((!lastHeal.IsRunning || lastHeal.ElapsedMilliseconds > InteractCooldown) && Input.GetButton(HealButton))
             {
                 lastHeal.Restart();
+                audio.clip = healsound;
+                audio.Play();
                 StartCoroutine(UsePotion());
             }
         }
@@ -370,7 +376,6 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator MakeLightAttack(float ttl)
     {
-        print("SWING1");
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl);
         yield return new WaitForSeconds(ttl);
         if (State == PlayerState.LIGHT_ATTACKING) State = PlayerState.IDLE;

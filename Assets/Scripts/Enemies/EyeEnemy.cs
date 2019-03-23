@@ -9,6 +9,10 @@ using Stargaze.AI;
 [RequireComponent(typeof(MeshRenderer))]
 public class EyeEnemy : MonoBehaviour, IEnemy
 {
+    
+    [SerializeField] private AudioSource audio;
+    [SerializeField] AudioClip takesdamagesoundeffect;
+    [SerializeField] AudioClip diessoundeffect;
     [SerializeField]private float moveTime;
     [SerializeField]private float maxAccel;
     [SerializeField]private float maxSpeed;
@@ -24,9 +28,8 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     [SerializeField]private float focusTime;
     [SerializeField]private float coolDown;
     [SerializeField]private float range;
-    // [SerializeField]private AudioClip chargesound;
-    // [SerializeField]private AudioClip shootsound;
     [SerializeField]private GameObject spawnOnDeath;
+
 
     private BehaviorTree behaviorTree;
     private EyeCharge laserCharge;
@@ -40,9 +43,6 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     private new MeshRenderer renderer;
     private Color[] colors;
     private float goalDistance;
-    private AudioSource audio;
-    public AudioClip takesdamagesoundeffect;
-    public AudioClip diessoundeffect;
 
     void Awake()
     {
