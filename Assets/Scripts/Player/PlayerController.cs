@@ -179,8 +179,6 @@ public class PlayerController : MonoBehaviour
             if ((!lastHeal.IsRunning || lastHeal.ElapsedMilliseconds > InteractCooldown) && Input.GetButton(HealButton))
             {
                 lastHeal.Restart();
-                audio.clip = healsound;
-                audio.Play();
                 StartCoroutine(UsePotion());
             }
         }
@@ -293,11 +291,20 @@ public class PlayerController : MonoBehaviour
         State = PlayerState.IDLE;
     }
 
+    void playhealsound(AudioClip theclip)
+    {
+        audio = GameObject.FindGameObjectWithTag("HealSoundEffects").GetComponent<AudioSource>();
+        audio.clip = theclip;
+        audio.Play();
+        audio = GetComponent<AudioSource>();
+    }
+
     //Attempt to use potion
     public IEnumerator UsePotion()
     {
         if(NumPotions > 0 && PlayerHealth.CurrentHealth < PlayerHealth.MaxHealth)
         {
+            playhealsound(healsound);
             NumPotions--;
             PlayerHealth.CurrentHealth = Mathf.Min(PlayerHealth.CurrentHealth + HealAmount, PlayerHealth.MaxHealth);
             HealParticleSystem.Play();
@@ -307,6 +314,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             //TODO: play sound for when you have no potions
+            playhealsound(failedhealsound);
         }
 
         yield return null;
