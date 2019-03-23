@@ -293,7 +293,7 @@ public class PlayerController : MonoBehaviour
 
     void playhealsound(AudioClip theclip)
     {
-        audio = GameObject.FindGameObjectWithTag("HealSoundEffects").GetComponent<AudioSource>();
+        audio = transform.GetChild(6).GetComponent<AudioSource>();
         audio.clip = theclip;
         audio.Play();
         audio = GetComponent<AudioSource>();
