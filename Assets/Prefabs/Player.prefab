@@ -8517,7 +8517,10 @@ MonoBehaviour:
   footstep4: {fileID: 8300000, guid: 532d7a1d0523dd84d8d9625875e3cc1f, type: 3}
   footstep5: {fileID: 8300000, guid: 50ef7e06333ea54448a9ec426734d316, type: 3}
   footstep6: {fileID: 8300000, guid: d2434d569cc640144bde2f472dc0a44e, type: 3}
-  deathsound: {fileID: 8300000, guid: eb225586e9980b649a1ccfa42b8bd2ed, type: 3}
+  heavyswing: {fileID: 8300000, guid: 114e1d404df215d42be8f6bfbb49e4d2, type: 3}
+  healsound: {fileID: 8300000, guid: dd2cc9f5020723b4bb966ff65eb6187d, type: 3}
+  failedhealsound: {fileID: 0}
+  deathsound: {fileID: 8300000, guid: 54878d1820348f84ab43a883ee7071aa, type: 3}
   damagesound: {fileID: 4829007781587304456, guid: 4d7ab17548df8b24f802d59d1fad0431,
     type: 3}
   dashsound: {fileID: 8230747560546384943, guid: 186525ef7d979404cb7aa4af7a4354e4,

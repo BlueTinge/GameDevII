@@ -1,66 +1,14 @@
 fileFormatVersion: 2
-guid: 06949f4fc6ddee843b53bc8668bd6e6d
+guid: 7c1772cd772804a4fab3bc0170fa7397
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: AbominationCntrl
-    100004: AbominationSkeleton
-    100006: arm1
-    100008: arm2
-    100010: arm2_1
-    100012: arm2_2
-    100014: arm3
-    100016: group8
-    100018: index1
-    100020: index2
-    100022: index3
-    100024: middle1
-    100026: middle2
-    100028: middle3
-    100030: pinky1
-    100032: pinky2
-    100034: pinky3
-    100036: ring1
-    100038: ring2
-    100040: ring3
-    100042: root
-    100044: Tail
-    100046: thumb1
-    100048: thumb2
-    100050: thumb3
-    100052: wrist
     400000: //RootNode
-    400002: AbominationCntrl
-    400004: AbominationSkeleton
-    400006: arm1
-    400008: arm2
-    400010: arm2_1
-    400012: arm2_2
-    400014: arm3
-    400016: group8
-    400018: index1
-    400020: index2
-    400022: index3
-    400024: middle1
-    400026: middle2
-    400028: middle3
-    400030: pinky1
-    400032: pinky2
-    400034: pinky3
-    400036: ring1
-    400038: ring2
-    400040: ring3
-    400042: root
-    400044: Tail
-    400046: thumb1
-    400048: thumb2
-    400050: thumb3
-    400052: wrist
     2100000: lambert1
-    4300000: group8
-    9500000: //RootNode
-    13700000: group8
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Ladder
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -113,8 +61,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -141,7 +89,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

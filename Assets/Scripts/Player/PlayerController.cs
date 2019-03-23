@@ -92,6 +92,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip footstep4;
     public AudioClip footstep5;
     public AudioClip footstep6;
+    public AudioClip heavyswing;
+    public AudioClip healsound;
+    public AudioClip failedhealsound;
     public AudioClip deathsound;
     public GameObject damagesound;
     public GameObject dashsound;
@@ -143,7 +146,7 @@ public class PlayerController : MonoBehaviour
                 //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
 
                 StartCoroutine(TargetNearestEnemy());
-
+                print("SWINGBATTABATTABATTA");
                 UnityEngine.Debug.Log("Swing Attack");
             }
 
@@ -153,7 +156,8 @@ public class PlayerController : MonoBehaviour
                 lastAttack.Restart();
                 State = PlayerState.HEAVY_ATTACKING;
                 //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
-
+                audio.clip = heavyswing;
+                audio.Play();
                 UnityEngine.Debug.Log("Heavy Attack");
 
             }
@@ -287,11 +291,20 @@ public class PlayerController : MonoBehaviour
         State = PlayerState.IDLE;
     }
 
+    void playhealsound(AudioClip theclip)
+    {
+        audio = transform.GetChild(6).GetComponent<AudioSource>();
+        audio.clip = theclip;
+        audio.Play();
+        audio = GetComponent<AudioSource>();
+    }
+
     //Attempt to use potion
     public IEnumerator UsePotion()
     {
         if(NumPotions > 0 && PlayerHealth.CurrentHealth < PlayerHealth.MaxHealth)
         {
+            playhealsound(healsound);
             NumPotions--;
             PlayerHealth.CurrentHealth = Mathf.Min(PlayerHealth.CurrentHealth + HealAmount, PlayerHealth.MaxHealth);
             HealParticleSystem.Play();
@@ -301,6 +314,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             //TODO: play sound for when you have no potions
+            playhealsound(failedhealsound);
         }
 
         yield return null;
@@ -370,7 +384,6 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator MakeLightAttack(float ttl)
     {
-        print("SWING1");
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl);
         yield return new WaitForSeconds(ttl);
         if (State == PlayerState.LIGHT_ATTACKING) State = PlayerState.IDLE;
