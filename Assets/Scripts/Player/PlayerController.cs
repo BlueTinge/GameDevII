@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum PlayerState { IDLE, WALKING, DASHING, LIGHT_ATTACKING, HEAVY_ATTACKING, HURT, DEATH}
+public enum PlayerState { IDLE, WALKING, DASHING, LIGHT_ATTACKING, HEAVY_ATTACKING, BOUNCE_BACK, HURT, DEATH}
 
 //
 //basic player movement and actions
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem HealParticleSystem;
 
     public float WalkForce;
+
     public float MaxSpeed;
     public float rotationSpeed;
     public float camRotationSpeed;
@@ -215,7 +217,7 @@ public class PlayerController : MonoBehaviour
 
                         if (audio.isPlaying == false)
                         {
-                            randomer = Random.Range(0, 5);
+                            randomer = UnityEngine.Random.Range(0, 5);
                             audio.clip = steps[randomer];
                             audio.Play();
                         }
@@ -348,6 +350,21 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
+    //called when sword strike against furniture, etc. causes player to bounce back
+    public IEnumerator BounceBack(Vector3 knockback)
+    {
+        if(State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
+        {
+            State = PlayerState.BOUNCE_BACK;
+            PlayerAnimator.SetTrigger("Bounce");
+            GetComponent<Rigidbody>().AddForce(knockback);
+
+            yield return new WaitForSeconds(.5f);
+
+            if (State == PlayerState.BOUNCE_BACK) State = PlayerState.IDLE;
+        }
+        yield return null;
+    }
 
     public void OnDamage(float damage)
     {
