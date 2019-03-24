@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum PlayerState { IDLE, WALKING, DASHING, LIGHT_ATTACKING, HEAVY_ATTACKING, HURT, DEATH}
+public enum PlayerState { IDLE, WALKING, DASHING, LIGHT_ATTACKING, HEAVY_ATTACKING, BOUNCE_BACK, HURT, DEATH}
 
 //
 //basic player movement and actions
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem HealParticleSystem;
 
     public float WalkForce;
+
     public float MaxSpeed;
     public float rotationSpeed;
     public float camRotationSpeed;
@@ -215,7 +217,7 @@ public class PlayerController : MonoBehaviour
 
                         if (audio.isPlaying == false)
                         {
-                            randomer = Random.Range(0, 5);
+                            randomer = UnityEngine.Random.Range(0, 5);
                             audio.clip = steps[randomer];
                             audio.Play();
                         }
@@ -267,6 +269,7 @@ public class PlayerController : MonoBehaviour
     {
         if (State == PlayerState.DASHING)
         {
+            print("dashwall");
             //This code prevents dashing into objects to send them flying, but is sloppy and may introduce bugs
             //TODO: edit this code so that you can't stop every rb from moving just by dashing into it 
             if (collision.rigidbody != null) collision.rigidbody.velocity = new Vector3(0, 0, 0);
@@ -347,6 +350,21 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
+    //called when sword strike against furniture, etc. causes player to bounce back
+    public IEnumerator BounceBack(Vector3 knockback)
+    {
+        if(State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
+        {
+            State = PlayerState.BOUNCE_BACK;
+            PlayerAnimator.SetTrigger("Bounce");
+            GetComponent<Rigidbody>().AddForce(knockback);
+
+            yield return new WaitForSeconds(.5f);
+
+            if (State == PlayerState.BOUNCE_BACK) State = PlayerState.IDLE;
+        }
+        yield return null;
+    }
 
     public void OnDamage(float damage)
     {
@@ -382,9 +400,12 @@ public class PlayerController : MonoBehaviour
     //Note that if ttls vary by weapon (not just weapon class or animation) this will need to be edited
     //Note that recovery animations should probably have a "set state idle" event after the attack finishes, as opposed to cramming it in the "make attack" methods
 
-    public IEnumerator MakeLightAttack(float ttl)
+    public IEnumerator MakeLightAttack(AnimationEvent e)
     {
-        GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl);
+        float ttl = e.floatParameter;
+        bool isSecondSwing = false;
+        if (e.stringParameter == "LightSwing2") isSecondSwing = true;
+        GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl, isSecondSwing);
         yield return new WaitForSeconds(ttl);
         if (State == PlayerState.LIGHT_ATTACKING) State = PlayerState.IDLE;
     }
