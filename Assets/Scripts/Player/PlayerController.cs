@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip deathsound;
     public GameObject damagesound;
     public GameObject dashsound;
+    public Transform healtransform;
     public List<AudioClip> steps = new List<AudioClip>();
     int randomer;
 
@@ -297,7 +298,8 @@ public class PlayerController : MonoBehaviour
 
     void playhealsound(AudioClip theclip)
     {
-        audio = transform.GetChild(6).GetComponent<AudioSource>();
+        audio = healtransform.GetComponent<AudioSource>();
+        //audio = transform.GetChild(3).GetComponent<AudioSource>();
         audio.clip = theclip;
         audio.Play();
         audio = GetComponent<AudioSource>();
