@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip footstep4;
     public AudioClip footstep5;
     public AudioClip footstep6;
+    public AudioClip secondswing;
     public AudioClip heavyswing;
     public AudioClip healsound;
     public AudioClip failedhealsound;
@@ -408,6 +409,12 @@ public class PlayerController : MonoBehaviour
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl, isSecondSwing);
         yield return new WaitForSeconds(ttl);
         if (State == PlayerState.LIGHT_ATTACKING) State = PlayerState.IDLE;
+        if (isSecondSwing == true)
+        {
+            audio.Stop();
+            audio.clip = secondswing;
+            audio.Play();
+        }
     }
 
     public IEnumerator MakeHeavyAttack(float ttl)

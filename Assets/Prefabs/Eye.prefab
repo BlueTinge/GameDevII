@@ -141,6 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f222fac73586b34496f5ec90ff4367d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 0}
+  takesdamagesoundeffect: {fileID: 8300000, guid: e9bc3ae4b098b184e90fd764135f1671,
+    type: 3}
+  diessoundeffect: {fileID: 8300000, guid: 9650949d39b167a4c8c7526566417a72, type: 3}
   moveTime: 1
   maxAccel: 4
   maxSpeed: 2
@@ -157,9 +161,6 @@ MonoBehaviour:
   coolDown: 0.5
   range: 15
   spawnOnDeath: {fileID: 0}
-  takesdamagesoundeffect: {fileID: 8300000, guid: e9bc3ae4b098b184e90fd764135f1671,
-    type: 3}
-  diessoundeffect: {fileID: 0}
 --- !u!82 &3434070359158684107
 AudioSource:
   m_ObjectHideFlags: 0
