@@ -162,7 +162,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
             {
                 impulse *= -1;
             }
-            rb.AddTorque((impulse - rb.angularVelocity).magnitude * Vector3.up, ForceMode.VelocityChange);
+            
+            rb.AddTorque((impulse - rb.angularVelocity).magnitude * Mathf.Sign(impulse.y) * Vector3.up, ForceMode.VelocityChange);
             rb.angularVelocity = rb.angularVelocity.y * Vector3.up;
         }
         else
