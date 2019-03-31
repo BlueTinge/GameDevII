@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public Camera Cam;
     public Animator PlayerAnimator;
     public ParticleSystem HealParticleSystem;
+    public Collider PlayerCollider;
 
     public float WalkForce;
 
@@ -125,7 +126,9 @@ public class PlayerController : MonoBehaviour
         steps.Add(footstep5);
         steps.Add(footstep6);
 
-        img.gameObject.SetActive(false);
+        SetJointsActive(false);
+
+        if (img != null) img.gameObject.SetActive(false);
     }
 
     //Check for player input for non-physics stuff every update
@@ -183,6 +186,11 @@ public class PlayerController : MonoBehaviour
             {
                 lastHeal.Restart();
                 StartCoroutine(UsePotion());
+            }
+
+            if(State == PlayerState.DEATH && Input.GetButtonDown(LightAttackButton) && (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown*4))
+            {
+                StartCoroutine(LoadFromCheckpoint());
             }
         }
     }
@@ -403,8 +411,47 @@ public class PlayerController : MonoBehaviour
         audio.Play();
 
         foreach (Attack a in GetComponent<Equipment>().CurrentWeapon.GetComponents<Attack>()) { Destroy(a); }
+
+        //drop sword
+        GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().Holder = null;
+
+        //disable animations
+        PlayerAnimator.enabled = false;
+
+        //make ragdoll
+        Body.constraints = RigidbodyConstraints.None;
+        PlayerCollider.enabled = false;
+        SetJointsActive(true);
+
+        //un-parent camera
+        ReferenceFrame.transform.SetParent(null);
+
+        //you can restart after a few seconds
+        lastInteract.Restart();
     }
 
+    private IEnumerator LoadFromCheckpoint()
+    {
+        Manager.LoadFromCheckpoint();
+        yield return null;
+    }
+
+    public void SetJointsActive(bool jointsActive)
+    {
+        Rigidbody[] bodies = GetComponentsInChildren<Rigidbody>();
+        foreach (Rigidbody rb in bodies)
+        {
+            if (rb.tag.Equals("PlayerJoint"))
+            {
+                rb.isKinematic = !jointsActive;
+                Collider c = rb.gameObject.GetComponent<Collider>();
+                if (c != null) c.enabled = jointsActive;
+                JointToggler j = rb.gameObject.GetComponent<JointToggler>();
+                if (j != null) j.enabled = jointsActive;
+            }
+
+        }
+    }
 
     //ANIMATION EVENTS used for controlling the SPECIFIC moment in an animation where an attack is made (as opposed to player input which controls state)
     //Just delegate to weapon

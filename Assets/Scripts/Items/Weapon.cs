@@ -83,10 +83,7 @@ public class Weapon : MonoBehaviour
         RecieveAttack(other.gameObject.GetComponentInParent<Attack>());
     }
 
-    public void SetIsHeld(bool isHeld)
-    {
-        GetComponent<Rigidbody>().isKinematic = isHeld;
-    }
+
 
     //ANIMATION EVENTS used for attack controlling
     //if theres a way to call these directly from a parent thatd be great

@@ -28,6 +28,11 @@ public class Vat : MonoBehaviour
         VatHealth.OnImmunityEnd = delegate () { };
 
         StartPos = transform.position;
+
+        if (Manager.GetCheckpoint(SceneManager.GetActiveScene().name))
+        {
+            VatHealth.CurrentHealth = -1;
+        }
     }
 
     //take damage: shake

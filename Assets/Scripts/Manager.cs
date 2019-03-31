@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
-
+    public static readonly string[] LevelOrder = { "Player_Prototype", "1st Level", "2nd Level" };
 
     private static Dictionary<string, bool> Checkpoints = null;
     private static bool IsInitialized = false;
@@ -41,6 +41,8 @@ public class Manager : MonoBehaviour
 
         Checkpoints.Remove(sceneName);
         Checkpoints.Add(sceneName, isCheckpointSet);
+
+        Debug.Log(sceneName + " checkpoint set to " + isCheckpointSet.ToString());
     }
 
     //Retrieve this checkpoint value, false if checkpoint not set
@@ -57,4 +59,22 @@ public class Manager : MonoBehaviour
         return false;
     }
 
+    //load correct level assuming we died on current level
+    public static void LoadFromCheckpoint()
+    {
+        if (!IsInitialized)
+        {
+            Reset();
+        }
+
+        foreach (string SceneName in LevelOrder)
+        {
+            if (GetCheckpoint(SceneName) && !SceneName.Equals(SceneManager.GetActiveScene().name)) continue;
+            else
+            {
+                SceneManager.LoadScene(SceneName);
+                break;
+            }
+        }
+    }
 }
