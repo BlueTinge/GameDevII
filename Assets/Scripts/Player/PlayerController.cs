@@ -312,13 +312,19 @@ public class PlayerController : MonoBehaviour
             playhealsound(healsound);
             NumPotions--;
             PlayerHealth.CurrentHealth = Mathf.Min(PlayerHealth.CurrentHealth + HealAmount, PlayerHealth.MaxHealth);
+
+            if (HealthBarSlider != null)
+            {
+                HealthBarSlider.value = PlayerHealth.CurrentHealth;
+            }
+            else UnityEngine.Debug.LogWarning("HealthBarSlider not set in player");
+
             HealParticleSystem.Play();
             yield return new WaitForSeconds(HealParticleSystem.main.startLifetime.constant+1);
             HealParticleSystem.Stop();
         }
         else
         {
-            //TODO: play sound for when you have no potions
             playhealsound(failedhealsound);
         }
 
@@ -370,7 +376,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnDamage(float damage)
     {
-        // HealthBarSlider.value -= damage;
+        if (HealthBarSlider != null)
+        {
+            HealthBarSlider.value = PlayerHealth.CurrentHealth;
+        }
+        else UnityEngine.Debug.LogWarning("HealthBarSlider not set in player");
+
         if (State != PlayerState.DEATH && damage > 0)
         {
             State = PlayerState.HURT;
