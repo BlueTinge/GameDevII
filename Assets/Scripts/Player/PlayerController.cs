@@ -150,7 +150,6 @@ public class PlayerController : MonoBehaviour
                 //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
 
                 StartCoroutine(TargetNearestEnemy());
-                print("SWINGBATTABATTABATTA");
                 UnityEngine.Debug.Log("Swing Attack");
             }
 
