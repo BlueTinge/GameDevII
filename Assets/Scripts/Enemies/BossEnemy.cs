@@ -98,7 +98,8 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField]private float accelTime;
     [SerializeField]private float maxOmega;
     [SerializeField]protected float maxAlpha;
-    [SerializeField]protected float slowDistance;    
+    [SerializeField]protected float slowDistance;  
+    [SerializeField]private GameObject attackObject;  
 
     private Transform player;
     private Rigidbody rb;
@@ -233,7 +234,8 @@ public class BossEnemy : MonoBehaviour, IEnemy
     {
         canTurn = false;
         canMove = false;
-
+        Attack a = (Attack)attackObject.AddComponent<Attack>();
+        a.Initialize(lightDamage, Vector3.zero, lightAttackTime, gameObject);
     }
     
     public void HeavyAttack()
@@ -241,6 +243,8 @@ public class BossEnemy : MonoBehaviour, IEnemy
         canTurn = false;
         canMove = false;
         Dash(transform.forward, heavyAttackDistance, heavyAttackTime);
+        Attack a = (Attack)attackObject.AddComponent<Attack>();
+        a.Initialize(heavyDamage, Vector3.zero, heavyAttackTime, gameObject);
     }
 
     public void Dash(Vector3 dir, float? dist = null, float? time = null)

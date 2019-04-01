@@ -554,7 +554,7 @@ MonoBehaviour:
   dashTime: 0.25
   dashDistance: 2
   dashCooldown: 0.125
-  lightWindup: 0
+  lightWindup: 0.1
   lightAttackTime: 0.5
   lightCooldown: 0.5
   heavyWindup: 2
@@ -571,6 +571,7 @@ MonoBehaviour:
   maxOmega: 3.1
   maxAlpha: 12.6
   slowDistance: 1
+  attackObject: {fileID: 153967613}
 --- !u!54 &1894033050
 Rigidbody:
   m_ObjectHideFlags: 0
