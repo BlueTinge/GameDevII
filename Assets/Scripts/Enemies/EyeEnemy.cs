@@ -205,7 +205,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
         }
         else
         {
-            alpha = -maxAlpha;
+            alpha = -Mathf.Sign(rb.angularVelocity.y) * maxAlpha;
         }
     }
 
