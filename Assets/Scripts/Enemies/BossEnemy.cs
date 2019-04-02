@@ -217,7 +217,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
         {
             Stop();
         }
-        rb.AddForce(accel - Physics.gravity, ForceMode.Acceleration);
+        rb.AddForce(accel, ForceMode.Acceleration);
     }
 
     public bool Target()
