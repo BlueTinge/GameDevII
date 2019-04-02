@@ -241,6 +241,7 @@ public class PlayerController : MonoBehaviour
                     else
                     {
                         State = PlayerState.WALKING;
+                        PlayerAnimator.SetBool("IsWalking", true);
 
                         //Move the player in the direction of the control stick relative to the camera
                         //TODO: Evaluate whether player should be moved via forces, or just have its velocity modified directly.
@@ -276,7 +277,11 @@ public class PlayerController : MonoBehaviour
                         else Body.MoveRotation(Quaternion.Euler(new Vector3(angFrom.x, angFrom.y + (sign * rotationSpeed * inputForce.magnitude), angFrom.z)));
                     }
                 }
-                else State = PlayerState.IDLE;
+                else
+                {
+                    State = PlayerState.IDLE;
+                    PlayerAnimator.SetBool("IsWalking", false);
+                }
 
                 //max speed: the lazy way
                 //note that this does not apply in non-movement states (e.g. you can go flying if hurt, or go faster if dashing)

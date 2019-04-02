@@ -4440,6 +4440,11 @@ MonoBehaviour:
   JournalColllect3: 0
   JournalColllect4: 0
   JournalColllect5: 0
+  JournalColllect6: 0
+  JournalColllect7: 0
+  JournalColllect8: 0
+  JournalColllect9: 0
+  JournalColllect10: 0
   NumPotions: 3
   HealAmount: 5
   MoveHoriz: LeftHoriz
@@ -4465,6 +4470,7 @@ MonoBehaviour:
   healsound: {fileID: 8300000, guid: dd2cc9f5020723b4bb966ff65eb6187d, type: 3}
   failedhealsound: {fileID: 8300000, guid: cc517a71107437d4a9d98c0ba0df8bd0, type: 3}
   deathsound: {fileID: 8300000, guid: 54878d1820348f84ab43a883ee7071aa, type: 3}
+  clangsound: {fileID: 0}
   damagesound: {fileID: 4829007781587304456, guid: 4d7ab17548df8b24f802d59d1fad0431,
     type: 3}
   dashsound: {fileID: 8230747560546384943, guid: 186525ef7d979404cb7aa4af7a4354e4,
@@ -4530,7 +4536,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
-  m_Height: 1.8174362
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: -0.048134565, z: 0}
 --- !u!82 &253391705
