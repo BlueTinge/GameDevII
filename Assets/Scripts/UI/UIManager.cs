@@ -28,6 +28,8 @@ public class UIManager : MonoBehaviour
     public TextAsset Journal4Data;
     public TextAsset Journal5Data;
 
+    public static readonly int NumJournals = 10;
+    public static bool[] IsJournalCollected = new bool[NumJournals];
 
     public static bool isInputEnabled = true;
 
@@ -103,23 +105,23 @@ public class UIManager : MonoBehaviour
         PauseMenu.gameObject.SetActive(false);
         JournalMenu.gameObject.SetActive(true);
         MenuState += 1;
-        if (Player.GetComponent<PlayerController>().JournalColllect1 == true)
+        if (IsJournalCollected[0] == true)
         {
             Journal1Button.gameObject.SetActive(true);
         }
-        if (Player.GetComponent<PlayerController>().JournalColllect2 == true)
+        if (IsJournalCollected[1] == true)
         {
             Journal2Button.gameObject.SetActive(true);
         }
-        if (Player.GetComponent<PlayerController>().JournalColllect3 == true)
+        if (IsJournalCollected[2] == true)
         {
             Journal3Button.gameObject.SetActive(true);
         }
-        if (Player.GetComponent<PlayerController>().JournalColllect4 == true)
+        if (IsJournalCollected[3] == true)
         {
             Journal4Button.gameObject.SetActive(true);
         }
-        if (Player.GetComponent<PlayerController>().JournalColllect5 == true)
+        if (IsJournalCollected[4] == true)
         {
             Journal5Button.gameObject.SetActive(true);
         }

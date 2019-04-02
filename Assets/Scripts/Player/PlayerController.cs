@@ -365,13 +365,13 @@ public class PlayerController : MonoBehaviour
 
             //IF angle between player & enemy < Target_Angle_Degrees,
 
-            //THEN begin turn player toward enemy by [amount]
+            //THEN begin turn player toward enemy by Targeting_Degrees_Increment
 
             //ELSE break1 = true
 
             //IF dist between player & enemy > Target_Dist_Min
 
-            //THEN begin move player toward enemy by [amount]
+            //THEN begin move player toward enemy by Targeting_Movement_Increment
 
             //ELSE break2 = true
 
