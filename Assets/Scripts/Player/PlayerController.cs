@@ -359,10 +359,29 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(closestEnemy != null)
+        if(closestEnemy != null) //&& dist between player & enemy < Target_Dist
         {
+            //FOR some loop of fixed size
 
+            //IF angle between player & enemy < Target_Angle_Degrees,
+
+            //THEN begin turn player toward enemy by [amount]
+
+            //ELSE break1 = true
+
+            //IF dist between player & enemy > Target_Dist_Min
+
+            //THEN begin move player toward enemy by [amount]
+
+            //ELSE break2 = true
+
+            //IF break1 && break2
+
+            //THEN break 
+
+            //YIELD RETURN next fixed frame
         }
+
         yield return null;
     }
 
