@@ -312,7 +312,7 @@ public class PlayerController : MonoBehaviour
         State = PlayerState.DASHING;
         PlayerAnimator.SetBool("IsDashing", true);
         Instantiate(dashsound);
-
+        
         Body.velocity = Direction.normalized * DashSpeed;
         UnityEngine.Debug.Log(Body.velocity);
         PlayerHealth.isImmune = true;
