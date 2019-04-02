@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
-    public static readonly string[] LevelOrder = { "Player_Prototype", "1st Level", "2nd Level" };
+    public static readonly string[] LevelOrder = { "1st Level", "2nd Level" };
 
     private static Dictionary<string, bool> Checkpoints = null;
     private static bool IsInitialized = false;
