@@ -367,6 +367,7 @@ public class UIManager : MonoBehaviour
         JournalMenu.gameObject.SetActive(false);
         PauseMenu.gameObject.SetActive(true);
         MenuState -= 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(ContinueButton);
     }
 
     public void JournalBack()
