@@ -91,15 +91,15 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private float heavyCooldown;
     [SerializeField] private float lightDamage;
     [SerializeField] private float heavyDamage;
-    [SerializeField]private float maxAccel;
-    [SerializeField]private float maxSpeed;
-    [SerializeField]private float slowRadius;
-    [SerializeField]private float targetRadius;
-    [SerializeField]private float accelTime;
-    [SerializeField]private float maxOmega;
-    [SerializeField]protected float maxAlpha;
-    [SerializeField]protected float slowDistance;  
-    [SerializeField]private GameObject attackObject;  
+    [SerializeField] private float maxAccel;
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float slowRadius;
+    [SerializeField] private float targetRadius;
+    [SerializeField] private float accelTime;
+    [SerializeField] private float maxOmega;
+    [SerializeField] private float maxAlpha;
+    [SerializeField] private float slowDistance;  
+    [SerializeField] private GameObject attackObject;  
 
     private Transform player;
     private Rigidbody rb;
@@ -110,6 +110,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     private bool canDash;
     private float alpha;
     private Vector3 accel;
+    private Animator animator;
 
     void Start()
     {
@@ -122,6 +123,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
         canMove = false;
         canDash = false;
         accel = Vector3.zero;
+        animator = GetComponentInChildren<Animator>();
 
         behaviorTree = new BehaviorTree
         (
@@ -129,6 +131,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
             {
                 new SequenceTask(new ITreeTask[]
                 {
+                    new CallTask(()=>{animator.SetBool("windupDone", false); return true;}),
                     new WhileTask
                     (
                         new NotTask
@@ -142,14 +145,18 @@ public class BossEnemy : MonoBehaviour, IEnemy
                     new RandomSelectTask(enrageWeights, new ITreeTask[]{
                         new SequenceTask(new ITreeTask[] {
                             new DashTask(this, Vector3.back, dashTime),
+                            new CallTask(()=>{HeavyWindup(); return true;}),
                             new DelayTask(heavyWindup),
                             new HeavyAttack(this, heavyAttackTime),
-                            new DelayTask(heavyCooldown)
+                            new DelayTask(heavyCooldown),
+                            new CallTask(()=>{animator.SetBool("heavyAttack", false); return true;}),
                         }),
                         new SequenceTask(new ITreeTask[] {
+                            new CallTask(()=>{LightWindup(); return true;}),
                             new DelayTask(lightWindup),
                             new BasicAttack(this, lightAttackTime),
-                            new DelayTask(lightCooldown)
+                            new DelayTask(lightCooldown),
+                            new CallTask(()=>{animator.SetBool("lightAttack", false); return true;}),
                         }),
                         new SequenceTask(new ITreeTask[] {
                             new DashTask(this, Vector3.right, dashTime),
@@ -166,9 +173,11 @@ public class BossEnemy : MonoBehaviour, IEnemy
                     new CloseTo(transform, player, targetRadius),
                     new RandomSelectTask(normalWeights, new ITreeTask[]{
                         new SequenceTask(new ITreeTask[] {
+                            new CallTask(()=>{LightWindup(); return true;}),
                             new DelayTask(lightWindup),
                             new BasicAttack(this, lightAttackTime),
-                            new DelayTask(lightCooldown)
+                            new DelayTask(lightCooldown),
+                            new CallTask(()=>{animator.SetBool("lightAttack", false); return true;}),
                         }),
                         new SequenceTask(new ITreeTask[] {
                             new DashTask(this, Vector3.right, dashTime),
@@ -187,6 +196,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     void Update()
     {
         behaviorTree.Update();
+        animator.SetBool("moving", canMove);
     }
 
     void FixedUpdate() {
@@ -223,7 +233,9 @@ public class BossEnemy : MonoBehaviour, IEnemy
     public bool Target()
     {
         canTurn = true;
-        return Vector3.Angle(transform.forward, player.position - transform.position) <= 10;
+        Vector3 diff = player.position - transform.position;
+        diff.y = 0;
+        return Vector3.Angle(transform.forward, diff) <= 10;
     }
     public void Move()
     {
@@ -232,6 +244,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     public void Attack()
     {
+        animator.SetBool("windupDone", true);
         canTurn = false;
         canMove = false;
         Attack a = (Attack)attackObject.AddComponent<Attack>();
@@ -240,6 +253,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     
     public void HeavyAttack()
     {
+        animator.SetBool("windupDone", true);
         canTurn = false;
         canMove = false;
         Dash(transform.forward, heavyAttackDistance, heavyAttackTime);
@@ -249,13 +263,14 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     public void Dash(Vector3 dir, float? dist = null, float? time = null)
     {
+        if(!time.HasValue)animator.SetBool("dash", true);
         canMove = false;
         canDash = true;
         Vector3 dv = dir * (dist ?? dashDistance)/(time ?? dashTime) - rb.velocity;
         rb.AddForce(dv, ForceMode.VelocityChange);
     }
 
-    private void  Arrive()
+    private void Arrive()
     {
         Vector3 dir = player.position - transform.position;
         float dist = dir.magnitude;
@@ -300,6 +315,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     {
         canDash = false;
         rb.velocity = Vector3.zero;
+        animator.SetBool("dash", false);
     }
     public void StopHeavy()
     {
@@ -347,5 +363,18 @@ public class BossEnemy : MonoBehaviour, IEnemy
         {
             alpha = -Mathf.Sign(rb.angularVelocity.y) * maxAlpha;
         }
+    }
+
+    private void LightWindup()
+    {
+        canMove = false;
+        canTurn = false;
+        animator.SetBool("lightAttack", true);
+    }
+
+    private void HeavyWindup()
+    {
+        canMove = false;
+        animator.SetBool("heavyAttack", true);
     }
 }
