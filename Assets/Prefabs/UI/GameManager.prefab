@@ -46,15 +46,29 @@ MonoBehaviour:
   MenuState: 0
   PauseMenu: {fileID: 0}
   JournalMenu: {fileID: 0}
+  ContinueButton: {fileID: 0}
+  BackButton: {fileID: 0}
   Journal1Button: {fileID: 0}
   Journal2Button: {fileID: 0}
   Journal3Button: {fileID: 0}
   Journal4Button: {fileID: 0}
   Journal5Button: {fileID: 0}
+  Journal6Button: {fileID: 0}
+  Journal7Button: {fileID: 0}
+  Journal8Button: {fileID: 0}
+  Journal9Button: {fileID: 0}
+  Journal10Button: {fileID: 0}
   JournalBackButton: {fileID: 0}
   Player: {fileID: 0}
-  Journal1Data: {fileID: 4900000, guid: 173e83475a7c03644a590e2a9446178d, type: 3}
-  Journal2Data: {fileID: 4900000, guid: 148da5389f9fc7e449bf9d39b44f12a0, type: 3}
-  Journal3Data: {fileID: 4900000, guid: 7ea1279d48c96d64bb3efbc8094ce315, type: 3}
-  Journal4Data: {fileID: 4900000, guid: 879162799a24b924fb305b58c9f40de4, type: 3}
-  Journal5Data: {fileID: 4900000, guid: 28008bfc6c35c2749aea7dc89140fe7e, type: 3}
+  Potions: {fileID: 0}
+  Journal1Data: {fileID: 4900000, guid: fac812bd1b8873b419d1db7e778c09a2, type: 3}
+  Journal2Data: {fileID: 4900000, guid: 49f66ac5cc506be4d81d1974355e9d54, type: 3}
+  Journal3Data: {fileID: 4900000, guid: 8812b39d903c45d4194c2ba9b0316c4b, type: 3}
+  Journal4Data: {fileID: 4900000, guid: 3aaf5d7f8979f4246ad30dda102089e1, type: 3}
+  Journal5Data: {fileID: 4900000, guid: ce28c19082043af4586f83833b28c026, type: 3}
+  Journal6Data: {fileID: 4900000, guid: 4f753ead4163dfa4ba9b6ff199b49e13, type: 3}
+  Journal7Data: {fileID: 4900000, guid: 10b240c04eb984d4c97ddb58567567cc, type: 3}
+  Journal8Data: {fileID: 4900000, guid: 316a2497bfb7d6e42bd65c266f1d91e8, type: 3}
+  Journal9Data: {fileID: 4900000, guid: a646b77cc919fb140bd796956e2e7ba2, type: 3}
+  Journal10Data: {fileID: 4900000, guid: 0291d2ea22e34c2458fd3e5dd4ae92c3, type: 3}
+  myEventSystem: {fileID: 0}

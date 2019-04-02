@@ -24279,6 +24279,16 @@ PrefabInstance:
       objectReference: {fileID: 1328630284}
     - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
         type: 3}
+      propertyPath: ContinueButton
+      value: 
+      objectReference: {fileID: 205536676}
+    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+        type: 3}
+      propertyPath: BackButton
+      value: 
+      objectReference: {fileID: 1348494006}
+    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+        type: 3}
       propertyPath: Journal1Button
       value: 
       objectReference: {fileID: 286547568}
@@ -24302,66 +24312,6 @@ PrefabInstance:
       propertyPath: Journal5Button
       value: 
       objectReference: {fileID: 1403795533}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: JournalBackButton
-      value: 
-      objectReference: {fileID: 1348494006}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 714200346}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: Journal1Data
-      value: 
-      objectReference: {fileID: 4900000, guid: fac812bd1b8873b419d1db7e778c09a2, type: 3}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: Journal2Data
-      value: 
-      objectReference: {fileID: 4900000, guid: 49f66ac5cc506be4d81d1974355e9d54, type: 3}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: Journal3Data
-      value: 
-      objectReference: {fileID: 4900000, guid: 8812b39d903c45d4194c2ba9b0316c4b, type: 3}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: Journal5Data
-      value: 
-      objectReference: {fileID: 4900000, guid: ce28c19082043af4586f83833b28c026, type: 3}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: Journal4Data
-      value: 
-      objectReference: {fileID: 4900000, guid: 3aaf5d7f8979f4246ad30dda102089e1, type: 3}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: Journal6Data
-      value: 
-      objectReference: {fileID: 4900000, guid: 4f753ead4163dfa4ba9b6ff199b49e13, type: 3}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: Journal7Data
-      value: 
-      objectReference: {fileID: 4900000, guid: 10b240c04eb984d4c97ddb58567567cc, type: 3}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: Journal8Data
-      value: 
-      objectReference: {fileID: 4900000, guid: 316a2497bfb7d6e42bd65c266f1d91e8, type: 3}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: Journal9Data
-      value: 
-      objectReference: {fileID: 4900000, guid: a646b77cc919fb140bd796956e2e7ba2, type: 3}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: Journal10Data
-      value: 
-      objectReference: {fileID: 4900000, guid: 0291d2ea22e34c2458fd3e5dd4ae92c3, type: 3}
     - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
         type: 3}
       propertyPath: Journal6Button
@@ -24389,14 +24339,14 @@ PrefabInstance:
       objectReference: {fileID: 5645533067214244512}
     - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
         type: 3}
-      propertyPath: ContinueButton
-      value: 
-      objectReference: {fileID: 205536676}
-    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
-        type: 3}
-      propertyPath: BackButton
+      propertyPath: JournalBackButton
       value: 
       objectReference: {fileID: 1348494006}
+    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 714200346}
     - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
         type: 3}
       propertyPath: Potions
