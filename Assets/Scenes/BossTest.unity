@@ -231,7 +231,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 9f6b9c96f6652a549860e79adadf6bb0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -2911,7 +2911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edff657bfee5724fa417fcf5cd4e32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthCutoff: 60
+  healthCutoff: 20
   normalWeights:
   - 0.8
   - 0.1
