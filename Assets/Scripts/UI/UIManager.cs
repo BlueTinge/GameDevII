@@ -131,6 +131,7 @@ public class UIManager : MonoBehaviour
         PauseMenu.gameObject.SetActive(false);
         JournalMenu.gameObject.SetActive(true);
         MenuState += 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(BackButton);
         if (IsJournalCollected[0] == true)
         {
             myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(Journal1Button);
@@ -153,24 +154,24 @@ public class UIManager : MonoBehaviour
         {
             Journal5Button.gameObject.SetActive(true);
         }
-        if (Player.GetComponent<PlayerController>().JournalColllect6 == true)
+        if (IsJournalCollected[5] == true)
         {
             Journal6Button.gameObject.SetActive(true);
         }
-        if (Player.GetComponent<PlayerController>().JournalColllect7 == true)
+        if (IsJournalCollected[6] == true)
         {
             Journal7Button.gameObject.SetActive(true);
         }
-        if (Player.GetComponent<PlayerController>().JournalColllect8 == true)
+        if (IsJournalCollected[7] == true)
         {
             Journal8Button.gameObject.SetActive(true);
         }
-        if(Player.GetComponent<PlayerController>().JournalColllect9 == true)
+        if(IsJournalCollected[8] == true)
         {
 
             Journal9Button.gameObject.SetActive(true);
         }
-        if(Player.GetComponent<PlayerController>().JournalColllect10 == true)
+        if(IsJournalCollected[9] == true)
         {
             Journal10Button.gameObject.SetActive(true);
         }
