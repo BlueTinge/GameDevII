@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip healsound;
     public AudioClip failedhealsound;
     public AudioClip deathsound;
+    public AudioClip clangsound;
     public GameObject damagesound;
     public GameObject dashsound;
     public Transform healtransform;
@@ -240,6 +241,7 @@ public class PlayerController : MonoBehaviour
                     else
                     {
                         State = PlayerState.WALKING;
+                        PlayerAnimator.SetBool("IsWalking", true);
 
                         //Move the player in the direction of the control stick relative to the camera
                         //TODO: Evaluate whether player should be moved via forces, or just have its velocity modified directly.
@@ -275,7 +277,11 @@ public class PlayerController : MonoBehaviour
                         else Body.MoveRotation(Quaternion.Euler(new Vector3(angFrom.x, angFrom.y + (sign * rotationSpeed * inputForce.magnitude), angFrom.z)));
                     }
                 }
-                else State = PlayerState.IDLE;
+                else
+                {
+                    State = PlayerState.IDLE;
+                    PlayerAnimator.SetBool("IsWalking", false);
+                }
 
                 //max speed: the lazy way
                 //note that this does not apply in non-movement states (e.g. you can go flying if hurt, or go faster if dashing)
@@ -312,7 +318,7 @@ public class PlayerController : MonoBehaviour
         State = PlayerState.DASHING;
         PlayerAnimator.SetBool("IsDashing", true);
         Instantiate(dashsound);
-
+        
         Body.velocity = Direction.normalized * DashSpeed;
         UnityEngine.Debug.Log(Body.velocity);
         PlayerHealth.isImmune = true;
@@ -461,14 +467,18 @@ public class PlayerController : MonoBehaviour
     //called when sword strike against furniture, etc. causes player to bounce back
     public IEnumerator BounceBack(Vector3 knockback)
     {
-        if(State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
+
+        if (State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
         {
+            print("BANG");
+            audio.Stop();
+            audio.clip = clangsound;
+            audio.Play();
             State = PlayerState.BOUNCE_BACK;
             PlayerAnimator.SetTrigger("Bounce");
             GetComponent<Rigidbody>().AddForce(knockback);
 
             yield return new WaitForSeconds(.5f);
-
             if (State == PlayerState.BOUNCE_BACK) State = PlayerState.IDLE;
         }
         yield return null;

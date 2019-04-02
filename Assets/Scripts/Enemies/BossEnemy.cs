@@ -76,6 +76,22 @@ class HeavyAttack : ITreeTask
 [RequireComponent(typeof(HealthStats))]
 public class BossEnemy : MonoBehaviour, IEnemy
 {
+
+    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioClip step1;
+    [SerializeField] private AudioClip step2;
+    [SerializeField] private AudioClip step3;
+    [SerializeField] private AudioClip step4;
+    [SerializeField] private AudioClip step5;
+    [SerializeField] private AudioClip step6;
+    public List<AudioClip> steps = new List<AudioClip>();
+    [SerializeField] private AudioClip takesdamage;
+    [SerializeField] private AudioClip dash;
+    [SerializeField] private AudioClip lightswing;
+    [SerializeField] private AudioClip dies;
+    [SerializeField] private int randomer;
+
+
     [SerializeField] private float healthCutoff;
     [SerializeField] private float[] normalWeights;
     [SerializeField] private float[] enrageWeights;
@@ -114,6 +130,14 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+        steps.Add(step1);
+        steps.Add(step2);
+        steps.Add(step3);
+        steps.Add(step4);
+        steps.Add(step5);
+        steps.Add(step6);
+
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         healthStats = GetComponent<HealthStats>();
@@ -239,6 +263,12 @@ public class BossEnemy : MonoBehaviour, IEnemy
     }
     public void Move()
     {
+        if (audio.isPlaying == false)
+        {
+            randomer = UnityEngine.Random.Range(0, 5);
+            audio.clip = steps[randomer];
+            audio.Play();
+        }
         canMove = true;
     }
 
@@ -263,7 +293,12 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     public void Dash(Vector3 dir, float? dist = null, float? time = null)
     {
+<<<<<<< HEAD
         if(!time.HasValue)animator.SetBool("dash", true);
+=======
+        audio.clip = dash;
+        audio.Play();
+>>>>>>> ffd526af26b470a3fdd342832a722fede9e26409
         canMove = false;
         canDash = true;
         Vector3 dv = dir * (dist ?? dashDistance)/(time ?? dashTime) - rb.velocity;
