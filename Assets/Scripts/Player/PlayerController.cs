@@ -39,6 +39,19 @@ public class PlayerController : MonoBehaviour
     public float HeavyAttackForce;
     public long InteractCooldown = 500;
 
+    [Tooltip("If player's distance to enemy is less than this, targeting is attempted")]
+    public float Target_Range = 3f;
+    [Tooltip("If player's angle to enemy is less than this, targeting is attempted")]
+    public float Target_Angular_Range = 180;
+    [Tooltip("# of fixed frames to attempt targeting for. 60fps")]
+    public int NumFramesTarget = 10;
+    [Tooltip("Speed to rotate when targeting")]
+    public float TargetRotationSpeed = 8f;
+    [Tooltip("Distance must be greater than this to attempt move targeting")]
+    public float Target_Min_Range = 1.5f;
+    [Tooltip("Increment to move (per frame) when targeting")]
+    public float Target_Move_Increment = .1f;
+
     public Slider HealthBarSlider;
     public Text img;
     public Text txt;
@@ -79,6 +92,7 @@ public class PlayerController : MonoBehaviour
 
     private Transform PlayerRightHand;
     private GameObject ItemZone;
+    private GameObject ItemZoneArea;
     private HealthStats PlayerHealth;
 
     private Quaternion camRot;
@@ -111,6 +125,9 @@ public class PlayerController : MonoBehaviour
     {
         PlayerRightHand = GetComponent<Equipment>().DomHand;
         ItemZone = GetComponent<Equipment>().ItemZone;
+        ItemZoneArea = Instantiate(ItemZone, ItemZone.transform);
+        ItemZoneArea.tag = "ItemZoneArea";
+        ItemZoneArea.GetComponent<Collider>().enabled = true;
 
         camRot = ReferenceFrame.transform.rotation;
 
@@ -221,8 +238,6 @@ public class PlayerController : MonoBehaviour
                         //Move the player in the direction of the control stick relative to the camera
                         //TODO: Evaluate whether player should be moved via forces, or just have its velocity modified directly.
                         Body.AddForce(moveDirection * inputForce * WalkForce /* * Time.deltaTime*/);
-
-                        //WHENYOUWALKING
 
                         if (audio.isPlaying == false)
                         {
@@ -347,39 +362,91 @@ public class PlayerController : MonoBehaviour
         GameObject closestEnemy = null;
         float closestEnemyDistance = float.PositiveInfinity;
 
-        foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy"))
+        foreach (GameObject e in GameObject.FindGameObjectsWithTag("EnemyTargetPoint"))
         {
-            if (ItemZone.GetComponent<Collider>().bounds.Contains(e.transform.position))
+
+            Vector3 MoveDirection = e.transform.position - transform.position;
+
+            //Find amount and direction player should rotate to/in
+            Vector3 angFrom = Body.rotation.eulerAngles;
+            Vector3 angTo = Quaternion.LookRotation(MoveDirection).eulerAngles;
+
+            if (Vector3.Distance(transform.position, e.transform.position) < closestEnemyDistance && (Mathf.Abs(angFrom.y - angTo.y) < Target_Angular_Range))
             {
-                if(Vector3.Distance(transform.position, e.transform.position) < closestEnemyDistance)
-                {
-                    closestEnemy = e;
-                    closestEnemyDistance = Vector3.Distance(transform.position, e.transform.position);
-                }
+                closestEnemy = e;
+                closestEnemyDistance = Vector3.Distance(transform.position, e.transform.position);
             }
         }
 
-        if(closestEnemy != null) //&& dist between player & enemy < Target_Dist
+        print(closestEnemyDistance);
+
+        if (closestEnemy != null && closestEnemyDistance <= Target_Range)
         {
+            bool break1 = false;
+            bool break2 = false;
+
             //FOR some loop of fixed size
+            for (int i = 0; i < NumFramesTarget; i++)
+            {
+                Vector3 MoveDirection = closestEnemy.transform.position - transform.position;
 
-            //IF angle between player & enemy < Target_Angle_Degrees,
+                //Find amount and direction player should rotate to/in
+                Vector3 angFrom = Body.rotation.eulerAngles;
+                Vector3 angTo = Quaternion.LookRotation(MoveDirection).eulerAngles;
 
-            //THEN begin turn player toward enemy by Targeting_Degrees_Increment
+                float sign = 0;
+                if (angTo.y > angFrom.y)
+                {
+                    if (angTo.y - angFrom.y >= 180) sign = -1;
+                    else sign = 1;
+                }
+                else
+                {
+                    if (angFrom.y - angTo.y >= 180) sign = 1;
+                    else sign = -1;
+                }
 
-            //ELSE break1 = true
+                if (Mathf.Abs(angFrom.y - angTo.y) < Target_Angular_Range)
+                {
+                    if (Mathf.Abs(angFrom.y - angTo.y) < TargetRotationSpeed)
+                    {
+                        Body.MoveRotation(Quaternion.Euler(new Vector3(0, angTo.y, 0)));
+                        break1 = true;
+                    }
+                    else Body.MoveRotation(Quaternion.Euler(new Vector3(0, angFrom.y + (sign * TargetRotationSpeed), 0)));
+                }
+                else break; //break if not in angular range (regardless of break1, break2)
 
-            //IF dist between player & enemy > Target_Dist_Min
+                //Only move towards enemy if not already next to it
+                if (closestEnemyDistance > Target_Min_Range)
+                {
+                    Vector3 moveToLoc = new Vector3(Body.position.x, Body.position.y, Body.position.z);
+                    if (Body.position.x + Target_Move_Increment <= closestEnemy.transform.position.x)
+                    {
+                        moveToLoc.x += Target_Move_Increment;
+                    }
+                    else if (Body.position.x - Target_Move_Increment >= closestEnemy.transform.position.x)
+                    {
+                        moveToLoc.x -= Target_Move_Increment;
+                    }
 
-            //THEN begin move player toward enemy by Targeting_Movement_Increment
+                    if (Body.position.z + Target_Move_Increment <= closestEnemy.transform.position.z)
+                    {
+                        moveToLoc.z += Target_Move_Increment;
+                    }
+                    else if (Body.position.z - Target_Move_Increment >= closestEnemy.transform.position.z)
+                    {
+                        moveToLoc.z -= Target_Move_Increment;
+                    }
+                    Body.MovePosition(moveToLoc);
+                }
+                else break2 = true;
 
-            //ELSE break2 = true
+                if (break1 && break2) break;
 
-            //IF break1 && break2
-
-            //THEN break 
-
-            //YIELD RETURN next fixed frame
+                //YIELD RETURN next fixed frame
+                yield return new WaitForFixedUpdate();
+            }
         }
 
         yield return null;
