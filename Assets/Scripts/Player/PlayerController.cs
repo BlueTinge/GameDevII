@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip healsound;
     public AudioClip failedhealsound;
     public AudioClip deathsound;
+    public AudioClip clangsound;
     public GameObject damagesound;
     public GameObject dashsound;
     public Transform healtransform;
@@ -461,14 +462,18 @@ public class PlayerController : MonoBehaviour
     //called when sword strike against furniture, etc. causes player to bounce back
     public IEnumerator BounceBack(Vector3 knockback)
     {
-        if(State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
+
+        if (State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
         {
+            print("BANG");
+            audio.Stop();
+            audio.clip = clangsound;
+            audio.Play();
             State = PlayerState.BOUNCE_BACK;
             PlayerAnimator.SetTrigger("Bounce");
             GetComponent<Rigidbody>().AddForce(knockback);
 
             yield return new WaitForSeconds(.5f);
-
             if (State == PlayerState.BOUNCE_BACK) State = PlayerState.IDLE;
         }
         yield return null;
