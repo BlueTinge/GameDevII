@@ -29,6 +29,9 @@ public class UIManager : MonoBehaviour
 
     public GameObject Player;
 
+    public Text Potions;
+    private int NumPotions;
+
     public TextAsset Journal1Data;
     public TextAsset Journal2Data;
     public TextAsset Journal3Data;
@@ -50,11 +53,14 @@ public class UIManager : MonoBehaviour
     {
         myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().firstSelectedGameObject = ContinueButton;
-       // UnityEngine.Debug.Log(myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().firstSelectedGameObject);
+        // UnityEngine.Debug.Log(myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().firstSelectedGameObject);
+        NumPotions = Player.GetComponent<PlayerController>().NumPotions;
     }
 
     void Update()
     {
+        NumPotions = Player.GetComponent<PlayerController>().NumPotions;
+        Potions.text = "Potions: " + NumPotions.ToString();
         if (Input.GetButtonDown("Cancel"))
         {
             if (PauseMenu.gameObject.activeInHierarchy == false & MenuState == 0)
