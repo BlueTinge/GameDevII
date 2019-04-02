@@ -293,12 +293,9 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     public void Dash(Vector3 dir, float? dist = null, float? time = null)
     {
-<<<<<<< HEAD
         if(!time.HasValue)animator.SetBool("dash", true);
-=======
         audio.clip = dash;
         audio.Play();
->>>>>>> ffd526af26b470a3fdd342832a722fede9e26409
         canMove = false;
         canDash = true;
         Vector3 dv = dir * (dist ?? dashDistance)/(time ?? dashTime) - rb.velocity;
