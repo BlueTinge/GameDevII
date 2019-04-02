@@ -48,6 +48,12 @@ public class PlayerController : MonoBehaviour
     public bool JournalColllect3 = false;
     public bool JournalColllect4 = false;
     public bool JournalColllect5 = false;
+    public bool JournalColllect6 = false;
+    public bool JournalColllect7 = false;
+    public bool JournalColllect8 = false;
+    public bool JournalColllect9 = false;
+    public bool JournalColllect10 = false;
+
 
     public int NumPotions = 0;
     public float HealAmount = 10;
