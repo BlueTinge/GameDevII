@@ -76,6 +76,10 @@ class HeavyAttack : ITreeTask
 [RequireComponent(typeof(HealthStats))]
 public class BossEnemy : MonoBehaviour, IEnemy
 {
+
+    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioClip dash;
+
     [SerializeField] private float healthCutoff;
     [SerializeField] private float[] normalWeights;
     [SerializeField] private float[] enrageWeights;
