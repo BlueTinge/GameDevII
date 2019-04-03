@@ -80,6 +80,7 @@ MonoBehaviour:
   attackRadius: 2
   rotateSpeed: 180
   seekAngle: 15
+  KnockbackFactor: 300
   deathFade:
     serializedVersion: 2
     m_Curve:
