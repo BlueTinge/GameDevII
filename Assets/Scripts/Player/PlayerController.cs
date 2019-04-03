@@ -531,6 +531,7 @@ public class PlayerController : MonoBehaviour
         foreach (Material m in PlayerMaterials)
         {
             m.color = new Color(m.color.g, m.color.g, m.color.b, 1f);
+            StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Opaque);
         }
     }
 
@@ -551,7 +552,14 @@ public class PlayerController : MonoBehaviour
             Instantiate(damagesound);
         }
 
-        if(PlayerHealth.CurrentHealth > 0) isFlickering = true;
+        if (PlayerHealth.CurrentHealth > 0)
+        {
+            isFlickering = true;
+            foreach(Material m in PlayerMaterials)
+            {
+                StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Fade);
+            }
+        }
     }
 
     public void OnDeath(float overkill)
