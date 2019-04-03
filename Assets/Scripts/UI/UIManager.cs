@@ -159,6 +159,11 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void JournalButton()
     {
         PauseMenu.gameObject.SetActive(false);
