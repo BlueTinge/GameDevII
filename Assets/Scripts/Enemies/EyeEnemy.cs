@@ -45,6 +45,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     private new MeshRenderer renderer;
     private Color[] colors;
     private float goalDistance;
+    private bool playedHurt;
 
     void Awake()
     {
@@ -52,6 +53,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         accel = Vector3.zero;
         canMove = true;
+        playedHurt = false;
         behaviorTree = new BehaviorTree
         (
             new SelectorTask(new ITreeTask[]
@@ -87,6 +89,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
         healthStats = GetComponent<HealthStats>();
         healthStats.OnDeath = (overkill) => {Die();};
         healthStats.OnDamage = (damage) => {StartCoroutine(TakeDamage());};
+        healthStats.OnImmunityEnd = OnImmunityEnd;
         audio = GetComponent<AudioSource>();
     }
 
@@ -253,8 +256,13 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     private IEnumerator TakeDamage()
     {
         HealthBar.fillAmount = healthStats.CurrentHealth / healthStats.MaxHealth;
-        audio.clip = takesdamagesoundeffect;
-        audio.Play();
+        if (!playedHurt)
+        {
+            audio.clip = takesdamagesoundeffect;
+            audio.Play();
+            playedHurt = true;
+        }
+
         foreach (var v in renderer.materials)
         {
             v.color = Color.red;
@@ -264,5 +272,10 @@ public class EyeEnemy : MonoBehaviour, IEnemy
         {
             renderer.materials[i].color = colors[i];
         }
+    }
+
+    private void OnImmunityEnd()
+    {
+        playedHurt = false;
     }
 }
