@@ -189,11 +189,17 @@ public class PlayerController : MonoBehaviour
             {
                 Vector3 ang = camRot.eulerAngles;
                 float pitch = ang.x + (camRotationSpeed * Input.GetAxis(CamVert) * Time.deltaTime);
+
+                print("PITCH: "+pitch+" ANG.X: "+ang.x+"CAM.TRANSFORM.EULER_ANGLES.x: "+Cam.transform.eulerAngles.x);
+
                 if (Cam.transform.eulerAngles.x > 350 && pitch < ang.x) pitch = ang.x;
-                if (Cam.transform.eulerAngles.x < 350 && Cam.transform.eulerAngles.x > 85 && pitch > ang.x) pitch = ang.x;
+                if (Cam.transform.eulerAngles.x < 300 && Cam.transform.eulerAngles.x > 85 && pitch > ang.x) pitch = ang.x;
+
                 camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
                 lastCamMovement.Restart();
                 CamIsDrifting = false;
+
+
 
             }else if ((!lastCamMovement.IsRunning || lastCamMovement.ElapsedMilliseconds > CamCooldown) && !CamIsDrifting)
             {
