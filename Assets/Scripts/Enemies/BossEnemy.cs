@@ -502,7 +502,6 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     private void OnDeath(float overkill)
     {
-        print("TIMETODIE");
         audio.Stop();
         audio.clip = dies;
         audio.Play();

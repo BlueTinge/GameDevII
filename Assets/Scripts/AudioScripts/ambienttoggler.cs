@@ -23,7 +23,6 @@ public class ambienttoggler : MonoBehaviour
     {
         if (audio.isPlaying == false)
         {
-            print(counter);
             if (counter % 2 == 0)
             {
                 audio.clip = ambient2;
