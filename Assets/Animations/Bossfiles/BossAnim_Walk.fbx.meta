@@ -1,0 +1,638 @@
+fileFormatVersion: 2
+guid: b8dbafac4a72b514b9f093c172427fbd
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: PlayerReference:Armor
+    100004: PlayerReference:Body
+    100006: PlayerReference:Chest
+    100008: PlayerReference:Collar
+    100010: PlayerReference:Components_Combined_Armor_AssArmor
+    100012: PlayerReference:Components_Combined_Armor_CrotchArmor
+    100014: PlayerReference:Components_Combined_Armor_LeftHipArmor
+    100016: PlayerReference:Components_Combined_Armor_LeftPauldron
+    100018: PlayerReference:Components_Combined_Armor_RightHipArmor
+    100020: PlayerReference:Components_Combined_Armor_RightPauldron
+    100022: PlayerReference:Head
+    100024: PlayerReference:joint28
+    100026: PlayerReference:joint29
+    100028: PlayerReference:joint30
+    100030: PlayerReference:LeftElbow
+    100032: PlayerReference:LeftFoot
+    100034: PlayerReference:LeftForearm
+    100036: PlayerReference:LeftIndex
+    100038: PlayerReference:LeftKnee
+    100040: PlayerReference:LeftLeg
+    100042: PlayerReference:LeftMiddle
+    100044: PlayerReference:LeftOuterShoulder
+    100046: PlayerReference:LeftPink
+    100048: PlayerReference:LeftRing
+    100050: PlayerReference:LeftShoulder
+    100052: PlayerReference:LeftThumb
+    100054: PlayerReference:LeftToe
+    100056: PlayerReference:LeftWrist
+    100058: PlayerReference:LI1
+    100060: PlayerReference:LI2
+    100062: PlayerReference:LM1
+    100064: PlayerReference:LM2
+    100066: PlayerReference:LP1
+    100068: PlayerReference:LP2
+    100070: PlayerReference:LR1
+    100072: PlayerReference:LR2
+    100074: PlayerReference:LT1
+    100076: PlayerReference:LT2
+    100078: PlayerReference:Neck
+    100080: PlayerReference:PlayerSkeleton
+    100082: PlayerReference:PlayerSwordGroup2
+    100084: PlayerReference:RI1
+    100086: PlayerReference:RI2
+    100088: PlayerReference:RightElbow
+    100090: PlayerReference:RightFoot
+    100092: PlayerReference:RightIndex
+    100094: PlayerReference:RightKnee
+    100096: PlayerReference:RightLeg
+    100098: PlayerReference:RightMiddle
+    100100: PlayerReference:RightOuterShoulder
+    100102: PlayerReference:RightPinky
+    100104: PlayerReference:RightRing
+    100106: PlayerReference:RightShoulder
+    100108: PlayerReference:RightThumb
+    100110: PlayerReference:RightToe
+    100112: PlayerReference:RightWrist
+    100114: PlayerReference:RM1
+    100116: PlayerReference:RM2
+    100118: PlayerReference:RP1
+    100120: PlayerReference:RP2
+    100122: PlayerReference:RR1
+    100124: PlayerReference:RR2
+    100126: PlayerReference:RT1
+    100128: PlayerReference:RT2
+    100130: PlayerReference:SwordBase
+    100132: PlayerReference:SwordOffset
+    100134: PlayerReference:Swordtip
+    100136: PlayerReference:Waist
+    400000: //RootNode
+    400002: PlayerReference:Armor
+    400004: PlayerReference:Body
+    400006: PlayerReference:Chest
+    400008: PlayerReference:Collar
+    400010: PlayerReference:Components_Combined_Armor_AssArmor
+    400012: PlayerReference:Components_Combined_Armor_CrotchArmor
+    400014: PlayerReference:Components_Combined_Armor_LeftHipArmor
+    400016: PlayerReference:Components_Combined_Armor_LeftPauldron
+    400018: PlayerReference:Components_Combined_Armor_RightHipArmor
+    400020: PlayerReference:Components_Combined_Armor_RightPauldron
+    400022: PlayerReference:Head
+    400024: PlayerReference:joint28
+    400026: PlayerReference:joint29
+    400028: PlayerReference:joint30
+    400030: PlayerReference:LeftElbow
+    400032: PlayerReference:LeftFoot
+    400034: PlayerReference:LeftForearm
+    400036: PlayerReference:LeftIndex
+    400038: PlayerReference:LeftKnee
+    400040: PlayerReference:LeftLeg
+    400042: PlayerReference:LeftMiddle
+    400044: PlayerReference:LeftOuterShoulder
+    400046: PlayerReference:LeftPink
+    400048: PlayerReference:LeftRing
+    400050: PlayerReference:LeftShoulder
+    400052: PlayerReference:LeftThumb
+    400054: PlayerReference:LeftToe
+    400056: PlayerReference:LeftWrist
+    400058: PlayerReference:LI1
+    400060: PlayerReference:LI2
+    400062: PlayerReference:LM1
+    400064: PlayerReference:LM2
+    400066: PlayerReference:LP1
+    400068: PlayerReference:LP2
+    400070: PlayerReference:LR1
+    400072: PlayerReference:LR2
+    400074: PlayerReference:LT1
+    400076: PlayerReference:LT2
+    400078: PlayerReference:Neck
+    400080: PlayerReference:PlayerSkeleton
+    400082: PlayerReference:PlayerSwordGroup2
+    400084: PlayerReference:RI1
+    400086: PlayerReference:RI2
+    400088: PlayerReference:RightElbow
+    400090: PlayerReference:RightFoot
+    400092: PlayerReference:RightIndex
+    400094: PlayerReference:RightKnee
+    400096: PlayerReference:RightLeg
+    400098: PlayerReference:RightMiddle
+    400100: PlayerReference:RightOuterShoulder
+    400102: PlayerReference:RightPinky
+    400104: PlayerReference:RightRing
+    400106: PlayerReference:RightShoulder
+    400108: PlayerReference:RightThumb
+    400110: PlayerReference:RightToe
+    400112: PlayerReference:RightWrist
+    400114: PlayerReference:RM1
+    400116: PlayerReference:RM2
+    400118: PlayerReference:RP1
+    400120: PlayerReference:RP2
+    400122: PlayerReference:RR1
+    400124: PlayerReference:RR2
+    400126: PlayerReference:RT1
+    400128: PlayerReference:RT2
+    400130: PlayerReference:SwordBase
+    400132: PlayerReference:SwordOffset
+    400134: PlayerReference:Swordtip
+    400136: PlayerReference:Waist
+    2100000: lambert1
+    2100002: PlayerReference_typeBlinn
+    2100004: PlayerReference_defaultPolygonShader2
+    2300000: PlayerReference:Components_Combined_Armor_AssArmor
+    2300002: PlayerReference:Components_Combined_Armor_CrotchArmor
+    2300004: PlayerReference:Components_Combined_Armor_LeftHipArmor
+    2300006: PlayerReference:Components_Combined_Armor_LeftPauldron
+    2300008: PlayerReference:Components_Combined_Armor_RightHipArmor
+    2300010: PlayerReference:Components_Combined_Armor_RightPauldron
+    3300000: PlayerReference:Components_Combined_Armor_AssArmor
+    3300002: PlayerReference:Components_Combined_Armor_CrotchArmor
+    3300004: PlayerReference:Components_Combined_Armor_LeftHipArmor
+    3300006: PlayerReference:Components_Combined_Armor_LeftPauldron
+    3300008: PlayerReference:Components_Combined_Armor_RightHipArmor
+    3300010: PlayerReference:Components_Combined_Armor_RightPauldron
+    4300000: PlayerReference:Body
+    4300002: PlayerReference:Components_Combined_Armor_RightPauldron
+    4300004: PlayerReference:Components_Combined_Armor_RightHipArmor
+    4300006: PlayerReference:Components_Combined_Armor_LeftHipArmor
+    4300008: PlayerReference:Components_Combined_Armor_LeftPauldron
+    4300010: PlayerReference:Components_Combined_Armor_CrotchArmor
+    4300012: PlayerReference:Components_Combined_Armor_AssArmor
+    7400000: Walk
+    9500000: //RootNode
+    13700000: PlayerReference:Body
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Walk' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'PlayerReference:Waist' has translation animation that
+      will be discarded.\n\t'PlayerReference:LeftPink' has translation animation that
+      will be discarded.\n\t'PlayerReference:LeftRing' has translation animation that
+      will be discarded.\n\t'PlayerReference:LeftMiddle' has translation animation
+      that will be discarded.\n\t'PlayerReference:LeftIndex' has translation animation
+      that will be discarded.\n\t'PlayerReference:LeftThumb' has translation animation
+      that will be discarded.\n\t'PlayerReference:LeftToe' has translation animation
+      that will be discarded.\n\t'PlayerReference:RightToe' has translation animation
+      that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: Walk
+      firstFrame: 235
+      lastFrame: 296
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 20
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.19999999
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton:
+    - name: BossAnim_Walk(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Body
+      parentName: BossAnim_Walk(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:PlayerSwordGroup2
+      parentName: BossAnim_Walk(Clone)
+      position: {x: 0.23072137, y: 1.0319438, z: -0.08857821}
+      rotation: {x: 0.15947504, y: 0.5049037, z: -0.43905225, w: 0.72586024}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:SwordOffset
+      parentName: PlayerReference:PlayerSwordGroup2
+      position: {x: 0.00040264128, y: -0.007469749, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:SwordBase
+      parentName: PlayerReference:SwordOffset
+      position: {x: 0.000091113514, y: 0.0013407499, z: -0.002649415}
+      rotation: {x: 0.70608425, y: 0.7081279, z: 0.000000005275964, w: 0.0000000052607376}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Swordtip
+      parentName: PlayerReference:SwordBase
+      position: {x: -1.0227089, y: 0.00044437815, z: 6.6217505e-12}
+      rotation: {x: 0.70608425, y: 0.7081279, z: 0.0000000052607154, w: -0.000000005275942}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Armor
+      parentName: BossAnim_Walk(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Components_Combined_Armor_RightPauldron
+      parentName: PlayerReference:Armor
+      position: {x: 0.091231056, y: 1.6453774, z: 0.15637662}
+      rotation: {x: -0.013343499, y: 0.07008511, z: 0.015554651, w: 0.9973305}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Components_Combined_Armor_RightHipArmor
+      parentName: PlayerReference:Armor
+      position: {x: 0.020622378, y: 1.0363636, z: 0.20825166}
+      rotation: {x: -0.42489475, y: 0.052555326, z: 0.08769945, w: 0.8994505}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Components_Combined_Armor_LeftHipArmor
+      parentName: PlayerReference:Armor
+      position: {x: -0.26796862, y: 0.9007848, z: 0.27750504}
+      rotation: {x: -0.057776414, y: 0.030964902, z: 0.064352065, w: 0.995772}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Components_Combined_Armor_LeftPauldron
+      parentName: PlayerReference:Armor
+      position: {x: -0.34979865, y: 1.6315649, z: 0.21693271}
+      rotation: {x: -0.013343499, y: 0.07008511, z: 0.015554651, w: 0.9973305}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Components_Combined_Armor_CrotchArmor
+      parentName: PlayerReference:Armor
+      position: {x: -0.09628847, y: 1.0899552, z: 0.18525924}
+      rotation: {x: 0.022146702, y: -0.10742364, z: 0.010026038, w: 0.9939161}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Components_Combined_Armor_AssArmor
+      parentName: PlayerReference:Armor
+      position: {x: -0.09628847, y: 1.0899552, z: 0.18525924}
+      rotation: {x: 0.022146702, y: -0.10742364, z: 0.010026038, w: 0.9939161}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:PlayerSkeleton
+      parentName: BossAnim_Walk(Clone)
+      position: {x: -0.096288465, y: 1.0899551, z: 0.18525924}
+      rotation: {x: 0.09162008, y: -0.06029991, z: -0.69571537, w: 0.7098943}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Waist
+      parentName: PlayerReference:PlayerSkeleton
+      position: {x: -0.12938455, y: -0.00007096065, z: 0.04450084}
+      rotation: {x: -0.18180877, y: -0.0014413792, z: -0.00057538284, w: 0.9833327}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Chest
+      parentName: PlayerReference:Waist
+      position: {x: -0.12199282, y: 2.7781738e-17, z: -0.006659231}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Collar
+      parentName: PlayerReference:Chest
+      position: {x: -0.092418805, y: 2.0469736e-17, z: -0.0206881}
+      rotation: {x: 0.0045335977, y: -0.032082148, z: 0.00007904496, w: 0.99947494}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Neck
+      parentName: PlayerReference:Collar
+      position: {x: -0.11464482, y: 2.5326962e-17, z: 0}
+      rotation: {x: 0.09336385, y: 0.16988394, z: -0.012019634, w: 0.9809578}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:Head
+      parentName: PlayerReference:Neck
+      position: {x: -0.14916079, y: 3.3120348e-17, z: 0.036961153}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftShoulder
+      parentName: PlayerReference:Collar
+      position: {x: -0.099812314, y: -0.09611556, z: -0.003524002}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftOuterShoulder
+      parentName: PlayerReference:LeftShoulder
+      position: {x: -0.08872205, y: 0.0014687458, z: -0.019284133}
+      rotation: {x: 0.8290813, y: 0.473755, z: -0.23216726, w: -0.1851454}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftElbow
+      parentName: PlayerReference:LeftOuterShoulder
+      position: {x: -0.28969714, y: -4.2340138e-16, z: 0}
+      rotation: {x: -0.07595217, y: 0.98372847, z: -0.075827084, w: -0.14408289}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftForearm
+      parentName: PlayerReference:LeftElbow
+      position: {x: -0.00019233432, y: -0.0000130415, z: 0.124760605}
+      rotation: {x: 0.000022219436, y: -0.000096444186, z: 0.9744729, w: -0.22450536}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftWrist
+      parentName: PlayerReference:LeftForearm
+      position: {x: 0.004164468, y: 0.016184561, z: 0.13571261}
+      rotation: {x: 0.12814625, y: 0.7256804, z: -0.23943688, w: 0.63216805}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftPink
+      parentName: PlayerReference:LeftWrist
+      position: {x: -0.11151163, y: 0.002196358, z: -0.0036963534}
+      rotation: {x: 0.020538755, y: 0.08827665, z: 0.20642984, w: 0.97425467}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LP1
+      parentName: PlayerReference:LeftPink
+      position: {x: -0.033662394, y: 0.00038751127, z: -0.00003960207}
+      rotation: {x: 0.0079108225, y: 0.0037584123, z: 0.5699493, w: 0.82163316}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LP2
+      parentName: PlayerReference:LP1
+      position: {x: -0.035429116, y: -0.0011894142, z: -4.8765557e-20}
+      rotation: {x: -0.0062019755, y: 0.0062019755, z: -0.7070796, w: 0.7070796}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftRing
+      parentName: PlayerReference:LeftWrist
+      position: {x: -0.108292624, y: 0.0019788456, z: 0.015683537}
+      rotation: {x: 0.016065111, y: 0.10934682, z: 0.20682609, w: 0.97211534}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LR1
+      parentName: PlayerReference:LeftRing
+      position: {x: -0.034546062, y: 0.002207632, z: -0.003515931}
+      rotation: {x: -0.017860467, y: 0.0053344984, z: 0.5697243, w: 0.82162446}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LR2
+      parentName: PlayerReference:LR1
+      position: {x: -0.037909538, y: -0.0011894142, z: 7.742089e-16}
+      rotation: {x: 0, y: -0.10046023, z: -0, w: 0.9949411}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftMiddle
+      parentName: PlayerReference:LeftWrist
+      position: {x: -0.10425575, y: 0.0019112636, z: 0.036152016}
+      rotation: {x: 0.017478146, y: 0.102701, z: 0.20671144, w: 0.9728399}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LM1
+      parentName: PlayerReference:LeftMiddle
+      position: {x: -0.037782114, y: 0.0016836454, z: -0.0004813382}
+      rotation: {x: -0.0038843402, y: -0.0036848178, z: 0.41592714, w: 0.9093822}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LM2
+      parentName: PlayerReference:LM1
+      position: {x: -0.050960366, y: -0.0011894142, z: -4.9560856e-16}
+      rotation: {x: 0, y: -0.10046023, z: -0, w: 0.9949411}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftIndex
+      parentName: PlayerReference:LeftWrist
+      position: {x: -0.097931124, y: -0.0001151343, z: 0.05541856}
+      rotation: {x: 0.012127212, y: 0.1278221, z: 0.20709428, w: 0.969859}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LI1
+      parentName: PlayerReference:LeftIndex
+      position: {x: -0.039289866, y: -0.00045585536, z: -0.002486332}
+      rotation: {x: -0.015442335, y: -0.0039493744, z: 0.24499252, w: 0.96939397}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LI2
+      parentName: PlayerReference:LI1
+      position: {x: -0.04471149, y: -0.0009779312, z: -0.0014476287}
+      rotation: {x: 0, y: -0.12802689, z: -0, w: 0.99177074}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftThumb
+      parentName: PlayerReference:LeftWrist
+      position: {x: -0.028103996, y: -0.00006312831, z: 0.049991995}
+      rotation: {x: 0.12976895, y: 0.54419446, z: 0.072848864, w: 0.82565457}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LT1
+      parentName: PlayerReference:LeftThumb
+      position: {x: -0.031679273, y: -0.0063435426, z: 0.0062718336}
+      rotation: {x: 0.005126597, y: -0.08083817, z: 0.0030616906, w: 0.99670935}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LT2
+      parentName: PlayerReference:LT1
+      position: {x: -0.033904616, y: -0.0035682423, z: 0.0004718925}
+      rotation: {x: 0, y: -0.36119372, z: -0, w: 0.9324908}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightShoulder
+      parentName: PlayerReference:Collar
+      position: {x: -0.09981221, y: 0.096115604, z: -0.003524606}
+      rotation: {x: 0.7071068, y: 0.7071068, z: -4.3297806e-17, w: -4.3297806e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightOuterShoulder
+      parentName: PlayerReference:RightShoulder
+      position: {x: 0.088722, y: -0.0014679999, z: 0.019283999}
+      rotation: {x: 0.7961269, y: 0.538039, z: 0.18195976, w: -0.20877412}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightElbow
+      parentName: PlayerReference:RightOuterShoulder
+      position: {x: 0.27396843, y: 0.000010412876, z: 0.00024647315}
+      rotation: {x: 0.02547093, y: -0.2036922, z: 0.01901322, w: 0.9785189}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:joint28
+      parentName: PlayerReference:RightElbow
+      position: {x: 0.14016011, y: 0.002781585, z: -0.004158034}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightWrist
+      parentName: PlayerReference:joint28
+      position: {x: 0.13063857, y: -0.009383378, z: -0.0035197788}
+      rotation: {x: 0.8293514, y: 0.0029155903, z: -0.54175484, w: 0.13663615}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightPinky
+      parentName: PlayerReference:RightWrist
+      position: {x: 0.112999134, y: 0.01199348, z: 0.0054774815}
+      rotation: {x: -0.06918632, y: 0.07581907, z: 0.04226352, w: 0.9938202}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RP1
+      parentName: PlayerReference:RightPinky
+      position: {x: 0.039961014, y: -0.0025162094, z: -0.0038178386}
+      rotation: {x: 0.020970335, y: 0.05499545, z: 0.66485006, w: 0.74465436}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RP2
+      parentName: PlayerReference:RP1
+      position: {x: 0.035429012, y: 0.0018333233, z: 0.0000007008899}
+      rotation: {x: -0.0062019755, y: 0.0062019755, z: -0.7070796, w: 0.7070796}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightRing
+      parentName: PlayerReference:RightWrist
+      position: {x: 0.11051547, y: 0.009197663, z: -0.0137765175}
+      rotation: {x: -0.06945889, y: 0.08226082, z: 0.041814066, w: 0.99330777}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RR1
+      parentName: PlayerReference:RightRing
+      position: {x: 0.03999885, y: -0.0027753036, z: -0.0021925862}
+      rotation: {x: 0.016463256, y: 0.050386153, z: 0.66497695, w: 0.74498045}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RR2
+      parentName: PlayerReference:RR1
+      position: {x: 0.037908, y: 0.0018333233, z: -5.301843e-16}
+      rotation: {x: 0, y: -0.10046023, z: -0, w: 0.9949411}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightMiddle
+      parentName: PlayerReference:RightWrist
+      position: {x: 0.10735527, y: 0.006289809, z: -0.033386193}
+      rotation: {x: -0.06980488, y: 0.09053466, z: 0.041233853, w: 0.9925878}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RM1
+      parentName: PlayerReference:RightMiddle
+      position: {x: 0.041928746, y: -0.0045760325, z: -0.004428268}
+      rotation: {x: 0.017259695, y: 0.037071355, z: 0.6649567, w: 0.74576163}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RM2
+      parentName: PlayerReference:RM1
+      position: {x: 0.050959997, y: 0.0018333233, z: 5.3562975e-16}
+      rotation: {x: 0, y: -0.10046023, z: -0, w: 0.9949411}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightIndex
+      parentName: PlayerReference:RightWrist
+      position: {x: 0.101986006, y: 0.0034177122, z: -0.051134564}
+      rotation: {x: -0.07084775, y: 0.11617045, z: 0.039415065, w: 0.9899149}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RI1
+      parentName: PlayerReference:RightIndex
+      position: {x: 0.040180143, y: -0.00077892106, z: -0.00255808}
+      rotation: {x: -0.027841086, y: 0.049069986, z: 0.6645978, w: 0.7450684}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RI2
+      parentName: PlayerReference:RI1
+      position: {x: 0.045727465, y: 0.0018333233, z: 0.00414012}
+      rotation: {x: 0, y: -0.07112638, z: -0, w: 0.99746734}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightThumb
+      parentName: PlayerReference:RightWrist
+      position: {x: 0.031103576, y: 0.006309784, z: -0.04424289}
+      rotation: {x: 0.4585317, y: 0.47897568, z: 0.19527708, w: 0.7226326}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RT1
+      parentName: PlayerReference:RightThumb
+      position: {x: 0.035759754, y: 0.008307694, z: 0.000010097955}
+      rotation: {x: -0.011273012, y: -0.53179115, z: 0.0061046863, w: 0.8467785}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RT2
+      parentName: PlayerReference:RT1
+      position: {x: 0.025873734, y: 0.0043611852, z: -0.004811902}
+      rotation: {x: 0, y: -0.36119372, z: -0, w: 0.9324908}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftLeg
+      parentName: PlayerReference:PlayerSkeleton
+      position: {x: 0.05545128, y: -0.118296064, z: 2.2204459e-17}
+      rotation: {x: -0.07227816, y: 0.13974899, z: 0.98575133, w: -0.059500996}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftKnee
+      parentName: PlayerReference:LeftLeg
+      position: {x: -0.44730705, y: -8.8817837e-17, z: -5.477931e-17}
+      rotation: {x: -9.041825e-16, y: -0.40090913, z: -1.5842453e-15, w: 0.91611785}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftFoot
+      parentName: PlayerReference:LeftKnee
+      position: {x: -0.4277969, y: -9.023163e-17, z: 0.061549194}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:LeftToe
+      parentName: PlayerReference:LeftFoot
+      position: {x: -0.020443058, y: 0.026573922, z: 0.18934602}
+      rotation: {x: 0.025180155, y: 0.99743414, z: -0.06682784, w: -0.005022419}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:joint29
+      parentName: PlayerReference:LeftToe
+      position: {x: -0.015014563, y: 0.0000000012889675, z: -0.0903833}
+      rotation: {x: 0, y: 0, z: 0.0019989458, w: 0.99999803}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightLeg
+      parentName: PlayerReference:PlayerSkeleton
+      position: {x: 0.055451803, y: 0.118296005, z: 0.00000070011276}
+      rotation: {x: -0.15865897, y: -0.43272015, z: 0.12116177, w: 0.8791476}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightKnee
+      parentName: PlayerReference:RightLeg
+      position: {x: 0.44730598, y: -8.8817837e-17, z: 0}
+      rotation: {x: 1.4363909e-16, y: 0.63765675, z: -1.3330518e-16, w: 0.77032065}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightFoot
+      parentName: PlayerReference:RightKnee
+      position: {x: 0.42779714, y: -9.023163e-17, z: -0.061549194}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:RightToe
+      parentName: PlayerReference:RightFoot
+      position: {x: 0.02501722, y: -0.05456474, z: 0.18317834}
+      rotation: {x: -0.025430057, y: 0.9771711, z: 0.15597007, w: 0.14199743}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlayerReference:joint30
+      parentName: PlayerReference:RightToe
+      position: {x: -0.0106652025, y: -0.00066561124, z: -0.09028779}
+      rotation: {x: 0.5303071, y: 0.47194234, z: 0.4679309, w: 0.52638906}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

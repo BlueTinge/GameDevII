@@ -59,6 +59,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
                 new SequenceTask(new ITreeTask[]
                 {
                     new CloseTo(transform, target, range),
+                    new CallTask(CanSeePlayer),
                     new CallTask(() => {goalDistance = Random.Range(minGoalDistance, maxGoalDistance);  return true;}),
                     new WhileTask
                     (
@@ -236,6 +237,17 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     {
         if(spawnOnDeath) Instantiate(spawnOnDeath, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    private bool CanSeePlayer()
+    {
+        RaycastHit h;
+        Vector3 dir = target.position - transform.position;
+        float len = dir.magnitude;
+        bool cast = Physics.Raycast(transform.position, dir.normalized, out h, len);
+        if(!cast) return true;
+
+        return h.transform == target;
     }
 
     private IEnumerator TakeDamage()

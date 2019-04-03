@@ -4436,17 +4436,17 @@ MonoBehaviour:
   HealthBarSlider: {fileID: 0}
   img: {fileID: 0}
   txt: {fileID: 0}
-  AnyJournal: 0
-  JournalColllect1: 0
-  JournalColllect2: 0
-  JournalColllect3: 0
-  JournalColllect4: 0
-  JournalColllect5: 0
-  JournalColllect6: 0
-  JournalColllect7: 0
-  JournalColllect8: 0
-  JournalColllect9: 0
-  JournalColllect10: 0
+  AnyJournal: 1
+  JournalColllect1: 1
+  JournalColllect2: 1
+  JournalColllect3: 1
+  JournalColllect4: 1
+  JournalColllect5: 1
+  JournalColllect6: 1
+  JournalColllect7: 1
+  JournalColllect8: 1
+  JournalColllect9: 1
+  JournalColllect10: 1
   NumPotions: 3
   HealAmount: 5
   MoveHoriz: LeftHoriz
@@ -9429,7 +9429,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7176674447259152132}
   m_LocalRotation: {x: 0.27267432, y: -0, z: -0, w: 0.9621064}
-  m_LocalPosition: {x: 0, y: 3.97, z: -7.21}
+  m_LocalPosition: {x: 0, y: 2.25, z: -4.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7176674447218628852}
