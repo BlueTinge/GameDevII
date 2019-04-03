@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e131d60cc0008ca45b34456b6ed88438
+guid: 6658dcace7c87754e9be343aea95ff4d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -43,42 +43,35 @@ ModelImporter:
     100074: PlayerReference:LT1
     100076: PlayerReference:LT2
     100078: PlayerReference:Neck
-    100080: PlayerReference:PlayerController
-    100082: PlayerReference:PlayerHipsController
-    100084: PlayerReference:PlayerRightShoulderController
-    100086: PlayerReference:PlayerShoulderController
-    100088: PlayerReference:PlayerSkeleton
-    100090: PlayerReference:PlayerSwordGroup2
-    100092: PlayerReference:PlayerWaistController
-    100094: PlayerReference:RI1
-    100096: PlayerReference:RI2
-    100098: PlayerReference:RightandController1
-    100100: PlayerReference:RightElbow
-    100102: PlayerReference:RightFoot
-    100104: PlayerReference:RightHandCenterPalm
-    100106: PlayerReference:RightIndex
-    100108: PlayerReference:RightKnee
-    100110: PlayerReference:RightLeg
-    100112: PlayerReference:RightMiddle
-    100114: PlayerReference:RightOuterShoulder
-    100116: PlayerReference:RightPinky
-    100118: PlayerReference:RightRing
-    100120: PlayerReference:RightShoulder
-    100122: PlayerReference:RightThumb
-    100124: PlayerReference:RightToe
-    100126: PlayerReference:RightWrist
-    100128: PlayerReference:RM1
-    100130: PlayerReference:RM2
-    100132: PlayerReference:RP1
-    100134: PlayerReference:RP2
-    100136: PlayerReference:RR1
-    100138: PlayerReference:RR2
-    100140: PlayerReference:RT1
-    100142: PlayerReference:RT2
-    100144: PlayerReference:SwordBase
-    100146: PlayerReference:SwordOffset
-    100148: PlayerReference:Swordtip
-    100150: PlayerReference:Waist
+    100080: PlayerReference:PlayerSkeleton
+    100082: PlayerReference:PlayerSwordGroup2
+    100084: PlayerReference:RI1
+    100086: PlayerReference:RI2
+    100088: PlayerReference:RightElbow
+    100090: PlayerReference:RightFoot
+    100092: PlayerReference:RightIndex
+    100094: PlayerReference:RightKnee
+    100096: PlayerReference:RightLeg
+    100098: PlayerReference:RightMiddle
+    100100: PlayerReference:RightOuterShoulder
+    100102: PlayerReference:RightPinky
+    100104: PlayerReference:RightRing
+    100106: PlayerReference:RightShoulder
+    100108: PlayerReference:RightThumb
+    100110: PlayerReference:RightToe
+    100112: PlayerReference:RightWrist
+    100114: PlayerReference:RM1
+    100116: PlayerReference:RM2
+    100118: PlayerReference:RP1
+    100120: PlayerReference:RP2
+    100122: PlayerReference:RR1
+    100124: PlayerReference:RR2
+    100126: PlayerReference:RT1
+    100128: PlayerReference:RT2
+    100130: PlayerReference:SwordBase
+    100132: PlayerReference:SwordOffset
+    100134: PlayerReference:Swordtip
+    100136: PlayerReference:Waist
     400000: //RootNode
     400002: PlayerReference:Armor
     400004: PlayerReference:Body
@@ -119,45 +112,37 @@ ModelImporter:
     400074: PlayerReference:LT1
     400076: PlayerReference:LT2
     400078: PlayerReference:Neck
-    400080: PlayerReference:PlayerController
-    400082: PlayerReference:PlayerHipsController
-    400084: PlayerReference:PlayerRightShoulderController
-    400086: PlayerReference:PlayerShoulderController
-    400088: PlayerReference:PlayerSkeleton
-    400090: PlayerReference:PlayerSwordGroup2
-    400092: PlayerReference:PlayerWaistController
-    400094: PlayerReference:RI1
-    400096: PlayerReference:RI2
-    400098: PlayerReference:RightandController1
-    400100: PlayerReference:RightElbow
-    400102: PlayerReference:RightFoot
-    400104: PlayerReference:RightHandCenterPalm
-    400106: PlayerReference:RightIndex
-    400108: PlayerReference:RightKnee
-    400110: PlayerReference:RightLeg
-    400112: PlayerReference:RightMiddle
-    400114: PlayerReference:RightOuterShoulder
-    400116: PlayerReference:RightPinky
-    400118: PlayerReference:RightRing
-    400120: PlayerReference:RightShoulder
-    400122: PlayerReference:RightThumb
-    400124: PlayerReference:RightToe
-    400126: PlayerReference:RightWrist
-    400128: PlayerReference:RM1
-    400130: PlayerReference:RM2
-    400132: PlayerReference:RP1
-    400134: PlayerReference:RP2
-    400136: PlayerReference:RR1
-    400138: PlayerReference:RR2
-    400140: PlayerReference:RT1
-    400142: PlayerReference:RT2
-    400144: PlayerReference:SwordBase
-    400146: PlayerReference:SwordOffset
-    400148: PlayerReference:Swordtip
-    400150: PlayerReference:Waist
+    400080: PlayerReference:PlayerSkeleton
+    400082: PlayerReference:PlayerSwordGroup2
+    400084: PlayerReference:RI1
+    400086: PlayerReference:RI2
+    400088: PlayerReference:RightElbow
+    400090: PlayerReference:RightFoot
+    400092: PlayerReference:RightIndex
+    400094: PlayerReference:RightKnee
+    400096: PlayerReference:RightLeg
+    400098: PlayerReference:RightMiddle
+    400100: PlayerReference:RightOuterShoulder
+    400102: PlayerReference:RightPinky
+    400104: PlayerReference:RightRing
+    400106: PlayerReference:RightShoulder
+    400108: PlayerReference:RightThumb
+    400110: PlayerReference:RightToe
+    400112: PlayerReference:RightWrist
+    400114: PlayerReference:RM1
+    400116: PlayerReference:RM2
+    400118: PlayerReference:RP1
+    400120: PlayerReference:RP2
+    400122: PlayerReference:RR1
+    400124: PlayerReference:RR2
+    400126: PlayerReference:RT1
+    400128: PlayerReference:RT2
+    400130: PlayerReference:SwordBase
+    400132: PlayerReference:SwordOffset
+    400134: PlayerReference:Swordtip
+    400136: PlayerReference:Waist
     2100000: lambert1
-    2100002: PlayerReference_typeBlinn
-    2100004: PlayerReference_defaultPolygonShader2
+    2100002: PlayerReference_defaultPolygonShader2
     2300000: PlayerReference:Components_Combined_Armor_AssArmor
     2300002: PlayerReference:Components_Combined_Armor_CrotchArmor
     2300004: PlayerReference:Components_Combined_Armor_LeftHipArmor
@@ -177,8 +162,10 @@ ModelImporter:
     4300008: PlayerReference:Components_Combined_Armor_LeftPauldron
     4300010: PlayerReference:Components_Combined_Armor_CrotchArmor
     4300012: PlayerReference:Components_Combined_Armor_AssArmor
+    7400000: HeavyAttack
     9500000: //RootNode
     13700000: PlayerReference:Body
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -206,11 +193,39 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: HeavyAttack
+      takeName: HeavyAttack
+      firstFrame: 100
+      lastFrame: 132
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 20
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -231,7 +246,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
+    previousCalculatedGlobalScale: 0.19999999
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60

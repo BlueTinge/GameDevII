@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using Stargaze.AI;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -30,6 +31,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     [SerializeField]private float range;
     [SerializeField]private GameObject spawnOnDeath;
 
+    public Image HealthBar;
 
     private BehaviorTree behaviorTree;
     private EyeCharge laserCharge;
@@ -238,6 +240,7 @@ public class EyeEnemy : MonoBehaviour, IEnemy
 
     private IEnumerator TakeDamage()
     {
+        HealthBar.fillAmount = healthStats.CurrentHealth / healthStats.MaxHealth;
         audio.clip = takesdamagesoundeffect;
         audio.Play();
         foreach (var v in renderer.materials)
