@@ -114,7 +114,9 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private float accelTime;
     [SerializeField] private float maxOmega;
     [SerializeField] private float maxAlpha;
-    [SerializeField] private float slowDistance;  
+    [SerializeField] private float slowDistance;
+    [SerializeField] private float flickerSpeed;
+    [SerializeField] private float flickerAlpha;
     [SerializeField] private GameObject attackObject;  
 
     private Transform player;
@@ -127,6 +129,9 @@ public class BossEnemy : MonoBehaviour, IEnemy
     private float alpha;
     private Vector3 accel;
     private Animator animator;
+    private bool isAlive;
+    private bool isFlickering;
+    Material[] materials;
 
     void Start()
     {
@@ -141,13 +146,24 @@ public class BossEnemy : MonoBehaviour, IEnemy
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         healthStats = GetComponent<HealthStats>();
-        healthStats.OnDeath = (overkill) => {Destroy(gameObject);};
+        healthStats.OnDeath = OnDeath;
+        healthStats.OnDamage = OnDamage;
+        healthStats.OnImmunityEnd = OnImmunityEnd;
+
         alpha = 0;
         canTurn = false;
         canMove = false;
         canDash = false;
         accel = Vector3.zero;
+        isAlive = true;
+        isFlickering = false;
         animator = GetComponentInChildren<Animator>();
+        List<Material> mats = new List<Material>();
+        foreach(MeshRenderer mr in GetComponentsInChildren<MeshRenderer>())
+        {
+            mats.AddRange(mr.materials);
+        }
+        materials = mats.ToArray();
 
         behaviorTree = new BehaviorTree
         (
@@ -219,6 +235,30 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     void Update()
     {
+        if(!isAlive)
+        {
+            isFlickering = false;
+            return;
+        }
+
+        if(isFlickering)
+        {
+            if( (Time.frameCount % flickerSpeed) < (flickerSpeed / 2))
+            {
+                foreach (Material m in materials)
+                {
+                    m.color = new Color(m.color.g, m.color.g, m.color.b, flickerAlpha);
+                }
+            }
+            else
+            {
+                foreach (Material m in materials)
+                {
+                    m.color = new Color(m.color.g, m.color.g, m.color.b, 1f);
+                }
+            }
+        }
+
         behaviorTree.Update();
         animator.SetBool("moving", canMove);
     }
@@ -408,5 +448,33 @@ public class BossEnemy : MonoBehaviour, IEnemy
     {
         canMove = false;
         animator.SetBool("heavyAttack", true);
+    }
+
+    private void OnDamage(float damage)
+    {
+        isFlickering = true;
+        foreach(Material m in materials)
+        {
+            StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Fade);
+        }
+    }
+
+    private void OnImmunityEnd()
+    {
+        isFlickering = false;
+        foreach(Material m in materials)
+        {
+            StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Opaque);
+        }
+    }
+
+    private void OnDeath(float overkill)
+    {
+        isFlickering = false;
+        foreach(Material m in materials)
+        {
+            StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Opaque);
+        }
+        Destroy(gameObject);
     }
 }
