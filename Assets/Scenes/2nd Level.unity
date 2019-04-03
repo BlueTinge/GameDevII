@@ -16479,6 +16479,56 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Journal5Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 1147008026257186523, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1253371516}
+    - target: {fileID: 1147008026257186523, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Journal7Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 486483277148452779, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1253371516}
+    - target: {fileID: 486483277148452779, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Journal10Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586154770303825253, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1253371516}
+    - target: {fileID: 5586154770303825253, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Journal8Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584751586488204179, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1253371516}
+    - target: {fileID: 6584751586488204179, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Journal9Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009730911780115336, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1253371516}
+    - target: {fileID: 7009730911780115336, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Journal6Menu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
 --- !u!114 &624689363 stripped
@@ -26903,7 +26953,7 @@ PrefabInstance:
     - target: {fileID: 3818841895341921843, guid: a4e519558f4b62241af4bedd7348243c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.92
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 3818841895341921843, guid: a4e519558f4b62241af4bedd7348243c,
         type: 3}
@@ -26913,7 +26963,7 @@ PrefabInstance:
     - target: {fileID: 3818841895341921843, guid: a4e519558f4b62241af4bedd7348243c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.9822
+      value: 21.2
       objectReference: {fileID: 0}
     - target: {fileID: 3818841895341921843, guid: a4e519558f4b62241af4bedd7348243c,
         type: 3}
@@ -26923,7 +26973,7 @@ PrefabInstance:
     - target: {fileID: 3818841895341921843, guid: a4e519558f4b62241af4bedd7348243c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3818841895341921843, guid: a4e519558f4b62241af4bedd7348243c,
         type: 3}
@@ -26933,7 +26983,7 @@ PrefabInstance:
     - target: {fileID: 3818841895341921843, guid: a4e519558f4b62241af4bedd7348243c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3818841895341921843, guid: a4e519558f4b62241af4bedd7348243c,
         type: 3}
@@ -26948,7 +26998,7 @@ PrefabInstance:
     - target: {fileID: 3818841895341921843, guid: a4e519558f4b62241af4bedd7348243c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3818841895341921843, guid: a4e519558f4b62241af4bedd7348243c,
         type: 3}
@@ -45977,7 +46027,7 @@ PrefabInstance:
     - target: {fileID: 3434070359158684111, guid: 86297397343b2d044a1295c23539515b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.62
+      value: 21.43
       objectReference: {fileID: 0}
     - target: {fileID: 3434070359158684111, guid: 86297397343b2d044a1295c23539515b,
         type: 3}
@@ -45987,7 +46037,7 @@ PrefabInstance:
     - target: {fileID: 3434070359158684111, guid: 86297397343b2d044a1295c23539515b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.3
+      value: 39.029
       objectReference: {fileID: 0}
     - target: {fileID: 3434070359158684111, guid: 86297397343b2d044a1295c23539515b,
         type: 3}
@@ -51449,7 +51499,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Journal1Data
       value: 
-      objectReference: {fileID: 4900000, guid: 173e83475a7c03644a590e2a9446178d, type: 3}
+      objectReference: {fileID: 4900000, guid: fac812bd1b8873b419d1db7e778c09a2, type: 3}
     - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
         type: 3}
       propertyPath: Journal1Button
