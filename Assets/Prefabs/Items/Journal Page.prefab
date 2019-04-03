@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8617413196772562051}
   - component: {fileID: 3775434289352824679}
   - component: {fileID: 8440307062105093303}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Journal Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4587578352523854094}
   - component: {fileID: 9147231329030627305}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Journal Page Textures
   m_TagString: Untagged
   m_Icon: {fileID: 0}

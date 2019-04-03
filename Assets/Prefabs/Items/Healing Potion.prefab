@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 334598408}
   - component: {fileID: 334598409}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 1994556438}
   - component: {fileID: 1994556439}
   - component: {fileID: 1994556433}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Healing Potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
