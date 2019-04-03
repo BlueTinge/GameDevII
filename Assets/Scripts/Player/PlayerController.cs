@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
     public PlayerState State = PlayerState.IDLE;
 
-
+    public float CamSnapIncrement = 1f;
     public float CamDriftRange = 15f;
 
     private Transform PlayerRightHand;
@@ -386,25 +386,47 @@ public class PlayerController : MonoBehaviour
 
         foreach (Vector3 Cardinal in Cardinals)
         {
+            print(Cardinal);
+            print(Vector3.Angle(camRot * Vector3.forward, Cardinal));
             if (Vector3.Angle(camRot * Vector3.forward, Cardinal) < CamDriftRange)
             {
-                float sign = 0f;
-                float increment = 1f;
 
+                Vector3 angFrom = camRot.eulerAngles; //pitch, yaw, roll
 
-                while (false)
+                Quaternion CardinalQuaternion = Quaternion.LookRotation(Cardinal, Vector3.up);
+                Vector3 angTo = CardinalQuaternion.eulerAngles;
+
+                //break out of loop once camera ang has aligned (or max frames hit)
+                for (int i = 0; i < 1000 && !CamJustMoved; i++)
                 {
-                    Vector3 ang = camRot.eulerAngles; //pitch, yaw, roll
+                    float sign = 0;
+                    if (angTo.y > angFrom.y)
+                    {
+                        if (angTo.y - angFrom.y >= 180) sign = -1;
+                        else sign = 1;
+                    }
+                    else
+                    {
+                        if (angFrom.y - angTo.y >= 180) sign = 1;
+                        else sign = -1;
+                    }
 
                     //Drift camera towards cardinal direction
-                    camRot = Quaternion.Euler(new Vector3(ang.x, ang.y + sign * increment, ang.z));
+                    camRot = Quaternion.Euler(new Vector3(angFrom.x, angFrom.y + sign * CamSnapIncrement, angFrom.z));
+
+                    angFrom = camRot.eulerAngles; //pitch, yaw, roll
 
                     //Snap to cardinal if close enough, and end the loop
+                    if (Mathf.Abs(angTo.y - angFrom.y) <= CamSnapIncrement * 1.1)
+                    {
+                        camRot = Quaternion.Euler(new Vector3(angFrom.x, angTo.y, angFrom.z));
+                        break;
+                    }
 
                     yield return new WaitForFixedUpdate();
                 }
 
-
+                break;
             }
         }
 
