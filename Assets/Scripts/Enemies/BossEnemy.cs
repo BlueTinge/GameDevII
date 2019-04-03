@@ -135,6 +135,10 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     void Start()
     {
+        SetJointsActive(false);
+        GetComponentInChildren<Weapon>().Holder = gameObject;
+        GetComponentInChildren<Weapon>().SetCollidersEnabled(true);
+
         audio = GetComponent<AudioSource>();
         steps.Add(step1);
         steps.Add(step2);
@@ -475,7 +479,26 @@ public class BossEnemy : MonoBehaviour, IEnemy
         {
             StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Opaque);
         }
-        Destroy(gameObject);
+
+        //drop sword
+        GetComponentInChildren<Weapon>().Holder = null;
+
+        //disable animations
+        animator.enabled = false;
+
+        //make ragdoll
+        rb.constraints = RigidbodyConstraints.None;
+        GetComponent<Collider>().enabled = false;
+        SetJointsActive(true);
+
+        //you can restart after a few seconds
+        StartCoroutine(FadeOutAndExit());
+        
+    }
+
+    private IEnumerator FadeOutAndExit()
+    {
+        yield return new WaitForSeconds(3f);
         WinScreen.SetActive(true);
     }
 

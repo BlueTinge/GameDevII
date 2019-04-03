@@ -12,6 +12,7 @@ TagManager:
   - PlayerJoint
   - ItemZoneArea
   - EnemyTargetPoint
+  - BossJoint
   layers:
   - Default
   - TransparentFX
