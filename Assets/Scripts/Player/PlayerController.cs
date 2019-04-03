@@ -725,8 +725,6 @@ public class PlayerController : MonoBehaviour
             txt.text = "Press E to pick up";
             if (Input.GetKeyDown(KeyCode.E))
             {
-                JournalColllect1 = true;
-                AnyJournal = true;
                 img.text = other.GetComponent<TextHolder>().TextData.ToString();
                 Destroy(other.gameObject);
                 txt.text = "";
