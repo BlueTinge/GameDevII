@@ -4426,11 +4426,13 @@ MonoBehaviour:
   HeavyAttackForce: 500
   InteractCooldown: 500
   Target_Range: 3.5
-  Target_Angular_Range: 200
+  Target_Angular_Range: 270
   NumFramesTarget: 10
   TargetRotationSpeed: 8
-  Target_Min_Range: 1.8
-  Target_Move_Increment: 0.02
+  Target_Min_Range: 2
+  Target_Move_Increment: 0.035
+  FlickerSpeed: 10
+  FlickerAlpha: 0.3
   HealthBarSlider: {fileID: 0}
   img: {fileID: 0}
   txt: {fileID: 0}
