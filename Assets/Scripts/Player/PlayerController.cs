@@ -52,6 +52,10 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Increment to move (per frame) when targeting")]
     public float Target_Move_Increment = .1f;
 
+    public int FlickerSpeed = 20;
+    public float FlickerAlpha = 0.5f;
+    private bool isFlickering = false;
+
     public Slider HealthBarSlider;
     public Text img;
     public Text txt;
@@ -100,6 +104,7 @@ public class PlayerController : MonoBehaviour
     private GameObject ItemZone;
     private GameObject ItemZoneArea;
     private HealthStats PlayerHealth;
+    private Material[] PlayerMaterials;
 
     private Quaternion camRot;
 
@@ -141,6 +146,21 @@ public class PlayerController : MonoBehaviour
         PlayerHealth = GetComponent<HealthStats>();
         PlayerHealth.OnDeath = OnDeath;
         PlayerHealth.OnDamage = OnDamage;
+        PlayerHealth.OnImmunityEnd = OnImmunityEnd;
+
+
+        List<Material> materials = new List<Material>();
+        foreach (Renderer r in GetComponentsInChildren<Renderer>())
+        {
+            foreach (Material m in r.materials)
+            {
+                if (m.HasProperty(Shader.PropertyToID("_Color")))
+                {
+                    materials.Add(m);
+                }
+            }
+        }
+        PlayerMaterials = materials.ToArray();
 
         audio = GetComponent<AudioSource>();
         steps.Add(footstep1);
@@ -212,7 +232,25 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(UsePotion());
             }
 
-            if(State == PlayerState.DEATH && Input.GetButtonDown(LightAttackButton) && (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown*4))
+            if(isFlickering)
+            {
+                if( (Time.frameCount % FlickerSpeed) < (FlickerSpeed / 2))
+                {
+                    foreach (Material m in PlayerMaterials)
+                    {
+                        m.color = new Color(m.color.g, m.color.g, m.color.b, FlickerAlpha);
+                    }
+                }
+                else
+                {
+                    foreach (Material m in PlayerMaterials)
+                    {
+                        m.color = new Color(m.color.g, m.color.g, m.color.b, 1f);
+                    }
+                }
+            }
+
+            if(State == PlayerState.DEATH && Input.GetButtonDown(LightAttackButton) && (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown))
             {
                 StartCoroutine(LoadFromCheckpoint());
             }
@@ -484,6 +522,16 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
+    public void OnImmunityEnd()
+    {
+        isFlickering = false;
+
+        foreach (Material m in PlayerMaterials)
+        {
+            m.color = new Color(m.color.g, m.color.g, m.color.b, 1f);
+        }
+    }
+
     public void OnDamage(float damage)
     {
         if (HealthBarSlider != null)
@@ -499,9 +547,9 @@ public class PlayerController : MonoBehaviour
             PlayerAnimator.ResetTrigger("Idle");
             Invoke("SetStateIdle", 0.5f);
             Instantiate(damagesound);
-
-
         }
+
+        if(PlayerHealth.CurrentHealth > 0) isFlickering = true;
     }
 
     public void OnDeath(float overkill)
