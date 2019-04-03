@@ -90,7 +90,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private AudioClip lightswing;
     [SerializeField] private AudioClip dies;
     [SerializeField] private int randomer;
-
+    [SerializeField] private GameObject WinScreen;
 
     [SerializeField] private float healthCutoff;
     [SerializeField] private float[] normalWeights;
@@ -476,5 +476,6 @@ public class BossEnemy : MonoBehaviour, IEnemy
             StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Opaque);
         }
         Destroy(gameObject);
+        WinScreen.SetActive(true);
     }
 }
