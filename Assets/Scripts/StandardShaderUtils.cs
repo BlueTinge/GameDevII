@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+// from https://answers.unity.com/questions/1004666/change-material-rendering-mode-in-runtime.html
+
 public static class StandardShaderUtils
 {
     public enum BlendMode
