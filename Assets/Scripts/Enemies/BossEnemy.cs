@@ -456,10 +456,13 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     private void OnDamage(float damage)
     {
-        isFlickering = true;
-        foreach(Material m in materials)
+        if(healthStats.CurrentHealth > 0)
         {
-            StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Fade);
+            isFlickering = true;
+            foreach (Material m in materials)
+            {
+                StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Fade);
+            }
         }
     }
 
