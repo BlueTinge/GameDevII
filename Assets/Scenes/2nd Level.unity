@@ -24032,6 +24032,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerBounceFactor: -1
+--- !u!1 &914468934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7176674447155021505, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 927997183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &916168528
 GameObject:
   m_ObjectHideFlags: 0
@@ -24436,30 +24442,13 @@ PrefabInstance:
       propertyPath: HealthBarSlider
       value: 
       objectReference: {fileID: 2037385817}
-    - target: {fileID: 7176674447259152129, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.08
+    - target: {fileID: 771962008, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7176674447259152129, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176674447259152129, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.17098643
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176674447259152129, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9852734
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176674447259152129, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 19.69
+    - target: {fileID: 253391705, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
+      propertyPath: MaxDistance
+      value: 43664.547
       objectReference: {fileID: 0}
     - target: {fileID: 103117479375006722, guid: eba1bdb6e9e65af4a85c834be393c0ef,
         type: 3}
@@ -24646,10 +24635,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 42ee68f1d74da5940ad31392bc4fcf34, type: 2}
-    - target: {fileID: 253391705, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
-      propertyPath: MaxDistance
-      value: 43664.547
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
 --- !u!1 &928708047
@@ -51469,7 +51454,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 914468934}
     - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
         type: 3}
       propertyPath: PauseMenu
