@@ -10,9 +10,12 @@ using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
-    public static readonly string[] LevelOrder = { "1st Level", "2nd Level" };
+    public static readonly string[] LEVEL_ORDER = { "1st Level", "2nd Level", "Boss Room"};
+    public static readonly int INITIAL_POTION_NUM = 3;
 
     private static Dictionary<string, bool> Checkpoints = null;
+    private static int NumPotions;
+    private static float PlayerHealth;
     private static bool IsInitialized = false;
 
     void Awake()
@@ -27,7 +30,8 @@ public class Manager : MonoBehaviour
      public static void Reset()
      {
         Checkpoints = new Dictionary<string, bool>();
-
+        NumPotions = INITIAL_POTION_NUM;
+        PlayerHealth = 0;
         IsInitialized = true;
      }
 
@@ -67,7 +71,9 @@ public class Manager : MonoBehaviour
             Reset();
         }
 
-        foreach (string SceneName in LevelOrder)
+        NumPotions = INITIAL_POTION_NUM;
+
+        foreach (string SceneName in LEVEL_ORDER)
         {
             if (GetCheckpoint(SceneName) && !SceneName.Equals(SceneManager.GetActiveScene().name)) continue;
             else
@@ -76,5 +82,42 @@ public class Manager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public static void SaveValues(PlayerController player)
+    {
+        if (!IsInitialized)
+        {
+            Reset();
+        }
+
+        NumPotions = player.NumPotions;
+        //PlayerHealth = player.gameObject.GetComponent<HealthStats>().CurrentHealth;
+        //theoretically weapons can be saved as well
+    }
+
+    internal static float GetPlayerHealth()
+    {
+        if (!IsInitialized)
+        {
+            Reset();
+        }
+
+        return PlayerHealth;
+    }
+
+    internal static int GetNumPotions()
+    {
+        if (!IsInitialized)
+        {
+            Reset();
+        }
+
+        //when you begin the game, you have INITIAL_POTION_NUM.
+        //when you go to a new level, you have however many potions you had before.
+        //if you die without hitting any checkpoints, you have INITIAL_POTION_NUM again.
+        //what if you did hit a checkpoint? do your potions come back on the 2nd level? I think so
+
+        return NumPotions;
     }
 }

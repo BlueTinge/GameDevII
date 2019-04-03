@@ -34,7 +34,7 @@ public class HealthStats : MonoBehaviour
     public ImmunityEndDelegate OnImmunityEnd;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _currentHealth = MaxHealth;
 

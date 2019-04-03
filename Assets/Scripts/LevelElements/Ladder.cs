@@ -23,6 +23,7 @@ public class Ladder : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Manager.SaveValues(collision.gameObject.GetComponent<PlayerController>());
             SceneManager.LoadScene(SceneName);
         }
     }

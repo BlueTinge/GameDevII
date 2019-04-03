@@ -153,6 +153,13 @@ public class PlayerController : MonoBehaviour
         PlayerHealth.OnDamage = OnDamage;
         PlayerHealth.OnImmunityEnd = OnImmunityEnd;
 
+        NumPotions = Manager.GetNumPotions();
+        if (Manager.GetPlayerHealth() > 0) PlayerHealth.CurrentHealth = Manager.GetPlayerHealth();
+        if (HealthBarSlider != null)
+        {
+            HealthBarSlider.value = PlayerHealth.CurrentHealth;
+        }
+        else UnityEngine.Debug.LogWarning("HealthBarSlider not set in player");
 
         List<Material> materials = new List<Material>();
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
@@ -189,8 +196,6 @@ public class PlayerController : MonoBehaviour
             {
                 Vector3 ang = camRot.eulerAngles;
                 float pitch = ang.x + (camRotationSpeed * Input.GetAxis(CamVert) * Time.deltaTime);
-
-                print("PITCH: "+pitch+" ANG.X: "+ang.x+"CAM.TRANSFORM.EULER_ANGLES.x: "+Cam.transform.eulerAngles.x);
 
                 if (Cam.transform.eulerAngles.x > 350 && pitch < ang.x) pitch = ang.x;
                 if (Cam.transform.eulerAngles.x < 300 && Cam.transform.eulerAngles.x > 85 && pitch > ang.x) pitch = ang.x;
