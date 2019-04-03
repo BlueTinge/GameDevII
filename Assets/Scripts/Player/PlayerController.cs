@@ -221,7 +221,6 @@ public class PlayerController : MonoBehaviour
 
                 StartCoroutine(TargetNearestEnemy());
                 Invoke("EnsureAttackComplete",1f);
-                UnityEngine.Debug.Log("Swing Attack");
             }
 
             if ((State == PlayerState.IDLE || State == PlayerState.WALKING) && (Input.GetButtonDown(HeavyAttackButton)) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown))
@@ -233,7 +232,6 @@ public class PlayerController : MonoBehaviour
                 audio.clip = heavyswing;
                 audio.Play();
                 Invoke("EnsureAttackComplete", 1f);
-                UnityEngine.Debug.Log("Heavy Attack");
 
             }
 
@@ -298,7 +296,6 @@ public class PlayerController : MonoBehaviour
                     if ((Input.GetButton(DashButton) || Input.GetAxis(Trigger) < -0.2) && (!lastDash.IsRunning || lastDash.ElapsedMilliseconds > DashCooldown) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
                     {
                         lastDash.Restart();
-                        UnityEngine.Debug.Log("Dash");
                         StartCoroutine(Dash(moveDirection * inputForce));
                     }
                     else
@@ -520,8 +517,6 @@ public class PlayerController : MonoBehaviour
                 closestEnemyDistance = Vector3.Distance(transform.position, e.transform.position);
             }
         }
-
-        print("Dist to nearest target: "+closestEnemyDistance);
 
         if (closestEnemy != null && closestEnemyDistance <= Target_Range)
         {

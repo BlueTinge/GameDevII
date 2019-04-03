@@ -24,8 +24,6 @@ public class Equipment : MonoBehaviour
     {
         if (newWeapon.GetComponent<Weapon>().IsHeld) return;
 
-        UnityEngine.Debug.Log("Equipped weapon");
-
         CurrentWeapon.transform.parent = newWeapon.transform.parent;
         CurrentWeapon.transform.position = new Vector3(CurrentWeapon.transform.position.x, CurrentWeapon.transform.position.y, CurrentWeapon.transform.position.z + 0.2f);
         //CurrentWeapon.transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
