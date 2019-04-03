@@ -23,6 +23,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     [SerializeField] private float attackRadius;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float seekAngle;
+    [SerializeField] private float KnockbackFactor;
     [SerializeField] private AnimationCurve deathFade;
     [SerializeField] private GameObject hurtBox;
     
@@ -219,7 +220,9 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         audio.Play();
         animator.SetBool("windup", false);
         animator.SetBool("attacking", true);
-        hurtBox.AddComponent<Attack>().Initialize(5, (targetPos - transform.position).normalized,
+        Vector3 knockback = (targetPos - transform.position).normalized * KnockbackFactor;
+        knockback.y = 0;
+        hurtBox.AddComponent<Attack>().Initialize(5, knockback,
             lungeTime, gameObject);
     }
 

@@ -52,6 +52,10 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Increment to move (per frame) when targeting")]
     public float Target_Move_Increment = .1f;
 
+    public int FlickerSpeed = 20;
+    public float FlickerAlpha = 0.5f;
+    private bool isFlickering = false;
+
     public Slider HealthBarSlider;
     public Text img;
     public Text txt;
@@ -100,6 +104,7 @@ public class PlayerController : MonoBehaviour
     private GameObject ItemZone;
     private GameObject ItemZoneArea;
     private HealthStats PlayerHealth;
+    private Material[] PlayerMaterials;
 
     private Quaternion camRot;
 
@@ -141,6 +146,21 @@ public class PlayerController : MonoBehaviour
         PlayerHealth = GetComponent<HealthStats>();
         PlayerHealth.OnDeath = OnDeath;
         PlayerHealth.OnDamage = OnDamage;
+        PlayerHealth.OnImmunityEnd = OnImmunityEnd;
+
+
+        List<Material> materials = new List<Material>();
+        foreach (Renderer r in GetComponentsInChildren<Renderer>())
+        {
+            foreach (Material m in r.materials)
+            {
+                if (m.HasProperty(Shader.PropertyToID("_Color")))
+                {
+                    materials.Add(m);
+                }
+            }
+        }
+        PlayerMaterials = materials.ToArray();
 
         audio = GetComponent<AudioSource>();
         steps.Add(footstep1);
@@ -177,6 +197,7 @@ public class PlayerController : MonoBehaviour
                 //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
 
                 StartCoroutine(TargetNearestEnemy());
+                Invoke("EnsureAttackComplete",1f);
                 UnityEngine.Debug.Log("Swing Attack");
             }
 
@@ -188,6 +209,7 @@ public class PlayerController : MonoBehaviour
                 //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
                 audio.clip = heavyswing;
                 audio.Play();
+                Invoke("EnsureAttackComplete", 1f);
                 UnityEngine.Debug.Log("Heavy Attack");
 
             }
@@ -212,7 +234,25 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(UsePotion());
             }
 
-            if(State == PlayerState.DEATH && Input.GetButtonDown(LightAttackButton) && (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown*4))
+            if(isFlickering)
+            {
+                if( (Time.frameCount % FlickerSpeed) < (FlickerSpeed / 2))
+                {
+                    foreach (Material m in PlayerMaterials)
+                    {
+                        m.color = new Color(m.color.g, m.color.g, m.color.b, FlickerAlpha);
+                    }
+                }
+                else
+                {
+                    foreach (Material m in PlayerMaterials)
+                    {
+                        m.color = new Color(m.color.g, m.color.g, m.color.b, 1f);
+                    }
+                }
+            }
+
+            if(State == PlayerState.DEATH && Input.GetButtonDown(LightAttackButton) && (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown))
             {
                 StartCoroutine(LoadFromCheckpoint());
             }
@@ -313,6 +353,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void EnsureAttackComplete()
+    {
+        if(State == PlayerState.LIGHT_ATTACKING)
+        {
+            if(!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown)
+            {
+                State = PlayerState.IDLE;
+            }
+        }
+        else if (State == PlayerState.HEAVY_ATTACKING)
+        {
+            if (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown)
+            {
+                State = PlayerState.IDLE;
+            }
+        }
+    }
+
     public IEnumerator Dash(Vector3 Direction)
     {
         State = PlayerState.DASHING;
@@ -383,6 +441,8 @@ public class PlayerController : MonoBehaviour
             Vector3 angFrom = Body.rotation.eulerAngles;
             Vector3 angTo = Quaternion.LookRotation(MoveDirection).eulerAngles;
 
+            print(Mathf.Abs(angFrom.y - angTo.y));
+
             if (Vector3.Distance(transform.position, e.transform.position) < closestEnemyDistance && (Mathf.Abs(angFrom.y - angTo.y) < Target_Angular_Range))
             {
                 closestEnemy = e;
@@ -390,7 +450,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        print(closestEnemyDistance);
+        print("Dist to nearest target: "+closestEnemyDistance);
 
         if (closestEnemy != null && closestEnemyDistance <= Target_Range)
         {
@@ -484,6 +544,17 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
+    public void OnImmunityEnd()
+    {
+        isFlickering = false;
+
+        foreach (Material m in PlayerMaterials)
+        {
+            m.color = new Color(m.color.g, m.color.g, m.color.b, 1f);
+            StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Opaque);
+        }
+    }
+
     public void OnDamage(float damage)
     {
         if (HealthBarSlider != null)
@@ -499,8 +570,15 @@ public class PlayerController : MonoBehaviour
             PlayerAnimator.ResetTrigger("Idle");
             Invoke("SetStateIdle", 0.5f);
             Instantiate(damagesound);
+        }
 
-
+        if (PlayerHealth.CurrentHealth > 0)
+        {
+            isFlickering = true;
+            foreach(Material m in PlayerMaterials)
+            {
+                StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Fade);
+            }
         }
     }
 
@@ -580,6 +658,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator MakeHeavyAttack(float ttl)
     {
+        StartCoroutine(TargetNearestEnemy());
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeHeavyAttack(ttl);
         Body.AddRelativeForce(Vector3.forward * HeavyAttackForce);
         yield return new WaitForSeconds(ttl);
