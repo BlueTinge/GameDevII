@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Stargaze.AI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 class DashTask : ITreeTask
 {
@@ -91,7 +92,6 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private AudioClip lightswing;
     [SerializeField] private AudioClip dies;
     [SerializeField] private int randomer;
-    [SerializeField] private GameObject WinScreen;
     [SerializeField] private Image HealthBar;
 
     [SerializeField] private float healthCutoff;
@@ -505,7 +505,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     private IEnumerator FadeOutAndExit()
     {
         yield return new WaitForSeconds(3f);
-        WinScreen.SetActive(true);
+        SceneManager.LoadScene(4);
     }
 
     public void SetJointsActive(bool jointsActive)
