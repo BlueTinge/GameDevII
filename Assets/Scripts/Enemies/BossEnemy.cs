@@ -485,6 +485,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
         {
             StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Opaque);
         }
+        isAlive = false;
 
         //drop sword
         GetComponentInChildren<Weapon>().Holder = null;
