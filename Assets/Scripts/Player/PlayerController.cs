@@ -56,6 +56,11 @@ public class PlayerController : MonoBehaviour
     public float FlickerAlpha = 0.5f;
     private bool isFlickering = false;
 
+    public float CamSnapIncrement;
+    public float CamDriftRange;
+    public float CamCooldown;
+    private bool CamIsDrifting = false;
+
     public Slider HealthBarSlider;
     public Text img;
     public Text txt;
@@ -100,21 +105,18 @@ public class PlayerController : MonoBehaviour
 
     public PlayerState State = PlayerState.IDLE;
 
-    public float CamSnapIncrement = 1f;
-    public float CamDriftRange = 15f;
-
     private Transform PlayerRightHand;
     private GameObject ItemZone;
     private HealthStats PlayerHealth;
     private Material[] PlayerMaterials;
 
     private Quaternion camRot;
-    private bool CamJustMoved = false;
 
     private Stopwatch lastAttack = new Stopwatch();
     private Stopwatch lastDash = new Stopwatch();
     private Stopwatch lastInteract = new Stopwatch();
     private Stopwatch lastHeal = new Stopwatch();
+    private Stopwatch lastCamMovement = new Stopwatch();
 
     public AudioSource audio;
     public AudioClip footstep1;
@@ -190,10 +192,12 @@ public class PlayerController : MonoBehaviour
                 if (Cam.transform.eulerAngles.x > 350 && pitch < ang.x) pitch = ang.x;
                 if (Cam.transform.eulerAngles.x < 350 && Cam.transform.eulerAngles.x > 85 && pitch > ang.x) pitch = ang.x;
                 camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
-                CamJustMoved = true;
-            }else if (CamJustMoved)
+                lastCamMovement.Restart();
+                CamIsDrifting = false;
+
+            }else if ((!lastCamMovement.IsRunning || lastCamMovement.ElapsedMilliseconds > CamCooldown) && !CamIsDrifting)
             {
-                CamJustMoved = false;
+                CamIsDrifting = true;
                 StartCoroutine(DriftCamToCardinalDirection());
             }
 
@@ -353,7 +357,6 @@ public class PlayerController : MonoBehaviour
     {
         if (State == PlayerState.DASHING)
         {
-            print("dashwall");
             //This code prevents dashing into objects to send them flying, but is sloppy and may introduce bugs
             //TODO: edit this code so that you can't stop every rb from moving just by dashing into it 
             if (collision.rigidbody != null) collision.rigidbody.velocity = new Vector3(0, 0, 0);
@@ -386,18 +389,15 @@ public class PlayerController : MonoBehaviour
 
         foreach (Vector3 Cardinal in Cardinals)
         {
-            print(Cardinal);
-            print(Vector3.Angle(camRot * Vector3.forward, Cardinal));
             if (Vector3.Angle(camRot * Vector3.forward, Cardinal) < CamDriftRange)
             {
-
                 Vector3 angFrom = camRot.eulerAngles; //pitch, yaw, roll
 
                 Quaternion CardinalQuaternion = Quaternion.LookRotation(Cardinal, Vector3.up);
                 Vector3 angTo = CardinalQuaternion.eulerAngles;
 
                 //break out of loop once camera ang has aligned (or max frames hit)
-                for (int i = 0; i < 1000 && !CamJustMoved; i++)
+                for (int i = 0; i < 1000 && CamIsDrifting; i++)
                 {
                     float sign = 0;
                     if (angTo.y > angFrom.y)
@@ -417,7 +417,7 @@ public class PlayerController : MonoBehaviour
                     angFrom = camRot.eulerAngles; //pitch, yaw, roll
 
                     //Snap to cardinal if close enough, and end the loop
-                    if (Mathf.Abs(angTo.y - angFrom.y) <= CamSnapIncrement * 1.1)
+                    if (Mathf.Abs(angTo.y - angFrom.y) <= CamSnapIncrement * 4f)
                     {
                         camRot = Quaternion.Euler(new Vector3(angFrom.x, angTo.y, angFrom.z));
                         break;
@@ -429,6 +429,7 @@ public class PlayerController : MonoBehaviour
                 break;
             }
         }
+        CamIsDrifting = false;
 
         yield return null;
     }
@@ -440,7 +441,6 @@ public class PlayerController : MonoBehaviour
         Instantiate(dashsound);
         
         Body.velocity = Direction.normalized * DashSpeed;
-        UnityEngine.Debug.Log(Body.velocity);
         PlayerHealth.isImmune = true;
         yield return new WaitForSeconds(DashTime);
         PlayerHealth.isImmune = false;
@@ -502,8 +502,6 @@ public class PlayerController : MonoBehaviour
             //Find amount and direction player should rotate to/in
             Vector3 angFrom = Body.rotation.eulerAngles;
             Vector3 angTo = Quaternion.LookRotation(MoveDirection).eulerAngles;
-
-            print(Mathf.Abs(angFrom.y - angTo.y));
 
             if (Vector3.Distance(transform.position, e.transform.position) < closestEnemyDistance && (Mathf.Abs(angFrom.y - angTo.y) < Target_Angular_Range))
             {
@@ -592,7 +590,6 @@ public class PlayerController : MonoBehaviour
 
         if (State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
         {
-            print("BANG");
             audio.Stop();
             audio.clip = clangsound;
             audio.Play();

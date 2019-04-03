@@ -390,7 +390,7 @@ MonoBehaviour:
   maxAccel: 6.2
   maxSpeed: 3.1
   slowRadius: 4
-  targetRadius: 3
+  targetRadius: 2.5
   accelTime: 0.1
   maxOmega: 3.1
   maxAlpha: 12.6
