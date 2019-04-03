@@ -30,6 +30,8 @@ public class MainMenu : MonoBehaviour
 
     public void StartButton()
     {
+        UIManager.ResetJournals();
+        Manager.Reset(); //to reload the checkpoints, etc.
         SceneManager.LoadScene(1);
     }
 }

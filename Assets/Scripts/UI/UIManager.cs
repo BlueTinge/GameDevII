@@ -471,4 +471,9 @@ public class UIManager : MonoBehaviour
 
         isInputEnabled = true;
     }
+
+    public static void ResetJournals()
+    {
+        IsJournalCollected = new bool[NumJournals];
+    }
 }

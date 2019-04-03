@@ -21,7 +21,6 @@ public class WinScreen : MonoBehaviour
     }
     public void MainMenu()
     {
-        Manager.Reset(); //to reload the checkpoints, etc.
         SceneManager.LoadScene(0);
     }
     public void Quit()
