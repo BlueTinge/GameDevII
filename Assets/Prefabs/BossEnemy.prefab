@@ -1419,6 +1419,7 @@ MonoBehaviour:
   dies: {fileID: 8300000, guid: 345d5dc11b49d4d448a10c59ade04b38, type: 3}
   heavyswing1: {fileID: 8300000, guid: a3e24bf9d8dfb4949ba28b3deeb5d445, type: 3}
   heavyswing2: {fileID: 8300000, guid: 7e9d39c948bc7ca4192b01a56b184f9f, type: 3}
+  heavyswingwindup: {fileID: 8300000, guid: 133103e960a4c1842bd5c09d6e2718ca, type: 3}
   heavyswings: []
   randomer: 0
   takingdamage: 0

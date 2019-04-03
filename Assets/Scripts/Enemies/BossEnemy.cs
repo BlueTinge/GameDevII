@@ -93,6 +93,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private AudioClip dies;
     [SerializeField] private AudioClip heavyswing1;
     [SerializeField] private AudioClip heavyswing2;
+    [SerializeField] private AudioClip heavyswingwindup;
     public List<AudioClip> heavyswings = new List<AudioClip>();
     [SerializeField] private int randomer;
     [SerializeField] private bool takingdamage = false;
@@ -464,6 +465,8 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     private void HeavyWindup()
     {
+        audio.clip = heavyswingwindup;
+        audio.Play();
         canMove = false;
         animator.SetBool("heavyAttack", true);
     }
