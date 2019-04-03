@@ -316,12 +316,12 @@ public class BossEnemy : MonoBehaviour, IEnemy
     }
     public void Move()
     {
-        if (audio.isPlaying == false)
-        {
-            randomer = UnityEngine.Random.Range(0, 5);
-            audio.clip = steps[randomer];
-            audio.Play();
-        }
+        //if (audio.isPlaying == false)
+        //{
+        //    randomer = UnityEngine.Random.Range(0, 5);
+        //    audio.clip = steps[randomer];
+        //    audio.Play();
+        //}
         canMove = true;
     }
 
@@ -363,6 +363,12 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     private void Arrive()
     {
+        if (audio.isPlaying == false)
+        {
+            randomer = UnityEngine.Random.Range(0, 5);
+            audio.clip = steps[randomer];
+            audio.Play();
+        }
         Vector3 dir = player.position - transform.position;
         float dist = dir.magnitude;
         dir = dir.normalized;
