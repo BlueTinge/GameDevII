@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1053,6 +1053,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.00000014528632
       objectReference: {fileID: 0}
+    - target: {fileID: 771962008, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
 --- !u!1 &342748039 stripped
@@ -1089,7 +1093,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1747e49dc35abb5409e9c639421263e1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f4bd77bf92f04904e840d62ce2bd572a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1188,7 +1192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 0}
-  intro: {fileID: 8300000, guid: 1747e49dc35abb5409e9c639421263e1, type: 3}
+  intro: {fileID: 8300000, guid: f4bd77bf92f04904e840d62ce2bd572a, type: 3}
   looper: {fileID: 8300000, guid: 457cc95484904cc42995394cca384e7a, type: 3}
 --- !u!4 &513429664
 Transform:

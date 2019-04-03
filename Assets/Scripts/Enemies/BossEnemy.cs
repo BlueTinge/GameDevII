@@ -92,6 +92,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private AudioClip lightswing;
     [SerializeField] private AudioClip dies;
     [SerializeField] private int randomer;
+    [SerializeField] private bool takingdamage = false;
     [SerializeField] private Image HealthBar;
 
     [SerializeField] private float healthCutoff;
@@ -458,6 +459,12 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     private void OnDamage(float damage)
     {
+        if(takingdamage == false && healthStats.CurrentHealth > 0)
+        {
+            takingdamage = true;
+            audio.clip = takesdamage;
+            audio.Play();
+        }
         HealthBar.fillAmount = healthStats.CurrentHealth / healthStats.MaxHealth;
         if (healthStats.CurrentHealth > 0)
         {
@@ -471,6 +478,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     private void OnImmunityEnd()
     {
+        takingdamage = false;
         isFlickering = false;
         foreach(Material m in materials)
         {
@@ -480,6 +488,10 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     private void OnDeath(float overkill)
     {
+        print("TIMETODIE");
+        audio.Stop();
+        audio.clip = dies;
+        audio.Play();
         isFlickering = false;
         foreach(Material m in materials)
         {
