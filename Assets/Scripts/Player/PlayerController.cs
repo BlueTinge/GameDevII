@@ -197,7 +197,6 @@ public class PlayerController : MonoBehaviour
 
             }else if ((!lastCamMovement.IsRunning || lastCamMovement.ElapsedMilliseconds > CamCooldown) && !CamIsDrifting)
             {
-                print(lastCamMovement.ElapsedMilliseconds);
                 CamIsDrifting = true;
                 StartCoroutine(DriftCamToCardinalDirection());
             }
@@ -358,7 +357,6 @@ public class PlayerController : MonoBehaviour
     {
         if (State == PlayerState.DASHING)
         {
-            print("dashwall");
             //This code prevents dashing into objects to send them flying, but is sloppy and may introduce bugs
             //TODO: edit this code so that you can't stop every rb from moving just by dashing into it 
             if (collision.rigidbody != null) collision.rigidbody.velocity = new Vector3(0, 0, 0);
@@ -443,7 +441,6 @@ public class PlayerController : MonoBehaviour
         Instantiate(dashsound);
         
         Body.velocity = Direction.normalized * DashSpeed;
-        UnityEngine.Debug.Log(Body.velocity);
         PlayerHealth.isImmune = true;
         yield return new WaitForSeconds(DashTime);
         PlayerHealth.isImmune = false;
@@ -505,8 +502,6 @@ public class PlayerController : MonoBehaviour
             //Find amount and direction player should rotate to/in
             Vector3 angFrom = Body.rotation.eulerAngles;
             Vector3 angTo = Quaternion.LookRotation(MoveDirection).eulerAngles;
-
-            print(Mathf.Abs(angFrom.y - angTo.y));
 
             if (Vector3.Distance(transform.position, e.transform.position) < closestEnemyDistance && (Mathf.Abs(angFrom.y - angTo.y) < Target_Angular_Range))
             {
@@ -595,7 +590,6 @@ public class PlayerController : MonoBehaviour
 
         if (State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
         {
-            print("BANG");
             audio.Stop();
             audio.clip = clangsound;
             audio.Play();
