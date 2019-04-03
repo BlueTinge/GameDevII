@@ -1406,19 +1406,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 6233020180947420370}
-  step1: {fileID: 0}
-  step2: {fileID: 0}
-  step3: {fileID: 0}
-  step4: {fileID: 0}
-  step5: {fileID: 0}
-  step6: {fileID: 0}
+  step1: {fileID: 8300000, guid: d88609a548ad26f4788a0e0aa9adcf9c, type: 3}
+  step2: {fileID: 8300000, guid: faf8adadfe17a3c4d82e001d027462cb, type: 3}
+  step3: {fileID: 8300000, guid: 2500cca545ab9744bbf165901bc2522d, type: 3}
+  step4: {fileID: 8300000, guid: 043bf230460917346bf257e67b4fa5db, type: 3}
+  step5: {fileID: 8300000, guid: 54140feaa2c62ee41a1eeb2a1eef8b1c, type: 3}
+  step6: {fileID: 8300000, guid: 0ad0ebf49d4e2e448b7f3824396b9d4d, type: 3}
   steps: []
-  takesdamage: {fileID: 0}
-  dash: {fileID: 0}
-  lightswing: {fileID: 0}
-  dies: {fileID: 0}
+  takesdamage: {fileID: 8300000, guid: f7ac2ecb8ca6ece409b373ab71945940, type: 3}
+  dash: {fileID: 8300000, guid: 1b4ca555da790a94dab92ab3ef89bf55, type: 3}
+  lightswing: {fileID: 8300000, guid: 03afc83f4bebf014ab06e71de9c11c95, type: 3}
+  dies: {fileID: 8300000, guid: 345d5dc11b49d4d448a10c59ade04b38, type: 3}
   randomer: 0
-  WinScreen: {fileID: 0}
   HealthBar: {fileID: 1932325428848188493}
   healthCutoff: 16
   normalWeights:
