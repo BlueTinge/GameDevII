@@ -4475,7 +4475,7 @@ MonoBehaviour:
   healsound: {fileID: 8300000, guid: dd2cc9f5020723b4bb966ff65eb6187d, type: 3}
   failedhealsound: {fileID: 8300000, guid: cc517a71107437d4a9d98c0ba0df8bd0, type: 3}
   deathsound: {fileID: 8300000, guid: 54878d1820348f84ab43a883ee7071aa, type: 3}
-  clangsound: {fileID: 0}
+  clangsound: {fileID: 8300000, guid: 82f27793788789547a42b77c721eed57, type: 3}
   damagesound: {fileID: 4829007781587304456, guid: 4d7ab17548df8b24f802d59d1fad0431,
     type: 3}
   dashsound: {fileID: 8230747560546384943, guid: 186525ef7d979404cb7aa4af7a4354e4,
