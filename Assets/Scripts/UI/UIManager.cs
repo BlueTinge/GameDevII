@@ -89,16 +89,49 @@ public class UIManager : MonoBehaviour
             else if (PauseMenu.gameObject.activeInHierarchy == false & MenuState == 3)
             {
                 Player.GetComponent<PlayerController>().img.gameObject.SetActive(false);
-                Journal1Button.gameObject.SetActive(true);
-                Journal2Button.gameObject.SetActive(true);
-                Journal3Button.gameObject.SetActive(true);
-                Journal4Button.gameObject.SetActive(true);
-                Journal5Button.gameObject.SetActive(true);
-                Journal6Button.gameObject.SetActive(true);
-                Journal7Button.gameObject.SetActive(true);
-                Journal8Button.gameObject.SetActive(true);
-                Journal9Button.gameObject.SetActive(true);
-                Journal10Button.gameObject.SetActive(true);
+                if (IsJournalCollected[0] == true)
+                {
+                    myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(Journal1Button);
+                    Journal1Button.gameObject.SetActive(true);
+
+                }
+                if (IsJournalCollected[1] == true)
+                {
+                    Journal2Button.gameObject.SetActive(true);
+                }
+                if (IsJournalCollected[2] == true)
+                {
+                    Journal3Button.gameObject.SetActive(true);
+                }
+                if (IsJournalCollected[3] == true)
+                {
+                    Journal4Button.gameObject.SetActive(true);
+                }
+                if (IsJournalCollected[4] == true)
+                {
+                    Journal5Button.gameObject.SetActive(true);
+                }
+                if (IsJournalCollected[5] == true)
+                {
+                    Journal6Button.gameObject.SetActive(true);
+                }
+                if (IsJournalCollected[6] == true)
+                {
+                    Journal7Button.gameObject.SetActive(true);
+                }
+                if (IsJournalCollected[7] == true)
+                {
+                    Journal8Button.gameObject.SetActive(true);
+                }
+                if (IsJournalCollected[8] == true)
+                {
+
+                    Journal9Button.gameObject.SetActive(true);
+                }
+                if (IsJournalCollected[9] == true)
+                {
+                    Journal10Button.gameObject.SetActive(true);
+                }
                 JournalBackButton.gameObject.SetActive(false);
                 MenuState -= 1;
             }
