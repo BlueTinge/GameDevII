@@ -1445,12 +1445,12 @@ MonoBehaviour:
   heavyCooldown: 1
   lightDamage: 3
   heavyDamage: 10
-  maxAccel: 6.2
-  maxSpeed: 3.1
+  maxAccel: 12.4
+  maxSpeed: 6.2
   slowRadius: 4
   targetRadius: 2.5
   accelTime: 0.1
-  maxOmega: 3.1
+  maxOmega: 6.2
   maxAlpha: 12.6
   slowDistance: 1
   flickerSpeed: 10
