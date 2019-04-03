@@ -478,4 +478,21 @@ public class BossEnemy : MonoBehaviour, IEnemy
         Destroy(gameObject);
         WinScreen.SetActive(true);
     }
+
+    public void SetJointsActive(bool jointsActive)
+    {
+        Rigidbody[] bodies = GetComponentsInChildren<Rigidbody>();
+        foreach (Rigidbody rb in bodies)
+        {
+            if (rb.tag.Equals("BossJoint"))
+            {
+                rb.isKinematic = !jointsActive;
+                Collider c = rb.gameObject.GetComponent<Collider>();
+                if (c != null) c.enabled = jointsActive;
+                JointToggler j = rb.gameObject.GetComponent<JointToggler>();
+                if (j != null) j.enabled = jointsActive;
+            }
+
+        }
+    }
 }
