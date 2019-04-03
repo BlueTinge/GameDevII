@@ -74,6 +74,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         for(int i = 0; i < colors.Length; ++i)
         {
             colors[i] = renderer.materials[i].color;
+            StandardShaderUtils.ChangeRenderMode(renderer.materials[i], StandardShaderUtils.BlendMode.Opaque);
         }
         behaviorTree = new BehaviorTree
         (
@@ -257,6 +258,10 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         animator.SetBool("dead", true);
         dead = true;
         deathTime = Time.time;
+        foreach(Material m in renderer.materials)
+        {
+            StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Fade);
+        }
     }
 
     private IEnumerator TakeDamage()
