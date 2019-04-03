@@ -91,6 +91,9 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private AudioClip dash;
     [SerializeField] private AudioClip lightswing;
     [SerializeField] private AudioClip dies;
+    [SerializeField] private AudioClip heavyswing1;
+    [SerializeField] private AudioClip heavyswing2;
+    public List<AudioClip> heavyswings = new List<AudioClip>();
     [SerializeField] private int randomer;
     [SerializeField] private bool takingdamage = false;
     [SerializeField] private Image HealthBar;
@@ -149,6 +152,8 @@ public class BossEnemy : MonoBehaviour, IEnemy
         steps.Add(step4);
         steps.Add(step5);
         steps.Add(step6);
+        heavyswings.Add(heavyswing1);
+        heavyswings.Add(heavyswing2);
 
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
@@ -330,6 +335,9 @@ public class BossEnemy : MonoBehaviour, IEnemy
     
     public void HeavyAttack()
     {
+        randomer = UnityEngine.Random.Range(0, 1);
+        audio.clip = heavyswings[randomer];
+        audio.Play();
         animator.SetBool("windupDone", true);
         canTurn = false;
         canMove = false;
@@ -341,8 +349,11 @@ public class BossEnemy : MonoBehaviour, IEnemy
     public void Dash(Vector3 dir, float? dist = null, float? time = null)
     {
         if(!time.HasValue)animator.SetBool("dash", true);
-        audio.clip = dash;
-        audio.Play();
+        if (audio.clip != heavyswing1 && audio.clip != heavyswing2)
+        {
+            audio.clip = dash;
+            audio.Play();
+        }
         canMove = false;
         canDash = true;
         Vector3 dv = dir * (dist ?? dashDistance)/(time ?? dashTime) - rb.velocity;

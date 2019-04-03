@@ -1417,7 +1417,11 @@ MonoBehaviour:
   dash: {fileID: 8300000, guid: 1b4ca555da790a94dab92ab3ef89bf55, type: 3}
   lightswing: {fileID: 8300000, guid: 03afc83f4bebf014ab06e71de9c11c95, type: 3}
   dies: {fileID: 8300000, guid: 345d5dc11b49d4d448a10c59ade04b38, type: 3}
+  heavyswing1: {fileID: 8300000, guid: a3e24bf9d8dfb4949ba28b3deeb5d445, type: 3}
+  heavyswing2: {fileID: 8300000, guid: 7e9d39c948bc7ca4192b01a56b184f9f, type: 3}
+  heavyswings: []
   randomer: 0
+  takingdamage: 0
   HealthBar: {fileID: 1932325428848188493}
   healthCutoff: 16
   normalWeights:
