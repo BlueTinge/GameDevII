@@ -105,7 +105,6 @@ public class PlayerController : MonoBehaviour
 
     private Transform PlayerRightHand;
     private GameObject ItemZone;
-    private GameObject ItemZoneArea;
     private HealthStats PlayerHealth;
     private Material[] PlayerMaterials;
 
@@ -141,9 +140,9 @@ public class PlayerController : MonoBehaviour
     {
         PlayerRightHand = GetComponent<Equipment>().DomHand;
         ItemZone = GetComponent<Equipment>().ItemZone;
-        ItemZoneArea = Instantiate(ItemZone, ItemZone.transform);
-        ItemZoneArea.tag = "ItemZoneArea";
-        ItemZoneArea.GetComponent<Collider>().enabled = true;
+        //ItemZoneArea = Instantiate(ItemZone, ItemZone.transform);
+        //ItemZoneArea.tag = "ItemZoneArea";
+        //ItemZoneArea.GetComponent<Collider>().enabled = true;
 
         camRot = ReferenceFrame.transform.rotation;
 
@@ -387,16 +386,25 @@ public class PlayerController : MonoBehaviour
 
         foreach (Vector3 Cardinal in Cardinals)
         {
-            if (Vector3.Angle(camRot * Vector3.forward, Cardinal) < CamDriftRange && false)
+            if (Vector3.Angle(camRot * Vector3.forward, Cardinal) < CamDriftRange)
             {
-                Vector3 ang = camRot.eulerAngles; //pitch, yaw, roll
+                float sign = 0f;
+                float increment = 1f;
 
-                //Drift camera towards cardinal direction
-                camRot = Quaternion.Euler(new Vector3(ang.x, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
 
-                //Snap to cardinal if close enough, and end the loop
+                while (false)
+                {
+                    Vector3 ang = camRot.eulerAngles; //pitch, yaw, roll
 
-                yield return new WaitForFixedUpdate();
+                    //Drift camera towards cardinal direction
+                    camRot = Quaternion.Euler(new Vector3(ang.x, ang.y + sign * increment, ang.z));
+
+                    //Snap to cardinal if close enough, and end the loop
+
+                    yield return new WaitForFixedUpdate();
+                }
+
+
             }
         }
 
