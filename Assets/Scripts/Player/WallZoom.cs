@@ -22,8 +22,10 @@ public class WallZoom : MonoBehaviour
     {
         RaycastHit right;
         RaycastHit left;
-        bool rightHit = Physics.Raycast(parent.position + parent.right * offset, parent.TransformDirection(startDir), out right, startDist);
-        bool leftHit = Physics.Raycast(parent.position - parent.right * offset, parent.TransformDirection(startDir), out left, startDist);
+        int mask = LayerMask.GetMask("Ignore Raycast", "PlayerLayer");
+        mask = ~mask;
+        bool rightHit = Physics.Raycast(parent.position + parent.right * offset, parent.TransformDirection(startDir), out right, startDist, mask);
+        bool leftHit = Physics.Raycast(parent.position - parent.right * offset, parent.TransformDirection(startDir), out left, startDist, mask);
         Debug.DrawRay(parent.position + parent.right, parent.TransformDirection(startDir) * startDist, Color.green);
         Debug.DrawRay(parent.position - parent.right, parent.TransformDirection(startDir) * startDist, Color.green);
         float dist;
