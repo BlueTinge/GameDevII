@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Stargaze.AI;
+using UnityEngine.UI;
 
 class DashTask : ITreeTask
 {
@@ -91,6 +92,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private AudioClip dies;
     [SerializeField] private int randomer;
     [SerializeField] private GameObject WinScreen;
+    [SerializeField] private Image HealthBar;
 
     [SerializeField] private float healthCutoff;
     [SerializeField] private float[] normalWeights;
@@ -456,7 +458,8 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     private void OnDamage(float damage)
     {
-        if(healthStats.CurrentHealth > 0)
+        HealthBar.fillAmount = healthStats.CurrentHealth / healthStats.MaxHealth;
+        if (healthStats.CurrentHealth > 0)
         {
             isFlickering = true;
             foreach (Material m in materials)
