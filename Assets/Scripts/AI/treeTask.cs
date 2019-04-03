@@ -352,6 +352,37 @@ namespace Stargaze.AI
         }
     }
 
+    public class CallTask : ITreeTask
+    {
+        public delegate bool TaskFunc();
+        private TaskFunc func;
+        public TaskState state{get; private set;}
+
+        public CallTask(TaskFunc func)
+        {
+            this.func = func;
+            state = TaskState.ready;
+        }
+
+        public IEnumerable Update()
+        {
+            if(func())
+            {
+                state = TaskState.success;
+            }
+            else
+            {
+                state = TaskState.failure;
+            }
+            yield break;
+        }
+        
+        public void Reset()
+        {
+            state = TaskState.ready;
+        }
+    }
+
     public class BehaviorTree
     {
         private ITreeTask root;

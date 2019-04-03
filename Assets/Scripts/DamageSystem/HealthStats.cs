@@ -8,13 +8,13 @@ public class HealthStats : MonoBehaviour
     public float Defense = 0;
     public float BaseImmunityPeriod = 1f;
 
-    public float _currentHealth;
+    [SerializeField]protected float _currentHealth;
     public float CurrentHealth
     {
         get { return _currentHealth; }
         set
         {
-            if (!isImmune)
+            if (!isImmune || value > _currentHealth)
             {
                 _currentHealth = value;
                 if (_currentHealth <= 0) OnDeath(_currentHealth);
@@ -34,7 +34,7 @@ public class HealthStats : MonoBehaviour
     public ImmunityEndDelegate OnImmunityEnd;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _currentHealth = MaxHealth;
 
@@ -81,7 +81,12 @@ public class HealthStats : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    //I hate using "stay" as it may potentially lead to performance issues
+    //but not using stay means attack is ignored if created after collider has already entered collision
+    //potential solution: check for collisions in attack, when attack is initialized?
+    //  --this "solution" does not account for immunity when you first collide w/ an attack, and immunity ending afterwards. 
+
+    private void OnTriggerStay(Collider other)
     {
         Attack attack = other.gameObject.GetComponentInParent<Attack>();
         if (attack != null)
@@ -90,7 +95,7 @@ public class HealthStats : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionStay(Collision other)
     {
         Attack attack = other.gameObject.GetComponentInParent<Attack>();
         if (attack != null)
@@ -101,7 +106,15 @@ public class HealthStats : MonoBehaviour
 
     public void EndImmunity()
     {
-        isImmune = false;
-        OnImmunityEnd();
+        if(CurrentHealth > 0)
+        {
+            isImmune = false;
+            OnImmunityEnd();
+        }
+    }
+
+    public float GetImmunity()
+    {
+        return BaseImmunityPeriod;
     }
 }

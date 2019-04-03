@@ -7,6 +7,12 @@ TagManager:
   - Weapon
   - ItemZone
   - Enemy
+  - Journal
+  - HealSoundEffects
+  - PlayerJoint
+  - ItemZoneArea
+  - EnemyTargetPoint
+  - BossJoint
   layers:
   - Default
   - TransparentFX
@@ -17,7 +23,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - PlayerLayer
   - 
   - 
   - 

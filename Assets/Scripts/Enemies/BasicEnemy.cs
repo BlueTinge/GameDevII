@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Stargaze.AI;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -10,52 +11,71 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     [SerializeField] private float hopDistance;
     [SerializeField] private float hopTime;
     [SerializeField] private float hopDelay;
+    [SerializeField] private float dragForce;
     [SerializeField] private float coolDown;
-    [SerializeField] private float lungeDistance;
     [SerializeField] private float lungeDelay;
     [SerializeField] private float targetTimeout;
     [SerializeField] private float lungeTime;
     [SerializeField] private float lungeCooldown;
+    [SerializeField] private float fadeoutDelay;
+    [SerializeField] private float fadeoutLength;
     [SerializeField] private float visionRadius;
     [SerializeField] private float attackRadius;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float seekAngle;
+    [SerializeField] private float KnockbackFactor;
+    [SerializeField] private AnimationCurve deathFade;
+    [SerializeField] private GameObject hurtBox;
     
     private Transform target;
     private BehaviorTree behaviorTree;
-    private float jumpSpeed;
-    private float horizontalJumpSpeed;
-    private float lungeVSpeed;
-    private float lungeHSpeed;
     private float targetTime;
     private bool targeting;
     private Rigidbody rb;
     private bool shouldJump;
-    private bool shouldLunge;
     private bool shouldTurn;
     private Vector3 targetPos;
     private HealthStats healthStats;
+    private SkinnedMeshRenderer renderer;
+    private Color[] colors;
+    private Animator animator;
+    private bool dead;
+    private float deathTime;
+
+    public Image HealthBar;
+
+    AudioSource audio;
+    public AudioClip walkingsfx;
+    public AudioClip windupsfx;
+    public AudioClip attacksfx;
+    public GameObject hurtingsfx;
+    public bool hurting = false;
+    public AudioClip diessfx;
 
     void Awake()
     {
-        horizontalJumpSpeed = hopDistance / hopTime;
-        float hopHeight = 0.5f * Physics.gravity.y * hopTime * hopTime / 4;
-        jumpSpeed = Mathf.Sqrt(2 * Physics.gravity.y * hopHeight);
-
-        lungeHSpeed = lungeDistance / lungeTime;
-        float lungeHeight = 0.5f * -Physics.gravity.y * lungeTime * lungeTime;
-        lungeVSpeed = Mathf.Sqrt(2 * -Physics.gravity.y * lungeHeight);
-        shouldLunge = false;
         shouldJump = false;
         shouldTurn = false;
         targeting = false;
+        dead = false;
     }
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         healthStats = GetComponent<HealthStats>();
-        healthStats.OnDeath = (overkill) => {Destroy(gameObject);};
+        healthStats.OnDeath = (overkill) => {Die();};
+        healthStats.OnDamage = (damage) => {StartCoroutine(TakeDamage());};
+        renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        colors = new Color[renderer.materials.Length];
+        animator = GetComponentInChildren<Animator>();
+        animator.SetBool("attacking", false);
+        for(int i = 0; i < colors.Length; ++i)
+        {
+            colors[i] = renderer.materials[i].color;
+            StandardShaderUtils.ChangeRenderMode(renderer.materials[i], StandardShaderUtils.BlendMode.Opaque);
+        }
         behaviorTree = new BehaviorTree
         (
             new SelectorTask(new ITreeTask[]
@@ -63,6 +83,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
                 new SequenceTask(new ITreeTask[]
                 {
                     new CloseTo(transform, target, attackRadius),
+                    new CallTask(() => {Windup(); return true;}),
                     new WhileTask
                     (
                         new NotTask
@@ -72,7 +93,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
                         new BasicTarget(this)
                     ),
                     new BasicAttack(this, lungeTime),
-                    new DelayTask(lungeCooldown),
+                    new CallTask(()=>{animator.SetBool("attacking", false); return true;}),
+                    new DelayTask(lungeCooldown)
                 }),
                 new SequenceTask(new ITreeTask[]
                 {
@@ -86,7 +108,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
                         new BasicTarget(this)
                     ),
                     new BasicMove(this, hopTime),
-                    new DelayTask(coolDown),
+                    new CallTask(()=>{StopMove(); return true;}),
+                    new DelayTask(coolDown)
                 })
             })
         );
@@ -94,11 +117,34 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     void Update()
     {
-        behaviorTree.Update();
+        if(!dead)
+        {
+            behaviorTree.Update();
+        }
+        else
+        {
+            if(Time.time - deathTime > fadeoutDelay + fadeoutLength)
+            {
+                Destroy(gameObject);
+            }
+            else if(Time.time - deathTime > fadeoutDelay)
+            {
+                float opacity = deathFade.Evaluate((Time.time - (deathTime + fadeoutDelay))/fadeoutLength);
+                foreach(Material m in renderer.materials)
+                {
+                    m.color = new Color(m.color.g, m.color.g, m.color.b, opacity);
+                }
+            }
+        }
     }
 
     void FixedUpdate()
     {
+        if(transform.up != Vector3.up)
+        {
+            rb.MoveRotation(Quaternion.LookRotation(new Vector3(transform.forward.x, 0, transform.forward.z)));
+        }
+
         Vector3 forward = transform.forward;
         Vector3 faceTarget = targetPos - transform.position;
         forward.y = 0;
@@ -118,43 +164,26 @@ public class BasicEnemy : MonoBehaviour, IEnemy
             {
                 impulse *= -1;
             }
-            rb.AddTorque(impulse - rb.angularVelocity, ForceMode.VelocityChange);
-            rb.angularVelocity = new Vector3(0, rb.angularVelocity.y, 0);
+            
+            rb.AddTorque((impulse - rb.angularVelocity).magnitude * Mathf.Sign(impulse.y) * Vector3.up, ForceMode.VelocityChange);
+            rb.angularVelocity = rb.angularVelocity.y * Vector3.up;
         }
         else
         {
             rb.angularVelocity = Vector3.zero;
         }
 
-        Vector3 velocity = rb.velocity;
-        if(shouldLunge)
+        if(shouldJump)
         {
-            velocity = transform.forward;
-            velocity.y = 0;
-            velocity = velocity.normalized;
-            velocity *= lungeHSpeed;
-            velocity.y = lungeVSpeed;
+            Vector3 force = targetPos - transform.position;
+            force.y = 0;
+            force = force.normalized;
+            force *= dragForce;
+            force += Vector3.up * (-Physics.gravity.y);
+            Debug.DrawRay(transform.position, force, Color.yellow);
 
-            rb.AddForce(velocity - rb.velocity, ForceMode.VelocityChange);
+            rb.AddForce(force, ForceMode.Acceleration);
         }
-        else if(shouldJump)
-        {
-            velocity = targetPos - transform.position;
-            velocity.y = 0;
-            velocity = velocity.normalized;
-            velocity *= horizontalJumpSpeed;
-            velocity.y = jumpSpeed;
-
-            rb.AddForce(velocity - rb.velocity, ForceMode.VelocityChange);
-        }
-
-        shouldLunge = false;
-        shouldJump = false;
-    }
-
-    void OnCollisionEnter(Collision c)
-    {
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
     }
 
     public bool Target()
@@ -187,13 +216,71 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
     public void Attack()
     {
-        shouldLunge = true;
-        gameObject.AddComponent<Attack>().Initialize(5, (targetPos - transform.position).normalized,
+        audio.clip = attacksfx;
+        audio.volume = 0.7f;
+        audio.Play();
+        animator.SetBool("windup", false);
+        animator.SetBool("attacking", true);
+        Vector3 knockback = (targetPos - transform.position).normalized * KnockbackFactor;
+        knockback.y = 0;
+        hurtBox.AddComponent<Attack>().Initialize(5, knockback,
             lungeTime, gameObject);
     }
 
     public void Move()
     {
+        audio.clip = walkingsfx;
+        audio.volume = 0.7f;
+        audio.Play();
         shouldJump = true;
+        animator.SetBool("moving", true);
+    }
+    private void StopMove()
+    {
+        animator.SetBool("moving", false);
+        shouldJump = false;
+    }
+
+    private void Windup()
+    {
+        audio.clip = windupsfx;
+        audio.volume = 1f;
+        audio.Play();
+        animator.SetBool("windup", true);
+        animator.SetBool("attacking", false);
+    }
+
+    private void Die()
+    {
+        audio.clip = diessfx;
+        audio.volume = 1f;
+        audio.Play();
+        animator.SetBool("dead", true);
+        dead = true;
+        deathTime = Time.time;
+        foreach(Material m in renderer.materials)
+        {
+            StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Fade);
+        }
+    }
+
+    private IEnumerator TakeDamage()
+    {
+        if(hurting == false)
+        {
+            Instantiate(hurtingsfx);
+            hurting = true;
+        }
+        HealthBar.fillAmount = healthStats.CurrentHealth / healthStats.MaxHealth;
+        foreach (var v in renderer.materials)
+        {
+            v.color = Color.red;
+        }
+        yield return new WaitForSeconds(healthStats.GetImmunity());
+        for (int i = 0; i < colors.Length; ++i)
+        {
+            renderer.materials[i].color = colors[i];
+        }
+        hurting = false;
     }
 }

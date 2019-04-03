@@ -6,6 +6,7 @@ using UnityEngine;
 //Can be extended to provide additional effects
 public class Attack : MonoBehaviour
 {
+
     public float Damage { get; private set; }
     public Vector3 Knockback { get; private set; }
     public GameObject Origin { get; private set; }

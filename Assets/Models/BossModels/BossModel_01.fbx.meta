@@ -1,0 +1,2428 @@
+fileFormatVersion: 2
+guid: 301ac59f2550c23478e879327f3873ad
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Player_Reference:Armor
+    100004: Player_Reference:Armor 1
+    100006: Player_Reference:AssArmor
+    100008: Player_Reference:AssArmor 1
+    100010: Player_Reference:AssArmor1
+    100012: Player_Reference:back
+    100014: Player_Reference:Body
+    100016: Player_Reference:Chest
+    100018: Player_Reference:Chestplate5
+    100020: Player_Reference:Chestplate8
+    100022: Player_Reference:Collar
+    100024: Player_Reference:Components
+    100026: Player_Reference:Components1
+    100028: Player_Reference:CrotchArmor
+    100030: Player_Reference:group1
+    100032: Player_Reference:group10
+    100034: Player_Reference:group11
+    100036: Player_Reference:group12
+    100038: Player_Reference:group13
+    100040: Player_Reference:group14
+    100042: Player_Reference:group15
+    100044: Player_Reference:group16
+    100046: Player_Reference:group17
+    100048: Player_Reference:group2
+    100050: Player_Reference:group3
+    100052: Player_Reference:group4
+    100054: Player_Reference:group4 1
+    100056: Player_Reference:group4 10
+    100058: Player_Reference:group4 11
+    100060: Player_Reference:group4 12
+    100062: Player_Reference:group4 13
+    100064: Player_Reference:group4 14
+    100066: Player_Reference:group4 15
+    100068: Player_Reference:group4 2
+    100070: Player_Reference:group4 3
+    100072: Player_Reference:group4 4
+    100074: Player_Reference:group4 5
+    100076: Player_Reference:group4 6
+    100078: Player_Reference:group4 7
+    100080: Player_Reference:group4 8
+    100082: Player_Reference:group4 9
+    100084: Player_Reference:group5
+    100086: Player_Reference:group5 1
+    100088: Player_Reference:group5 2
+    100090: Player_Reference:group5 3
+    100092: Player_Reference:group6
+    100094: Player_Reference:group6 1
+    100096: Player_Reference:group6 2
+    100098: Player_Reference:group6 3
+    100100: Player_Reference:group7
+    100102: Player_Reference:group7 1
+    100104: Player_Reference:group7 2
+    100106: Player_Reference:group7 3
+    100108: Player_Reference:group8
+    100110: Player_Reference:group8 1
+    100112: Player_Reference:group8 2
+    100114: Player_Reference:group8 3
+    100116: Player_Reference:group9
+    100118: Player_Reference:Head
+    100120: Player_Reference:Head 1
+    100122: Player_Reference:Head 2
+    100124: Player_Reference:Head 3
+    100126: Player_Reference:Hips
+    100128: Player_Reference:Hips 1
+    100130: Player_Reference:joint28
+    100132: Player_Reference:joint29
+    100134: Player_Reference:joint30
+    100136: Player_Reference:left
+    100138: Player_Reference:LeftArm
+    100140: Player_Reference:LeftArm1
+    100142: Player_Reference:LeftArm2
+    100144: Player_Reference:LeftArmIK
+    100146: Player_Reference:LeftElbow
+    100148: Player_Reference:LeftFoot
+    100150: Player_Reference:LeftFoot 1
+    100152: Player_Reference:LeftFoot 2
+    100154: Player_Reference:LeftFoot 3
+    100156: Player_Reference:LeftForeArm
+    100158: Player_Reference:LeftForearm
+    100160: Player_Reference:LeftForeArm 1
+    100162: Player_Reference:LeftHand
+    100164: Player_Reference:LeftHand 1
+    100166: Player_Reference:LeftHandCenterPalm
+    100168: Player_Reference:LefthandController
+    100170: Player_Reference:LeftHipArmor
+    100172: Player_Reference:LeftIndex
+    100174: Player_Reference:LeftKnee
+    100176: Player_Reference:LeftKnuckles
+    100178: Player_Reference:LeftLeg
+    100180: Player_Reference:LeftLeg1
+    100182: Player_Reference:LeftLeg2
+    100184: Player_Reference:LeftLowerIndex
+    100186: Player_Reference:LeftLowerMiddle
+    100188: Player_Reference:LeftLowerPinky
+    100190: Player_Reference:LeftLowerRing
+    100192: Player_Reference:LeftLowerThumb
+    100194: Player_Reference:LeftMiddle
+    100196: Player_Reference:LeftOuterShoulder
+    100198: Player_Reference:LeftPauldron
+    100200: Player_Reference:LeftPink
+    100202: Player_Reference:LeftRing
+    100204: Player_Reference:LeftShoulder
+    100206: Player_Reference:LeftShoulder 1
+    100208: Player_Reference:LeftShoulder 2
+    100210: Player_Reference:LeftThighArmor
+    100212: Player_Reference:LeftThumb
+    100214: Player_Reference:LeftToe
+    100216: Player_Reference:LeftToeBase
+    100218: Player_Reference:LeftToeBase 1
+    100220: Player_Reference:LeftUpLeg
+    100222: Player_Reference:LeftUpLeg 1
+    100224: Player_Reference:LeftUpperIndex
+    100226: Player_Reference:LeftUpperMiddle
+    100228: Player_Reference:LeftUpperPinky
+    100230: Player_Reference:LeftUpperRing
+    100232: Player_Reference:LeftUpperThumb
+    100234: Player_Reference:LeftWrist
+    100236: Player_Reference:LetLegIK
+    100238: Player_Reference:LI1
+    100240: Player_Reference:LI2
+    100242: Player_Reference:LM1
+    100244: Player_Reference:LM2
+    100246: Player_Reference:LP1
+    100248: Player_Reference:LP2
+    100250: Player_Reference:LR1
+    100252: Player_Reference:LR2
+    100254: Player_Reference:LT1
+    100256: Player_Reference:LT2
+    100258: Player_Reference:Mesh
+    100260: Player_Reference:Neck
+    100262: Player_Reference:Neck 1
+    100264: Player_Reference:Neck 2
+    100266: Player_Reference:pCube311
+    100268: Player_Reference:pCube313
+    100270: Player_Reference:pCube316
+    100272: Player_Reference:pCube318
+    100274: Player_Reference:pCube319
+    100276: Player_Reference:pCube320
+    100278: Player_Reference:pCube321
+    100280: Player_Reference:pCube323
+    100282: Player_Reference:pCube324
+    100284: Player_Reference:pCube327
+    100286: Player_Reference:pCube330
+    100288: Player_Reference:pCube332
+    100290: Player_Reference:pCube334
+    100292: Player_Reference:pCube335
+    100294: Player_Reference:pCube336
+    100296: Player_Reference:pCube337
+    100298: Player_Reference:pCube338
+    100300: Player_Reference:pCube344
+    100302: Player_Reference:pCube347
+    100304: Player_Reference:pCube348
+    100306: Player_Reference:pCube349
+    100308: Player_Reference:pCube350
+    100310: Player_Reference:pCube351
+    100312: Player_Reference:pCube352
+    100314: Player_Reference:pCube353
+    100316: Player_Reference:pCube354
+    100318: Player_Reference:pCube355
+    100320: Player_Reference:pCube356
+    100322: Player_Reference:pCube357
+    100324: Player_Reference:pCube358
+    100326: Player_Reference:pCube359
+    100328: Player_Reference:pCube360
+    100330: Player_Reference:pCube361
+    100332: Player_Reference:pCube362
+    100334: Player_Reference:pCube363
+    100336: Player_Reference:pCube364
+    100338: Player_Reference:pCube365
+    100340: Player_Reference:pCube366
+    100342: Player_Reference:pCube367
+    100344: Player_Reference:pCube368
+    100346: Player_Reference:pCube369
+    100348: Player_Reference:pCube370
+    100350: Player_Reference:pCube371
+    100352: Player_Reference:pCube372
+    100354: Player_Reference:pCube379
+    100356: Player_Reference:pCube379 1
+    100358: Player_Reference:pCube382
+    100360: Player_Reference:pCube386
+    100362: Player_Reference:pCube387
+    100364: Player_Reference:pCube388
+    100366: Player_Reference:pCube391
+    100368: Player_Reference:pCube391 1
+    100370: Player_Reference:pCube392
+    100372: Player_Reference:pCube392 1
+    100374: Player_Reference:pCube393
+    100376: Player_Reference:pCube393 1
+    100378: Player_Reference:pCube394
+    100380: Player_Reference:pCube394 1
+    100382: Player_Reference:pCube395
+    100384: Player_Reference:pCube395 1
+    100386: Player_Reference:pCube396
+    100388: Player_Reference:pCube407
+    100390: Player_Reference:pCube408
+    100392: Player_Reference:pCube408 1
+    100394: Player_Reference:pCube410
+    100396: Player_Reference:pCube410 1
+    100398: Player_Reference:pCube412
+    100400: Player_Reference:pCube412 1
+    100402: Player_Reference:pCube415
+    100404: Player_Reference:pCube415 1
+    100406: Player_Reference:pCube416
+    100408: Player_Reference:pCube416 1
+    100410: Player_Reference:pCube417
+    100412: Player_Reference:pCube417 1
+    100414: Player_Reference:pCube418
+    100416: Player_Reference:pCube418 1
+    100418: Player_Reference:pCube419
+    100420: Player_Reference:pCube419 1
+    100422: Player_Reference:pCube420
+    100424: Player_Reference:pCube421
+    100426: Player_Reference:pCube422
+    100428: Player_Reference:pCube423
+    100430: Player_Reference:pCube424
+    100432: Player_Reference:pCube424 1
+    100434: Player_Reference:pCube425
+    100436: Player_Reference:pCube425 1
+    100438: Player_Reference:pCube426
+    100440: Player_Reference:pCube426 1
+    100442: Player_Reference:pCube427
+    100444: Player_Reference:pCube428
+    100446: Player_Reference:pCube429
+    100448: Player_Reference:pCube430
+    100450: Player_Reference:pCube431
+    100452: Player_Reference:pCube432
+    100454: Player_Reference:pCube433
+    100456: Player_Reference:pCube434
+    100458: Player_Reference:pCube435
+    100460: Player_Reference:pCube436
+    100462: Player_Reference:pCube437
+    100464: Player_Reference:pCube438
+    100466: Player_Reference:pCube439
+    100468: Player_Reference:pCube440
+    100470: Player_Reference:pCube441
+    100472: Player_Reference:pCube442
+    100474: Player_Reference:pCube443
+    100476: Player_Reference:pCube444
+    100478: Player_Reference:pCube445
+    100480: Player_Reference:pCube446
+    100482: Player_Reference:pCube447
+    100484: Player_Reference:pCube448
+    100486: Player_Reference:pCube449
+    100488: Player_Reference:pCube450
+    100490: Player_Reference:pCube451
+    100492: Player_Reference:pCube452
+    100494: Player_Reference:pCube453
+    100496: Player_Reference:pCube454
+    100498: Player_Reference:pCube455
+    100500: Player_Reference:pCube456
+    100502: Player_Reference:pCube457
+    100504: Player_Reference:pCube458
+    100506: Player_Reference:pCube459
+    100508: Player_Reference:pCube460
+    100510: Player_Reference:pCube461
+    100512: Player_Reference:pCube462
+    100514: Player_Reference:pCube463
+    100516: Player_Reference:pCube464
+    100518: Player_Reference:pCube465
+    100520: Player_Reference:pCube466
+    100522: Player_Reference:pCube467
+    100524: Player_Reference:pCube468
+    100526: Player_Reference:pCube469
+    100528: Player_Reference:pCube473
+    100530: Player_Reference:pCube474
+    100532: Player_Reference:pCube475
+    100534: Player_Reference:pCube476
+    100536: Player_Reference:pCube479
+    100538: Player_Reference:pCube480
+    100540: Player_Reference:pCube481
+    100542: Player_Reference:pCube482
+    100544: Player_Reference:pCube483
+    100546: Player_Reference:pCube484
+    100548: Player_Reference:pCube485
+    100550: Player_Reference:pCube486
+    100552: Player_Reference:pCube487
+    100554: Player_Reference:pCube488
+    100556: Player_Reference:pCube489
+    100558: Player_Reference:pCube490
+    100560: Player_Reference:pCube491
+    100562: Player_Reference:pCube491 1
+    100564: Player_Reference:pCube492
+    100566: Player_Reference:pCube493
+    100568: Player_Reference:pCube493 1
+    100570: Player_Reference:pCube494
+    100572: Player_Reference:pCube494 1
+    100574: Player_Reference:persp1
+    100576: Player_Reference:PlayerController
+    100578: Player_Reference:PlayerHeadController
+    100580: Player_Reference:PlayerHipsController
+    100582: Player_Reference:PlayerLeftElbowController
+    100584: Player_Reference:PlayerLeftFootController
+    100586: Player_Reference:PlayerLeftKneeController
+    100588: Player_Reference:PlayerLeftShoulderController
+    100590: Player_Reference:PlayerLeftToesController
+    100592: Player_Reference:PlayerMesh
+    100594: Player_Reference:PlayerMesh1
+    100596: Player_Reference:PlayerRightElbowController
+    100598: Player_Reference:PlayerRightFootController
+    100600: Player_Reference:PlayerRightKneeController
+    100602: Player_Reference:PlayerRightShoulderController
+    100604: Player_Reference:PlayerRightToesController
+    100606: Player_Reference:PlayerShoulderController
+    100608: Player_Reference:PlayerSkeleton
+    100610: Player_Reference:PlayerSword
+    100612: Player_Reference:PlayerSword2
+    100614: Player_Reference:PlayerSword4
+    100616: Player_Reference:PlayerSwordGroup1
+    100618: Player_Reference:PlayerSwordGroup2
+    100620: Player_Reference:PlayerWaistController
+    100622: Player_Reference:polySurface1
+    100624: Player_Reference:polySurface11
+    100626: Player_Reference:polySurface13
+    100628: Player_Reference:polySurface16
+    100630: Player_Reference:polySurface17
+    100632: Player_Reference:polySurface18
+    100634: Player_Reference:polySurface19
+    100636: Player_Reference:polySurface20
+    100638: Player_Reference:polySurface21
+    100640: Player_Reference:polySurface22
+    100642: Player_Reference:polySurface23
+    100644: Player_Reference:polySurface24
+    100646: Player_Reference:polySurface25
+    100648: Player_Reference:polySurface25 1
+    100650: Player_Reference:polySurface26
+    100652: Player_Reference:polySurface26 1
+    100654: Player_Reference:polySurface27
+    100656: Player_Reference:polySurface27 1
+    100658: Player_Reference:polySurface28
+    100660: Player_Reference:polySurface28 1
+    100662: Player_Reference:polySurface29
+    100664: Player_Reference:polySurface30
+    100666: Player_Reference:polySurface31
+    100668: Player_Reference:polySurface32
+    100670: Player_Reference:polySurface33
+    100672: Player_Reference:polySurface35
+    100674: Player_Reference:polySurface36
+    100676: Player_Reference:polySurface43
+    100678: Player_Reference:polySurface45
+    100680: Player_Reference:polySurface5
+    100682: Player_Reference:pPipe1
+    100684: Player_Reference:pPipe1 1
+    100686: Player_Reference:pPipe3
+    100688: Player_Reference:pPipe3 1
+    100690: Player_Reference:pPipe4
+    100692: Player_Reference:pPipe4 1
+    100694: Player_Reference:pPipe5
+    100696: Player_Reference:pPipe6
+    100698: Player_Reference:pPipe7
+    100700: Player_Reference:QuickRigCharacter1_Guides
+    100702: Player_Reference:QuickRigCharacter_Guides
+    100704: Player_Reference:Reference
+    100706: Player_Reference:Reference 1
+    100708: Player_Reference:RI1
+    100710: Player_Reference:RI2
+    100712: Player_Reference:RigGroup
+    100714: Player_Reference:RightandController1
+    100716: Player_Reference:RightArm
+    100718: Player_Reference:RightArm1
+    100720: Player_Reference:RightArm2
+    100722: Player_Reference:RightArm3
+    100724: Player_Reference:RightArmGroup
+    100726: Player_Reference:RightArmIK
+    100728: Player_Reference:RightElbow
+    100730: Player_Reference:RightFoot
+    100732: Player_Reference:RightFoot 1
+    100734: Player_Reference:RightFoot 2
+    100736: Player_Reference:RightFoot 3
+    100738: Player_Reference:RightFoot 4
+    100740: Player_Reference:RightFoot 5
+    100742: Player_Reference:RightForeArm
+    100744: Player_Reference:RightForeArm 1
+    100746: Player_Reference:RightHand
+    100748: Player_Reference:RightHand 1
+    100750: Player_Reference:RightHand 2
+    100752: Player_Reference:RightHand 3
+    100754: Player_Reference:RightHandCenterPalm
+    100756: Player_Reference:RightHipArmor
+    100758: Player_Reference:RightIndex
+    100760: Player_Reference:RightKnee
+    100762: Player_Reference:RightKnuckles
+    100764: Player_Reference:RightLeg
+    100766: Player_Reference:RightLeg 1
+    100768: Player_Reference:RightLeg 2
+    100770: Player_Reference:RightLeg1
+    100772: Player_Reference:RightLeg2
+    100774: Player_Reference:RightLegIK
+    100776: Player_Reference:RightLegWhole
+    100778: Player_Reference:RightLegWhole1
+    100780: Player_Reference:RightLowerIndex
+    100782: Player_Reference:RightLowerMiddle
+    100784: Player_Reference:RightLowerPinky
+    100786: Player_Reference:RightLowerRing
+    100788: Player_Reference:RightLowerThumb
+    100790: Player_Reference:RightMiddle
+    100792: Player_Reference:RightOuterShoulder
+    100794: Player_Reference:RightPauldron
+    100796: Player_Reference:RightPinky
+    100798: Player_Reference:RightRing
+    100800: Player_Reference:RightShoulder
+    100802: Player_Reference:RightShoulder 1
+    100804: Player_Reference:RightShoulder 2
+    100806: Player_Reference:RightThighArmor
+    100808: Player_Reference:RightThumb
+    100810: Player_Reference:RightToe
+    100812: Player_Reference:RightToeBase
+    100814: Player_Reference:RightToeBase 1
+    100816: Player_Reference:RightUpLeg
+    100818: Player_Reference:RightUpLeg 1
+    100820: Player_Reference:RightUpperIndex
+    100822: Player_Reference:RightUpperMiddle
+    100824: Player_Reference:RightUpperPinky
+    100826: Player_Reference:RightUpperRing
+    100828: Player_Reference:RightUpperThumb
+    100830: Player_Reference:RightWrist
+    100832: Player_Reference:Rivet
+    100834: Player_Reference:Rivet1
+    100836: Player_Reference:Rivet1 1
+    100838: Player_Reference:Rivet10
+    100840: Player_Reference:Rivet10 1
+    100842: Player_Reference:Rivet11
+    100844: Player_Reference:Rivet11 1
+    100846: Player_Reference:Rivet12
+    100848: Player_Reference:Rivet12 1
+    100850: Player_Reference:Rivet13
+    100852: Player_Reference:Rivet13 1
+    100854: Player_Reference:Rivet14
+    100856: Player_Reference:Rivet14 1
+    100858: Player_Reference:Rivet15
+    100860: Player_Reference:Rivet15 1
+    100862: Player_Reference:Rivet16
+    100864: Player_Reference:Rivet16 1
+    100866: Player_Reference:Rivet17
+    100868: Player_Reference:Rivet17 1
+    100870: Player_Reference:Rivet18
+    100872: Player_Reference:Rivet18 1
+    100874: Player_Reference:Rivet19
+    100876: Player_Reference:Rivet19 1
+    100878: Player_Reference:Rivet2
+    100880: Player_Reference:Rivet2 1
+    100882: Player_Reference:Rivet20
+    100884: Player_Reference:Rivet20 1
+    100886: Player_Reference:Rivet21
+    100888: Player_Reference:Rivet21 1
+    100890: Player_Reference:Rivet22
+    100892: Player_Reference:Rivet22 1
+    100894: Player_Reference:Rivet23
+    100896: Player_Reference:Rivet23 1
+    100898: Player_Reference:Rivet24
+    100900: Player_Reference:Rivet24 1
+    100902: Player_Reference:Rivet25
+    100904: Player_Reference:Rivet25 1
+    100906: Player_Reference:Rivet26
+    100908: Player_Reference:Rivet26 1
+    100910: Player_Reference:Rivet27
+    100912: Player_Reference:Rivet27 1
+    100914: Player_Reference:Rivet28
+    100916: Player_Reference:Rivet28 1
+    100918: Player_Reference:Rivet29
+    100920: Player_Reference:Rivet29 1
+    100922: Player_Reference:Rivet3
+    100924: Player_Reference:Rivet3 1
+    100926: Player_Reference:Rivet30
+    100928: Player_Reference:Rivet30 1
+    100930: Player_Reference:Rivet31
+    100932: Player_Reference:Rivet31 1
+    100934: Player_Reference:Rivet32
+    100936: Player_Reference:Rivet32 1
+    100938: Player_Reference:Rivet33
+    100940: Player_Reference:Rivet33 1
+    100942: Player_Reference:Rivet34
+    100944: Player_Reference:Rivet34 1
+    100946: Player_Reference:Rivet35
+    100948: Player_Reference:Rivet35 1
+    100950: Player_Reference:Rivet36
+    100952: Player_Reference:Rivet36 1
+    100954: Player_Reference:Rivet37
+    100956: Player_Reference:Rivet37 1
+    100958: Player_Reference:Rivet38
+    100960: Player_Reference:Rivet38 1
+    100962: Player_Reference:Rivet39
+    100964: Player_Reference:Rivet39 1
+    100966: Player_Reference:Rivet4
+    100968: Player_Reference:Rivet4 1
+    100970: Player_Reference:Rivet40
+    100972: Player_Reference:Rivet40 1
+    100974: Player_Reference:Rivet41
+    100976: Player_Reference:Rivet41 1
+    100978: Player_Reference:Rivet42
+    100980: Player_Reference:Rivet42 1
+    100982: Player_Reference:Rivet43
+    100984: Player_Reference:Rivet43 1
+    100986: Player_Reference:Rivet44
+    100988: Player_Reference:Rivet44 1
+    100990: Player_Reference:Rivet45
+    100992: Player_Reference:Rivet45 1
+    100994: Player_Reference:Rivet46
+    100996: Player_Reference:Rivet46 1
+    100998: Player_Reference:Rivet47
+    101000: Player_Reference:Rivet47 1
+    101002: Player_Reference:Rivet48
+    101004: Player_Reference:Rivet48 1
+    101006: Player_Reference:Rivet49
+    101008: Player_Reference:Rivet49 1
+    101010: Player_Reference:Rivet5
+    101012: Player_Reference:Rivet5 1
+    101014: Player_Reference:Rivet50
+    101016: Player_Reference:Rivet50 1
+    101018: Player_Reference:Rivet51
+    101020: Player_Reference:Rivet51 1
+    101022: Player_Reference:Rivet52
+    101024: Player_Reference:Rivet52 1
+    101026: Player_Reference:Rivet53
+    101028: Player_Reference:Rivet53 1
+    101030: Player_Reference:Rivet54
+    101032: Player_Reference:Rivet54 1
+    101034: Player_Reference:Rivet55
+    101036: Player_Reference:Rivet55 1
+    101038: Player_Reference:Rivet56
+    101040: Player_Reference:Rivet56 1
+    101042: Player_Reference:Rivet57
+    101044: Player_Reference:Rivet57 1
+    101046: Player_Reference:Rivet58
+    101048: Player_Reference:Rivet58 1
+    101050: Player_Reference:Rivet59
+    101052: Player_Reference:Rivet59 1
+    101054: Player_Reference:Rivet6
+    101056: Player_Reference:Rivet6 1
+    101058: Player_Reference:Rivet60
+    101060: Player_Reference:Rivet60 1
+    101062: Player_Reference:Rivet61
+    101064: Player_Reference:Rivet61 1
+    101066: Player_Reference:Rivet62
+    101068: Player_Reference:Rivet62 1
+    101070: Player_Reference:Rivet63
+    101072: Player_Reference:Rivet63 1
+    101074: Player_Reference:Rivet64
+    101076: Player_Reference:Rivet64 1
+    101078: Player_Reference:Rivet65
+    101080: Player_Reference:Rivet65 1
+    101082: Player_Reference:Rivet66
+    101084: Player_Reference:Rivet66 1
+    101086: Player_Reference:Rivet67
+    101088: Player_Reference:Rivet67 1
+    101090: Player_Reference:Rivet68
+    101092: Player_Reference:Rivet68 1
+    101094: Player_Reference:Rivet69
+    101096: Player_Reference:Rivet69 1
+    101098: Player_Reference:Rivet7
+    101100: Player_Reference:Rivet7 1
+    101102: Player_Reference:Rivet71
+    101104: Player_Reference:Rivet71 1
+    101106: Player_Reference:Rivet72
+    101108: Player_Reference:Rivet72 1
+    101110: Player_Reference:Rivet75
+    101112: Player_Reference:Rivet75 1
+    101114: Player_Reference:Rivet77
+    101116: Player_Reference:Rivet77 1
+    101118: Player_Reference:Rivet78
+    101120: Player_Reference:Rivet78 1
+    101122: Player_Reference:Rivet79
+    101124: Player_Reference:Rivet79 1
+    101126: Player_Reference:Rivet8
+    101128: Player_Reference:Rivet8 1
+    101130: Player_Reference:Rivet80
+    101132: Player_Reference:Rivet80 1
+    101134: Player_Reference:Rivet81
+    101136: Player_Reference:Rivet81 1
+    101138: Player_Reference:Rivet82
+    101140: Player_Reference:Rivet82 1
+    101142: Player_Reference:Rivet83
+    101144: Player_Reference:Rivet83 1
+    101146: Player_Reference:Rivet84
+    101148: Player_Reference:Rivet84 1
+    101150: Player_Reference:Rivet85
+    101152: Player_Reference:Rivet85 1
+    101154: Player_Reference:Rivet86
+    101156: Player_Reference:Rivet86 1
+    101158: Player_Reference:Rivet87
+    101160: Player_Reference:Rivet87 1
+    101162: Player_Reference:Rivet88
+    101164: Player_Reference:Rivet88 1
+    101166: Player_Reference:Rivet89
+    101168: Player_Reference:Rivet9
+    101170: Player_Reference:Rivet90
+    101172: Player_Reference:Rivet91
+    101174: Player_Reference:Rivet92
+    101176: Player_Reference:Rivet93
+    101178: Player_Reference:Rivet94
+    101180: Player_Reference:RM1
+    101182: Player_Reference:RM2
+    101184: Player_Reference:RP1
+    101186: Player_Reference:RP2
+    101188: Player_Reference:RR1
+    101190: Player_Reference:RR2
+    101192: Player_Reference:RT1
+    101194: Player_Reference:RT2
+    101196: Player_Reference:Spine
+    101198: Player_Reference:Spine 1
+    101200: Player_Reference:Spine1
+    101202: Player_Reference:Spine1 1
+    101204: Player_Reference:Spine2
+    101206: Player_Reference:Spine2 1
+    101208: Player_Reference:SwordBase
+    101210: Player_Reference:SwordOffset
+    101212: Player_Reference:Swordtip
+    101214: Player_Reference:Torso
+    101216: Player_Reference:transform1
+    101218: Player_Reference:transform10
+    101220: Player_Reference:transform11
+    101222: Player_Reference:transform12
+    101224: Player_Reference:transform12 1
+    101226: Player_Reference:transform13
+    101228: Player_Reference:transform16
+    101230: Player_Reference:transform17
+    101232: Player_Reference:transform18
+    101234: Player_Reference:transform19
+    101236: Player_Reference:transform2
+    101238: Player_Reference:transform20
+    101240: Player_Reference:transform21
+    101242: Player_Reference:transform22
+    101244: Player_Reference:transform23
+    101246: Player_Reference:transform24
+    101248: Player_Reference:transform25
+    101250: Player_Reference:transform26
+    101252: Player_Reference:transform27
+    101254: Player_Reference:transform28
+    101256: Player_Reference:transform29
+    101258: Player_Reference:transform30
+    101260: Player_Reference:transform31
+    101262: Player_Reference:transform5
+    101264: Player_Reference:transform6
+    101266: Player_Reference:transform7
+    101268: Player_Reference:transform8
+    101270: Player_Reference:transform9
+    101272: Player_Reference:Waist
+    101274: Player_Reference:Waist 1
+    400000: //RootNode
+    400002: Player_Reference:Armor
+    400004: Player_Reference:Armor 1
+    400006: Player_Reference:AssArmor
+    400008: Player_Reference:AssArmor 1
+    400010: Player_Reference:AssArmor1
+    400012: Player_Reference:back
+    400014: Player_Reference:Body
+    400016: Player_Reference:Chest
+    400018: Player_Reference:Chestplate5
+    400020: Player_Reference:Chestplate8
+    400022: Player_Reference:Collar
+    400024: Player_Reference:Components
+    400026: Player_Reference:Components1
+    400028: Player_Reference:CrotchArmor
+    400030: Player_Reference:group1
+    400032: Player_Reference:group10
+    400034: Player_Reference:group11
+    400036: Player_Reference:group12
+    400038: Player_Reference:group13
+    400040: Player_Reference:group14
+    400042: Player_Reference:group15
+    400044: Player_Reference:group16
+    400046: Player_Reference:group17
+    400048: Player_Reference:group2
+    400050: Player_Reference:group3
+    400052: Player_Reference:group4
+    400054: Player_Reference:group4 1
+    400056: Player_Reference:group4 10
+    400058: Player_Reference:group4 11
+    400060: Player_Reference:group4 12
+    400062: Player_Reference:group4 13
+    400064: Player_Reference:group4 14
+    400066: Player_Reference:group4 15
+    400068: Player_Reference:group4 2
+    400070: Player_Reference:group4 3
+    400072: Player_Reference:group4 4
+    400074: Player_Reference:group4 5
+    400076: Player_Reference:group4 6
+    400078: Player_Reference:group4 7
+    400080: Player_Reference:group4 8
+    400082: Player_Reference:group4 9
+    400084: Player_Reference:group5
+    400086: Player_Reference:group5 1
+    400088: Player_Reference:group5 2
+    400090: Player_Reference:group5 3
+    400092: Player_Reference:group6
+    400094: Player_Reference:group6 1
+    400096: Player_Reference:group6 2
+    400098: Player_Reference:group6 3
+    400100: Player_Reference:group7
+    400102: Player_Reference:group7 1
+    400104: Player_Reference:group7 2
+    400106: Player_Reference:group7 3
+    400108: Player_Reference:group8
+    400110: Player_Reference:group8 1
+    400112: Player_Reference:group8 2
+    400114: Player_Reference:group8 3
+    400116: Player_Reference:group9
+    400118: Player_Reference:Head
+    400120: Player_Reference:Head 1
+    400122: Player_Reference:Head 2
+    400124: Player_Reference:Head 3
+    400126: Player_Reference:Hips
+    400128: Player_Reference:Hips 1
+    400130: Player_Reference:joint28
+    400132: Player_Reference:joint29
+    400134: Player_Reference:joint30
+    400136: Player_Reference:left
+    400138: Player_Reference:LeftArm
+    400140: Player_Reference:LeftArm1
+    400142: Player_Reference:LeftArm2
+    400144: Player_Reference:LeftArmIK
+    400146: Player_Reference:LeftElbow
+    400148: Player_Reference:LeftFoot
+    400150: Player_Reference:LeftFoot 1
+    400152: Player_Reference:LeftFoot 2
+    400154: Player_Reference:LeftFoot 3
+    400156: Player_Reference:LeftForeArm
+    400158: Player_Reference:LeftForearm
+    400160: Player_Reference:LeftForeArm 1
+    400162: Player_Reference:LeftHand
+    400164: Player_Reference:LeftHand 1
+    400166: Player_Reference:LeftHandCenterPalm
+    400168: Player_Reference:LefthandController
+    400170: Player_Reference:LeftHipArmor
+    400172: Player_Reference:LeftIndex
+    400174: Player_Reference:LeftKnee
+    400176: Player_Reference:LeftKnuckles
+    400178: Player_Reference:LeftLeg
+    400180: Player_Reference:LeftLeg1
+    400182: Player_Reference:LeftLeg2
+    400184: Player_Reference:LeftLowerIndex
+    400186: Player_Reference:LeftLowerMiddle
+    400188: Player_Reference:LeftLowerPinky
+    400190: Player_Reference:LeftLowerRing
+    400192: Player_Reference:LeftLowerThumb
+    400194: Player_Reference:LeftMiddle
+    400196: Player_Reference:LeftOuterShoulder
+    400198: Player_Reference:LeftPauldron
+    400200: Player_Reference:LeftPink
+    400202: Player_Reference:LeftRing
+    400204: Player_Reference:LeftShoulder
+    400206: Player_Reference:LeftShoulder 1
+    400208: Player_Reference:LeftShoulder 2
+    400210: Player_Reference:LeftThighArmor
+    400212: Player_Reference:LeftThumb
+    400214: Player_Reference:LeftToe
+    400216: Player_Reference:LeftToeBase
+    400218: Player_Reference:LeftToeBase 1
+    400220: Player_Reference:LeftUpLeg
+    400222: Player_Reference:LeftUpLeg 1
+    400224: Player_Reference:LeftUpperIndex
+    400226: Player_Reference:LeftUpperMiddle
+    400228: Player_Reference:LeftUpperPinky
+    400230: Player_Reference:LeftUpperRing
+    400232: Player_Reference:LeftUpperThumb
+    400234: Player_Reference:LeftWrist
+    400236: Player_Reference:LetLegIK
+    400238: Player_Reference:LI1
+    400240: Player_Reference:LI2
+    400242: Player_Reference:LM1
+    400244: Player_Reference:LM2
+    400246: Player_Reference:LP1
+    400248: Player_Reference:LP2
+    400250: Player_Reference:LR1
+    400252: Player_Reference:LR2
+    400254: Player_Reference:LT1
+    400256: Player_Reference:LT2
+    400258: Player_Reference:Mesh
+    400260: Player_Reference:Neck
+    400262: Player_Reference:Neck 1
+    400264: Player_Reference:Neck 2
+    400266: Player_Reference:pCube311
+    400268: Player_Reference:pCube313
+    400270: Player_Reference:pCube316
+    400272: Player_Reference:pCube318
+    400274: Player_Reference:pCube319
+    400276: Player_Reference:pCube320
+    400278: Player_Reference:pCube321
+    400280: Player_Reference:pCube323
+    400282: Player_Reference:pCube324
+    400284: Player_Reference:pCube327
+    400286: Player_Reference:pCube330
+    400288: Player_Reference:pCube332
+    400290: Player_Reference:pCube334
+    400292: Player_Reference:pCube335
+    400294: Player_Reference:pCube336
+    400296: Player_Reference:pCube337
+    400298: Player_Reference:pCube338
+    400300: Player_Reference:pCube344
+    400302: Player_Reference:pCube347
+    400304: Player_Reference:pCube348
+    400306: Player_Reference:pCube349
+    400308: Player_Reference:pCube350
+    400310: Player_Reference:pCube351
+    400312: Player_Reference:pCube352
+    400314: Player_Reference:pCube353
+    400316: Player_Reference:pCube354
+    400318: Player_Reference:pCube355
+    400320: Player_Reference:pCube356
+    400322: Player_Reference:pCube357
+    400324: Player_Reference:pCube358
+    400326: Player_Reference:pCube359
+    400328: Player_Reference:pCube360
+    400330: Player_Reference:pCube361
+    400332: Player_Reference:pCube362
+    400334: Player_Reference:pCube363
+    400336: Player_Reference:pCube364
+    400338: Player_Reference:pCube365
+    400340: Player_Reference:pCube366
+    400342: Player_Reference:pCube367
+    400344: Player_Reference:pCube368
+    400346: Player_Reference:pCube369
+    400348: Player_Reference:pCube370
+    400350: Player_Reference:pCube371
+    400352: Player_Reference:pCube372
+    400354: Player_Reference:pCube379
+    400356: Player_Reference:pCube379 1
+    400358: Player_Reference:pCube382
+    400360: Player_Reference:pCube386
+    400362: Player_Reference:pCube387
+    400364: Player_Reference:pCube388
+    400366: Player_Reference:pCube391
+    400368: Player_Reference:pCube391 1
+    400370: Player_Reference:pCube392
+    400372: Player_Reference:pCube392 1
+    400374: Player_Reference:pCube393
+    400376: Player_Reference:pCube393 1
+    400378: Player_Reference:pCube394
+    400380: Player_Reference:pCube394 1
+    400382: Player_Reference:pCube395
+    400384: Player_Reference:pCube395 1
+    400386: Player_Reference:pCube396
+    400388: Player_Reference:pCube407
+    400390: Player_Reference:pCube408
+    400392: Player_Reference:pCube408 1
+    400394: Player_Reference:pCube410
+    400396: Player_Reference:pCube410 1
+    400398: Player_Reference:pCube412
+    400400: Player_Reference:pCube412 1
+    400402: Player_Reference:pCube415
+    400404: Player_Reference:pCube415 1
+    400406: Player_Reference:pCube416
+    400408: Player_Reference:pCube416 1
+    400410: Player_Reference:pCube417
+    400412: Player_Reference:pCube417 1
+    400414: Player_Reference:pCube418
+    400416: Player_Reference:pCube418 1
+    400418: Player_Reference:pCube419
+    400420: Player_Reference:pCube419 1
+    400422: Player_Reference:pCube420
+    400424: Player_Reference:pCube421
+    400426: Player_Reference:pCube422
+    400428: Player_Reference:pCube423
+    400430: Player_Reference:pCube424
+    400432: Player_Reference:pCube424 1
+    400434: Player_Reference:pCube425
+    400436: Player_Reference:pCube425 1
+    400438: Player_Reference:pCube426
+    400440: Player_Reference:pCube426 1
+    400442: Player_Reference:pCube427
+    400444: Player_Reference:pCube428
+    400446: Player_Reference:pCube429
+    400448: Player_Reference:pCube430
+    400450: Player_Reference:pCube431
+    400452: Player_Reference:pCube432
+    400454: Player_Reference:pCube433
+    400456: Player_Reference:pCube434
+    400458: Player_Reference:pCube435
+    400460: Player_Reference:pCube436
+    400462: Player_Reference:pCube437
+    400464: Player_Reference:pCube438
+    400466: Player_Reference:pCube439
+    400468: Player_Reference:pCube440
+    400470: Player_Reference:pCube441
+    400472: Player_Reference:pCube442
+    400474: Player_Reference:pCube443
+    400476: Player_Reference:pCube444
+    400478: Player_Reference:pCube445
+    400480: Player_Reference:pCube446
+    400482: Player_Reference:pCube447
+    400484: Player_Reference:pCube448
+    400486: Player_Reference:pCube449
+    400488: Player_Reference:pCube450
+    400490: Player_Reference:pCube451
+    400492: Player_Reference:pCube452
+    400494: Player_Reference:pCube453
+    400496: Player_Reference:pCube454
+    400498: Player_Reference:pCube455
+    400500: Player_Reference:pCube456
+    400502: Player_Reference:pCube457
+    400504: Player_Reference:pCube458
+    400506: Player_Reference:pCube459
+    400508: Player_Reference:pCube460
+    400510: Player_Reference:pCube461
+    400512: Player_Reference:pCube462
+    400514: Player_Reference:pCube463
+    400516: Player_Reference:pCube464
+    400518: Player_Reference:pCube465
+    400520: Player_Reference:pCube466
+    400522: Player_Reference:pCube467
+    400524: Player_Reference:pCube468
+    400526: Player_Reference:pCube469
+    400528: Player_Reference:pCube473
+    400530: Player_Reference:pCube474
+    400532: Player_Reference:pCube475
+    400534: Player_Reference:pCube476
+    400536: Player_Reference:pCube479
+    400538: Player_Reference:pCube480
+    400540: Player_Reference:pCube481
+    400542: Player_Reference:pCube482
+    400544: Player_Reference:pCube483
+    400546: Player_Reference:pCube484
+    400548: Player_Reference:pCube485
+    400550: Player_Reference:pCube486
+    400552: Player_Reference:pCube487
+    400554: Player_Reference:pCube488
+    400556: Player_Reference:pCube489
+    400558: Player_Reference:pCube490
+    400560: Player_Reference:pCube491
+    400562: Player_Reference:pCube491 1
+    400564: Player_Reference:pCube492
+    400566: Player_Reference:pCube493
+    400568: Player_Reference:pCube493 1
+    400570: Player_Reference:pCube494
+    400572: Player_Reference:pCube494 1
+    400574: Player_Reference:persp1
+    400576: Player_Reference:PlayerController
+    400578: Player_Reference:PlayerHeadController
+    400580: Player_Reference:PlayerHipsController
+    400582: Player_Reference:PlayerLeftElbowController
+    400584: Player_Reference:PlayerLeftFootController
+    400586: Player_Reference:PlayerLeftKneeController
+    400588: Player_Reference:PlayerLeftShoulderController
+    400590: Player_Reference:PlayerLeftToesController
+    400592: Player_Reference:PlayerMesh
+    400594: Player_Reference:PlayerMesh1
+    400596: Player_Reference:PlayerRightElbowController
+    400598: Player_Reference:PlayerRightFootController
+    400600: Player_Reference:PlayerRightKneeController
+    400602: Player_Reference:PlayerRightShoulderController
+    400604: Player_Reference:PlayerRightToesController
+    400606: Player_Reference:PlayerShoulderController
+    400608: Player_Reference:PlayerSkeleton
+    400610: Player_Reference:PlayerSword
+    400612: Player_Reference:PlayerSword2
+    400614: Player_Reference:PlayerSword4
+    400616: Player_Reference:PlayerSwordGroup1
+    400618: Player_Reference:PlayerSwordGroup2
+    400620: Player_Reference:PlayerWaistController
+    400622: Player_Reference:polySurface1
+    400624: Player_Reference:polySurface11
+    400626: Player_Reference:polySurface13
+    400628: Player_Reference:polySurface16
+    400630: Player_Reference:polySurface17
+    400632: Player_Reference:polySurface18
+    400634: Player_Reference:polySurface19
+    400636: Player_Reference:polySurface20
+    400638: Player_Reference:polySurface21
+    400640: Player_Reference:polySurface22
+    400642: Player_Reference:polySurface23
+    400644: Player_Reference:polySurface24
+    400646: Player_Reference:polySurface25
+    400648: Player_Reference:polySurface25 1
+    400650: Player_Reference:polySurface26
+    400652: Player_Reference:polySurface26 1
+    400654: Player_Reference:polySurface27
+    400656: Player_Reference:polySurface27 1
+    400658: Player_Reference:polySurface28
+    400660: Player_Reference:polySurface28 1
+    400662: Player_Reference:polySurface29
+    400664: Player_Reference:polySurface30
+    400666: Player_Reference:polySurface31
+    400668: Player_Reference:polySurface32
+    400670: Player_Reference:polySurface33
+    400672: Player_Reference:polySurface35
+    400674: Player_Reference:polySurface36
+    400676: Player_Reference:polySurface43
+    400678: Player_Reference:polySurface45
+    400680: Player_Reference:polySurface5
+    400682: Player_Reference:pPipe1
+    400684: Player_Reference:pPipe1 1
+    400686: Player_Reference:pPipe3
+    400688: Player_Reference:pPipe3 1
+    400690: Player_Reference:pPipe4
+    400692: Player_Reference:pPipe4 1
+    400694: Player_Reference:pPipe5
+    400696: Player_Reference:pPipe6
+    400698: Player_Reference:pPipe7
+    400700: Player_Reference:QuickRigCharacter1_Guides
+    400702: Player_Reference:QuickRigCharacter_Guides
+    400704: Player_Reference:Reference
+    400706: Player_Reference:Reference 1
+    400708: Player_Reference:RI1
+    400710: Player_Reference:RI2
+    400712: Player_Reference:RigGroup
+    400714: Player_Reference:RightandController1
+    400716: Player_Reference:RightArm
+    400718: Player_Reference:RightArm1
+    400720: Player_Reference:RightArm2
+    400722: Player_Reference:RightArm3
+    400724: Player_Reference:RightArmGroup
+    400726: Player_Reference:RightArmIK
+    400728: Player_Reference:RightElbow
+    400730: Player_Reference:RightFoot
+    400732: Player_Reference:RightFoot 1
+    400734: Player_Reference:RightFoot 2
+    400736: Player_Reference:RightFoot 3
+    400738: Player_Reference:RightFoot 4
+    400740: Player_Reference:RightFoot 5
+    400742: Player_Reference:RightForeArm
+    400744: Player_Reference:RightForeArm 1
+    400746: Player_Reference:RightHand
+    400748: Player_Reference:RightHand 1
+    400750: Player_Reference:RightHand 2
+    400752: Player_Reference:RightHand 3
+    400754: Player_Reference:RightHandCenterPalm
+    400756: Player_Reference:RightHipArmor
+    400758: Player_Reference:RightIndex
+    400760: Player_Reference:RightKnee
+    400762: Player_Reference:RightKnuckles
+    400764: Player_Reference:RightLeg
+    400766: Player_Reference:RightLeg 1
+    400768: Player_Reference:RightLeg 2
+    400770: Player_Reference:RightLeg1
+    400772: Player_Reference:RightLeg2
+    400774: Player_Reference:RightLegIK
+    400776: Player_Reference:RightLegWhole
+    400778: Player_Reference:RightLegWhole1
+    400780: Player_Reference:RightLowerIndex
+    400782: Player_Reference:RightLowerMiddle
+    400784: Player_Reference:RightLowerPinky
+    400786: Player_Reference:RightLowerRing
+    400788: Player_Reference:RightLowerThumb
+    400790: Player_Reference:RightMiddle
+    400792: Player_Reference:RightOuterShoulder
+    400794: Player_Reference:RightPauldron
+    400796: Player_Reference:RightPinky
+    400798: Player_Reference:RightRing
+    400800: Player_Reference:RightShoulder
+    400802: Player_Reference:RightShoulder 1
+    400804: Player_Reference:RightShoulder 2
+    400806: Player_Reference:RightThighArmor
+    400808: Player_Reference:RightThumb
+    400810: Player_Reference:RightToe
+    400812: Player_Reference:RightToeBase
+    400814: Player_Reference:RightToeBase 1
+    400816: Player_Reference:RightUpLeg
+    400818: Player_Reference:RightUpLeg 1
+    400820: Player_Reference:RightUpperIndex
+    400822: Player_Reference:RightUpperMiddle
+    400824: Player_Reference:RightUpperPinky
+    400826: Player_Reference:RightUpperRing
+    400828: Player_Reference:RightUpperThumb
+    400830: Player_Reference:RightWrist
+    400832: Player_Reference:Rivet
+    400834: Player_Reference:Rivet1
+    400836: Player_Reference:Rivet1 1
+    400838: Player_Reference:Rivet10
+    400840: Player_Reference:Rivet10 1
+    400842: Player_Reference:Rivet11
+    400844: Player_Reference:Rivet11 1
+    400846: Player_Reference:Rivet12
+    400848: Player_Reference:Rivet12 1
+    400850: Player_Reference:Rivet13
+    400852: Player_Reference:Rivet13 1
+    400854: Player_Reference:Rivet14
+    400856: Player_Reference:Rivet14 1
+    400858: Player_Reference:Rivet15
+    400860: Player_Reference:Rivet15 1
+    400862: Player_Reference:Rivet16
+    400864: Player_Reference:Rivet16 1
+    400866: Player_Reference:Rivet17
+    400868: Player_Reference:Rivet17 1
+    400870: Player_Reference:Rivet18
+    400872: Player_Reference:Rivet18 1
+    400874: Player_Reference:Rivet19
+    400876: Player_Reference:Rivet19 1
+    400878: Player_Reference:Rivet2
+    400880: Player_Reference:Rivet2 1
+    400882: Player_Reference:Rivet20
+    400884: Player_Reference:Rivet20 1
+    400886: Player_Reference:Rivet21
+    400888: Player_Reference:Rivet21 1
+    400890: Player_Reference:Rivet22
+    400892: Player_Reference:Rivet22 1
+    400894: Player_Reference:Rivet23
+    400896: Player_Reference:Rivet23 1
+    400898: Player_Reference:Rivet24
+    400900: Player_Reference:Rivet24 1
+    400902: Player_Reference:Rivet25
+    400904: Player_Reference:Rivet25 1
+    400906: Player_Reference:Rivet26
+    400908: Player_Reference:Rivet26 1
+    400910: Player_Reference:Rivet27
+    400912: Player_Reference:Rivet27 1
+    400914: Player_Reference:Rivet28
+    400916: Player_Reference:Rivet28 1
+    400918: Player_Reference:Rivet29
+    400920: Player_Reference:Rivet29 1
+    400922: Player_Reference:Rivet3
+    400924: Player_Reference:Rivet3 1
+    400926: Player_Reference:Rivet30
+    400928: Player_Reference:Rivet30 1
+    400930: Player_Reference:Rivet31
+    400932: Player_Reference:Rivet31 1
+    400934: Player_Reference:Rivet32
+    400936: Player_Reference:Rivet32 1
+    400938: Player_Reference:Rivet33
+    400940: Player_Reference:Rivet33 1
+    400942: Player_Reference:Rivet34
+    400944: Player_Reference:Rivet34 1
+    400946: Player_Reference:Rivet35
+    400948: Player_Reference:Rivet35 1
+    400950: Player_Reference:Rivet36
+    400952: Player_Reference:Rivet36 1
+    400954: Player_Reference:Rivet37
+    400956: Player_Reference:Rivet37 1
+    400958: Player_Reference:Rivet38
+    400960: Player_Reference:Rivet38 1
+    400962: Player_Reference:Rivet39
+    400964: Player_Reference:Rivet39 1
+    400966: Player_Reference:Rivet4
+    400968: Player_Reference:Rivet4 1
+    400970: Player_Reference:Rivet40
+    400972: Player_Reference:Rivet40 1
+    400974: Player_Reference:Rivet41
+    400976: Player_Reference:Rivet41 1
+    400978: Player_Reference:Rivet42
+    400980: Player_Reference:Rivet42 1
+    400982: Player_Reference:Rivet43
+    400984: Player_Reference:Rivet43 1
+    400986: Player_Reference:Rivet44
+    400988: Player_Reference:Rivet44 1
+    400990: Player_Reference:Rivet45
+    400992: Player_Reference:Rivet45 1
+    400994: Player_Reference:Rivet46
+    400996: Player_Reference:Rivet46 1
+    400998: Player_Reference:Rivet47
+    401000: Player_Reference:Rivet47 1
+    401002: Player_Reference:Rivet48
+    401004: Player_Reference:Rivet48 1
+    401006: Player_Reference:Rivet49
+    401008: Player_Reference:Rivet49 1
+    401010: Player_Reference:Rivet5
+    401012: Player_Reference:Rivet5 1
+    401014: Player_Reference:Rivet50
+    401016: Player_Reference:Rivet50 1
+    401018: Player_Reference:Rivet51
+    401020: Player_Reference:Rivet51 1
+    401022: Player_Reference:Rivet52
+    401024: Player_Reference:Rivet52 1
+    401026: Player_Reference:Rivet53
+    401028: Player_Reference:Rivet53 1
+    401030: Player_Reference:Rivet54
+    401032: Player_Reference:Rivet54 1
+    401034: Player_Reference:Rivet55
+    401036: Player_Reference:Rivet55 1
+    401038: Player_Reference:Rivet56
+    401040: Player_Reference:Rivet56 1
+    401042: Player_Reference:Rivet57
+    401044: Player_Reference:Rivet57 1
+    401046: Player_Reference:Rivet58
+    401048: Player_Reference:Rivet58 1
+    401050: Player_Reference:Rivet59
+    401052: Player_Reference:Rivet59 1
+    401054: Player_Reference:Rivet6
+    401056: Player_Reference:Rivet6 1
+    401058: Player_Reference:Rivet60
+    401060: Player_Reference:Rivet60 1
+    401062: Player_Reference:Rivet61
+    401064: Player_Reference:Rivet61 1
+    401066: Player_Reference:Rivet62
+    401068: Player_Reference:Rivet62 1
+    401070: Player_Reference:Rivet63
+    401072: Player_Reference:Rivet63 1
+    401074: Player_Reference:Rivet64
+    401076: Player_Reference:Rivet64 1
+    401078: Player_Reference:Rivet65
+    401080: Player_Reference:Rivet65 1
+    401082: Player_Reference:Rivet66
+    401084: Player_Reference:Rivet66 1
+    401086: Player_Reference:Rivet67
+    401088: Player_Reference:Rivet67 1
+    401090: Player_Reference:Rivet68
+    401092: Player_Reference:Rivet68 1
+    401094: Player_Reference:Rivet69
+    401096: Player_Reference:Rivet69 1
+    401098: Player_Reference:Rivet7
+    401100: Player_Reference:Rivet7 1
+    401102: Player_Reference:Rivet71
+    401104: Player_Reference:Rivet71 1
+    401106: Player_Reference:Rivet72
+    401108: Player_Reference:Rivet72 1
+    401110: Player_Reference:Rivet75
+    401112: Player_Reference:Rivet75 1
+    401114: Player_Reference:Rivet77
+    401116: Player_Reference:Rivet77 1
+    401118: Player_Reference:Rivet78
+    401120: Player_Reference:Rivet78 1
+    401122: Player_Reference:Rivet79
+    401124: Player_Reference:Rivet79 1
+    401126: Player_Reference:Rivet8
+    401128: Player_Reference:Rivet8 1
+    401130: Player_Reference:Rivet80
+    401132: Player_Reference:Rivet80 1
+    401134: Player_Reference:Rivet81
+    401136: Player_Reference:Rivet81 1
+    401138: Player_Reference:Rivet82
+    401140: Player_Reference:Rivet82 1
+    401142: Player_Reference:Rivet83
+    401144: Player_Reference:Rivet83 1
+    401146: Player_Reference:Rivet84
+    401148: Player_Reference:Rivet84 1
+    401150: Player_Reference:Rivet85
+    401152: Player_Reference:Rivet85 1
+    401154: Player_Reference:Rivet86
+    401156: Player_Reference:Rivet86 1
+    401158: Player_Reference:Rivet87
+    401160: Player_Reference:Rivet87 1
+    401162: Player_Reference:Rivet88
+    401164: Player_Reference:Rivet88 1
+    401166: Player_Reference:Rivet89
+    401168: Player_Reference:Rivet9
+    401170: Player_Reference:Rivet90
+    401172: Player_Reference:Rivet91
+    401174: Player_Reference:Rivet92
+    401176: Player_Reference:Rivet93
+    401178: Player_Reference:Rivet94
+    401180: Player_Reference:RM1
+    401182: Player_Reference:RM2
+    401184: Player_Reference:RP1
+    401186: Player_Reference:RP2
+    401188: Player_Reference:RR1
+    401190: Player_Reference:RR2
+    401192: Player_Reference:RT1
+    401194: Player_Reference:RT2
+    401196: Player_Reference:Spine
+    401198: Player_Reference:Spine 1
+    401200: Player_Reference:Spine1
+    401202: Player_Reference:Spine1 1
+    401204: Player_Reference:Spine2
+    401206: Player_Reference:Spine2 1
+    401208: Player_Reference:SwordBase
+    401210: Player_Reference:SwordOffset
+    401212: Player_Reference:Swordtip
+    401214: Player_Reference:Torso
+    401216: Player_Reference:transform1
+    401218: Player_Reference:transform10
+    401220: Player_Reference:transform11
+    401222: Player_Reference:transform12
+    401224: Player_Reference:transform12 1
+    401226: Player_Reference:transform13
+    401228: Player_Reference:transform16
+    401230: Player_Reference:transform17
+    401232: Player_Reference:transform18
+    401234: Player_Reference:transform19
+    401236: Player_Reference:transform2
+    401238: Player_Reference:transform20
+    401240: Player_Reference:transform21
+    401242: Player_Reference:transform22
+    401244: Player_Reference:transform23
+    401246: Player_Reference:transform24
+    401248: Player_Reference:transform25
+    401250: Player_Reference:transform26
+    401252: Player_Reference:transform27
+    401254: Player_Reference:transform28
+    401256: Player_Reference:transform29
+    401258: Player_Reference:transform30
+    401260: Player_Reference:transform31
+    401262: Player_Reference:transform5
+    401264: Player_Reference:transform6
+    401266: Player_Reference:transform7
+    401268: Player_Reference:transform8
+    401270: Player_Reference:transform9
+    401272: Player_Reference:Waist
+    401274: Player_Reference:Waist 1
+    2000000: Player_Reference:back
+    2000002: Player_Reference:left
+    2000004: Player_Reference:persp1
+    2100000: lambert1
+    2100002: Player_Reference_defaultPolygonShader
+    2100004: Player_Reference_typeBlinn
+    2100006: Player_Reference_defaultPolygonShader2
+    2300000: Player_Reference:Chestplate8
+    2300002: Player_Reference:group14
+    2300004: Player_Reference:group15
+    2300006: Player_Reference:group16
+    2300008: Player_Reference:group17
+    2300010: Player_Reference:Mesh
+    2300012: Player_Reference:pCube311
+    2300014: Player_Reference:pCube313
+    2300016: Player_Reference:pCube316
+    2300018: Player_Reference:pCube318
+    2300020: Player_Reference:pCube319
+    2300022: Player_Reference:pCube320
+    2300024: Player_Reference:pCube321
+    2300026: Player_Reference:pCube323
+    2300028: Player_Reference:pCube324
+    2300030: Player_Reference:pCube327
+    2300032: Player_Reference:pCube330
+    2300034: Player_Reference:pCube332
+    2300036: Player_Reference:pCube334
+    2300038: Player_Reference:pCube335
+    2300040: Player_Reference:pCube336
+    2300042: Player_Reference:pCube337
+    2300044: Player_Reference:pCube338
+    2300046: Player_Reference:pCube344
+    2300048: Player_Reference:pCube347
+    2300050: Player_Reference:pCube348
+    2300052: Player_Reference:pCube349
+    2300054: Player_Reference:pCube350
+    2300056: Player_Reference:pCube351
+    2300058: Player_Reference:pCube352
+    2300060: Player_Reference:pCube353
+    2300062: Player_Reference:pCube354
+    2300064: Player_Reference:pCube355
+    2300066: Player_Reference:pCube356
+    2300068: Player_Reference:pCube357
+    2300070: Player_Reference:pCube358
+    2300072: Player_Reference:pCube359
+    2300074: Player_Reference:pCube360
+    2300076: Player_Reference:pCube361
+    2300078: Player_Reference:pCube362
+    2300080: Player_Reference:pCube363
+    2300082: Player_Reference:pCube364
+    2300084: Player_Reference:pCube365
+    2300086: Player_Reference:pCube366
+    2300088: Player_Reference:pCube367
+    2300090: Player_Reference:pCube368
+    2300092: Player_Reference:pCube369
+    2300094: Player_Reference:pCube370
+    2300096: Player_Reference:pCube371
+    2300098: Player_Reference:pCube372
+    2300100: Player_Reference:pCube379
+    2300102: Player_Reference:pCube379 1
+    2300104: Player_Reference:pCube382
+    2300106: Player_Reference:pCube388
+    2300108: Player_Reference:pCube391
+    2300110: Player_Reference:pCube391 1
+    2300112: Player_Reference:pCube392
+    2300114: Player_Reference:pCube392 1
+    2300116: Player_Reference:pCube393
+    2300118: Player_Reference:pCube393 1
+    2300120: Player_Reference:pCube394
+    2300122: Player_Reference:pCube394 1
+    2300124: Player_Reference:pCube395
+    2300126: Player_Reference:pCube395 1
+    2300128: Player_Reference:pCube410
+    2300130: Player_Reference:pCube410 1
+    2300132: Player_Reference:pCube412
+    2300134: Player_Reference:pCube412 1
+    2300136: Player_Reference:pCube415
+    2300138: Player_Reference:pCube415 1
+    2300140: Player_Reference:pCube416
+    2300142: Player_Reference:pCube416 1
+    2300144: Player_Reference:pCube417
+    2300146: Player_Reference:pCube417 1
+    2300148: Player_Reference:pCube418
+    2300150: Player_Reference:pCube418 1
+    2300152: Player_Reference:pCube419
+    2300154: Player_Reference:pCube419 1
+    2300156: Player_Reference:pCube420
+    2300158: Player_Reference:pCube421
+    2300160: Player_Reference:pCube422
+    2300162: Player_Reference:pCube423
+    2300164: Player_Reference:pCube424
+    2300166: Player_Reference:pCube424 1
+    2300168: Player_Reference:pCube425
+    2300170: Player_Reference:pCube425 1
+    2300172: Player_Reference:pCube426
+    2300174: Player_Reference:pCube426 1
+    2300176: Player_Reference:pCube427
+    2300178: Player_Reference:pCube428
+    2300180: Player_Reference:pCube429
+    2300182: Player_Reference:pCube430
+    2300184: Player_Reference:pCube431
+    2300186: Player_Reference:pCube432
+    2300188: Player_Reference:pCube433
+    2300190: Player_Reference:pCube434
+    2300192: Player_Reference:pCube435
+    2300194: Player_Reference:pCube436
+    2300196: Player_Reference:pCube437
+    2300198: Player_Reference:pCube438
+    2300200: Player_Reference:pCube439
+    2300202: Player_Reference:pCube440
+    2300204: Player_Reference:pCube441
+    2300206: Player_Reference:pCube442
+    2300208: Player_Reference:pCube443
+    2300210: Player_Reference:pCube444
+    2300212: Player_Reference:pCube445
+    2300214: Player_Reference:pCube446
+    2300216: Player_Reference:pCube447
+    2300218: Player_Reference:pCube448
+    2300220: Player_Reference:pCube449
+    2300222: Player_Reference:pCube450
+    2300224: Player_Reference:pCube451
+    2300226: Player_Reference:pCube452
+    2300228: Player_Reference:pCube453
+    2300230: Player_Reference:pCube454
+    2300232: Player_Reference:pCube455
+    2300234: Player_Reference:pCube456
+    2300236: Player_Reference:pCube457
+    2300238: Player_Reference:pCube458
+    2300240: Player_Reference:pCube459
+    2300242: Player_Reference:pCube460
+    2300244: Player_Reference:pCube461
+    2300246: Player_Reference:pCube462
+    2300248: Player_Reference:pCube463
+    2300250: Player_Reference:pCube464
+    2300252: Player_Reference:pCube465
+    2300254: Player_Reference:pCube466
+    2300256: Player_Reference:pCube467
+    2300258: Player_Reference:pCube468
+    2300260: Player_Reference:pCube469
+    2300262: Player_Reference:pCube474
+    2300264: Player_Reference:pCube483
+    2300266: Player_Reference:pCube484
+    2300268: Player_Reference:pCube485
+    2300270: Player_Reference:pCube486
+    2300272: Player_Reference:pCube487
+    2300274: Player_Reference:pCube488
+    2300276: Player_Reference:pCube491
+    2300278: Player_Reference:PlayerMesh
+    2300280: Player_Reference:PlayerMesh1
+    2300282: Player_Reference:PlayerSword2
+    2300284: Player_Reference:PlayerSword4
+    2300286: Player_Reference:polySurface1
+    2300288: Player_Reference:polySurface11
+    2300290: Player_Reference:polySurface13
+    2300292: Player_Reference:polySurface16
+    2300294: Player_Reference:polySurface17
+    2300296: Player_Reference:polySurface18
+    2300298: Player_Reference:polySurface19
+    2300300: Player_Reference:polySurface20
+    2300302: Player_Reference:polySurface21
+    2300304: Player_Reference:polySurface22
+    2300306: Player_Reference:polySurface24
+    2300308: Player_Reference:polySurface25
+    2300310: Player_Reference:polySurface25 1
+    2300312: Player_Reference:polySurface26
+    2300314: Player_Reference:polySurface26 1
+    2300316: Player_Reference:polySurface27
+    2300318: Player_Reference:polySurface27 1
+    2300320: Player_Reference:polySurface28
+    2300322: Player_Reference:polySurface28 1
+    2300324: Player_Reference:polySurface29
+    2300326: Player_Reference:polySurface31
+    2300328: Player_Reference:polySurface35
+    2300330: Player_Reference:polySurface36
+    2300332: Player_Reference:polySurface43
+    2300334: Player_Reference:polySurface45
+    2300336: Player_Reference:polySurface5
+    2300338: Player_Reference:pPipe1
+    2300340: Player_Reference:pPipe1 1
+    2300342: Player_Reference:pPipe3
+    2300344: Player_Reference:pPipe3 1
+    2300346: Player_Reference:pPipe4
+    2300348: Player_Reference:pPipe4 1
+    2300350: Player_Reference:pPipe7
+    2300352: Player_Reference:Rivet
+    2300354: Player_Reference:Rivet1
+    2300356: Player_Reference:Rivet1 1
+    2300358: Player_Reference:Rivet10
+    2300360: Player_Reference:Rivet10 1
+    2300362: Player_Reference:Rivet11
+    2300364: Player_Reference:Rivet11 1
+    2300366: Player_Reference:Rivet12
+    2300368: Player_Reference:Rivet12 1
+    2300370: Player_Reference:Rivet13
+    2300372: Player_Reference:Rivet13 1
+    2300374: Player_Reference:Rivet14
+    2300376: Player_Reference:Rivet14 1
+    2300378: Player_Reference:Rivet15
+    2300380: Player_Reference:Rivet15 1
+    2300382: Player_Reference:Rivet16
+    2300384: Player_Reference:Rivet16 1
+    2300386: Player_Reference:Rivet17
+    2300388: Player_Reference:Rivet17 1
+    2300390: Player_Reference:Rivet18
+    2300392: Player_Reference:Rivet18 1
+    2300394: Player_Reference:Rivet19
+    2300396: Player_Reference:Rivet19 1
+    2300398: Player_Reference:Rivet2
+    2300400: Player_Reference:Rivet2 1
+    2300402: Player_Reference:Rivet20
+    2300404: Player_Reference:Rivet20 1
+    2300406: Player_Reference:Rivet21
+    2300408: Player_Reference:Rivet21 1
+    2300410: Player_Reference:Rivet22
+    2300412: Player_Reference:Rivet22 1
+    2300414: Player_Reference:Rivet23
+    2300416: Player_Reference:Rivet23 1
+    2300418: Player_Reference:Rivet24
+    2300420: Player_Reference:Rivet24 1
+    2300422: Player_Reference:Rivet25
+    2300424: Player_Reference:Rivet25 1
+    2300426: Player_Reference:Rivet26
+    2300428: Player_Reference:Rivet26 1
+    2300430: Player_Reference:Rivet27
+    2300432: Player_Reference:Rivet27 1
+    2300434: Player_Reference:Rivet28
+    2300436: Player_Reference:Rivet28 1
+    2300438: Player_Reference:Rivet29
+    2300440: Player_Reference:Rivet29 1
+    2300442: Player_Reference:Rivet3
+    2300444: Player_Reference:Rivet3 1
+    2300446: Player_Reference:Rivet30
+    2300448: Player_Reference:Rivet30 1
+    2300450: Player_Reference:Rivet31
+    2300452: Player_Reference:Rivet31 1
+    2300454: Player_Reference:Rivet32
+    2300456: Player_Reference:Rivet32 1
+    2300458: Player_Reference:Rivet33
+    2300460: Player_Reference:Rivet33 1
+    2300462: Player_Reference:Rivet34
+    2300464: Player_Reference:Rivet34 1
+    2300466: Player_Reference:Rivet35
+    2300468: Player_Reference:Rivet35 1
+    2300470: Player_Reference:Rivet36
+    2300472: Player_Reference:Rivet36 1
+    2300474: Player_Reference:Rivet37
+    2300476: Player_Reference:Rivet37 1
+    2300478: Player_Reference:Rivet38
+    2300480: Player_Reference:Rivet38 1
+    2300482: Player_Reference:Rivet39
+    2300484: Player_Reference:Rivet39 1
+    2300486: Player_Reference:Rivet4
+    2300488: Player_Reference:Rivet4 1
+    2300490: Player_Reference:Rivet40
+    2300492: Player_Reference:Rivet40 1
+    2300494: Player_Reference:Rivet41
+    2300496: Player_Reference:Rivet41 1
+    2300498: Player_Reference:Rivet42
+    2300500: Player_Reference:Rivet42 1
+    2300502: Player_Reference:Rivet43
+    2300504: Player_Reference:Rivet43 1
+    2300506: Player_Reference:Rivet44
+    2300508: Player_Reference:Rivet44 1
+    2300510: Player_Reference:Rivet45
+    2300512: Player_Reference:Rivet45 1
+    2300514: Player_Reference:Rivet46
+    2300516: Player_Reference:Rivet46 1
+    2300518: Player_Reference:Rivet47
+    2300520: Player_Reference:Rivet47 1
+    2300522: Player_Reference:Rivet48
+    2300524: Player_Reference:Rivet48 1
+    2300526: Player_Reference:Rivet49
+    2300528: Player_Reference:Rivet49 1
+    2300530: Player_Reference:Rivet5
+    2300532: Player_Reference:Rivet5 1
+    2300534: Player_Reference:Rivet50
+    2300536: Player_Reference:Rivet50 1
+    2300538: Player_Reference:Rivet51
+    2300540: Player_Reference:Rivet51 1
+    2300542: Player_Reference:Rivet52
+    2300544: Player_Reference:Rivet52 1
+    2300546: Player_Reference:Rivet53
+    2300548: Player_Reference:Rivet53 1
+    2300550: Player_Reference:Rivet54
+    2300552: Player_Reference:Rivet54 1
+    2300554: Player_Reference:Rivet55
+    2300556: Player_Reference:Rivet55 1
+    2300558: Player_Reference:Rivet56
+    2300560: Player_Reference:Rivet56 1
+    2300562: Player_Reference:Rivet57
+    2300564: Player_Reference:Rivet57 1
+    2300566: Player_Reference:Rivet58
+    2300568: Player_Reference:Rivet58 1
+    2300570: Player_Reference:Rivet59
+    2300572: Player_Reference:Rivet59 1
+    2300574: Player_Reference:Rivet6
+    2300576: Player_Reference:Rivet6 1
+    2300578: Player_Reference:Rivet60
+    2300580: Player_Reference:Rivet60 1
+    2300582: Player_Reference:Rivet61
+    2300584: Player_Reference:Rivet61 1
+    2300586: Player_Reference:Rivet62
+    2300588: Player_Reference:Rivet62 1
+    2300590: Player_Reference:Rivet63
+    2300592: Player_Reference:Rivet63 1
+    2300594: Player_Reference:Rivet64
+    2300596: Player_Reference:Rivet64 1
+    2300598: Player_Reference:Rivet65
+    2300600: Player_Reference:Rivet65 1
+    2300602: Player_Reference:Rivet66
+    2300604: Player_Reference:Rivet66 1
+    2300606: Player_Reference:Rivet67
+    2300608: Player_Reference:Rivet67 1
+    2300610: Player_Reference:Rivet68
+    2300612: Player_Reference:Rivet68 1
+    2300614: Player_Reference:Rivet69
+    2300616: Player_Reference:Rivet69 1
+    2300618: Player_Reference:Rivet7
+    2300620: Player_Reference:Rivet7 1
+    2300622: Player_Reference:Rivet71
+    2300624: Player_Reference:Rivet71 1
+    2300626: Player_Reference:Rivet72
+    2300628: Player_Reference:Rivet72 1
+    2300630: Player_Reference:Rivet75
+    2300632: Player_Reference:Rivet75 1
+    2300634: Player_Reference:Rivet77
+    2300636: Player_Reference:Rivet77 1
+    2300638: Player_Reference:Rivet78
+    2300640: Player_Reference:Rivet78 1
+    2300642: Player_Reference:Rivet79
+    2300644: Player_Reference:Rivet79 1
+    2300646: Player_Reference:Rivet8
+    2300648: Player_Reference:Rivet8 1
+    2300650: Player_Reference:Rivet80
+    2300652: Player_Reference:Rivet80 1
+    2300654: Player_Reference:Rivet81
+    2300656: Player_Reference:Rivet81 1
+    2300658: Player_Reference:Rivet82
+    2300660: Player_Reference:Rivet82 1
+    2300662: Player_Reference:Rivet83
+    2300664: Player_Reference:Rivet83 1
+    2300666: Player_Reference:Rivet84
+    2300668: Player_Reference:Rivet84 1
+    2300670: Player_Reference:Rivet85
+    2300672: Player_Reference:Rivet85 1
+    2300674: Player_Reference:Rivet86
+    2300676: Player_Reference:Rivet86 1
+    2300678: Player_Reference:Rivet87
+    2300680: Player_Reference:Rivet87 1
+    2300682: Player_Reference:Rivet88
+    2300684: Player_Reference:Rivet88 1
+    2300686: Player_Reference:Rivet89
+    2300688: Player_Reference:Rivet9
+    2300690: Player_Reference:Rivet90
+    2300692: Player_Reference:Rivet91
+    2300694: Player_Reference:Rivet92
+    2300696: Player_Reference:Rivet93
+    2300698: Player_Reference:Rivet94
+    3300000: Player_Reference:Chestplate8
+    3300002: Player_Reference:group14
+    3300004: Player_Reference:group15
+    3300006: Player_Reference:group16
+    3300008: Player_Reference:group17
+    3300010: Player_Reference:Mesh
+    3300012: Player_Reference:pCube311
+    3300014: Player_Reference:pCube313
+    3300016: Player_Reference:pCube316
+    3300018: Player_Reference:pCube318
+    3300020: Player_Reference:pCube319
+    3300022: Player_Reference:pCube320
+    3300024: Player_Reference:pCube321
+    3300026: Player_Reference:pCube323
+    3300028: Player_Reference:pCube324
+    3300030: Player_Reference:pCube327
+    3300032: Player_Reference:pCube330
+    3300034: Player_Reference:pCube332
+    3300036: Player_Reference:pCube334
+    3300038: Player_Reference:pCube335
+    3300040: Player_Reference:pCube336
+    3300042: Player_Reference:pCube337
+    3300044: Player_Reference:pCube338
+    3300046: Player_Reference:pCube344
+    3300048: Player_Reference:pCube347
+    3300050: Player_Reference:pCube348
+    3300052: Player_Reference:pCube349
+    3300054: Player_Reference:pCube350
+    3300056: Player_Reference:pCube351
+    3300058: Player_Reference:pCube352
+    3300060: Player_Reference:pCube353
+    3300062: Player_Reference:pCube354
+    3300064: Player_Reference:pCube355
+    3300066: Player_Reference:pCube356
+    3300068: Player_Reference:pCube357
+    3300070: Player_Reference:pCube358
+    3300072: Player_Reference:pCube359
+    3300074: Player_Reference:pCube360
+    3300076: Player_Reference:pCube361
+    3300078: Player_Reference:pCube362
+    3300080: Player_Reference:pCube363
+    3300082: Player_Reference:pCube364
+    3300084: Player_Reference:pCube365
+    3300086: Player_Reference:pCube366
+    3300088: Player_Reference:pCube367
+    3300090: Player_Reference:pCube368
+    3300092: Player_Reference:pCube369
+    3300094: Player_Reference:pCube370
+    3300096: Player_Reference:pCube371
+    3300098: Player_Reference:pCube372
+    3300100: Player_Reference:pCube379
+    3300102: Player_Reference:pCube379 1
+    3300104: Player_Reference:pCube382
+    3300106: Player_Reference:pCube388
+    3300108: Player_Reference:pCube391
+    3300110: Player_Reference:pCube391 1
+    3300112: Player_Reference:pCube392
+    3300114: Player_Reference:pCube392 1
+    3300116: Player_Reference:pCube393
+    3300118: Player_Reference:pCube393 1
+    3300120: Player_Reference:pCube394
+    3300122: Player_Reference:pCube394 1
+    3300124: Player_Reference:pCube395
+    3300126: Player_Reference:pCube395 1
+    3300128: Player_Reference:pCube410
+    3300130: Player_Reference:pCube410 1
+    3300132: Player_Reference:pCube412
+    3300134: Player_Reference:pCube412 1
+    3300136: Player_Reference:pCube415
+    3300138: Player_Reference:pCube415 1
+    3300140: Player_Reference:pCube416
+    3300142: Player_Reference:pCube416 1
+    3300144: Player_Reference:pCube417
+    3300146: Player_Reference:pCube417 1
+    3300148: Player_Reference:pCube418
+    3300150: Player_Reference:pCube418 1
+    3300152: Player_Reference:pCube419
+    3300154: Player_Reference:pCube419 1
+    3300156: Player_Reference:pCube420
+    3300158: Player_Reference:pCube421
+    3300160: Player_Reference:pCube422
+    3300162: Player_Reference:pCube423
+    3300164: Player_Reference:pCube424
+    3300166: Player_Reference:pCube424 1
+    3300168: Player_Reference:pCube425
+    3300170: Player_Reference:pCube425 1
+    3300172: Player_Reference:pCube426
+    3300174: Player_Reference:pCube426 1
+    3300176: Player_Reference:pCube427
+    3300178: Player_Reference:pCube428
+    3300180: Player_Reference:pCube429
+    3300182: Player_Reference:pCube430
+    3300184: Player_Reference:pCube431
+    3300186: Player_Reference:pCube432
+    3300188: Player_Reference:pCube433
+    3300190: Player_Reference:pCube434
+    3300192: Player_Reference:pCube435
+    3300194: Player_Reference:pCube436
+    3300196: Player_Reference:pCube437
+    3300198: Player_Reference:pCube438
+    3300200: Player_Reference:pCube439
+    3300202: Player_Reference:pCube440
+    3300204: Player_Reference:pCube441
+    3300206: Player_Reference:pCube442
+    3300208: Player_Reference:pCube443
+    3300210: Player_Reference:pCube444
+    3300212: Player_Reference:pCube445
+    3300214: Player_Reference:pCube446
+    3300216: Player_Reference:pCube447
+    3300218: Player_Reference:pCube448
+    3300220: Player_Reference:pCube449
+    3300222: Player_Reference:pCube450
+    3300224: Player_Reference:pCube451
+    3300226: Player_Reference:pCube452
+    3300228: Player_Reference:pCube453
+    3300230: Player_Reference:pCube454
+    3300232: Player_Reference:pCube455
+    3300234: Player_Reference:pCube456
+    3300236: Player_Reference:pCube457
+    3300238: Player_Reference:pCube458
+    3300240: Player_Reference:pCube459
+    3300242: Player_Reference:pCube460
+    3300244: Player_Reference:pCube461
+    3300246: Player_Reference:pCube462
+    3300248: Player_Reference:pCube463
+    3300250: Player_Reference:pCube464
+    3300252: Player_Reference:pCube465
+    3300254: Player_Reference:pCube466
+    3300256: Player_Reference:pCube467
+    3300258: Player_Reference:pCube468
+    3300260: Player_Reference:pCube469
+    3300262: Player_Reference:pCube474
+    3300264: Player_Reference:pCube483
+    3300266: Player_Reference:pCube484
+    3300268: Player_Reference:pCube485
+    3300270: Player_Reference:pCube486
+    3300272: Player_Reference:pCube487
+    3300274: Player_Reference:pCube488
+    3300276: Player_Reference:pCube491
+    3300278: Player_Reference:PlayerMesh
+    3300280: Player_Reference:PlayerMesh1
+    3300282: Player_Reference:PlayerSword2
+    3300284: Player_Reference:PlayerSword4
+    3300286: Player_Reference:polySurface1
+    3300288: Player_Reference:polySurface11
+    3300290: Player_Reference:polySurface13
+    3300292: Player_Reference:polySurface16
+    3300294: Player_Reference:polySurface17
+    3300296: Player_Reference:polySurface18
+    3300298: Player_Reference:polySurface19
+    3300300: Player_Reference:polySurface20
+    3300302: Player_Reference:polySurface21
+    3300304: Player_Reference:polySurface22
+    3300306: Player_Reference:polySurface24
+    3300308: Player_Reference:polySurface25
+    3300310: Player_Reference:polySurface25 1
+    3300312: Player_Reference:polySurface26
+    3300314: Player_Reference:polySurface26 1
+    3300316: Player_Reference:polySurface27
+    3300318: Player_Reference:polySurface27 1
+    3300320: Player_Reference:polySurface28
+    3300322: Player_Reference:polySurface28 1
+    3300324: Player_Reference:polySurface29
+    3300326: Player_Reference:polySurface31
+    3300328: Player_Reference:polySurface35
+    3300330: Player_Reference:polySurface36
+    3300332: Player_Reference:polySurface43
+    3300334: Player_Reference:polySurface45
+    3300336: Player_Reference:polySurface5
+    3300338: Player_Reference:pPipe1
+    3300340: Player_Reference:pPipe1 1
+    3300342: Player_Reference:pPipe3
+    3300344: Player_Reference:pPipe3 1
+    3300346: Player_Reference:pPipe4
+    3300348: Player_Reference:pPipe4 1
+    3300350: Player_Reference:pPipe7
+    3300352: Player_Reference:Rivet
+    3300354: Player_Reference:Rivet1
+    3300356: Player_Reference:Rivet1 1
+    3300358: Player_Reference:Rivet10
+    3300360: Player_Reference:Rivet10 1
+    3300362: Player_Reference:Rivet11
+    3300364: Player_Reference:Rivet11 1
+    3300366: Player_Reference:Rivet12
+    3300368: Player_Reference:Rivet12 1
+    3300370: Player_Reference:Rivet13
+    3300372: Player_Reference:Rivet13 1
+    3300374: Player_Reference:Rivet14
+    3300376: Player_Reference:Rivet14 1
+    3300378: Player_Reference:Rivet15
+    3300380: Player_Reference:Rivet15 1
+    3300382: Player_Reference:Rivet16
+    3300384: Player_Reference:Rivet16 1
+    3300386: Player_Reference:Rivet17
+    3300388: Player_Reference:Rivet17 1
+    3300390: Player_Reference:Rivet18
+    3300392: Player_Reference:Rivet18 1
+    3300394: Player_Reference:Rivet19
+    3300396: Player_Reference:Rivet19 1
+    3300398: Player_Reference:Rivet2
+    3300400: Player_Reference:Rivet2 1
+    3300402: Player_Reference:Rivet20
+    3300404: Player_Reference:Rivet20 1
+    3300406: Player_Reference:Rivet21
+    3300408: Player_Reference:Rivet21 1
+    3300410: Player_Reference:Rivet22
+    3300412: Player_Reference:Rivet22 1
+    3300414: Player_Reference:Rivet23
+    3300416: Player_Reference:Rivet23 1
+    3300418: Player_Reference:Rivet24
+    3300420: Player_Reference:Rivet24 1
+    3300422: Player_Reference:Rivet25
+    3300424: Player_Reference:Rivet25 1
+    3300426: Player_Reference:Rivet26
+    3300428: Player_Reference:Rivet26 1
+    3300430: Player_Reference:Rivet27
+    3300432: Player_Reference:Rivet27 1
+    3300434: Player_Reference:Rivet28
+    3300436: Player_Reference:Rivet28 1
+    3300438: Player_Reference:Rivet29
+    3300440: Player_Reference:Rivet29 1
+    3300442: Player_Reference:Rivet3
+    3300444: Player_Reference:Rivet3 1
+    3300446: Player_Reference:Rivet30
+    3300448: Player_Reference:Rivet30 1
+    3300450: Player_Reference:Rivet31
+    3300452: Player_Reference:Rivet31 1
+    3300454: Player_Reference:Rivet32
+    3300456: Player_Reference:Rivet32 1
+    3300458: Player_Reference:Rivet33
+    3300460: Player_Reference:Rivet33 1
+    3300462: Player_Reference:Rivet34
+    3300464: Player_Reference:Rivet34 1
+    3300466: Player_Reference:Rivet35
+    3300468: Player_Reference:Rivet35 1
+    3300470: Player_Reference:Rivet36
+    3300472: Player_Reference:Rivet36 1
+    3300474: Player_Reference:Rivet37
+    3300476: Player_Reference:Rivet37 1
+    3300478: Player_Reference:Rivet38
+    3300480: Player_Reference:Rivet38 1
+    3300482: Player_Reference:Rivet39
+    3300484: Player_Reference:Rivet39 1
+    3300486: Player_Reference:Rivet4
+    3300488: Player_Reference:Rivet4 1
+    3300490: Player_Reference:Rivet40
+    3300492: Player_Reference:Rivet40 1
+    3300494: Player_Reference:Rivet41
+    3300496: Player_Reference:Rivet41 1
+    3300498: Player_Reference:Rivet42
+    3300500: Player_Reference:Rivet42 1
+    3300502: Player_Reference:Rivet43
+    3300504: Player_Reference:Rivet43 1
+    3300506: Player_Reference:Rivet44
+    3300508: Player_Reference:Rivet44 1
+    3300510: Player_Reference:Rivet45
+    3300512: Player_Reference:Rivet45 1
+    3300514: Player_Reference:Rivet46
+    3300516: Player_Reference:Rivet46 1
+    3300518: Player_Reference:Rivet47
+    3300520: Player_Reference:Rivet47 1
+    3300522: Player_Reference:Rivet48
+    3300524: Player_Reference:Rivet48 1
+    3300526: Player_Reference:Rivet49
+    3300528: Player_Reference:Rivet49 1
+    3300530: Player_Reference:Rivet5
+    3300532: Player_Reference:Rivet5 1
+    3300534: Player_Reference:Rivet50
+    3300536: Player_Reference:Rivet50 1
+    3300538: Player_Reference:Rivet51
+    3300540: Player_Reference:Rivet51 1
+    3300542: Player_Reference:Rivet52
+    3300544: Player_Reference:Rivet52 1
+    3300546: Player_Reference:Rivet53
+    3300548: Player_Reference:Rivet53 1
+    3300550: Player_Reference:Rivet54
+    3300552: Player_Reference:Rivet54 1
+    3300554: Player_Reference:Rivet55
+    3300556: Player_Reference:Rivet55 1
+    3300558: Player_Reference:Rivet56
+    3300560: Player_Reference:Rivet56 1
+    3300562: Player_Reference:Rivet57
+    3300564: Player_Reference:Rivet57 1
+    3300566: Player_Reference:Rivet58
+    3300568: Player_Reference:Rivet58 1
+    3300570: Player_Reference:Rivet59
+    3300572: Player_Reference:Rivet59 1
+    3300574: Player_Reference:Rivet6
+    3300576: Player_Reference:Rivet6 1
+    3300578: Player_Reference:Rivet60
+    3300580: Player_Reference:Rivet60 1
+    3300582: Player_Reference:Rivet61
+    3300584: Player_Reference:Rivet61 1
+    3300586: Player_Reference:Rivet62
+    3300588: Player_Reference:Rivet62 1
+    3300590: Player_Reference:Rivet63
+    3300592: Player_Reference:Rivet63 1
+    3300594: Player_Reference:Rivet64
+    3300596: Player_Reference:Rivet64 1
+    3300598: Player_Reference:Rivet65
+    3300600: Player_Reference:Rivet65 1
+    3300602: Player_Reference:Rivet66
+    3300604: Player_Reference:Rivet66 1
+    3300606: Player_Reference:Rivet67
+    3300608: Player_Reference:Rivet67 1
+    3300610: Player_Reference:Rivet68
+    3300612: Player_Reference:Rivet68 1
+    3300614: Player_Reference:Rivet69
+    3300616: Player_Reference:Rivet69 1
+    3300618: Player_Reference:Rivet7
+    3300620: Player_Reference:Rivet7 1
+    3300622: Player_Reference:Rivet71
+    3300624: Player_Reference:Rivet71 1
+    3300626: Player_Reference:Rivet72
+    3300628: Player_Reference:Rivet72 1
+    3300630: Player_Reference:Rivet75
+    3300632: Player_Reference:Rivet75 1
+    3300634: Player_Reference:Rivet77
+    3300636: Player_Reference:Rivet77 1
+    3300638: Player_Reference:Rivet78
+    3300640: Player_Reference:Rivet78 1
+    3300642: Player_Reference:Rivet79
+    3300644: Player_Reference:Rivet79 1
+    3300646: Player_Reference:Rivet8
+    3300648: Player_Reference:Rivet8 1
+    3300650: Player_Reference:Rivet80
+    3300652: Player_Reference:Rivet80 1
+    3300654: Player_Reference:Rivet81
+    3300656: Player_Reference:Rivet81 1
+    3300658: Player_Reference:Rivet82
+    3300660: Player_Reference:Rivet82 1
+    3300662: Player_Reference:Rivet83
+    3300664: Player_Reference:Rivet83 1
+    3300666: Player_Reference:Rivet84
+    3300668: Player_Reference:Rivet84 1
+    3300670: Player_Reference:Rivet85
+    3300672: Player_Reference:Rivet85 1
+    3300674: Player_Reference:Rivet86
+    3300676: Player_Reference:Rivet86 1
+    3300678: Player_Reference:Rivet87
+    3300680: Player_Reference:Rivet87 1
+    3300682: Player_Reference:Rivet88
+    3300684: Player_Reference:Rivet88 1
+    3300686: Player_Reference:Rivet89
+    3300688: Player_Reference:Rivet9
+    3300690: Player_Reference:Rivet90
+    3300692: Player_Reference:Rivet91
+    3300694: Player_Reference:Rivet92
+    3300696: Player_Reference:Rivet93
+    3300698: Player_Reference:Rivet94
+    4300000: Player_Reference:pCube334
+    4300002: Player_Reference:polySurface18
+    4300004: Player_Reference:pCube323
+    4300006: Player_Reference:pCube330
+    4300008: Player_Reference:pCube320
+    4300010: Player_Reference:pCube349
+    4300012: Player_Reference:polySurface11
+    4300014: Player_Reference:pCube350
+    4300016: Player_Reference:pCube321
+    4300018: Player_Reference:pCube344
+    4300020: Player_Reference:polySurface19
+    4300022: Player_Reference:pCube335
+    4300024: Player_Reference:pCube336
+    4300026: Player_Reference:pCube338
+    4300028: Player_Reference:pCube319
+    4300030: Player_Reference:pCube337
+    4300032: Player_Reference:polySurface16
+    4300034: Player_Reference:pCube318
+    4300036: Player_Reference:pCube347
+    4300038: Player_Reference:pCube327
+    4300040: Player_Reference:pCube316
+    4300042: Player_Reference:pCube351
+    4300044: Player_Reference:pCube352
+    4300046: Player_Reference:pCube353
+    4300048: Player_Reference:pCube311
+    4300050: Player_Reference:pCube354
+    4300052: Player_Reference:pCube332
+    4300054: Player_Reference:pCube355
+    4300056: Player_Reference:pCube356
+    4300058: Player_Reference:polySurface13
+    4300060: Player_Reference:polySurface1
+    4300062: Player_Reference:pCube357
+    4300064: Player_Reference:pCube358
+    4300066: Player_Reference:pCube359
+    4300068: Player_Reference:pCube360
+    4300070: Player_Reference:pCube324
+    4300072: Player_Reference:pCube361
+    4300074: Player_Reference:pCube362
+    4300076: Player_Reference:pCube313
+    4300078: Player_Reference:pCube363
+    4300080: Player_Reference:pCube364
+    4300082: Player_Reference:pCube365
+    4300084: Player_Reference:pCube366
+    4300086: Player_Reference:pCube348
+    4300088: Player_Reference:polySurface22
+    4300090: Player_Reference:pCube367
+    4300092: Player_Reference:polySurface21
+    4300094: Player_Reference:polySurface5
+    4300096: Player_Reference:polySurface20
+    4300098: Player_Reference:pCube368
+    4300100: Player_Reference:polySurface17
+    4300102: Player_Reference:PlayerMesh
+    4300104: Player_Reference:pCube372
+    4300106: Player_Reference:pCube370
+    4300108: Player_Reference:pCube369
+    4300110: Player_Reference:pCube371
+    4300112: Player_Reference:pCube487
+    4300114: Player_Reference:pCube488
+    4300116: Player_Reference:PlayerSword2
+    4300118: Player_Reference:PlayerMesh1
+    4300120: Player_Reference:Rivet
+    4300122: Player_Reference:Rivet9
+    4300124: Player_Reference:pCube410
+    4300126: Player_Reference:pCube412
+    4300128: Player_Reference:Rivet56
+    4300130: Player_Reference:pCube426
+    4300132: Player_Reference:Rivet59
+    4300134: Player_Reference:Rivet61
+    4300136: Player_Reference:Rivet60
+    4300138: Player_Reference:Rivet58
+    4300140: Player_Reference:Rivet55
+    4300142: Player_Reference:polySurface27
+    4300144: Player_Reference:Rivet57
+    4300146: Player_Reference:Rivet47
+    4300148: Player_Reference:Rivet48
+    4300150: Player_Reference:Rivet50
+    4300152: Player_Reference:Rivet49
+    4300154: Player_Reference:Rivet52
+    4300156: Player_Reference:Rivet51
+    4300158: Player_Reference:Rivet53
+    4300160: Player_Reference:Rivet54
+    4300162: Player_Reference:Rivet81
+    4300164: Player_Reference:Rivet80
+    4300166: Player_Reference:Rivet82
+    4300168: Player_Reference:Rivet78
+    4300170: Player_Reference:Rivet79
+    4300172: Player_Reference:Rivet83
+    4300174: Player_Reference:Rivet84
+    4300176: Player_Reference:Rivet85
+    4300178: Player_Reference:Rivet86
+    4300180: Player_Reference:Rivet87
+    4300182: Player_Reference:Rivet88
+    4300184: Player_Reference:Rivet32
+    4300186: Player_Reference:Rivet31
+    4300188: Player_Reference:Rivet33
+    4300190: Player_Reference:Rivet34
+    4300192: Player_Reference:Rivet35
+    4300194: Player_Reference:Rivet36
+    4300196: Player_Reference:Rivet37
+    4300198: Player_Reference:Rivet38
+    4300200: Player_Reference:Rivet39
+    4300202: Player_Reference:Rivet40
+    4300204: Player_Reference:Rivet41
+    4300206: Player_Reference:Rivet42
+    4300208: Player_Reference:Rivet44
+    4300210: Player_Reference:Rivet43
+    4300212: Player_Reference:Rivet46
+    4300214: Player_Reference:Rivet45
+    4300216: Player_Reference:pPipe3
+    4300218: Player_Reference:pPipe1
+    4300220: Player_Reference:pCube415
+    4300222: Player_Reference:polySurface28
+    4300224: Player_Reference:pCube420
+    4300226: Player_Reference:pPipe7
+    4300228: Player_Reference:pCube421
+    4300230: Player_Reference:pCube422
+    4300232: Player_Reference:pCube388
+    4300234: Player_Reference:pCube382
+    4300236: Player_Reference:polySurface24
+    4300238: Player_Reference:Chestplate8
+    4300240: Player_Reference:Rivet90
+    4300242: Player_Reference:Rivet89
+    4300244: Player_Reference:Rivet92
+    4300246: Player_Reference:Rivet94
+    4300248: Player_Reference:Rivet93
+    4300250: Player_Reference:Rivet91
+    4300252: Player_Reference:pCube410
+    4300254: Player_Reference:pCube412
+    4300256: Player_Reference:Rivet56
+    4300258: Player_Reference:pCube426
+    4300260: Player_Reference:Rivet59
+    4300262: Player_Reference:Rivet61
+    4300264: Player_Reference:Rivet60
+    4300266: Player_Reference:Rivet58
+    4300268: Player_Reference:Rivet55
+    4300270: Player_Reference:polySurface27
+    4300272: Player_Reference:Rivet57
+    4300274: Player_Reference:Rivet47
+    4300276: Player_Reference:Rivet48
+    4300278: Player_Reference:Rivet50
+    4300280: Player_Reference:Rivet49
+    4300282: Player_Reference:Rivet52
+    4300284: Player_Reference:Rivet51
+    4300286: Player_Reference:Rivet53
+    4300288: Player_Reference:Rivet54
+    4300290: Player_Reference:Rivet81
+    4300292: Player_Reference:Rivet80
+    4300294: Player_Reference:Rivet82
+    4300296: Player_Reference:Rivet78
+    4300298: Player_Reference:Rivet79
+    4300300: Player_Reference:Rivet83
+    4300302: Player_Reference:Rivet84
+    4300304: Player_Reference:Rivet85
+    4300306: Player_Reference:Rivet86
+    4300308: Player_Reference:Rivet87
+    4300310: Player_Reference:Rivet88
+    4300312: Player_Reference:Rivet32
+    4300314: Player_Reference:Rivet31
+    4300316: Player_Reference:Rivet33
+    4300318: Player_Reference:Rivet34
+    4300320: Player_Reference:Rivet35
+    4300322: Player_Reference:Rivet36
+    4300324: Player_Reference:Rivet37
+    4300326: Player_Reference:Rivet38
+    4300328: Player_Reference:Rivet39
+    4300330: Player_Reference:Rivet40
+    4300332: Player_Reference:Rivet41
+    4300334: Player_Reference:Rivet42
+    4300336: Player_Reference:Rivet44
+    4300338: Player_Reference:Rivet43
+    4300340: Player_Reference:Rivet46
+    4300342: Player_Reference:Rivet45
+    4300344: Player_Reference:pPipe3
+    4300346: Player_Reference:pPipe1
+    4300348: Player_Reference:pCube415
+    4300350: Player_Reference:polySurface28
+    4300352: Player_Reference:pCube391
+    4300354: Player_Reference:polySurface26
+    4300356: Player_Reference:pCube395
+    4300358: Player_Reference:pCube394
+    4300360: Player_Reference:pCube392
+    4300362: Player_Reference:pCube393
+    4300364: Player_Reference:pCube419
+    4300366: Player_Reference:Rivet18
+    4300368: Player_Reference:Rivet17
+    4300370: Player_Reference:Rivet16
+    4300372: Player_Reference:Rivet15
+    4300374: Player_Reference:Rivet14
+    4300376: Player_Reference:Rivet13
+    4300378: Player_Reference:Rivet12
+    4300380: Player_Reference:Rivet11
+    4300382: Player_Reference:Rivet10
+    4300384: Player_Reference:polySurface25
+    4300386: Player_Reference:pPipe4
+    4300388: Player_Reference:Rivet21
+    4300390: Player_Reference:Rivet20
+    4300392: Player_Reference:Rivet22
+    4300394: Player_Reference:Rivet19
+    4300396: Player_Reference:Rivet7
+    4300398: Player_Reference:Rivet4
+    4300400: Player_Reference:Rivet6
+    4300402: Player_Reference:Rivet5
+    4300404: Player_Reference:Rivet2
+    4300406: Player_Reference:Rivet1
+    4300408: Player_Reference:pCube379
+    4300410: Player_Reference:Rivet3
+    4300412: Player_Reference:Rivet8
+    4300414: Player_Reference:pCube391
+    4300416: Player_Reference:polySurface26
+    4300418: Player_Reference:pCube395
+    4300420: Player_Reference:pCube394
+    4300422: Player_Reference:pCube392
+    4300424: Player_Reference:pCube393
+    4300426: Player_Reference:pCube419
+    4300428: Player_Reference:Rivet18
+    4300430: Player_Reference:Rivet17
+    4300432: Player_Reference:Rivet16
+    4300434: Player_Reference:Rivet15
+    4300436: Player_Reference:Rivet14
+    4300438: Player_Reference:Rivet13
+    4300440: Player_Reference:Rivet12
+    4300442: Player_Reference:Rivet11
+    4300444: Player_Reference:Rivet10
+    4300446: Player_Reference:polySurface25
+    4300448: Player_Reference:pPipe4
+    4300450: Player_Reference:Rivet21
+    4300452: Player_Reference:Rivet20
+    4300454: Player_Reference:Rivet22
+    4300456: Player_Reference:Rivet19
+    4300458: Player_Reference:Rivet7
+    4300460: Player_Reference:Rivet4
+    4300462: Player_Reference:Rivet6
+    4300464: Player_Reference:Rivet5
+    4300466: Player_Reference:Rivet2
+    4300468: Player_Reference:Rivet1
+    4300470: Player_Reference:pCube379
+    4300472: Player_Reference:Rivet3
+    4300474: Player_Reference:Rivet8
+    4300476: Player_Reference:Rivet25
+    4300478: Player_Reference:Rivet26
+    4300480: Player_Reference:Rivet24
+    4300482: Player_Reference:pCube416
+    4300484: Player_Reference:Rivet23
+    4300486: Player_Reference:Rivet66
+    4300488: Player_Reference:Rivet62
+    4300490: Player_Reference:Rivet63
+    4300492: Player_Reference:Rivet64
+    4300494: Player_Reference:Rivet65
+    4300496: Player_Reference:pCube417
+    4300498: Player_Reference:Rivet68
+    4300500: Player_Reference:Rivet69
+    4300502: Player_Reference:Rivet67
+    4300504: Player_Reference:Rivet30
+    4300506: Player_Reference:Rivet28
+    4300508: Player_Reference:Rivet29
+    4300510: Player_Reference:Rivet27
+    4300512: Player_Reference:Rivet71
+    4300514: Player_Reference:Rivet72
+    4300516: Player_Reference:Rivet75
+    4300518: Player_Reference:Rivet77
+    4300520: Player_Reference:pCube418
+    4300522: Player_Reference:pCube433
+    4300524: Player_Reference:pCube435
+    4300526: Player_Reference:pCube434
+    4300528: Player_Reference:pCube431
+    4300530: Player_Reference:pCube432
+    4300532: Player_Reference:pCube425
+    4300534: Player_Reference:pCube430
+    4300536: Player_Reference:pCube424
+    4300538: Player_Reference:pCube423
+    4300540: Player_Reference:pCube427
+    4300542: Player_Reference:pCube428
+    4300544: Player_Reference:pCube429
+    4300546: Player_Reference:pCube466
+    4300548: Player_Reference:pCube456
+    4300550: Player_Reference:pCube457
+    4300552: Player_Reference:pCube458
+    4300554: Player_Reference:pCube459
+    4300556: Player_Reference:pCube446
+    4300558: Player_Reference:pCube442
+    4300560: Player_Reference:pCube445
+    4300562: Player_Reference:pCube460
+    4300564: Player_Reference:pCube469
+    4300566: Player_Reference:pCube468
+    4300568: Player_Reference:pCube467
+    4300570: Player_Reference:Rivet30
+    4300572: Player_Reference:Rivet23
+    4300574: Player_Reference:Rivet71
+    4300576: Player_Reference:Rivet72
+    4300578: Player_Reference:Rivet75
+    4300580: Player_Reference:Rivet77
+    4300582: Player_Reference:pCube418
+    4300584: Player_Reference:pCube416
+    4300586: Player_Reference:Rivet25
+    4300588: Player_Reference:Rivet26
+    4300590: Player_Reference:Rivet27
+    4300592: Player_Reference:Rivet29
+    4300594: Player_Reference:Rivet24
+    4300596: Player_Reference:Rivet28
+    4300598: Player_Reference:pCube417
+    4300600: Player_Reference:Rivet63
+    4300602: Player_Reference:Rivet64
+    4300604: Player_Reference:Rivet65
+    4300606: Player_Reference:Rivet68
+    4300608: Player_Reference:Rivet69
+    4300610: Player_Reference:Rivet67
+    4300612: Player_Reference:Rivet66
+    4300614: Player_Reference:Rivet62
+    4300616: Player_Reference:pCube455
+    4300618: Player_Reference:pCube450
+    4300620: Player_Reference:pCube454
+    4300622: Player_Reference:pCube451
+    4300624: Player_Reference:pCube449
+    4300626: Player_Reference:pCube465
+    4300628: Player_Reference:pCube453
+    4300630: Player_Reference:pCube452
+    4300632: Player_Reference:pCube448
+    4300634: Player_Reference:pCube425
+    4300636: Player_Reference:pCube424
+    4300638: Player_Reference:pCube447
+    4300640: Player_Reference:pCube463
+    4300642: Player_Reference:pCube464
+    4300644: Player_Reference:pCube462
+    4300646: Player_Reference:pCube441
+    4300648: Player_Reference:pCube443
+    4300650: Player_Reference:pCube444
+    4300652: Player_Reference:pCube436
+    4300654: Player_Reference:pCube437
+    4300656: Player_Reference:pCube438
+    4300658: Player_Reference:pCube440
+    4300660: Player_Reference:pCube439
+    4300662: Player_Reference:pCube461
+    4300664: Player_Reference:Mesh
+    4300666: Player_Reference:PlayerSword4
+    4300668: Player_Reference:Body
+    4300670: Player_Reference:polySurface29
+    4300672: Player_Reference:polySurface35
+    4300674: Player_Reference:polySurface36
+    4300676: Player_Reference:polySurface31
+    4300678: Player_Reference:pCube474
+    4300680: Player_Reference:pCube483
+    4300682: Player_Reference:pCube484
+    4300684: Player_Reference:pCube485
+    4300686: Player_Reference:pCube486
+    4300688: Player_Reference:pCube491
+    4300690: Player_Reference:group16
+    4300692: Player_Reference:group14
+    4300694: Player_Reference:group17
+    4300696: Player_Reference:group15
+    4300698: Player_Reference:polySurface45
+    4300700: Player_Reference:polySurface43
+    9500000: //RootNode
+    13700000: Player_Reference:Body
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

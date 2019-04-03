@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 9a73eb1e8c3d9b345adbd40302516a2b
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: PlayerReference:Chest
+    100004: PlayerReference:Collar
+    100006: PlayerReference:Head
+    100008: PlayerReference:joint28
+    100010: PlayerReference:joint29
+    100012: PlayerReference:joint30
+    100014: PlayerReference:LeftElbow
+    100016: PlayerReference:LeftFoot
+    100018: PlayerReference:LeftForearm
+    100020: PlayerReference:LeftIndex
+    100022: PlayerReference:LeftKnee
+    100024: PlayerReference:LeftLeg
+    100026: PlayerReference:LeftMiddle
+    100028: PlayerReference:LeftOuterShoulder
+    100030: PlayerReference:LeftPink
+    100032: PlayerReference:LeftRing
+    100034: PlayerReference:LeftShoulder
+    100036: PlayerReference:LeftThumb
+    100038: PlayerReference:LeftToe
+    100040: PlayerReference:LeftWrist
+    100042: PlayerReference:LI1
+    100044: PlayerReference:LI2
+    100046: PlayerReference:LM1
+    100048: PlayerReference:LM2
+    100050: PlayerReference:LP1
+    100052: PlayerReference:LP2
+    100054: PlayerReference:LR1
+    100056: PlayerReference:LR2
+    100058: PlayerReference:LT1
+    100060: PlayerReference:LT2
+    100062: PlayerReference:Neck
+    100064: PlayerReference:PlayerMesh
+    100066: PlayerReference:PlayerSkeleton
+    100068: PlayerReference:RI1
+    100070: PlayerReference:RI2
+    100072: PlayerReference:RightElbow
+    100074: PlayerReference:RightFoot
+    100076: PlayerReference:RightIndex
+    100078: PlayerReference:RightKnee
+    100080: PlayerReference:RightLeg
+    100082: PlayerReference:RightMiddle
+    100084: PlayerReference:RightOuterShoulder
+    100086: PlayerReference:RightPinky
+    100088: PlayerReference:RightRing
+    100090: PlayerReference:RightShoulder
+    100092: PlayerReference:RightThumb
+    100094: PlayerReference:RightToe
+    100096: PlayerReference:RightWrist
+    100098: PlayerReference:RM1
+    100100: PlayerReference:RM2
+    100102: PlayerReference:RP1
+    100104: PlayerReference:RP2
+    100106: PlayerReference:RR1
+    100108: PlayerReference:RR2
+    100110: PlayerReference:RT1
+    100112: PlayerReference:RT2
+    100114: PlayerReference:Waist
+    400000: //RootNode
+    400002: PlayerReference:Chest
+    400004: PlayerReference:Collar
+    400006: PlayerReference:Head
+    400008: PlayerReference:joint28
+    400010: PlayerReference:joint29
+    400012: PlayerReference:joint30
+    400014: PlayerReference:LeftElbow
+    400016: PlayerReference:LeftFoot
+    400018: PlayerReference:LeftForearm
+    400020: PlayerReference:LeftIndex
+    400022: PlayerReference:LeftKnee
+    400024: PlayerReference:LeftLeg
+    400026: PlayerReference:LeftMiddle
+    400028: PlayerReference:LeftOuterShoulder
+    400030: PlayerReference:LeftPink
+    400032: PlayerReference:LeftRing
+    400034: PlayerReference:LeftShoulder
+    400036: PlayerReference:LeftThumb
+    400038: PlayerReference:LeftToe
+    400040: PlayerReference:LeftWrist
+    400042: PlayerReference:LI1
+    400044: PlayerReference:LI2
+    400046: PlayerReference:LM1
+    400048: PlayerReference:LM2
+    400050: PlayerReference:LP1
+    400052: PlayerReference:LP2
+    400054: PlayerReference:LR1
+    400056: PlayerReference:LR2
+    400058: PlayerReference:LT1
+    400060: PlayerReference:LT2
+    400062: PlayerReference:Neck
+    400064: PlayerReference:PlayerMesh
+    400066: PlayerReference:PlayerSkeleton
+    400068: PlayerReference:RI1
+    400070: PlayerReference:RI2
+    400072: PlayerReference:RightElbow
+    400074: PlayerReference:RightFoot
+    400076: PlayerReference:RightIndex
+    400078: PlayerReference:RightKnee
+    400080: PlayerReference:RightLeg
+    400082: PlayerReference:RightMiddle
+    400084: PlayerReference:RightOuterShoulder
+    400086: PlayerReference:RightPinky
+    400088: PlayerReference:RightRing
+    400090: PlayerReference:RightShoulder
+    400092: PlayerReference:RightThumb
+    400094: PlayerReference:RightToe
+    400096: PlayerReference:RightWrist
+    400098: PlayerReference:RM1
+    400100: PlayerReference:RM2
+    400102: PlayerReference:RP1
+    400104: PlayerReference:RP2
+    400106: PlayerReference:RR1
+    400108: PlayerReference:RR2
+    400110: PlayerReference:RT1
+    400112: PlayerReference:RT2
+    400114: PlayerReference:Waist
+    2100000: lambert1
+    4300000: PlayerReference:PlayerMesh
+    7400000: HeavyAttack
+    9500000: //RootNode
+    13700000: PlayerReference:PlayerMesh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
