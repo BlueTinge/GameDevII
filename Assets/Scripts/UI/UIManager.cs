@@ -66,6 +66,7 @@ public class UIManager : MonoBehaviour
             if (PauseMenu.gameObject.activeInHierarchy == false & MenuState == 0)
             {
                 PauseMenu.gameObject.SetActive(true);
+                myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(ContinueButton);
                 Time.timeScale = 0f;
                 MenuState += 1;
                 StartCoroutine(SetInputActive());
