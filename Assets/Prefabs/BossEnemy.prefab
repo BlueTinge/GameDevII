@@ -363,6 +363,8 @@ MonoBehaviour:
   lightswing: {fileID: 0}
   dies: {fileID: 0}
   randomer: 0
+  WinScreen: {fileID: 1432494177935178938, guid: 45640499502efd548af242aa004b5745,
+    type: 3}
   healthCutoff: 16
   normalWeights:
   - 0.6
