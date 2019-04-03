@@ -197,6 +197,7 @@ public class PlayerController : MonoBehaviour
                 //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
 
                 StartCoroutine(TargetNearestEnemy());
+                Invoke("EnsureAttackComplete",1f);
                 UnityEngine.Debug.Log("Swing Attack");
             }
 
@@ -208,6 +209,7 @@ public class PlayerController : MonoBehaviour
                 //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
                 audio.clip = heavyswing;
                 audio.Play();
+                Invoke("EnsureAttackComplete", 1f);
                 UnityEngine.Debug.Log("Heavy Attack");
 
             }
@@ -348,6 +350,24 @@ public class PlayerController : MonoBehaviour
             //TODO: edit this code so that you can't stop every rb from moving just by dashing into it 
             if (collision.rigidbody != null) collision.rigidbody.velocity = new Vector3(0, 0, 0);
             Body.velocity = new Vector3(0, 0, 0);
+        }
+    }
+
+    public void EnsureAttackComplete()
+    {
+        if(State == PlayerState.LIGHT_ATTACKING)
+        {
+            if(!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown)
+            {
+                State = PlayerState.IDLE;
+            }
+        }
+        else if (State == PlayerState.HEAVY_ATTACKING)
+        {
+            if (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > HeavyCooldown)
+            {
+                State = PlayerState.IDLE;
+            }
         }
     }
 
@@ -638,6 +658,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator MakeHeavyAttack(float ttl)
     {
+        StartCoroutine(TargetNearestEnemy());
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeHeavyAttack(ttl);
         Body.AddRelativeForce(Vector3.forward * HeavyAttackForce);
         yield return new WaitForSeconds(ttl);

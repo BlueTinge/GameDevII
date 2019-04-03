@@ -674,7 +674,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 318c07ffcf65c0d4399940d266ca61e5, type: 2}
+  - {fileID: 2100000, guid: fb7ff20cd41cea840b52d2d37ded907d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8886,6 +8886,7 @@ MonoBehaviour:
   attackRadius: 3
   rotateSpeed: 360
   seekAngle: 15
+  KnockbackFactor: 0
   deathFade:
     serializedVersion: 2
     m_Curve: []
@@ -9967,6 +9968,7 @@ MonoBehaviour:
   attackRadius: 3
   rotateSpeed: 360
   seekAngle: 15
+  KnockbackFactor: 0
   deathFade:
     serializedVersion: 2
     m_Curve: []
