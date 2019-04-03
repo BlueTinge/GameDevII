@@ -45,8 +45,6 @@ public class Manager : MonoBehaviour
 
         Checkpoints.Remove(sceneName);
         Checkpoints.Add(sceneName, isCheckpointSet);
-
-        Debug.Log(sceneName + " checkpoint set to " + isCheckpointSet.ToString());
     }
 
     //Retrieve this checkpoint value, false if checkpoint not set

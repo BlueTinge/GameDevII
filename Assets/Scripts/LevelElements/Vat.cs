@@ -38,7 +38,6 @@ public class Vat : MonoBehaviour
     //take damage: shake
     public void OnKnockback(Vector3 knockback)
     {
-        print(knockback);
         StartCoroutine(Shake(knockback));
     }
 

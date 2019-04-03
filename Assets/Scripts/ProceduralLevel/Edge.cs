@@ -108,7 +108,7 @@ public class Edge : LevelComponent
             if (c as Wall != null)
             {
                 if (Wall == null) Wall = c as Wall;
-                else Debug.Log("WARNING: More than one Wall assigned to an Edge.");
+                else Debug.LogWarning("More than one Wall assigned to an Edge.");
             }
 
             c.Parent = this;
