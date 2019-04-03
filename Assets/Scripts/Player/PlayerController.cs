@@ -100,6 +100,9 @@ public class PlayerController : MonoBehaviour
 
     public PlayerState State = PlayerState.IDLE;
 
+
+    public float CamDriftRange = 15f;
+
     private Transform PlayerRightHand;
     private GameObject ItemZone;
     private GameObject ItemZoneArea;
@@ -107,6 +110,7 @@ public class PlayerController : MonoBehaviour
     private Material[] PlayerMaterials;
 
     private Quaternion camRot;
+    private bool CamJustMoved = false;
 
     private Stopwatch lastAttack = new Stopwatch();
     private Stopwatch lastDash = new Stopwatch();
@@ -187,6 +191,11 @@ public class PlayerController : MonoBehaviour
                 if (Cam.transform.eulerAngles.x > 350 && pitch < ang.x) pitch = ang.x;
                 if (Cam.transform.eulerAngles.x < 350 && Cam.transform.eulerAngles.x > 85 && pitch > ang.x) pitch = ang.x;
                 camRot = Quaternion.Euler(new Vector3(pitch, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
+                CamJustMoved = true;
+            }else if (CamJustMoved)
+            {
+                CamJustMoved = false;
+                StartCoroutine(DriftCamToCardinalDirection());
             }
 
             if ((State == PlayerState.IDLE || State == PlayerState.WALKING || State == PlayerState.LIGHT_ATTACKING) && (Input.GetButtonDown(LightAttackButton) || Input.GetAxis(Trigger) > 0.2) && (!lastAttack.IsRunning || lastAttack.ElapsedMilliseconds > LightCooldown))
@@ -369,6 +378,29 @@ public class PlayerController : MonoBehaviour
                 State = PlayerState.IDLE;
             }
         }
+    }
+
+    public IEnumerator DriftCamToCardinalDirection()
+    {
+
+        Vector3[] Cardinals = { Vector3.forward, Vector3.left, Vector3.back, Vector3.right };
+
+        foreach (Vector3 Cardinal in Cardinals)
+        {
+            if (Vector3.Angle(camRot * Vector3.forward, Cardinal) < CamDriftRange && false)
+            {
+                Vector3 ang = camRot.eulerAngles; //pitch, yaw, roll
+
+                //Drift camera towards cardinal direction
+                camRot = Quaternion.Euler(new Vector3(ang.x, ang.y + (camRotationSpeed * Input.GetAxis(CamHoriz) * Time.deltaTime), ang.z));
+
+                //Snap to cardinal if close enough, and end the loop
+
+                yield return new WaitForFixedUpdate();
+            }
+        }
+
+        yield return null;
     }
 
     public IEnumerator Dash(Vector3 Direction)
