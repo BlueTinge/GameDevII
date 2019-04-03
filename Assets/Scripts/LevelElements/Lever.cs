@@ -17,6 +17,9 @@ public class Lever : Activatable
     private Animator Animator;
     private bool isChanging = false;
 
+    public AudioSource audio;
+    public AudioClip clunk;
+
     void Awake()
     {
         Animator = GetComponent<Animator>();
@@ -24,6 +27,7 @@ public class Lever : Activatable
 
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         if (StartActive) Activate();
     }
 
@@ -44,6 +48,9 @@ public class Lever : Activatable
 
     public override void Activate()
     {
+        audio.clip = clunk;
+        audio.Play();
+
         //invariant: lowered is active
         Animator.SetBool("Raised", false);
 
