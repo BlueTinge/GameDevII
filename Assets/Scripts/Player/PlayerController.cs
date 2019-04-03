@@ -421,6 +421,8 @@ public class PlayerController : MonoBehaviour
             Vector3 angFrom = Body.rotation.eulerAngles;
             Vector3 angTo = Quaternion.LookRotation(MoveDirection).eulerAngles;
 
+            print(Mathf.Abs(angFrom.y - angTo.y));
+
             if (Vector3.Distance(transform.position, e.transform.position) < closestEnemyDistance && (Mathf.Abs(angFrom.y - angTo.y) < Target_Angular_Range))
             {
                 closestEnemy = e;
@@ -428,7 +430,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        print(closestEnemyDistance);
+        print("Dist to nearest target: "+closestEnemyDistance);
 
         if (closestEnemy != null && closestEnemyDistance <= Target_Range)
         {
