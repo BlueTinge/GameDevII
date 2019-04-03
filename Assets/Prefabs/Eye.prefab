@@ -162,7 +162,8 @@ MonoBehaviour:
   focusTime: 0.1
   coolDown: 0.5
   range: 15
-  spawnOnDeath: {fileID: 0}
+  spawnOnDeath: {fileID: 586621850757977686, guid: a9b5e9ab5f7938242a3ddb7a82c30b5d,
+    type: 3}
   HealthBar: {fileID: 5004936558229459440}
 --- !u!82 &3434070359158684107
 AudioSource:
