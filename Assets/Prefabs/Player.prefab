@@ -4370,6 +4370,8 @@ GameObject:
   - component: {fileID: 253391705}
   - component: {fileID: 5683225115930282746}
   - component: {fileID: 4133683422034118204}
+  - component: {fileID: 719251247946149482}
+  - component: {fileID: 8047718335250482881}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -4539,11 +4541,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 7176674447155021505}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.3
-  m_Height: 2
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 1.9662242
   m_Direction: 1
-  m_Center: {x: 0, y: -0.048134565, z: 0}
+  m_Center: {x: 0, y: -0.053786397, z: 0.15}
 --- !u!82 &253391705
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9374,6 +9376,32 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!65 &719251247946149482
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176674447155021505}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5640611, y: 0.74030423, z: 0.36194527}
+  m_Center: {x: -0.005941242, y: -0.004775405, z: 0.40000004}
+--- !u!65 &8047718335250482881
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176674447155021505}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2760993, y: 1.2972261, z: 0.24660331}
+  m_Center: {x: -0.2, y: -0.64862305, z: 0}
 --- !u!1 &7176674447218628853
 GameObject:
   m_ObjectHideFlags: 0
