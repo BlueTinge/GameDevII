@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
 
     private Transform PlayerRightHand;
     private GameObject ItemZone;
+    private GameObject ItemZoneArea;
     private HealthStats PlayerHealth;
     private Material[] PlayerMaterials;
 
@@ -142,9 +143,9 @@ public class PlayerController : MonoBehaviour
     {
         PlayerRightHand = GetComponent<Equipment>().DomHand;
         ItemZone = GetComponent<Equipment>().ItemZone;
-        //ItemZoneArea = Instantiate(ItemZone, ItemZone.transform);
-        //ItemZoneArea.tag = "ItemZoneArea";
-        //ItemZoneArea.GetComponent<Collider>().enabled = true;
+        ItemZoneArea = Instantiate(ItemZone, ItemZone.transform);
+        ItemZoneArea.tag = "ItemZoneArea";
+        ItemZoneArea.GetComponent<Collider>().enabled = true;
 
         camRot = ReferenceFrame.transform.rotation;
 

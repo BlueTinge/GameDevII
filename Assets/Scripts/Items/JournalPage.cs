@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JournalPage : MonoBehaviour
+public class JournalPage : MonoBehaviour, IInteractable
 {
 
     public int JournalNum;
@@ -32,9 +32,19 @@ public class JournalPage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (canCollect && other.tag.Equals("ItemZone") && other.GetComponentInParent<Equipment>() != null)
+        if (canCollect && other.tag.Equals("ItemZone") && other.GetComponentInParent<PlayerController>() != null)
         {
             CollectThis(other.GetComponentInParent<PlayerController>());
         }
+    }
+
+    string IInteractable.GetInteractText()
+    {
+        return "Press E to pick up Journal";
+    }
+
+    bool IInteractable.CanInteract()
+    {
+        return canCollect;
     }
 }

@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 5694379154142536821}
   - component: {fileID: 6389593645419001204}
   - component: {fileID: 8136153817003067401}
-  m_Layer: 0
+  - component: {fileID: 372345039550006354}
+  m_Layer: 10
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,6 +197,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &372345039550006354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5694379154142536824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ba70b56160b434ab4eb5ab61f43d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5694379155339319103
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5694379155339319102}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Handle Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,6 +250,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: abe81e5ab71b2fc49a0af18f9bc27a01, type: 3}
       propertyPath: m_Name
       value: Lever Handle
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: abe81e5ab71b2fc49a0af18f9bc27a01, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: abe81e5ab71b2fc49a0af18f9bc27a01, type: 3}
       propertyPath: m_LocalPosition.x
@@ -316,6 +333,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 0523b188f2dc449429f16c9287cd1360, type: 3}
       propertyPath: m_Name
       value: Lever Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0523b188f2dc449429f16c9287cd1360, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0523b188f2dc449429f16c9287cd1360, type: 3}
       propertyPath: m_LocalPosition.x

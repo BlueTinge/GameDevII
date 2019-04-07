@@ -7,7 +7,7 @@ using UnityEngine;
 //probably should be made abstract once we have weapon classes
 
 [RequireComponent(typeof(Rigidbody))]
-public class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour, IInteractable
 {
 
     public AudioSource audio;
@@ -17,6 +17,8 @@ public class Weapon : MonoBehaviour
     public float BaseKnockback;
 
     public bool IsHeld {get; private set;}
+
+    public string WeaponName;
 
     [Tooltip("True if the weapon should use physics system to collide with stuff when held")]
     public bool IsPhysical = true;
@@ -78,6 +80,7 @@ public class Weapon : MonoBehaviour
         if (other.tag.Equals("ItemZone") && other.GetComponentInParent<Equipment>() != null)
         {
             other.GetComponentInParent<Equipment>().Equip(gameObject);
+            GetComponent<DisplaysInteractText>()?.ClearText();
         }
 
         RecieveAttack(other.gameObject.GetComponentInParent<Attack>());
@@ -124,5 +127,15 @@ public class Weapon : MonoBehaviour
 
         SetCollidersEnabled(true);
         Invoke("DisableColliders", ttl);
+    }
+
+    public string GetInteractText()
+    {
+        return "Press E to pick up " + WeaponName;
+    }
+
+    public bool CanInteract()
+    {
+        return (Holder == null);
     }
 }
