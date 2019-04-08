@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f25b2fcca281034698388e244f34f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDestroyed: 0
   Emitter1: {fileID: 7684224274293288932}
   Emitter2: {fileID: 7684224275234037760}
   freq: 1
@@ -9648,6 +9649,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ece8c575e931a954e97fe4df5a93121e, type: 3}
       propertyPath: m_Name
       value: Monster Vat Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ece8c575e931a954e97fe4df5a93121e, type: 3}
+      propertyPath: m_TagString
+      value: Vat
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ece8c575e931a954e97fe4df5a93121e, type: 3}
       propertyPath: m_LocalPosition.x

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Vat : MonoBehaviour
 {
     private HealthStats VatHealth;
-    private bool isDestroyed = false;
+    public bool isDestroyed = false;
     private bool isShaking = false;
 
     private Vector3 StartPos;
