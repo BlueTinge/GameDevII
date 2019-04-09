@@ -18,7 +18,6 @@ public class DeathParticles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print(GameObject.FindGameObjectWithTag("Vat").GetComponent<Vat>());
         Vat = GameObject.FindGameObjectWithTag("Vat").GetComponent<Vat>();
         if (Vat != null)
         {
