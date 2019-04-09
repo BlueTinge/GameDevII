@@ -55,7 +55,7 @@ public class DeathParticles : MonoBehaviour
 
                 //print(Vector3.Distance(Target.position, ActualPos));
 
-                if (Vector3.Distance(Target.position, ActualPos) > KillDistance)
+                if (Vector3.Distance(Target.position, ActualPos) > KillDistance && particles[i].remainingLifetime > 0)
                 {
                     particles[i].velocity += (Target.position - ActualPos).normalized * speed;
                     particles[i].remainingLifetime = 1f;
@@ -63,7 +63,7 @@ public class DeathParticles : MonoBehaviour
                 else
                 {
                     particles[i].remainingLifetime = 0;
-                    print("kill"+i);
+                    print("kill "+particles[i].ToString());
                 }
 
                 if(particles[i].remainingLifetime > 0)

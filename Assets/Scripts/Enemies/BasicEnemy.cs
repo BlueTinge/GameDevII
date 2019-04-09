@@ -52,6 +52,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     public bool hurting = false;
     public AudioClip diessfx;
 
+    public GameObject DeathParticlePrefab;
+
     void Awake()
     {
         shouldJump = false;
@@ -262,6 +264,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         {
             StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Fade);
         }
+        Instantiate(DeathParticlePrefab,transform.position, Quaternion.identity);
     }
 
     private IEnumerator TakeDamage()
