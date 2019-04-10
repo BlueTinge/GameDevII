@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Potion : MonoBehaviour
+public class Potion : MonoBehaviour, IInteractable
 {
 
     public bool canCollect = true;
@@ -32,9 +32,19 @@ public class Potion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (canCollect && other.tag.Equals("ItemZone") && other.GetComponentInParent<Equipment>() != null)
+        if (canCollect && other.tag.Equals("ItemZone") && other.GetComponentInParent<PlayerController>() != null)
         {
             CollectThis(other.GetComponentInParent<PlayerController>());
         }
+    }
+
+    string IInteractable.GetInteractText()
+    {
+        return "Press E to pick up potion";
+    }
+
+    bool IInteractable.CanInteract()
+    {
+        return canCollect;
     }
 }

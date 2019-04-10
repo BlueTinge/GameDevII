@@ -114,6 +114,8 @@ MonoBehaviour:
     type: 3}
   hurting: 0
   diessfx: {fileID: 8300000, guid: 9650949d39b167a4c8c7526566417a72, type: 3}
+  DeathParticlePrefab: {fileID: 8278189200704472594, guid: b4ae08faae17b864181ecc74319a0f10,
+    type: 3}
 --- !u!114 &7817360383801815265
 MonoBehaviour:
   m_ObjectHideFlags: 0

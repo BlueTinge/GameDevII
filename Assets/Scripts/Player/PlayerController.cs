@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
     public float FlickerAlpha = 0.5f;
     private bool isFlickering = false;
 
+    public bool CamDriftEnabled = false;
     public float CamSnapIncrement;
     public float CamDriftRange;
     public float CamCooldown;
@@ -107,6 +108,7 @@ public class PlayerController : MonoBehaviour
 
     private Transform PlayerRightHand;
     private GameObject ItemZone;
+    private GameObject ItemZoneArea;
     private HealthStats PlayerHealth;
     private Material[] PlayerMaterials;
 
@@ -142,9 +144,9 @@ public class PlayerController : MonoBehaviour
     {
         PlayerRightHand = GetComponent<Equipment>().DomHand;
         ItemZone = GetComponent<Equipment>().ItemZone;
-        //ItemZoneArea = Instantiate(ItemZone, ItemZone.transform);
-        //ItemZoneArea.tag = "ItemZoneArea";
-        //ItemZoneArea.GetComponent<Collider>().enabled = true;
+        ItemZoneArea = Instantiate(ItemZone, ItemZone.transform);
+        ItemZoneArea.tag = "ItemZoneArea";
+        ItemZoneArea.GetComponent<Collider>().enabled = true;
 
         camRot = ReferenceFrame.transform.rotation;
 
@@ -206,7 +208,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-            }else if ((!lastCamMovement.IsRunning || lastCamMovement.ElapsedMilliseconds > CamCooldown) && !CamIsDrifting)
+            }else if ((!lastCamMovement.IsRunning || lastCamMovement.ElapsedMilliseconds > CamCooldown) && !CamIsDrifting && CamDriftEnabled)
             {
                 CamIsDrifting = true;
                 StartCoroutine(DriftCamToCardinalDirection());
@@ -347,10 +349,10 @@ public class PlayerController : MonoBehaviour
                 //note that this does not apply in non-movement states (e.g. you can go flying if hurt, or go faster if dashing)
                 if (State == PlayerState.IDLE || State == PlayerState.WALKING)
                 {
-                    if (Body.velocity.x > MaxSpeed) Body.velocity = new Vector3(MaxSpeed, Body.velocity.y, Body.velocity.z);
-                    if (Body.velocity.z > MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, MaxSpeed);
-                    if (Body.velocity.x < -MaxSpeed) Body.velocity = new Vector3(-MaxSpeed, Body.velocity.y, Body.velocity.z);
-                    if (Body.velocity.z < -MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, -MaxSpeed);
+                    if(Body.velocity.magnitude > MaxSpeed)
+                    {
+                        Body.velocity = Body.velocity.normalized * MaxSpeed;
+                    }
                 }
             }
         }
@@ -756,5 +758,36 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    //debug purposes only
+    /**
+    void OnGUI()
+    {
+        int w = Screen.width, h = Screen.height;
+
+        GUIStyle style = new GUIStyle();
+
+        Rect rect = new Rect(0, 0, w, h * 2 / 100);
+        style.alignment = TextAnchor.UpperRight;
+        style.fontSize = h * 4 / 100;
+        style.normal.textColor = new Color(1f, 1f, 1f, 1f);
+        float msec = Time.unscaledDeltaTime * 1000.0f;
+        float fps = 1.0f / Time.unscaledDeltaTime;
+        string text = "";
+        text = string.Concat(text,"\n",string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps));
+        Vector3 cam = camRot.eulerAngles;
+        text = string.Concat(text,"\n",string.Format("Camera Rotation: {0:0.0}, {1:0.0}, {2:0.0}", cam.x, cam.y, cam.z));
+        text = string.Concat(text, "\n", string.Format("Movement input: {0:0.00}, {1:0.00}", Input.GetAxis(MoveHoriz), Input.GetAxis(MoveVert)));
+        Vector3 inputForce = new Vector3(Input.GetAxis(MoveHoriz), 0, Input.GetAxis(MoveVert));
+        Quaternion moveDirection = Quaternion.Euler(0, camRot.eulerAngles.y, 0);
+        inputForce =  moveDirection * inputForce;
+        Vector3 camDir = moveDirection * Vector3.forward;
+        text = string.Concat(text, "\n", string.Format("Camera Direction: {0:0.000}, {1:0.000}, {2:0.000}", camDir.x, camDir.y, camDir.z));
+        text = string.Concat(text, "\n", string.Format("Move Direction: {0:0.000}, {1:0.000}, {2:0.000}", inputForce.x, inputForce.y, inputForce.z));
+        Vector3 v = Body.velocity;
+        text = string.Concat(text, "\n", string.Format("Player Velocity: {0:0.000}, {1:0.000}, {2:0.000}", v.x, v.y, v.z));
+        GUI.Label(rect, text, style);
+    }
+    **/
 }
 
