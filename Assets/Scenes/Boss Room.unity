@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -905,6 +905,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: HealthBarSlider
+      value: 
+      objectReference: {fileID: 509806649}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: img
+      value: 
+      objectReference: {fileID: 1274147138}
+    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: txt
+      value: 
+      objectReference: {fileID: 775629726}
+    - target: {fileID: 771962008, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 771962008, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 771962008, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 103117479375006722, guid: eba1bdb6e9e65af4a85c834be393c0ef,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -1044,33 +1071,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 0.00000014528632
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: HealthBarSlider
-      value: 
-      objectReference: {fileID: 509806649}
-    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: img
-      value: 
-      objectReference: {fileID: 1274147138}
-    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: txt
-      value: 
-      objectReference: {fileID: 775629726}
-    - target: {fileID: 771962008, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 771962008, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 771962008, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eba1bdb6e9e65af4a85c834be393c0ef, type: 3}
@@ -1221,6 +1221,7 @@ MonoBehaviour:
   audio: {fileID: 0}
   intro: {fileID: 8300000, guid: f4bd77bf92f04904e840d62ce2bd572a, type: 3}
   looper: {fileID: 8300000, guid: 457cc95484904cc42995394cca384e7a, type: 3}
+  rateofdecrease: 0.1
 --- !u!4 &513429664
 Transform:
   m_ObjectHideFlags: 0
@@ -2855,11 +2856,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 0.0002462119
-      objectReference: {fileID: 0}
-    - target: {fileID: 7005587663625617801, guid: cb83c28a7d55c0e4098c6cb0aaccf7ae,
-        type: 3}
-      propertyPath: MaxHealth
-      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb83c28a7d55c0e4098c6cb0aaccf7ae, type: 3}
