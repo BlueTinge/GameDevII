@@ -53,6 +53,7 @@ public class UIManager : MonoBehaviour
     {
         myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().firstSelectedGameObject = ContinueButton;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(ContinueButton);
         // UnityEngine.Debug.Log(myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().firstSelectedGameObject);
         NumPotions = Player.GetComponent<PlayerController>().NumPotions;
     }
@@ -91,6 +92,7 @@ public class UIManager : MonoBehaviour
             else if (PauseMenu.gameObject.activeInHierarchy == false & MenuState == 3)
             {
                 Player.GetComponent<PlayerController>().img.gameObject.SetActive(false);
+                myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(BackButton);
                 if (IsJournalCollected[0] == true)
                 {
                     myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(Journal1Button);
