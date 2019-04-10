@@ -65,10 +65,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42595b3ff2735e54dbe28e573d98de67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hopDistance: 1
-  hopTime: 0.5
+  maxAccel: 16
+  maxSpeed: 8
+  targetRadius: 1
+  accelTime: 0.05
+  hopTime: 0.6
   hopDelay: 0
-  dragForce: 12
+  pursueEstimate: 2
   coolDown: 0.5
   lungeDelay: 0.5
   targetTimeout: 1
@@ -140,7 +143,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3818841895341921837}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7162fda1907780c4fbf1740aed94b50f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

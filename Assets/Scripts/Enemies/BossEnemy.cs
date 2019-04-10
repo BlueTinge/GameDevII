@@ -114,6 +114,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private float heavyCooldown;
     [SerializeField] private float lightDamage;
     [SerializeField] private float heavyDamage;
+    [SerializeField] private float chargeArmor;
     [SerializeField] private float maxAccel;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float slowRadius;
@@ -139,6 +140,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     private bool isAlive;
     private bool isFlickering;
     Material[] materials;
+    private float normalArmor;
 
     void Start()
     {
@@ -159,6 +161,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         healthStats = GetComponent<HealthStats>();
+        normalArmor = healthStats.Defense;
         healthStats.OnDeath = OnDeath;
         healthStats.OnDamage = OnDamage;
         healthStats.OnImmunityEnd = OnImmunityEnd;
@@ -198,9 +201,11 @@ public class BossEnemy : MonoBehaviour, IEnemy
                     new RandomSelectTask(enrageWeights, new ITreeTask[]{
                         new SequenceTask(new ITreeTask[] {
                             new DashTask(this, Vector3.back, dashTime),
+                            new CallTask(()=>{healthStats.Defense = chargeArmor; return true;}),
                             new CallTask(()=>{HeavyWindup(); return true;}),
                             new DelayTask(heavyWindup),
                             new HeavyAttack(this, heavyAttackTime),
+                            new CallTask(()=>{healthStats.Defense = normalArmor; return true;}),
                             new DelayTask(heavyCooldown),
                             new CallTask(()=>{animator.SetBool("heavyAttack", false); return true;}),
                         }),
