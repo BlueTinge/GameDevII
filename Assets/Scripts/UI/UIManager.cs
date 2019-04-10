@@ -152,7 +152,6 @@ public class UIManager : MonoBehaviour
     {
         PauseMenu.gameObject.SetActive(false);
         Time.timeScale = 1f;
-        Debug.Log("I am Continuing");
         MenuState -= 1;
         StartCoroutine(SetInputActive());
     }
@@ -234,7 +233,6 @@ public class UIManager : MonoBehaviour
         Journal9Button.gameObject.SetActive(false);
         Journal10Button.gameObject.SetActive(false);
         JournalBackButton.gameObject.SetActive(true);
-        UnityEngine.Debug.Log("please work");
         MenuState += 1;
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(JournalBackButton);
     }

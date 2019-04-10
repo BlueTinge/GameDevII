@@ -12,6 +12,7 @@ public interface IInteractable
 public class DisplaysInteractText : MonoBehaviour
 {
     public IInteractable interactable;
+    private GameObject Player;
 
     private void Awake()
     {
@@ -23,12 +24,15 @@ public class DisplaysInteractText : MonoBehaviour
                 Debug.LogWarning("This GameObject does not have an IInteractable attached.");
             }
         }
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (interactable.CanInteract() && other.tag.Equals("ItemZoneArea"))
         {
+            Player.GetComponent<PlayerController>().img.text = interactable.GetInteractText();
+            Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
             //TODO MAKE TEXT APPEAR
             //text = interactable.GetInteractText()
 
