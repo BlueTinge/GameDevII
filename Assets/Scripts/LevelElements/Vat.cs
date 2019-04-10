@@ -18,9 +18,15 @@ public class Vat : MonoBehaviour
     public float amp = .15f;
     public int numShakeFrames = 60;
 
+    public AudioSource audio;
+    public AudioClip vatbreak;
+    public AudioClip vathit;
+
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+        audio.clip = vatbreak;
         VatHealth = GetComponent<HealthStats>();
         VatHealth.OnDeath = OnDeath;
         VatHealth.OnKnockback = OnKnockback;
@@ -54,6 +60,9 @@ public class Vat : MonoBehaviour
 
     IEnumerator Shake(Vector3 knockback)
     {
+        audio.Play();
+
+
         if (isShaking) yield break;
         isShaking = true; //TODO: make this more thread safe
 
@@ -71,8 +80,15 @@ public class Vat : MonoBehaviour
         isShaking = false;
     }
 
+    IEnumerator switchsound()
+    {
+        yield return new WaitForSeconds(1);
+        audio.clip = vathit;
+    }
+
     IEnumerator ReleaseParticles()
     {
+        StartCoroutine("switchsound");
         Emitter1.Play();
         Emitter2.Play();
         yield return new WaitForSeconds(Emitter1.main.startLifetime.constant + 1);
