@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3818841895341921837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 7595083516547537854}
   - {fileID: 4446883828062222184}
@@ -67,8 +67,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hopDistance: 1
   hopTime: 0.5
-  hopDelay: 0.1
-  dragForce: 4
+  hopDelay: 0
+  dragForce: 12
   coolDown: 0.5
   lungeDelay: 0.5
   targetTimeout: 1
@@ -420,12 +420,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.0016645233
       objectReference: {fileID: 0}
-    - target: {fileID: 1932325427986600612, guid: 0710ddd1f319b2e4db68b72850de8e11,
+    - target: {fileID: 1932325427636526048, guid: 0710ddd1f319b2e4db68b72850de8e11,
         type: 3}
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1932325427636526048, guid: 0710ddd1f319b2e4db68b72850de8e11,
+    - target: {fileID: 1932325427986600612, guid: 0710ddd1f319b2e4db68b72850de8e11,
         type: 3}
       propertyPath: m_Layer
       value: 2
@@ -477,6 +477,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -521,15 +525,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 944c8e9b362f2084a8822fe615074027, type: 2}
     - target: {fileID: 100010, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
@@ -653,19 +657,15 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300000, guid: 06949f4fc6ddee843b53bc8668bd6e6d, type: 3}
+    - target: {fileID: 100014, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 100050, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100014, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
