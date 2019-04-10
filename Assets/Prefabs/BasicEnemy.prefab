@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3818841895341921837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 7595083516547537854}
   - {fileID: 4446883828062222184}
@@ -67,8 +67,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hopDistance: 1
   hopTime: 0.5
-  hopDelay: 0.1
-  dragForce: 4
+  hopDelay: 0
+  dragForce: 12
   coolDown: 0.5
   lungeDelay: 0.5
   targetTimeout: 1
