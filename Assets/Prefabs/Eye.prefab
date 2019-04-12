@@ -161,7 +161,7 @@ MonoBehaviour:
   windupTime: 1
   focusTime: 0.1
   coolDown: 0.5
-  range: 15
+  range: 30
   spawnOnDeath: {fileID: 586621850757977686, guid: a9b5e9ab5f7938242a3ddb7a82c30b5d,
     type: 3}
   DeathParticlePrefab: {fileID: 8278189200704472594, guid: b4ae08faae17b864181ecc74319a0f10,
@@ -512,11 +512,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3434070359158684111}
     m_Modifications:
-    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyHealthCanvas
-      objectReference: {fileID: 0}
     - target: {fileID: 1932325429489359764, guid: 0710ddd1f319b2e4db68b72850de8e11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -626,6 +621,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.001504776
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyHealthCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0710ddd1f319b2e4db68b72850de8e11, type: 3}
