@@ -45,7 +45,7 @@ public class DisplaysInteractText : MonoBehaviour
     {
         //TODO MAKE TEXT DISAPPEAR
         //Separate function so that it can be called externally
-
+        Player.GetComponent<PlayerController>().img.gameObject.SetActive(false);
         //for testing:
         Debug.Log("Text Cleared");
     }
