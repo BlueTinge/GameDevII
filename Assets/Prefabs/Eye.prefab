@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 10
-  Defense: 0
+  Defense: 1
   BaseImmunityPeriod: 1
   _currentHealth: 0
   isImmune: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
   slowDistance: 2
   minGoalDistance: 5
   maxGoalDistance: 10
-  windupTime: 1
+  windupTime: 0.5
   focusTime: 0.1
   coolDown: 0.5
   range: 30
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 3013971221848737406, guid: b8c18b121525fdd48aeb114209fe924c,
     type: 3}
-  projectectileSpeed: 20
+  projectectileSpeed: 80
   spawnOffset: 1
 --- !u!114 &3434070359880617855
 MonoBehaviour:
@@ -512,6 +512,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3434070359158684111}
     m_Modifications:
+    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyHealthCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 1932325429489359764, guid: 0710ddd1f319b2e4db68b72850de8e11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -621,11 +626,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.001504776
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyHealthCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0710ddd1f319b2e4db68b72850de8e11, type: 3}

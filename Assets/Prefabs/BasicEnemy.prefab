@@ -73,10 +73,10 @@ MonoBehaviour:
   hopDelay: 0
   pursueEstimate: 2
   coolDown: 0.5
-  lungeDelay: 0.5
+  lungeDelay: 0.1
   targetTimeout: 1
-  lungeTime: 0.5
-  lungeCooldown: 1
+  lungeTime: 0.2
+  lungeCooldown: 0.5
   fadeoutDelay: 0.625
   fadeoutLength: 2
   visionRadius: 10
@@ -305,6 +305,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3818841895341921843}
     m_Modifications:
+    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyHealthCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1932325429489359764, guid: 0710ddd1f319b2e4db68b72850de8e11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -415,16 +425,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.0016645233
       objectReference: {fileID: 0}
-    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyHealthCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1932325427986600612, guid: 0710ddd1f319b2e4db68b72850de8e11,
         type: 3}
       propertyPath: m_Layer
@@ -462,26 +462,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3818841895341921843}
     m_Modifications:
-    - target: {fileID: 100008, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100014, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100040, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100040, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
-      propertyPath: m_TagString
-      value: EnemyTargetPoint
-      objectReference: {fileID: 0}
     - target: {fileID: 100052, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Name
       value: Reference_EnemyOnly1_Abomination2
@@ -546,6 +526,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Controller
       value: 
@@ -557,6 +541,14 @@ PrefabInstance:
     - target: {fileID: 100042, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100040, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100040, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_TagString
+      value: EnemyTargetPoint
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -670,7 +662,15 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 100050, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 95ad9010d9fa30147a55704f8b89acb5, type: 3}
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
