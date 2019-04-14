@@ -72,7 +72,7 @@ MonoBehaviour:
   hopTime: 0.6
   hopDelay: 0
   pursueEstimate: 2
-  coolDown: 0.5
+  coolDown: 0.1
   lungeDelay: 0.1
   targetTimeout: 1
   lungeTime: 0.2
