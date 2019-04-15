@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -161,7 +161,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 26436d7730fd6e149a45f39705c74708, type: 2}
+  - {fileID: 2100000, guid: 909437c832cf9fd4c8f58c0046c2487e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11512,7 +11512,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 26436d7730fd6e149a45f39705c74708, type: 2}
+  - {fileID: 2100000, guid: f64a48ac469cc814cbbd13baf3301a43, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16973,6 +16973,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 0523b188f2dc449429f16c9287cd1360, type: 3}
+      propertyPath: m_Name
+      value: Lever Base
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0523b188f2dc449429f16c9287cd1360, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.535038
@@ -17016,10 +17020,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 0523b188f2dc449429f16c9287cd1360, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 0523b188f2dc449429f16c9287cd1360, type: 3}
-      propertyPath: m_Name
-      value: Lever Base
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0523b188f2dc449429f16c9287cd1360, type: 3}
