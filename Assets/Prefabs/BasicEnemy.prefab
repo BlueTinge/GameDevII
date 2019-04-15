@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42595b3ff2735e54dbe28e573d98de67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAccel: 16
+  maxAccel: 27
   maxSpeed: 9
   targetRadius: 1
   accelTime: 0.05
