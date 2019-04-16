@@ -8,11 +8,17 @@ public class JournalPage : MonoBehaviour, IInteractable
     public int JournalNum;
     public bool canCollect = true;
     public float rotationSpeed = 1f;
+    private GameObject Img;
 
+
+    void Awake()
+    {
+        Img = GameObject.FindGameObjectWithTag("Img");
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,6 +32,8 @@ public class JournalPage : MonoBehaviour, IInteractable
         UIManager.IsJournalCollected[JournalNum] = true;
 
         canCollect = false;
+
+        Img.SetActive(false);
 
         Destroy(gameObject);
     }

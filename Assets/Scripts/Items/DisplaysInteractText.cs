@@ -16,6 +16,7 @@ public class DisplaysInteractText : MonoBehaviour
 
     private void Awake()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         if(interactable == null)
         {
             interactable = GetComponent<IInteractable>();
