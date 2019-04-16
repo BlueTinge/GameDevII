@@ -14,6 +14,7 @@ TagManager:
   - EnemyTargetPoint
   - BossJoint
   - Vat
+  - Img
   layers:
   - Default
   - TransparentFX
