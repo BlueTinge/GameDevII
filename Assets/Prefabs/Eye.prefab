@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3434070359158684109}
   - component: {fileID: 3434070359158684110}
   - component: {fileID: 3434070359158684107}
+  - component: {fileID: 8723545907500355586}
   m_Layer: 2
   m_Name: Eye
   m_TagString: Enemy
@@ -264,6 +265,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8723545907500355586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3434070359158684115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e96899a017b20419c9b2cdc621208a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockX: 0
+  lockY: 1
+  lockZ: 0
 --- !u!1 &3434070359880617732
 GameObject:
   m_ObjectHideFlags: 0
