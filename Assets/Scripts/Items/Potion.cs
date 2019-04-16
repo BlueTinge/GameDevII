@@ -6,11 +6,17 @@ public class Potion : MonoBehaviour, IInteractable
 {
 
     public bool canCollect = true;
+    private GameObject Img;
 
+
+    void Awake()
+    {
+        Img = GameObject.FindGameObjectWithTag("Img");
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,6 +32,8 @@ public class Potion : MonoBehaviour, IInteractable
         pl.NumPotions++;
 
         canCollect = false;
+
+        Img.SetActive(false);
 
         Destroy(gameObject);
     }
