@@ -777,7 +777,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //debug purposes only
-    /**
+
     void OnGUI()
     {
         int w = Screen.width, h = Screen.height;
@@ -803,8 +803,9 @@ public class PlayerController : MonoBehaviour
         text = string.Concat(text, "\n", string.Format("Move Direction: {0:0.000}, {1:0.000}, {2:0.000}", inputForce.x, inputForce.y, inputForce.z));
         Vector3 v = Body.velocity;
         text = string.Concat(text, "\n", string.Format("Player Velocity: {0:0.000}, {1:0.000}, {2:0.000}", v.x, v.y, v.z));
+        text = string.Concat(text, "\n", string.Format("\nPlayer State: {0}", State.ToString()));
         GUI.Label(rect, text, style);
     }
-    **/
+    
 }
 
