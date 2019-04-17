@@ -21,6 +21,7 @@ public class Vat : MonoBehaviour
     public AudioSource audio;
     public AudioClip vatbreak;
     public AudioClip vathit;
+    public bool shouldplay = true;
 
     // Start is called before the first frame update
     void Start()
@@ -63,8 +64,10 @@ public class Vat : MonoBehaviour
 
     IEnumerator Shake(Vector3 knockback)
     {
-        audio.Play();
-
+        if (shouldplay == true)
+        {
+            audio.Play();
+        }
 
         if (isShaking) yield break;
         isShaking = true; //TODO: make this more thread safe

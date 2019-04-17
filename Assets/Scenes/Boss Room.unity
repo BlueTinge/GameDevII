@@ -3260,6 +3260,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2894922494415930838, guid: ef2cc9f06beba6a42ad8c7904f08bb8a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ae7f1867cb6d614d8eb8b8669d25c44, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef2cc9f06beba6a42ad8c7904f08bb8a, type: 3}
 --- !u!1 &1459296300
@@ -4605,8 +4610,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: {fileID: 1935094996}
   hit: 0
+  readytogo: 0
+  nomoresongs: 0
   audio: {fileID: 0}
-  hitsound: {fileID: 0}
+  endsong: {fileID: 8300000, guid: 144ee02f13a745e459f30c7ea9a9c16d, type: 3}
 --- !u!1 &1935094996 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7005587663625617847, guid: cb83c28a7d55c0e4098c6cb0aaccf7ae,
