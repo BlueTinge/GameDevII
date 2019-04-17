@@ -819,7 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d781804062645c64aae2e6f3e269d358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rateofdecrease: 0.0035
+  rateofdecrease: 0.0025
 --- !u!1001 &270300625
 PrefabInstance:
   m_ObjectHideFlags: 0
