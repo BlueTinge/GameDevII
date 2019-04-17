@@ -299,6 +299,10 @@ public class PlayerController : MonoBehaviour
     //Check for player input for physics stuff every fixed update
     void FixedUpdate()
     {
+        //this is a bad and lazy fix
+        //and I should feel bad for writing it
+        //Body.AddForce(Physics.gravity * 5);
+
         if (UIManager.isInputEnabled)
         {
             //whitelist of states we can move in
@@ -357,6 +361,9 @@ public class PlayerController : MonoBehaviour
                 {
                     State = PlayerState.IDLE;
                     PlayerAnimator.SetBool("IsWalking", false);
+
+                    //gradually move towards zero velocity
+                    //if(Body.velocity.
                 }
 
                 //max speed: the lazy way
