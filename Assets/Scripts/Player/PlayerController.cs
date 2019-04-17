@@ -139,6 +139,20 @@ public class PlayerController : MonoBehaviour
     public List<AudioClip> steps = new List<AudioClip>();
     int randomer;
 
+    private void Awake()
+    {
+        if (Manager.GetWeapon() != null)
+        {
+            print(Manager.GetWeapon());
+            GameObject oldWeapon = GetComponent<Equipment>().CurrentWeapon;
+            Transform t = oldWeapon.transform;
+            GameObject newWeapon = Instantiate(Manager.GetWeapon(), t.position, t.rotation, t.parent);
+            oldWeapon.transform.position = new Vector3(-10000, -10000, -100000);
+            GetComponent<Equipment>().Equip(newWeapon);
+            Destroy(oldWeapon);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
