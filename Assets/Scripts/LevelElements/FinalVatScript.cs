@@ -6,8 +6,10 @@ public class FinalVatScript : MonoBehaviour
 {
 
     public GameObject boss;
+    public GameObject fader;
     public bool hit = false;
     public bool readytogo = false;
+    public bool nomoresongs = false;
     public AudioSource audio;
     public AudioClip endsong;
 
@@ -25,6 +27,7 @@ public class FinalVatScript : MonoBehaviour
         {
             if (audio.isPlaying == false)
             {
+                print("OH");
                 boss.GetComponent<BossEnemy>().StartCoroutine(boss.GetComponent<BossEnemy>().FadeOutAndExit());
             }
         }
@@ -32,17 +35,26 @@ public class FinalVatScript : MonoBehaviour
 
     public void OnDeath(float overkill)
     {
-        GetComponent<Vat>().OnDeath(overkill);
-        StartCoroutine(onefinalsong());
-        //boss.GetComponent<BossEnemy>().StartCoroutine(boss.GetComponent<BossEnemy>().FadeOutAndExit());
+        if (nomoresongs == false)
+        {
+            GetComponent<Vat>().OnDeath(overkill);
+            StartCoroutine(onefinalsong());
+        }
     }
 
     public IEnumerator onefinalsong()
     {
-        yield return new WaitForSeconds(1.5f);
-        audio.clip = endsong;
-        audio.Play();
-        readytogo = true;
+        if (nomoresongs == false)
+        {
+            nomoresongs = true;
+            yield return new WaitForSeconds(0.1f);
+            GetComponent<Vat>().shouldplay = false;
+            yield return new WaitForSeconds(1.4f);
+            StartCoroutine(fader.GetComponent<fadeoutscript>().fadescreenout());
+            audio.clip = endsong;
+            audio.Play();
+            readytogo = true;
+        }
     }
 
     public void destroyed()

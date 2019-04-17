@@ -179,7 +179,7 @@ MonoBehaviour:
   swing: {fileID: 0}
   BaseDamage: 5
   BaseKnockback: 400
-  WeaponName: your old sword
+  WeaponName: your old sword (5 ATK)
   IsPhysical: 0
 --- !u!54 &7220177056699628595
 Rigidbody:
@@ -4434,9 +4434,10 @@ MonoBehaviour:
   rotationSpeed: 16
   camRotationSpeed: 100
   DashSpeed: 60
+  SlowdownIncrement: 0.2
   DashTime: 0.05
   DashRecoveryTime: 0.1
-  DashCooldown: 500
+  DashCooldown: 1000
   LightCooldown: 200
   HeavyCooldown: 1000
   HeavyAttackForce: 500

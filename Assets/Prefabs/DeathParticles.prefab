@@ -4790,7 +4790,7 @@ MonoBehaviour:
   p: {fileID: 8278189200704472597}
   Target: {fileID: 0}
   Vat: {fileID: 0}
-  SpeedIncrement: 0.004
+  SpeedIncrement: 0.001
   MaxSpeed: 0.3
   HoverTime: 0.3
   KillDistance: 0.3

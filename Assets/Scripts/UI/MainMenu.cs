@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(GameButton);
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
