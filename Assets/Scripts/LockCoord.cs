@@ -24,5 +24,6 @@ public class LockCoord : MonoBehaviour
         pos.x = lockX ? startPos.x : pos.x;
         pos.y = lockY ? startPos.y : pos.y;
         pos.z = lockZ ? startPos.z : pos.z;
+        rb.position = pos;
     }
 }
