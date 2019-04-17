@@ -545,7 +545,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     public IEnumerator FadeOutAndExit()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0f);
         SceneManager.LoadScene(4);
     }
 
