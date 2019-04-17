@@ -9972,7 +9972,7 @@ PrefabInstance:
     - target: {fileID: 3775434289352824679, guid: f8d629f7a6a640d40ad9e09f6b8b9456,
         type: 3}
       propertyPath: JournalNum
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d629f7a6a640d40ad9e09f6b8b9456, type: 3}
@@ -30653,7 +30653,7 @@ PrefabInstance:
     - target: {fileID: 3775434289352824679, guid: f8d629f7a6a640d40ad9e09f6b8b9456,
         type: 3}
       propertyPath: JournalNum
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d629f7a6a640d40ad9e09f6b8b9456, type: 3}
@@ -36594,7 +36594,7 @@ PrefabInstance:
     - target: {fileID: 3775434289352824679, guid: f8d629f7a6a640d40ad9e09f6b8b9456,
         type: 3}
       propertyPath: JournalNum
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d629f7a6a640d40ad9e09f6b8b9456, type: 3}
@@ -47708,7 +47708,7 @@ PrefabInstance:
     - target: {fileID: 3775434289352824679, guid: f8d629f7a6a640d40ad9e09f6b8b9456,
         type: 3}
       propertyPath: JournalNum
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d629f7a6a640d40ad9e09f6b8b9456, type: 3}
@@ -48075,7 +48075,7 @@ PrefabInstance:
     - target: {fileID: 3775434289352824679, guid: f8d629f7a6a640d40ad9e09f6b8b9456,
         type: 3}
       propertyPath: JournalNum
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d629f7a6a640d40ad9e09f6b8b9456, type: 3}

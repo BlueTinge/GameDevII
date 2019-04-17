@@ -18,7 +18,8 @@ public class Lever : Activatable, IInteractable
     private bool isChanging = false;
 
     public AudioSource audio;
-    public AudioClip clunk;
+    public AudioClip clunkdown;
+    public AudioClip clunkup;
 
     void Awake()
     {
@@ -48,7 +49,7 @@ public class Lever : Activatable, IInteractable
 
     public override void Activate()
     {
-        audio.clip = clunk;
+        audio.clip = clunkdown;
         audio.Play();
 
         //invariant: lowered is active
@@ -72,6 +73,10 @@ public class Lever : Activatable, IInteractable
     {
         if (CanDeactivate)
         {
+
+            audio.clip = clunkup;
+            audio.Play();
+
             //invariant: raised is inactive
             Animator.SetBool("Raised", true);
 
