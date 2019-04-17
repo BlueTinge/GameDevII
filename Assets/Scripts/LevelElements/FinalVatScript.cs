@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinalVatScript : MonoBehaviour
 {
@@ -28,9 +29,16 @@ public class FinalVatScript : MonoBehaviour
             if (audio.isPlaying == false)
             {
                 print("OH");
-                boss.GetComponent<BossEnemy>().StartCoroutine(boss.GetComponent<BossEnemy>().FadeOutAndExit());
+                //boss.GetComponent<BossEnemy>().StartCoroutine(boss.GetComponent<BossEnemy>().FadeOutAndExit());
+                StartCoroutine(FadeOutAndExit());
             }
         }
+    }
+
+    public IEnumerator FadeOutAndExit()
+    {
+        yield return new WaitForSeconds(0f);
+        SceneManager.LoadScene(4);
     }
 
     public void OnDeath(float overkill)
