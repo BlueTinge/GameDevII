@@ -15,6 +15,7 @@ TagManager:
   - BossJoint
   - Vat
   - Img
+  - GameManager
   layers:
   - Default
   - TransparentFX
