@@ -145,6 +145,20 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    void OnGUI()
+    {
+        if (MenuState != 0)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+
     public void Quit()
     {
         Application.Quit();
@@ -490,25 +504,25 @@ public class UIManager : MonoBehaviour
     {
         switch (JournalNum)
         {
-            case 1:
+            case 0:
                 return Journal1Data.ToString();
-            case 2:
+            case 1:
                 return Journal2Data.ToString();
-            case 3:
+            case 2:
                 return Journal3Data.ToString();
-            case 4:
+            case 3:
                 return Journal4Data.ToString();
-            case 5:
+            case 4:
                 return Journal5Data.ToString();
-            case 6:
+            case 5:
                 return Journal6Data.ToString();
-            case 7:
+            case 6:
                 return Journal7Data.ToString();
-            case 8:
+            case 7:
                 return Journal8Data.ToString();
-            case 9:
+            case 8:
                 return Journal9Data.ToString();
-            case 10:
+            case 9:
                 return Journal10Data.ToString();
             default:
                 return null;
