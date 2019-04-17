@@ -249,6 +249,10 @@ public class PlayerController : MonoBehaviour
                 audio.clip = heavyswing;
                 audio.Play();
                 Invoke("EnsureAttackComplete", 1f);
+                Invoke("EnsureAttackComplete", 2f);
+                Invoke("EnsureAttackComplete", 3f);
+                Invoke("EnsureAttackComplete", 4f);
+                Invoke("EnsureAttackComplete", 5f);
 
             }
 
