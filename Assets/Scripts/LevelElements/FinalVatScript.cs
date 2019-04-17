@@ -7,8 +7,9 @@ public class FinalVatScript : MonoBehaviour
 
     public GameObject boss;
     public bool hit = false;
+    public bool readytogo = false;
     public AudioSource audio;
-    public AudioClip hitsound;
+    public AudioClip endsong;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +21,28 @@ public class FinalVatScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(readytogo == true)
+        {
+            if (audio.isPlaying == false)
+            {
+                boss.GetComponent<BossEnemy>().StartCoroutine(boss.GetComponent<BossEnemy>().FadeOutAndExit());
+            }
+        }
     }
 
     public void OnDeath(float overkill)
     {
         GetComponent<Vat>().OnDeath(overkill);
-        boss.GetComponent<BossEnemy>().StartCoroutine(boss.GetComponent<BossEnemy>().FadeOutAndExit());
+        StartCoroutine(onefinalsong());
+        //boss.GetComponent<BossEnemy>().StartCoroutine(boss.GetComponent<BossEnemy>().FadeOutAndExit());
+    }
+
+    public IEnumerator onefinalsong()
+    {
+        yield return new WaitForSeconds(1.5f);
+        audio.clip = endsong;
+        audio.Play();
+        readytogo = true;
     }
 
     public void destroyed()
