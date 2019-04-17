@@ -80,7 +80,7 @@ public class UIManager : MonoBehaviour
                 PauseMenu.gameObject.SetActive(false);
                 Time.timeScale = 1f;
                 MenuState -= 1;
-                isInputEnabled = false;
+                isInputEnabled = true;
             }
 
             else if (PauseMenu.gameObject.activeInHierarchy == false & MenuState == 2)
