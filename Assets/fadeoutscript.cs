@@ -15,6 +15,7 @@ public class fadeoutscript : MonoBehaviour
         Color c = img.color;
         c.a = 0;
         img.color = c;
+        img.enabled = false;
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class fadeoutscript : MonoBehaviour
     public IEnumerator fadescreenout()
     {
         print("GOTTEM");
+        img.enabled = true;
         while (img.color.a < 1)
         {
             print("GOING");
