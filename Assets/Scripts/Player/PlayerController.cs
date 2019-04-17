@@ -275,7 +275,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if(State == PlayerState.DEATH && Input.GetButtonDown(LightAttackButton) && (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown))
+            if(State == PlayerState.DEATH && (Input.GetButtonDown(LightAttackButton) || Input.GetButtonDown(HeavyAttackButton)) && (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown))
             {
                 StartCoroutine(LoadFromCheckpoint());
             }
@@ -596,7 +596,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator BounceBack(Vector3 knockback)
     {
 
-        if (State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
+        if (State == PlayerState.IDLE || State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
         {
             audio.Stop();
             audio.clip = clangsound;
@@ -672,6 +672,9 @@ public class PlayerController : MonoBehaviour
 
         //un-parent camera
         ReferenceFrame.transform.SetParent(null);
+
+        //clear interact text
+        img.gameObject.SetActive(false);
 
         //you can restart after a few seconds
         lastInteract.Restart();

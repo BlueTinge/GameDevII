@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3434070359158684109}
   - component: {fileID: 3434070359158684110}
   - component: {fileID: 3434070359158684107}
+  - component: {fileID: 8723545907500355586}
   m_Layer: 2
   m_Name: Eye
   m_TagString: Enemy
@@ -158,7 +159,7 @@ MonoBehaviour:
   slowDistance: 2
   minGoalDistance: 5
   maxGoalDistance: 10
-  windupTime: 0.5
+  windupTime: 1
   focusTime: 0.1
   coolDown: 0.5
   range: 30
@@ -264,6 +265,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8723545907500355586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3434070359158684115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e96899a017b20419c9b2cdc621208a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockX: 0
+  lockY: 1
+  lockZ: 0
 --- !u!1 &3434070359880617732
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,10 +389,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colors:
-  - {r: 0.1312697, g: 1, b: 0, a: 1}
-  - {r: 0.99795324, g: 1, b: 0.2216981, a: 1}
-  - {r: 1, g: 0.4575472, b: 0.99536735, a: 1}
-  - {r: 0, g: 1, b: 0.9294118, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0.36320752, b: 0.5716167, a: 1}
+  - {r: 0.8018868, g: 0.011347434, b: 0.6019001, a: 1}
+  - {r: 1, g: 0.42745098, b: 0, a: 1}
   switchDelay: 0.033333335
 --- !u!82 &3434070359880617854
 AudioSource:
