@@ -11,6 +11,7 @@ public class JournalPage : MonoBehaviour, IInteractable
     private GameObject Img;
     private GameObject Player;
     private GameObject GameManager;
+    private GameObject myEventSystem;
 
 
 
@@ -19,6 +20,7 @@ public class JournalPage : MonoBehaviour, IInteractable
         Img = GameObject.FindGameObjectWithTag("Img");
         Player = GameObject.FindGameObjectWithTag("Player");
         GameManager = GameObject.FindGameObjectWithTag("GameManager");
+        myEventSystem = GameObject.Find("EventSystem");
     }
     // Start is called before the first frame update
     void Start()
@@ -48,6 +50,7 @@ public class JournalPage : MonoBehaviour, IInteractable
         GameManager.GetComponent<UIManager>().MenuState = 3;
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
         GameManager.GetComponent<UIManager>().JournalBackButton.gameObject.SetActive(true);
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(GameManager.GetComponent<UIManager>().JournalBackButton);
 
     }
 
