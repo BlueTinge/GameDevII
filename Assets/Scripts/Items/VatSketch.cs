@@ -39,7 +39,11 @@ public class VatSketch : MonoBehaviour, IInteractable
 
     private void OnTriggerExit(Collider other)
     {
-
+        UnityEngine.Debug.Log("left trigger");
+        if (other.GetComponentInParent<PlayerController>() != null)
+        {
+            GameManager.GetComponent<UIManager>().VatSketch.SetActive(false);
+        }
     }
 
     public bool CanInteract()
