@@ -2956,11 +2956,6 @@ PrefabInstance:
       propertyPath: CamCooldown
       value: 300
       objectReference: {fileID: 0}
-    - target: {fileID: 7176674447155021516, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: DashCooldown
-      value: 1000
-      objectReference: {fileID: 0}
     - target: {fileID: 7176674447155021519, guid: eba1bdb6e9e65af4a85c834be393c0ef,
         type: 3}
       propertyPath: m_CollisionDetection
