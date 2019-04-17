@@ -265,7 +265,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if ((!lastHeal.IsRunning || lastHeal.ElapsedMilliseconds > InteractCooldown) && Input.GetButton(HealButton))
+            if ((!lastHeal.IsRunning || lastHeal.ElapsedMilliseconds > InteractCooldown) && Input.GetButton(HealButton) && State != PlayerState.DEATH && State != PlayerState.HURT )
             {
                 lastHeal.Restart();
                 StartCoroutine(UsePotion());
@@ -346,7 +346,7 @@ public class PlayerController : MonoBehaviour
                             else sign = -1;
                         }
 
-                        if (Mathf.Abs(angFrom.y - angTo.y) < rotationSpeed * inputForce.magnitude)
+                        if (Mathf.Abs(angFrom.y - angTo.y) < rotationSpeed/* * inputForce.magnitude*/)
                         {
                             Body.MoveRotation(Quaternion.Euler(new Vector3(angTo.x, angTo.y, angTo.z)));
                         }

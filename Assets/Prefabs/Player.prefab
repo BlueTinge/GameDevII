@@ -4431,7 +4431,7 @@ MonoBehaviour:
   PlayerCollider: {fileID: 771962008}
   WalkForce: 100
   MaxSpeed: 3
-  rotationSpeed: 8
+  rotationSpeed: 16
   camRotationSpeed: 100
   DashSpeed: 60
   DashTime: 0.05
@@ -4444,11 +4444,12 @@ MonoBehaviour:
   Target_Range: 3.5
   Target_Angular_Range: 270
   NumFramesTarget: 10
-  TargetRotationSpeed: 8
+  TargetRotationSpeed: 16
   Target_Min_Range: 2
   Target_Move_Increment: 0.035
   FlickerSpeed: 10
   FlickerAlpha: 0.3
+  CamDriftEnabled: 0
   CamSnapIncrement: 0.4
   CamDriftRange: 25
   CamCooldown: 200
