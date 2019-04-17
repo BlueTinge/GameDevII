@@ -150,11 +150,13 @@ public class UIManager : MonoBehaviour
         if (MenuState != 0)
         {
             Cursor.lockState = CursorLockMode.Confined;
+            Debug.Log(MenuState);
             Cursor.visible = true;
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
+            Debug.Log(MenuState);
             Cursor.visible = false;
         }
     }
