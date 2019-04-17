@@ -28,7 +28,10 @@ public class Vat : MonoBehaviour
         audio = GetComponent<AudioSource>();
         audio.clip = vatbreak;
         VatHealth = GetComponent<HealthStats>();
-        VatHealth.OnDeath = OnDeath;
+        if (GetComponent<FinalVatScript>() == null)
+        {
+            VatHealth.OnDeath = OnDeath;
+        }
         VatHealth.OnKnockback = OnKnockback;
         VatHealth.OnDamage = delegate (float damage) { };
         VatHealth.OnImmunityEnd = delegate () { };
