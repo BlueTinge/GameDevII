@@ -6,6 +6,7 @@ public class FinalVatScript : MonoBehaviour
 {
 
     public GameObject boss;
+    public GameObject fader;
     public bool hit = false;
     public bool readytogo = false;
     public bool nomoresongs = false;
@@ -49,7 +50,7 @@ public class FinalVatScript : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             GetComponent<Vat>().shouldplay = false;
             yield return new WaitForSeconds(1.4f);
-            print("PLAYFINALVAT");
+            StartCoroutine(fader.GetComponent<fadeoutscript>().fadescreenout());
             audio.clip = endsong;
             audio.Play();
             readytogo = true;
