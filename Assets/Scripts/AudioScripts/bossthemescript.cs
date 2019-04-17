@@ -7,7 +7,8 @@ public class bossthemescript : MonoBehaviour
     public AudioSource audio;
     public AudioClip intro;
     public AudioClip looper;
-    public float rateofdecrease = 0.1f;
+    public bool bossdead = false;
+    public float rateofdecrease = 0.005f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class bossthemescript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(audio.isPlaying == false)
+        if(audio.isPlaying == false && bossdead == false)
         {
             audio.clip = looper;
             audio.loop = looper;
@@ -26,15 +27,21 @@ public class bossthemescript : MonoBehaviour
         }
     }
 
-    void fadeout()
+    public void fadeoutvoid()
     {
-        if(audio.volume > 0)
+        bossdead = true;
+        StartCoroutine(fadeout());
+    }
+
+    IEnumerator fadeout()
+    {
+        while(audio.volume > 0)
         {
             audio.volume -= rateofdecrease;
+            yield return new WaitForSeconds(0.2f);
         }
-        else
-        {
-            audio.volume = 0;
-        }
+
+        audio.Stop();
+
     }
 }

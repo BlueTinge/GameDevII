@@ -80,6 +80,8 @@ public class BossEnemy : MonoBehaviour, IEnemy
 {
 
     [SerializeField] private AudioSource audio;
+    [SerializeField] private GameObject musicplayer;
+    [SerializeField] private GameObject gate;
     [SerializeField] private AudioClip step1;
     [SerializeField] private AudioClip step2;
     [SerializeField] private AudioClip step3;
@@ -368,7 +370,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     private void Arrive()
     {
-        if (audio.isPlaying == false)
+        if (audio.isPlaying == false && isAlive == true)
         {
             randomer = UnityEngine.Random.Range(0, 5);
             audio.clip = steps[randomer];
@@ -516,6 +518,8 @@ public class BossEnemy : MonoBehaviour, IEnemy
         audio.Stop();
         audio.clip = dies;
         audio.Play();
+        musicplayer.GetComponent<bossthemescript>().fadeoutvoid();
+        gate.GetComponent<Gate>().Activate();
         isFlickering = false;
         foreach(Material m in materials)
         {
@@ -535,13 +539,13 @@ public class BossEnemy : MonoBehaviour, IEnemy
         SetJointsActive(true);
 
         //you can restart after a few seconds
-        StartCoroutine(FadeOutAndExit());
+        //StartCoroutine(FadeOutAndExit());
         
     }
 
-    private IEnumerator FadeOutAndExit()
+    public IEnumerator FadeOutAndExit()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(4);
     }
 
