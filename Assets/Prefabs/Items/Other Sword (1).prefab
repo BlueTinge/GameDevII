@@ -50,6 +50,7 @@ MonoBehaviour:
   swing: {fileID: 0}
   BaseDamage: 2
   BaseKnockback: 300
+  WeaponName: 
   IsPhysical: 0
 --- !u!54 &342653121808429953
 Rigidbody:
@@ -246,7 +247,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 221a050fde2f556468a9b67936dd7fdf, type: 2}
+      objectReference: {fileID: 2100000, guid: 1abba5965ae753d44b85cf3e00f00d53, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
 --- !u!1 &5273933451069056596 stripped

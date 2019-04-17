@@ -30,25 +30,16 @@ public class DisplaysInteractText : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (interactable.CanInteract() && other.tag.Equals("ItemZoneArea"))
+        if (interactable.CanInteract() && other.tag.Equals("ItemZoneArea") && Player.GetComponent<PlayerController>().State != PlayerState.DEATH)
         {
             Player.GetComponent<PlayerController>().img.text = interactable.GetInteractText();
             Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
-            //TODO MAKE TEXT APPEAR
-            //text = interactable.GetInteractText()
-
-            //for testing:
-            Debug.Log(interactable.GetInteractText());
         }
     }
 
     public void ClearText()
     {
-        //TODO MAKE TEXT DISAPPEAR
-        //Separate function so that it can be called externally
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(false);
-        //for testing:
-        Debug.Log("Text Cleared");
     }
 
     private void OnTriggerExit(Collider other)

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 413507912588426027}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,6 +58,7 @@ MonoBehaviour:
   Journal8Button: {fileID: 0}
   Journal9Button: {fileID: 0}
   Journal10Button: {fileID: 0}
+  VatSketch: {fileID: 0}
   JournalBackButton: {fileID: 0}
   Player: {fileID: 0}
   Potions: {fileID: 0}
@@ -71,4 +72,3 @@ MonoBehaviour:
   Journal8Data: {fileID: 4900000, guid: 316a2497bfb7d6e42bd65c266f1d91e8, type: 3}
   Journal9Data: {fileID: 4900000, guid: a646b77cc919fb140bd796956e2e7ba2, type: 3}
   Journal10Data: {fileID: 4900000, guid: 0291d2ea22e34c2458fd3e5dd4ae92c3, type: 3}
-  myEventSystem: {fileID: 0}
