@@ -17,6 +17,7 @@ public class Manager : MonoBehaviour
     private static int NumPotions;
     private static float PlayerHealth;
     private static bool IsInitialized = false;
+    private static GameObject Weapon = null;
 
     void Awake()
     {
@@ -70,6 +71,8 @@ public class Manager : MonoBehaviour
         }
 
         NumPotions = INITIAL_POTION_NUM;
+        PlayerHealth = -1;
+        Destroy(Weapon);
 
         foreach (string SceneName in LEVEL_ORDER)
         {
@@ -90,8 +93,11 @@ public class Manager : MonoBehaviour
         }
 
         NumPotions = player.NumPotions;
-        //PlayerHealth = player.gameObject.GetComponent<HealthStats>().CurrentHealth;
+        PlayerHealth = player.gameObject.GetComponent<HealthStats>().CurrentHealth;
         //theoretically weapons can be saved as well
+        Weapon = Instantiate(player.GetComponent<Equipment>().CurrentWeapon,new Vector3(-1000,-100000,-10000),Quaternion.identity,null);
+
+        DontDestroyOnLoad(Weapon);
     }
 
     internal static float GetPlayerHealth()
@@ -117,5 +123,14 @@ public class Manager : MonoBehaviour
         //what if you did hit a checkpoint? do your potions come back on the 2nd level? I think so
 
         return NumPotions;
+    }
+
+    internal static GameObject GetWeapon()
+    {
+        if (!IsInitialized)
+        {
+            Reset();
+        }
+        return Weapon;
     }
 }
