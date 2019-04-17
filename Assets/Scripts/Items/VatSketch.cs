@@ -8,7 +8,7 @@ public class VatSketch : MonoBehaviour, IInteractable
     public bool canCollect = true;
     private GameObject GameManager;
 
-    void awake()
+    void Awake()
     {
         GameManager = GameObject.FindGameObjectWithTag("GameManager");
     }
@@ -26,7 +26,7 @@ public class VatSketch : MonoBehaviour, IInteractable
 
     public void CollectThis(PlayerController pl)
     {
-        GameManager.GetComponent<UIManager>().VatSketch.gameObject.SetActive(true);
+        GameManager.GetComponent<UIManager>().VatSketch.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +35,11 @@ public class VatSketch : MonoBehaviour, IInteractable
         {
             CollectThis(other.GetComponentInParent<PlayerController>());
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
     }
 
     public bool CanInteract()

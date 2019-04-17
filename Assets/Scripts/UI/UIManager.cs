@@ -57,6 +57,7 @@ public class UIManager : MonoBehaviour
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(ContinueButton);
         // UnityEngine.Debug.Log(myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().firstSelectedGameObject);
         NumPotions = Player.GetComponent<PlayerController>().NumPotions;
+        print(VatSketch);
     }
 
     void Update()
