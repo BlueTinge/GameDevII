@@ -87,7 +87,8 @@ MonoBehaviour:
   StartActive: 0
   CanDeactivate: 0
   audio: {fileID: 0}
-  clunk: {fileID: 8300000, guid: 3865b254a97752c45bb4a7a5473bf6a9, type: 3}
+  clunkdown: {fileID: 8300000, guid: 0affba27c9f1ba049879fc72121b705c, type: 3}
+  clunkup: {fileID: 8300000, guid: e3209b96b56b0cf4aafc912cf35cf30d, type: 3}
 --- !u!114 &6389593645419001204
 MonoBehaviour:
   m_ObjectHideFlags: 0
