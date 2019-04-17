@@ -596,7 +596,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator BounceBack(Vector3 knockback)
     {
 
-        if (State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
+        if (State == PlayerState.IDLE || State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
         {
             audio.Stop();
             audio.clip = clangsound;
