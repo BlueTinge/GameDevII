@@ -9,11 +9,16 @@ public class JournalPage : MonoBehaviour, IInteractable
     public bool canCollect = true;
     public float rotationSpeed = 1f;
     private GameObject Img;
+    private GameObject Player;
+    private GameObject GameManager;
+
 
 
     void Awake()
     {
         Img = GameObject.FindGameObjectWithTag("Img");
+        Player = GameObject.FindGameObjectWithTag("Player");
+        GameManager = GameObject.FindGameObjectWithTag("GameManager");
     }
     // Start is called before the first frame update
     void Start()
@@ -36,6 +41,14 @@ public class JournalPage : MonoBehaviour, IInteractable
         Img.SetActive(false);
 
         Destroy(gameObject);
+
+        Time.timeScale = 0f;
+        Player.GetComponent<PlayerController>().img.text = GameManager.GetComponent<UIManager>().GetJournalNum(JournalNum);
+        GameManager.GetComponent<UIManager>().JournalMenu.gameObject.SetActive(true);
+        GameManager.GetComponent<UIManager>().MenuState = 3;
+        Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        GameManager.GetComponent<UIManager>().JournalBackButton.gameObject.SetActive(true);
+
     }
 
     private void OnTriggerEnter(Collider other)
