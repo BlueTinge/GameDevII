@@ -4434,6 +4434,7 @@ MonoBehaviour:
   rotationSpeed: 16
   camRotationSpeed: 100
   DashSpeed: 60
+  SlowdownIncrement: 0.2
   DashTime: 0.05
   DashRecoveryTime: 0.1
   DashCooldown: 500

@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed;
     public float camRotationSpeed;
     public float DashSpeed;
+    public float SlowdownIncrement;
     [Tooltip("Time dash movement takes (does not count recovery)")]
     public float DashTime;
     [Tooltip("Time dash recovery takes (period after dash finishes)")]
@@ -301,7 +302,7 @@ public class PlayerController : MonoBehaviour
     {
         //this is a bad and lazy fix
         //and I should feel bad for writing it
-        //Body.AddForce(Physics.gravity * 5);
+        Body.AddForce(Physics.gravity * 2.3f);
 
         if (UIManager.isInputEnabled)
         {
@@ -363,16 +364,37 @@ public class PlayerController : MonoBehaviour
                     PlayerAnimator.SetBool("IsWalking", false);
 
                     //gradually move towards zero velocity
-                    //if(Body.velocity.
+                    float threshhold = SlowdownIncrement * 2;
+                    Vector3 NewV = Vector3.zero;
+                    if(Mathf.Abs(Body.velocity.x) > threshhold)
+                    {
+                        NewV.x = Body.velocity.x - Mathf.Sign(Body.velocity.x) * SlowdownIncrement;
+                    }
+                    else
+                    {
+                        NewV.x = 0;
+                    }
+                    NewV.y = Body.velocity.y;
+                    if (Mathf.Abs(Body.velocity.z) > threshhold)
+                    {
+                        NewV.z = Body.velocity.z - Mathf.Sign(Body.velocity.z) * SlowdownIncrement;
+                    }
+                    else
+                    {
+                        NewV.z = 0;
+                    }
+                    Body.velocity = NewV;
                 }
 
                 //max speed: the lazy way
                 //note that this does not apply in non-movement states (e.g. you can go flying if hurt, or go faster if dashing)
                 if (State == PlayerState.IDLE || State == PlayerState.WALKING)
                 {
-                    if(Body.velocity.magnitude > MaxSpeed)
+                    Vector2 NonGraV = new Vector2(Body.velocity.x, Body.velocity.z);
+                    if(NonGraV.magnitude > MaxSpeed)
                     {
-                        Body.velocity = Body.velocity.normalized * MaxSpeed;
+                        NonGraV = NonGraV.normalized * MaxSpeed;
+                        Body.velocity = new Vector3(NonGraV.x, Body.velocity.y, NonGraV.y);
                     }
                 }
             }
