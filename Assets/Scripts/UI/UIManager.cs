@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     public Transform Journal8Button;
     public Transform Journal9Button;
     public Transform Journal10Button;
+    public GameObject VatSketch;
 
     public GameObject JournalBackButton;
 
@@ -45,7 +46,7 @@ public class UIManager : MonoBehaviour
 
     public static readonly int NumJournals = 10;
     public static bool[] IsJournalCollected = new bool[NumJournals];
-    public GameObject myEventSystem;
+    private GameObject myEventSystem;
 
     public static bool isInputEnabled = true;
 
@@ -56,6 +57,7 @@ public class UIManager : MonoBehaviour
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(ContinueButton);
         // UnityEngine.Debug.Log(myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().firstSelectedGameObject);
         NumPotions = Player.GetComponent<PlayerController>().NumPotions;
+        print(VatSketch);
     }
 
     void Update()
@@ -482,5 +484,34 @@ public class UIManager : MonoBehaviour
     public static void ResetJournals()
     {
         IsJournalCollected = new bool[NumJournals];
+    }
+
+    public string GetJournalNum(int JournalNum)
+    {
+        switch (JournalNum)
+        {
+            case 1:
+                return Journal1Data.ToString();
+            case 2:
+                return Journal2Data.ToString();
+            case 3:
+                return Journal3Data.ToString();
+            case 4:
+                return Journal4Data.ToString();
+            case 5:
+                return Journal5Data.ToString();
+            case 6:
+                return Journal6Data.ToString();
+            case 7:
+                return Journal7Data.ToString();
+            case 8:
+                return Journal8Data.ToString();
+            case 9:
+                return Journal9Data.ToString();
+            case 10:
+                return Journal10Data.ToString();
+            default:
+                return null;
+        }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24563,6 +24563,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerBounceFactor: -1
+--- !u!1 &1433175697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1433175697, guid: b97cde854caedb34cab3e6594f04461a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1735252983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1434769727
 GameObject:
   m_ObjectHideFlags: 0
@@ -28677,7 +28683,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1670898203}
   - component: {fileID: 1670898202}
-  m_Layer: 0
+  - component: {fileID: 1670898206}
+  - component: {fileID: 1670898205}
+  - component: {fileID: 1670898204}
+  m_Layer: 10
   m_Name: Monster Vat Ink wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28746,6 +28755,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!135 &1670898204
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670898201}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20.159996
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1670898205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670898201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a8f8dabccdd0c4fbb365f6e754f6b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canCollect: 1
+--- !u!114 &1670898206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670898201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ba70b56160b434ab4eb5ab61f43d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1672903503
 GameObject:
   m_ObjectHideFlags: 0
@@ -29729,6 +29776,11 @@ PrefabInstance:
       propertyPath: Journal10Button
       value: 
       objectReference: {fileID: 5645533067214244512}
+    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+        type: 3}
+      propertyPath: VatSketch
+      value: 
+      objectReference: {fileID: 1433175697}
     - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
         type: 3}
       propertyPath: JournalBackButton
