@@ -127,7 +127,9 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private float slowDistance;
     [SerializeField] private float flickerSpeed;
     [SerializeField] private float flickerAlpha;
-    [SerializeField] private GameObject attackObject;  
+    [SerializeField] private GameObject attackObject;
+
+    [SerializeField] private GameObject DeathParticlePrefab;
 
     private Transform player;
     private Rigidbody rb;
@@ -538,9 +540,12 @@ public class BossEnemy : MonoBehaviour, IEnemy
         GetComponent<Collider>().enabled = false;
         SetJointsActive(true);
 
+        //death particles
+        Instantiate(DeathParticlePrefab, transform.position, Quaternion.identity);
+
         //you can restart after a few seconds
         //StartCoroutine(FadeOutAndExit());
-        
+
     }
 
     public IEnumerator FadeOutAndExit()
