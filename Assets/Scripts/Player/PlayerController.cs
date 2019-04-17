@@ -306,7 +306,7 @@ public class PlayerController : MonoBehaviour
     {
         //this is a bad and lazy fix
         //and I should feel bad for writing it
-        Body.AddForce(Physics.gravity * 2.3f);
+        Body.AddForce(Physics.gravity * 0.5f);
 
         if (UIManager.isInputEnabled)
         {
@@ -810,7 +810,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //debug purposes only
-
+    /**
     void OnGUI()
     {
         int w = Screen.width, h = Screen.height;
@@ -839,6 +839,6 @@ public class PlayerController : MonoBehaviour
         text = string.Concat(text, "\n", string.Format("\nPlayer State: {0}", State.ToString()));
         GUI.Label(rect, text, style);
     }
-    
+    **/
 }
 
