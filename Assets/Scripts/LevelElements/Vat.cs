@@ -24,6 +24,8 @@ public class Vat : MonoBehaviour
     public bool shouldplay = true;
     public bool switchedclip = false;
 
+    private bool hasShaken;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,12 +46,17 @@ public class Vat : MonoBehaviour
         {
             VatHealth.CurrentHealth = -1;
         }
+
+        hasShaken = false;
     }
 
     //take damage: shake
     public void OnKnockback(Vector3 knockback)
     {
+        if(hasShaken) return;
+
         StartCoroutine(Shake(knockback));
+        hasShaken = true;
     }
 
     //is destroyed: release particles, set checkpoint
