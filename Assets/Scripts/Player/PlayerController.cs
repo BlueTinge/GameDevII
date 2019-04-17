@@ -306,7 +306,7 @@ public class PlayerController : MonoBehaviour
     {
         //this is a bad and lazy fix
         //and I should feel bad for writing it
-        Body.AddForce(Physics.gravity * 2.3f);
+        Body.AddForce(Physics.gravity * 1f);
 
         if (UIManager.isInputEnabled)
         {
