@@ -75,7 +75,7 @@ public class JournalPage : MonoBehaviour, IInteractable
 
     string IInteractable.GetInteractText()
     {
-        return "Press E to pick up Journal";
+        return "Press E(Keyboard)/ X(Controller) to pick up Journal";
     }
 
     bool IInteractable.CanInteract()

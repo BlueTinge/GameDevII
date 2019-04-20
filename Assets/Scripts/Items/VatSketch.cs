@@ -53,7 +53,7 @@ public class VatSketch : MonoBehaviour, IInteractable
 
     public string GetInteractText()
     {
-        return "Press E to view the sketch";
+        return "Press E(Keyboard)/ X(Controller) to view the sketch";
     }
 
 }

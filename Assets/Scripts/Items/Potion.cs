@@ -48,7 +48,7 @@ public class Potion : MonoBehaviour, IInteractable
 
     string IInteractable.GetInteractText()
     {
-        return "Press E to pick up potion";
+        return "Press E(Keyboard)/ X(Controller) to pick up potion";
     }
 
     bool IInteractable.CanInteract()

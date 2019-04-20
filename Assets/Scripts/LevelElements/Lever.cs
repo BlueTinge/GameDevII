@@ -95,7 +95,7 @@ public class Lever : Activatable, IInteractable
 
     string IInteractable.GetInteractText()
     {
-        return "Press E to move lever";
+        return "Press E(Keyboard)/ X(Controller) to move lever";
     }
 
     bool IInteractable.CanInteract()

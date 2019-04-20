@@ -131,7 +131,7 @@ public class Weapon : MonoBehaviour, IInteractable
 
     public string GetInteractText()
     {
-        return "Press E to pick up " + WeaponName;
+        return "Press E(Keyboard)/ X(Controller) to pick up " + WeaponName;
     }
 
     public bool CanInteract()
