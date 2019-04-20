@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     public Transform Journal9Button;
     public Transform Journal10Button;
     public GameObject VatSketch;
+    public GameObject JournalBackground;
 
     public GameObject JournalBackButton;
 
@@ -57,7 +58,6 @@ public class UIManager : MonoBehaviour
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(ContinueButton);
         // UnityEngine.Debug.Log(myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().firstSelectedGameObject);
         NumPotions = Player.GetComponent<PlayerController>().NumPotions;
-        print(VatSketch);
     }
 
     void Update()
@@ -95,6 +95,7 @@ public class UIManager : MonoBehaviour
             {
                 Player.GetComponent<PlayerController>().img.gameObject.SetActive(false);
                 myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(BackButton);
+                JournalBackground.gameObject.SetActive(false);
                 if (IsJournalCollected[0] == true)
                 {
                     myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(Journal1Button);
@@ -240,6 +241,7 @@ public class UIManager : MonoBehaviour
     {
         Player.GetComponent<PlayerController>().img.text = Journal1Data.ToString();
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        JournalBackground.gameObject.SetActive(true);
         Journal1Button.gameObject.SetActive(false);
         Journal2Button.gameObject.SetActive(false);
         Journal3Button.gameObject.SetActive(false);
@@ -259,6 +261,7 @@ public class UIManager : MonoBehaviour
     {
         Player.GetComponent<PlayerController>().img.text = Journal2Data.ToString();
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        JournalBackground.gameObject.SetActive(true);
         Journal1Button.gameObject.SetActive(false);
         Journal2Button.gameObject.SetActive(false);
         Journal3Button.gameObject.SetActive(false);
@@ -278,6 +281,7 @@ public class UIManager : MonoBehaviour
     {
         Player.GetComponent<PlayerController>().img.text = Journal3Data.ToString();
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        JournalBackground.gameObject.SetActive(true);
         Journal1Button.gameObject.SetActive(false);
         Journal2Button.gameObject.SetActive(false);
         Journal3Button.gameObject.SetActive(false);
@@ -297,6 +301,7 @@ public class UIManager : MonoBehaviour
     {
         Player.GetComponent<PlayerController>().img.text = Journal4Data.ToString();
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        JournalBackground.gameObject.SetActive(true);
         Journal1Button.gameObject.SetActive(false);
         Journal2Button.gameObject.SetActive(false);
         Journal3Button.gameObject.SetActive(false);
@@ -316,6 +321,7 @@ public class UIManager : MonoBehaviour
     {
         Player.GetComponent<PlayerController>().img.text = Journal5Data.ToString();
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        JournalBackground.gameObject.SetActive(true);
         Journal1Button.gameObject.SetActive(false);
         Journal2Button.gameObject.SetActive(false);
         Journal3Button.gameObject.SetActive(false);
@@ -335,6 +341,7 @@ public class UIManager : MonoBehaviour
     {
         Player.GetComponent<PlayerController>().img.text = Journal6Data.ToString();
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        JournalBackground.gameObject.SetActive(true);
         Journal1Button.gameObject.SetActive(false);
         Journal2Button.gameObject.SetActive(false);
         Journal3Button.gameObject.SetActive(false);
@@ -353,6 +360,7 @@ public class UIManager : MonoBehaviour
     {
         Player.GetComponent<PlayerController>().img.text = Journal7Data.ToString();
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        JournalBackground.gameObject.SetActive(true);
         Journal1Button.gameObject.SetActive(false);
         Journal2Button.gameObject.SetActive(false);
         Journal3Button.gameObject.SetActive(false);
@@ -371,6 +379,7 @@ public class UIManager : MonoBehaviour
     {
         Player.GetComponent<PlayerController>().img.text = Journal8Data.ToString();
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        JournalBackground.gameObject.SetActive(true);
         Journal1Button.gameObject.SetActive(false);
         Journal2Button.gameObject.SetActive(false);
         Journal3Button.gameObject.SetActive(false);
@@ -389,6 +398,7 @@ public class UIManager : MonoBehaviour
     {
         Player.GetComponent<PlayerController>().img.text = Journal9Data.ToString();
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        JournalBackground.gameObject.SetActive(true);
         Journal1Button.gameObject.SetActive(false);
         Journal2Button.gameObject.SetActive(false);
         Journal3Button.gameObject.SetActive(false);
@@ -407,6 +417,7 @@ public class UIManager : MonoBehaviour
     {
         Player.GetComponent<PlayerController>().img.text = Journal10Data.ToString();
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        JournalBackground.gameObject.SetActive(true);
         Journal1Button.gameObject.SetActive(false);
         Journal2Button.gameObject.SetActive(false);
         Journal3Button.gameObject.SetActive(false);
@@ -435,6 +446,7 @@ public class UIManager : MonoBehaviour
         {
             myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(BackButton);
             Player.GetComponent<PlayerController>().img.gameObject.SetActive(false);
+            JournalBackground.gameObject.SetActive(false);
             if (IsJournalCollected[0] == true)
             {
                 myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(Journal1Button);

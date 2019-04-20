@@ -49,6 +49,7 @@ public class JournalPage : MonoBehaviour, IInteractable
         GameManager.GetComponent<UIManager>().JournalMenu.gameObject.SetActive(true);
         GameManager.GetComponent<UIManager>().MenuState = 3;
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
+        GameManager.GetComponent<UIManager>().JournalBackground.gameObject.SetActive(true);
         GameManager.GetComponent<UIManager>().JournalBackButton.gameObject.SetActive(true);
         GameManager.GetComponent<UIManager>().Journal1Button.gameObject.SetActive(false);
         GameManager.GetComponent<UIManager>().Journal2Button.gameObject.SetActive(false);
