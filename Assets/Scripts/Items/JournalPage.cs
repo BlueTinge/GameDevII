@@ -50,6 +50,16 @@ public class JournalPage : MonoBehaviour, IInteractable
         GameManager.GetComponent<UIManager>().MenuState = 3;
         Player.GetComponent<PlayerController>().img.gameObject.SetActive(true);
         GameManager.GetComponent<UIManager>().JournalBackButton.gameObject.SetActive(true);
+        GameManager.GetComponent<UIManager>().Journal1Button.gameObject.SetActive(false);
+        GameManager.GetComponent<UIManager>().Journal2Button.gameObject.SetActive(false);
+        GameManager.GetComponent<UIManager>().Journal3Button.gameObject.SetActive(false);
+        GameManager.GetComponent<UIManager>().Journal4Button.gameObject.SetActive(false);
+        GameManager.GetComponent<UIManager>().Journal5Button.gameObject.SetActive(false);
+        GameManager.GetComponent<UIManager>().Journal6Button.gameObject.SetActive(false);
+        GameManager.GetComponent<UIManager>().Journal7Button.gameObject.SetActive(false);
+        GameManager.GetComponent<UIManager>().Journal8Button.gameObject.SetActive(false);
+        GameManager.GetComponent<UIManager>().Journal9Button.gameObject.SetActive(false);
+        GameManager.GetComponent<UIManager>().Journal10Button.gameObject.SetActive(false);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(GameManager.GetComponent<UIManager>().JournalBackButton);
 
     }
