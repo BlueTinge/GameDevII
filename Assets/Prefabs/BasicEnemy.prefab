@@ -71,7 +71,7 @@ MonoBehaviour:
   accelTime: 0.05
   hopTime: 0.6
   hopDelay: 0
-  pursueEstimate: 2
+  pursueEstimate: 1.5
   coolDown: 0.1
   lungeDelay: 0.1
   targetTimeout: 1
@@ -305,6 +305,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3818841895341921843}
     m_Modifications:
+    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyHealthCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1932325429489359764, guid: 0710ddd1f319b2e4db68b72850de8e11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -415,22 +425,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.0016645233
       objectReference: {fileID: 0}
-    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyHealthCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
+    - target: {fileID: 1932325427636526048, guid: 0710ddd1f319b2e4db68b72850de8e11,
         type: 3}
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1932325427986600612, guid: 0710ddd1f319b2e4db68b72850de8e11,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932325427636526048, guid: 0710ddd1f319b2e4db68b72850de8e11,
         type: 3}
       propertyPath: m_Layer
       value: 2
@@ -538,14 +538,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100042, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
-      propertyPath: m_Name
-      value: Reference_EnemyOnly1:root
-      objectReference: {fileID: 0}
-    - target: {fileID: 100042, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
@@ -553,6 +545,14 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 2.9249783
+      objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
+      propertyPath: m_Name
+      value: Reference_EnemyOnly1:root
+      objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400042, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
