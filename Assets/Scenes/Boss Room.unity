@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587271, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1071,6 +1071,21 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: -0.000000059604645
       objectReference: {fileID: 0}
+    - target: {fileID: 1212408489823495678, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.27396846
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212408489823495678, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.000010430813
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212408489823495678, guid: eba1bdb6e9e65af4a85c834be393c0ef,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.000246495
+      objectReference: {fileID: 0}
     - target: {fileID: 2967347238888351073, guid: eba1bdb6e9e65af4a85c834be393c0ef,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -1145,21 +1160,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: -0.07810188
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212408489823495678, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.27396846
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212408489823495678, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0.000010430813
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212408489823495678, guid: eba1bdb6e9e65af4a85c834be393c0ef,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.z
-      value: 0.000246495
       objectReference: {fileID: 0}
     - target: {fileID: 8228962690974412249, guid: eba1bdb6e9e65af4a85c834be393c0ef,
         type: 3}
@@ -2096,10 +2096,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUDCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 259459844, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6984078396011619399, guid: b97cde854caedb34cab3e6594f04461a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2271,46 +2267,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Journal4Menu
       objectReference: {fileID: 0}
-    - target: {fileID: 6984078395199913231, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 946260492}
-    - target: {fileID: 6984078395199913231, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Quit
-      objectReference: {fileID: 0}
-    - target: {fileID: 6984078395355264426, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 946260492}
-    - target: {fileID: 6984078395355264426, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Continue
-      objectReference: {fileID: 0}
-    - target: {fileID: 6984078396435615367, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 946260492}
-    - target: {fileID: 6984078396435615367, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: JournalButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6984078396478797581, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 946260492}
-    - target: {fileID: 6984078396478797581, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Restart
-      objectReference: {fileID: 0}
     - target: {fileID: 1147008026257186523, guid: b97cde854caedb34cab3e6594f04461a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2360,6 +2316,50 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Journal6Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984078395199913231, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 946260492}
+    - target: {fileID: 6984078395199913231, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984078395355264426, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 946260492}
+    - target: {fileID: 6984078395355264426, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984078396435615367, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 946260492}
+    - target: {fileID: 6984078396435615367, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JournalButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984078396478797581, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 946260492}
+    - target: {fileID: 6984078396478797581, guid: b97cde854caedb34cab3e6594f04461a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 259459844, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
@@ -2979,7 +2979,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247100404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1942115054}
@@ -4809,7 +4809,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089168878}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.004}
+  m_LocalPosition: {x: 0, y: 0, z: 1.998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1942115054}
