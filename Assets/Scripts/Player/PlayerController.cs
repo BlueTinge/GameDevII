@@ -763,14 +763,22 @@ public class PlayerController : MonoBehaviour
         bool isSecondSwing = false;
         if (e.stringParameter == "LightSwing2") isSecondSwing = true;
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl, isSecondSwing);
-        yield return new WaitForSeconds(ttl);
-        if (State == PlayerState.LIGHT_ATTACKING) State = PlayerState.IDLE;
         if (isSecondSwing == true)
         {
+            print("SECOND SWING");
             audio.Stop();
             audio.clip = secondswing;
             audio.Play();
         }
+        yield return new WaitForSeconds(ttl);
+        if (State == PlayerState.LIGHT_ATTACKING) State = PlayerState.IDLE;
+        //if (isSecondSwing == true)
+        //{
+        //    print("SECOND SWING");
+        //    audio.Stop();
+        //    audio.clip = secondswing;
+        //    audio.Play();
+        //}
     }
 
     public IEnumerator MakeHeavyAttack(float ttl)
