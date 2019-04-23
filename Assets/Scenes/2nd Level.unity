@@ -16567,6 +16567,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0.93700004
       objectReference: {fileID: 0}
+    - target: {fileID: 1238635085, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 0aa8e18ed8cf3b44f8b8f74ee8828324,
+        type: 3}
+    - target: {fileID: 85367518, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 0aa8e18ed8cf3b44f8b8f74ee8828324,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
 --- !u!114 &624689363 stripped
