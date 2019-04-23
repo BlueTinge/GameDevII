@@ -45,6 +45,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     private Animator animator;
     private bool dead;
     private float deathTime;
+    private PlayerController pc;
 
     public Image HealthBar;
 
@@ -70,6 +71,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         audio = GetComponent<AudioSource>();
         targetRb = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
         target = targetRb.transform;
+        pc = target.gameObject.GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody>();
         healthStats = GetComponent<HealthStats>();
         healthStats.OnDeath = (overkill) => {Die();};
@@ -87,6 +89,10 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         (
             new SelectorTask(new ITreeTask[]
             {
+                new NotTask
+                (
+                    new PlayerLiving(pc)
+                ),
                 new SequenceTask(new ITreeTask[]
                 {
                     new CloseTo(transform, target, attackRadius),
