@@ -575,6 +575,7 @@ public class PlayerController : MonoBehaviour
             //FOR some loop of fixed size
             for (int i = 0; i < NumFramesTarget; i++)
             {
+                if(closestEnemy == null) yield break;
                 Vector3 MoveDirection = closestEnemy.transform.position - transform.position;
 
                 //Find amount and direction player should rotate to/in
