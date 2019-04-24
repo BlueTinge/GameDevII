@@ -40,8 +40,10 @@ public class PlayerController : MonoBehaviour
     public float HeavyAttackForce;
     public long InteractCooldown = 500;
 
-    [Tooltip("If player's distance to enemy is less than this, targeting is attempted")]
+    [Tooltip("If player's distance to enemy is less than this, targeting is attempted (light attack)")]
     public float Target_Range = 3f;
+    [Tooltip("If player's distance to enemy is less than this, targeting is attempted (heav yattack)")]
+    public float Target_Heavy_Range = 3f;
     [Tooltip("If player's angle to enemy is less than this, targeting is attempted")]
     public float Target_Angular_Range = 180;
     [Tooltip("# of fixed frames to attempt targeting for. 60fps")]
@@ -236,7 +238,7 @@ public class PlayerController : MonoBehaviour
                 State = PlayerState.LIGHT_ATTACKING;
                 //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
 
-                StartCoroutine(TargetNearestEnemy());
+                StartCoroutine(TargetNearestEnemy(false));
                 Invoke("EnsureAttackComplete",1f);
             }
 
@@ -253,6 +255,7 @@ public class PlayerController : MonoBehaviour
                 Invoke("EnsureAttackComplete", 3f);
                 Invoke("EnsureAttackComplete", 4f);
                 Invoke("EnsureAttackComplete", 5f);
+                StartCoroutine(TargetNearestEnemy(true));
 
             }
 
@@ -397,8 +400,16 @@ public class PlayerController : MonoBehaviour
                     Vector2 NonGraV = new Vector2(Body.velocity.x, Body.velocity.z);
                     if(NonGraV.magnitude > MaxSpeed)
                     {
-                        NonGraV = NonGraV.normalized * MaxSpeed;
-                        Body.velocity = new Vector3(NonGraV.x, Body.velocity.y, NonGraV.y);
+                        if (NonGraV.magnitude < MaxSpeed*2)
+                        {
+                            NonGraV = NonGraV.normalized * MaxSpeed;
+                            Body.velocity = new Vector3(NonGraV.x, Body.velocity.y, NonGraV.y);
+                        }
+                        else
+                        {
+                            NonGraV = NonGraV.normalized * (NonGraV.magnitude - 1);
+                            Body.velocity = new Vector3(NonGraV.x, Body.velocity.y, NonGraV.y);
+                        }
                     }
                 }
             }
@@ -545,7 +556,7 @@ public class PlayerController : MonoBehaviour
 
     //Snap to nearest enemy and attack
     //Both turn towards it and move towards it, depending on tweakables.
-    public IEnumerator TargetNearestEnemy()
+    public IEnumerator TargetNearestEnemy(bool isHeavyAttack)
     {
         //find closest enemy within range
         GameObject closestEnemy = null;
@@ -567,7 +578,10 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (closestEnemy != null && closestEnemyDistance <= Target_Range)
+        float range = Target_Range;
+        if (isHeavyAttack) range = Target_Heavy_Range;
+
+        if (closestEnemy != null && closestEnemyDistance <= range)
         {
             bool break1 = false;
             bool break2 = false;
@@ -784,7 +798,6 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator MakeHeavyAttack(float ttl)
     {
-        StartCoroutine(TargetNearestEnemy());
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeHeavyAttack(ttl);
         Body.AddRelativeForce(Vector3.forward * HeavyAttackForce);
         yield return new WaitForSeconds(ttl);
