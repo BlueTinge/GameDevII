@@ -72,13 +72,13 @@ public class Manager : MonoBehaviour
 
         NumPotions = INITIAL_POTION_NUM;
         PlayerHealth = -1;
-        Destroy(Weapon);
 
         foreach (string SceneName in LEVEL_ORDER)
         {
             if (GetCheckpoint(SceneName) && !SceneName.Equals(SceneManager.GetActiveScene().name)) continue;
             else
             {
+                if(SceneName.Equals(LEVEL_ORDER[0])) Destroy(Weapon);
                 SceneManager.LoadScene(SceneName);
                 break;
             }

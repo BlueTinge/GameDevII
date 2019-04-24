@@ -292,7 +292,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
             behaviorTree.Update();
         }
 
-        animator.SetBool("moving", rb.velocity.sqrMagnitude > 0.25f * 0.25f);
+        animator.SetBool("moving", rb.velocity.sqrMagnitude > 0.5f);
     }
 
     void FixedUpdate() {

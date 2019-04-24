@@ -330,7 +330,7 @@ public class PlayerController : MonoBehaviour
 
                         //Move the player in the direction of the control stick relative to the camera
                         //TODO: Evaluate whether player should be moved via forces, or just have its velocity modified directly.
-                        Body.AddForce(moveDirection * inputForce * WalkForce /* * Time.deltaTime*/);
+                        Body.AddForce(moveDirection * inputForce * WalkForce/* * Time.deltaTime*/);
 
                         if (audio.isPlaying == false)
                         {
@@ -575,6 +575,7 @@ public class PlayerController : MonoBehaviour
             //FOR some loop of fixed size
             for (int i = 0; i < NumFramesTarget; i++)
             {
+                if(closestEnemy == null) yield break;
                 Vector3 MoveDirection = closestEnemy.transform.position - transform.position;
 
                 //Find amount and direction player should rotate to/in
