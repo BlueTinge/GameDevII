@@ -1860,6 +1860,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b30662c9c9fe0bf43b1758847af7fc16, type: 3}
+--- !u!1 &857138290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2220133255622301412, guid: cb83c28a7d55c0e4098c6cb0aaccf7ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 1506720213}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &864237396 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 651963984, guid: f0f01e93441319a458a8b8ac3f5a3c0d,
@@ -2352,6 +2358,10 @@ PrefabInstance:
     - target: {fileID: 259459844, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 528476708, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
+      propertyPath: rateofdecrease
+      value: 0.0025
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
@@ -3585,6 +3595,11 @@ PrefabInstance:
       propertyPath: heavyCooldown
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7005587663625617846, guid: cb83c28a7d55c0e4098c6cb0aaccf7ae,
+        type: 3}
+      propertyPath: particles
+      value: 
+      objectReference: {fileID: 857138290}
     - target: {fileID: 2849453512383909828, guid: cb83c28a7d55c0e4098c6cb0aaccf7ae,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
