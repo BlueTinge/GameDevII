@@ -42,8 +42,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0, g: 0.9510727, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 4
+  m_Intensity: 0.25
+  m_Range: 6
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -98,7 +98,7 @@ Transform:
   m_GameObject: {fileID: 342653121808429954}
   m_LocalRotation: {x: 0.46590582, y: 0.42185315, z: -0.6065536, w: 0.48689267}
   m_LocalPosition: {x: -1.64, y: 0.63, z: -2.18}
-  m_LocalScale: {x: 0.6, y: 1.5, z: 0.5}
+  m_LocalScale: {x: 0.6, y: 1.3, z: 0.5}
   m_Children:
   - {fileID: 5273933451068897908}
   m_Father: {fileID: 0}
@@ -137,7 +137,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!82 &342653121808429966
 AudioSource:
   m_ObjectHideFlags: 0
@@ -246,19 +246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ba70b56160b434ab4eb5ab61f43d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &8033827554096054509
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5273933451069056596}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.32298535, y: 0.049655262, z: 0.010174907}
-  m_Center: {x: -0.012642274, y: 0.000000007999669, z: 0.000000002968648}
 --- !u!65 &5674151034056682797
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -272,6 +259,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.33419424, y: 0.08195745, z: 0.011422205}
   m_Center: {x: -0.000000029802322, y: -0.00000017881393, z: 0.000000029569492}
+--- !u!65 &8033827554096054509
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5273933451069056596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.32298535, y: 0.049655262, z: 0.010174907}
+  m_Center: {x: -0.012642274, y: 0.000000007999669, z: 0.000000002968648}
 --- !u!1001 &5273933451069022452
 PrefabInstance:
   m_ObjectHideFlags: 0

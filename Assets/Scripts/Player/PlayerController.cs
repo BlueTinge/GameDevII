@@ -142,6 +142,8 @@ public class PlayerController : MonoBehaviour
     public List<AudioClip> steps = new List<AudioClip>();
     int randomer;
 
+    private float init_max_speed;
+
     private void Awake()
     {
         if (Manager.GetWeapon() != null)
@@ -154,6 +156,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Equipment>().Equip(newWeapon);
             Destroy(oldWeapon);
         }
+        init_max_speed = MaxSpeed;
     }
 
     // Start is called before the first frame update
@@ -301,6 +304,13 @@ public class PlayerController : MonoBehaviour
             {
                 StartCoroutine(LoadFromCheckpoint());
             }
+
+            //cheatz
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.Insert))
+            {
+                MaxSpeed = init_max_speed * 10;
+            }
+            else MaxSpeed = init_max_speed;
         }
     }
 

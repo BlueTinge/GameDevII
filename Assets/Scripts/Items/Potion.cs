@@ -33,7 +33,8 @@ public class Potion : MonoBehaviour, IInteractable
 
         canCollect = false;
 
-        Img.SetActive(false);
+        // Img.SetActive(false);
+        GetComponent<DisplaysInteractText>().ClearText();
 
         Destroy(gameObject);
     }

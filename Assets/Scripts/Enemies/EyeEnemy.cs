@@ -31,6 +31,8 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     [SerializeField]private float range;
     [SerializeField]private GameObject spawnOnDeath;
     [SerializeField] private GameObject DeathParticlePrefab;
+    [SerializeField] private float dropChance;
+    [SerializeField] private GameObject randomDrop;
 
     public Image HealthBar;
 
@@ -246,6 +248,10 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     {
         if(spawnOnDeath) Instantiate(spawnOnDeath, transform.position, Quaternion.identity);
         if(DeathParticlePrefab) Instantiate(DeathParticlePrefab, transform.position, Quaternion.identity);
+        if(randomDrop != null && Random.value <= dropChance)
+        {
+           Instantiate(randomDrop, transform.position, Quaternion.identity); 
+        }
         Destroy(gameObject);
     }
 

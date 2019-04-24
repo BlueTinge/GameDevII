@@ -79,6 +79,7 @@ public class Manager : MonoBehaviour
             else
             {
                 if(SceneName.Equals(LEVEL_ORDER[0])) Destroy(Weapon);
+                Time.timeScale = 1f;
                 SceneManager.LoadScene(SceneName);
                 break;
             }
