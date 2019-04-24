@@ -17,6 +17,7 @@ public class Vat : MonoBehaviour
     public float freq = 1f;
     public float amp = .15f;
     public int numShakeFrames = 60;
+    public int fadeFrames = 60;
 
     public AudioSource audio;
     public AudioClip vatbreak;
@@ -90,6 +91,15 @@ public class Vat : MonoBehaviour
 
         transform.position = StartPos;
 
+        List<Material> mats = new List<Material>();
+        foreach (MeshRenderer mr in GetComponentsInChildren<MeshRenderer>())
+        {
+            mats.AddRange(mr.materials);
+        }
+
+        foreach (Material m in mats)
+            StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Fade);
+
         for (int i = 0; i < numShakeFrames; i++)
         {
             //transform.position = startPos;
@@ -100,6 +110,22 @@ public class Vat : MonoBehaviour
 
         VatHealth.isImmune = false;
         isShaking = false;
+
+        for (int i = 0; i < fadeFrames; i++)
+        {
+            float flickerAlpha = 1 - (((float)i) / ((float)fadeFrames));
+            foreach (Material m in mats)
+            {
+                m.color = new Color(m.color.g, m.color.g, m.color.b, flickerAlpha);
+            }
+            yield return new WaitForFixedUpdate();
+        }
+
+        foreach (Collider c in GetComponentsInChildren<Collider>())
+        {
+            c.enabled = false;
+        }
+
     }
 
     IEnumerator switchsound()
