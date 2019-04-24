@@ -5,6 +5,7 @@ using UnityEngine;
 public class Furniture : MonoBehaviour
 {
     public float PlayerBounceFactor = -1f;
+    private readonly float MAX_KNOCKBACK = 800f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,13 @@ public class Furniture : MonoBehaviour
     {
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         Vector3 knockback = attack.GetKnockbackFor(gameObject);
+
+        print(knockback.magnitude);
+        if(knockback.magnitude > MAX_KNOCKBACK)
+        {
+            knockback = knockback.normalized * MAX_KNOCKBACK;
+        }
+
         if (rb != null) rb.AddForce(knockback);
 
         if(pl != null)

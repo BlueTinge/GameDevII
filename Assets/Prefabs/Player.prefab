@@ -178,7 +178,7 @@ MonoBehaviour:
   audio: {fileID: 8817931633227953385}
   swing: {fileID: 0}
   BaseDamage: 5
-  BaseKnockback: 400
+  BaseKnockback: 200
   WeaponName: your old sword (5 ATK)
   IsPhysical: 0
 --- !u!54 &7220177056699628595

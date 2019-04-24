@@ -44,7 +44,7 @@ public class HealthStats : MonoBehaviour
         if(OnKnockback==null) OnKnockback = delegate (Vector3 knockback)
         {
             Rigidbody rb= gameObject.GetComponent<Rigidbody>();
-            if (rb != null) rb.AddForce(knockback);
+            if (rb != null) rb.AddForce(knockback * rb.mass);
         };
     }
 
