@@ -678,7 +678,11 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(knockback);
 
             yield return new WaitForSeconds(.5f);
-            if (State == PlayerState.BOUNCE_BACK) State = PlayerState.IDLE;
+            if (State == PlayerState.BOUNCE_BACK)
+            {
+                State = PlayerState.IDLE;
+                PlayerAnimator.ResetTrigger("Bounce");
+            }
         }
         yield return null;
     }
