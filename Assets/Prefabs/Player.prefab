@@ -4440,9 +4440,10 @@ MonoBehaviour:
   DashCooldown: 1000
   LightCooldown: 200
   HeavyCooldown: 1000
-  HeavyAttackForce: 500
+  HeavyAttackForce: 1000
   InteractCooldown: 500
   Target_Range: 3.5
+  Target_Heavy_Range: 5.5
   Target_Angular_Range: 270
   NumFramesTarget: 10
   TargetRotationSpeed: 16
