@@ -552,7 +552,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
         //death particles
         Instantiate(DeathParticlePrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        //Destroy(gameObject);
 
         //you can restart after a few seconds
         //StartCoroutine(FadeOutAndExit());
