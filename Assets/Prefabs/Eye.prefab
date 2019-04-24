@@ -167,6 +167,8 @@ MonoBehaviour:
     type: 3}
   DeathParticlePrefab: {fileID: 8278189200704472594, guid: b4ae08faae17b864181ecc74319a0f10,
     type: 3}
+  dropChance: 0.066
+  randomDrop: {fileID: 1994556432, guid: 114e664197791fd4d8260646df74bb27, type: 3}
   HealthBar: {fileID: 5004936558229459440}
 --- !u!82 &3434070359158684107
 AudioSource:

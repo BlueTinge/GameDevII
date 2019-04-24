@@ -109,6 +109,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   hurtBox: {fileID: 4288224113903042778}
+  dropChance: 0.066
+  randomDrop: {fileID: 1994556432, guid: 114e664197791fd4d8260646df74bb27, type: 3}
   HealthBar: {fileID: 4446883826677053214}
   walkingsfx: {fileID: 8300000, guid: a5099e0e5eb63bf46b03ae3a2265bf70, type: 3}
   windupsfx: {fileID: 8300000, guid: 7ad8455395744a94f86c41ea4908d188, type: 3}
@@ -538,14 +540,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 2.9249783
-      objectReference: {fileID: 0}
     - target: {fileID: 100042, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
       propertyPath: m_Name
       value: Reference_EnemyOnly1:root
@@ -553,6 +547,14 @@ PrefabInstance:
     - target: {fileID: 100042, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 2.9249783
       objectReference: {fileID: 0}
     - target: {fileID: 400042, guid: 5566b8c38157d0d4f9ec0eebb13d5e25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
