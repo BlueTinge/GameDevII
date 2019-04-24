@@ -44,7 +44,7 @@ public class HealthStats : MonoBehaviour
         if(OnKnockback==null) OnKnockback = delegate (Vector3 knockback)
         {
             Rigidbody rb= gameObject.GetComponent<Rigidbody>();
-            if (rb != null) rb.AddForce(knockback);
+            if (rb != null) rb.AddForce(knockback * rb.mass);
         };
     }
 
@@ -66,6 +66,13 @@ public class HealthStats : MonoBehaviour
         if (attack != null && gameObject != attack.Origin)
         {
             float damage = attack.GetDamageFor(gameObject);
+
+            if (attack.SecondLightSwing)
+            {
+                //2nd attack can pierce def
+                attack.SecondLightSwing = false;
+                isImmune = false;
+            }
 
             if (TakeDamage(damage) > 0)
             {

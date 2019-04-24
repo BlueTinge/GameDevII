@@ -37,3 +37,34 @@ class CloseTo : ITreeTask
     }
 }
 
+class PlayerLiving : ITreeTask
+{
+    private PlayerController pc;
+    private Transform target;
+    private float rangeSq;
+    public TaskState state{get; private set;}
+    
+    public PlayerLiving(PlayerController pc)
+    {
+        this.pc = pc;
+        state = TaskState.ready;
+    }
+
+    public IEnumerable Update()
+    {
+        if(pc.State == PlayerState.DEATH)
+        {
+            state = TaskState.failureImmediate;
+        }
+        else
+        {
+            state = TaskState.successImmediate;
+        }
+        yield break;
+    }
+
+    public void Reset()
+    {
+        state = TaskState.ready;
+    }
+}

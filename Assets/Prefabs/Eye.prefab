@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3434070359158684109}
   - component: {fileID: 3434070359158684110}
   - component: {fileID: 3434070359158684107}
+  - component: {fileID: 8723545907500355586}
   m_Layer: 2
   m_Name: Eye
   m_TagString: Enemy
@@ -112,7 +113,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &3434070359158684109
 MonoBehaviour:
@@ -127,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 10
-  Defense: 0
+  Defense: 1
   BaseImmunityPeriod: 1
   _currentHealth: 0
   isImmune: 0
@@ -161,9 +162,13 @@ MonoBehaviour:
   windupTime: 1
   focusTime: 0.1
   coolDown: 0.5
-  range: 15
+  range: 30
   spawnOnDeath: {fileID: 586621850757977686, guid: a9b5e9ab5f7938242a3ddb7a82c30b5d,
     type: 3}
+  DeathParticlePrefab: {fileID: 8278189200704472594, guid: b4ae08faae17b864181ecc74319a0f10,
+    type: 3}
+  dropChance: 0.167
+  randomDrop: {fileID: 1994556432, guid: 114e664197791fd4d8260646df74bb27, type: 3}
   HealthBar: {fileID: 5004936558229459440}
 --- !u!82 &3434070359158684107
 AudioSource:
@@ -262,6 +267,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8723545907500355586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3434070359158684115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e96899a017b20419c9b2cdc621208a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockX: 0
+  lockY: 1
+  lockZ: 0
 --- !u!1 &3434070359880617732
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 3013971221848737406, guid: b8c18b121525fdd48aeb114209fe924c,
     type: 3}
-  projectectileSpeed: 20
+  projectectileSpeed: 80
   spawnOffset: 1
 --- !u!114 &3434070359880617855
 MonoBehaviour:
@@ -371,10 +391,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colors:
-  - {r: 0.1312697, g: 1, b: 0, a: 1}
-  - {r: 0.99795324, g: 1, b: 0.2216981, a: 1}
-  - {r: 1, g: 0.4575472, b: 0.99536735, a: 1}
-  - {r: 0, g: 1, b: 0.9294118, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0.36320752, b: 0.5716167, a: 1}
+  - {r: 0.8018868, g: 0.011347434, b: 0.6019001, a: 1}
+  - {r: 1, g: 0.42745098, b: 0, a: 1}
   switchDelay: 0.033333335
 --- !u!82 &3434070359880617854
 AudioSource:
@@ -510,11 +530,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3434070359158684111}
     m_Modifications:
-    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyHealthCanvas
-      objectReference: {fileID: 0}
     - target: {fileID: 1932325429489359764, guid: 0710ddd1f319b2e4db68b72850de8e11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -624,6 +639,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.001504776
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932325429489359763, guid: 0710ddd1f319b2e4db68b72850de8e11,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyHealthCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0710ddd1f319b2e4db68b72850de8e11, type: 3}

@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8617413196772562051}
   - component: {fileID: 3775434289352824679}
   - component: {fileID: 8440307062105093303}
-  m_Layer: 0
+  - component: {fileID: 6926041363767403771}
+  m_Layer: 10
   m_Name: Journal Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,6 +111,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.08
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6926041363767403771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21218424457062805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ba70b56160b434ab4eb5ab61f43d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7482468809109820855
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4587578352523854094}
   - component: {fileID: 9147231329030627305}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Journal Page Textures
   m_TagString: Untagged
   m_Icon: {fileID: 0}

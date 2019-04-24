@@ -8,10 +8,13 @@ using Stargaze.AI;
 [RequireComponent(typeof(HealthStats))]
 public class BasicEnemy : MonoBehaviour, IEnemy
 {
-    [SerializeField] private float hopDistance;
+    [SerializeField]private float maxAccel;
+    [SerializeField]private float maxSpeed;
+    [SerializeField]private float targetRadius;
+    [SerializeField]private float accelTime;
     [SerializeField] private float hopTime;
     [SerializeField] private float hopDelay;
-    [SerializeField] private float dragForce;
+    [SerializeField] private float pursueEstimate;
     [SerializeField] private float coolDown;
     [SerializeField] private float lungeDelay;
     [SerializeField] private float targetTimeout;
@@ -26,8 +29,11 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     [SerializeField] private float KnockbackFactor;
     [SerializeField] private AnimationCurve deathFade;
     [SerializeField] private GameObject hurtBox;
+    [SerializeField] private float dropChance;
+    [SerializeField] private GameObject randomDrop;
     
     private Transform target;
+    private Rigidbody targetRb;
     private BehaviorTree behaviorTree;
     private float targetTime;
     private bool targeting;
@@ -41,6 +47,7 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     private Animator animator;
     private bool dead;
     private float deathTime;
+    private PlayerController pc;
 
     public Image HealthBar;
 
@@ -52,6 +59,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     public bool hurting = false;
     public AudioClip diessfx;
 
+    public GameObject DeathParticlePrefab;
+
     void Awake()
     {
         shouldJump = false;
@@ -62,7 +71,9 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     void Start()
     {
         audio = GetComponent<AudioSource>();
-        target = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        targetRb = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
+        target = targetRb.transform;
+        pc = target.gameObject.GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody>();
         healthStats = GetComponent<HealthStats>();
         healthStats.OnDeath = (overkill) => {Die();};
@@ -80,6 +91,10 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         (
             new SelectorTask(new ITreeTask[]
             {
+                new NotTask
+                (
+                    new PlayerLiving(pc)
+                ),
                 new SequenceTask(new ITreeTask[]
                 {
                     new CloseTo(transform, target, attackRadius),
@@ -175,20 +190,23 @@ public class BasicEnemy : MonoBehaviour, IEnemy
 
         if(shouldJump)
         {
-            Vector3 force = targetPos - transform.position;
-            force.y = 0;
-            force = force.normalized;
-            force *= dragForce;
-            force += Vector3.up * (-Physics.gravity.y);
-            Debug.DrawRay(transform.position, force, Color.yellow);
+            Vector3 accel = CalcAccel();
 
-            rb.AddForce(force, ForceMode.Acceleration);
+            rb.AddForce(accel, ForceMode.Acceleration);
+        }
+        else
+        {
+            Stop();
         }
     }
 
     public bool Target()
     {
         targetPos = target.position;
+        targetPos.y = transform.position.y;
+        targetPos += targetRb.velocity * pursueEstimate /
+            maxSpeed * (targetPos - transform.position).magnitude;
+
         shouldTurn = true;
         Vector3 t = targetPos - transform.position;
         t.y = 0;
@@ -261,6 +279,50 @@ public class BasicEnemy : MonoBehaviour, IEnemy
         foreach(Material m in renderer.materials)
         {
             StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Fade);
+        }
+        Instantiate(DeathParticlePrefab,transform.position, Quaternion.identity);
+        if(randomDrop != null && Random.value <= dropChance)
+        {
+           Instantiate(randomDrop, transform.position, Quaternion.identity); 
+        }
+    }
+
+    private Vector3 CalcAccel()
+    {
+        Vector3 t = targetPos;
+        t.y = transform.position.y;
+
+        Vector3 v = t - transform.position;
+        float dist = v.magnitude;
+        if(dist < targetRadius)
+        {
+            Stop();
+            return Vector3.zero;
+        }
+
+        float speed = maxSpeed;
+
+        Vector3 a = v.normalized * speed - rb.velocity;
+        a /= accelTime;
+        if(a.sqrMagnitude > maxAccel * maxAccel)
+        {
+            return a.normalized * maxAccel;
+        }
+        else
+        {
+            return a;
+        }
+    }
+
+    private void Stop()
+    {
+        if(rb.velocity.sqrMagnitude <= accelTime * accelTime * maxAccel * maxAccel)
+        {
+            rb.velocity = Vector3.zero;
+        }
+        else
+        {
+            rb.AddForce(-maxAccel * rb.velocity.normalized, ForceMode.Acceleration);
         }
     }
 

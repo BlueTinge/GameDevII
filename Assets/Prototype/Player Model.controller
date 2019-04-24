@@ -187,7 +187,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.48435366
+  m_TransitionDuration: 0.1662025
   m_TransitionOffset: 0
   m_ExitTime: 0.56102055
   m_HasExitTime: 1
@@ -438,7 +438,7 @@ AnimatorStateTransition:
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
+  m_TransitionOffset: 0.4
   m_ExitTime: 1.25
   m_HasExitTime: 1
   m_HasFixedDuration: 1
@@ -774,7 +774,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.48435366
+  m_TransitionDuration: 0.1538544
   m_TransitionOffset: 0
   m_ExitTime: 0.56102055
   m_HasExitTime: 1
@@ -800,7 +800,7 @@ AnimatorStateTransition:
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
+  m_TransitionOffset: 0.15
   m_ExitTime: 0.75
   m_HasExitTime: 0
   m_HasFixedDuration: 1
@@ -1217,7 +1217,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Walk
-  m_Speed: 1.5
+  m_Speed: 1.65
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101748437281594758}
@@ -1232,7 +1232,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e7229e1c0d6e1df4cafeb6e75840f3bb, type: 3}
+  m_Motion: {fileID: 7400000, guid: e981b21cbd7c35542b6ac9d25d696a56, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1307,7 +1307,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102690531813517930}
-    m_Position: {x: 144, y: 96, z: 0}
+    m_Position: {x: 132, y: 96, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102422069998691416}
     m_Position: {x: -12, y: 228, z: 0}

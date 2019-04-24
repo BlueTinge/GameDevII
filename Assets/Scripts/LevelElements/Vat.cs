@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Vat : MonoBehaviour
 {
     private HealthStats VatHealth;
-    private bool isDestroyed = false;
+    public bool isDestroyed = false;
     private bool isShaking = false;
 
     private Vector3 StartPos;
@@ -17,12 +17,26 @@ public class Vat : MonoBehaviour
     public float freq = 1f;
     public float amp = .15f;
     public int numShakeFrames = 60;
+    public int fadeFrames = 60;
+
+    public AudioSource audio;
+    public AudioClip vatbreak;
+    public AudioClip vathit;
+    public bool shouldplay = true;
+    public bool switchedclip = false;
+
+    private bool hasShaken;
 
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+        audio.clip = vatbreak;
         VatHealth = GetComponent<HealthStats>();
-        VatHealth.OnDeath = OnDeath;
+        if (GetComponent<FinalVatScript>() == null)
+        {
+            VatHealth.OnDeath = OnDeath;
+        }
         VatHealth.OnKnockback = OnKnockback;
         VatHealth.OnDamage = delegate (float damage) { };
         VatHealth.OnImmunityEnd = delegate () { };
@@ -32,13 +46,19 @@ public class Vat : MonoBehaviour
         if (Manager.GetCheckpoint(SceneManager.GetActiveScene().name))
         {
             VatHealth.CurrentHealth = -1;
+            Destroy(gameObject);
         }
+
+        hasShaken = false;
     }
 
     //take damage: shake
     public void OnKnockback(Vector3 knockback)
     {
+        if(hasShaken) return;
+
         StartCoroutine(Shake(knockback));
+        hasShaken = true;
     }
 
     //is destroyed: release particles, set checkpoint
@@ -54,10 +74,32 @@ public class Vat : MonoBehaviour
 
     IEnumerator Shake(Vector3 knockback)
     {
+        if (shouldplay == true)
+        {
+            if (switchedclip == false)
+            {
+                audio.Play();
+            }
+            if(switchedclip == true)
+            {
+                audio.clip = vathit;
+                audio.Play();
+            }
+        }
+
         if (isShaking) yield break;
         isShaking = true; //TODO: make this more thread safe
 
         transform.position = StartPos;
+
+        List<Material> mats = new List<Material>();
+        foreach (MeshRenderer mr in GetComponentsInChildren<MeshRenderer>())
+        {
+            mats.AddRange(mr.materials);
+        }
+
+        foreach (Material m in mats)
+            StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Fade);
 
         for (int i = 0; i < numShakeFrames; i++)
         {
@@ -69,10 +111,34 @@ public class Vat : MonoBehaviour
 
         VatHealth.isImmune = false;
         isShaking = false;
+
+        for (int i = 0; i < fadeFrames; i++)
+        {
+            float flickerAlpha = 1 - (((float)i) / ((float)fadeFrames));
+            foreach (Material m in mats)
+            {
+                m.color = new Color(m.color.g, m.color.g, m.color.b, flickerAlpha);
+            }
+            yield return new WaitForFixedUpdate();
+        }
+
+        foreach (Collider c in GetComponentsInChildren<Collider>())
+        {
+            c.enabled = false;
+        }
+
+    }
+
+    IEnumerator switchsound()
+    {
+        yield return new WaitForSeconds(1);
+        switchedclip = true;
     }
 
     IEnumerator ReleaseParticles()
     {
+        StartCoroutine("switchsound");
+        //switchedclip = true;
         Emitter1.Play();
         Emitter2.Play();
         yield return new WaitForSeconds(Emitter1.main.startLifetime.constant + 1);

@@ -13,6 +13,9 @@ TagManager:
   - ItemZoneArea
   - EnemyTargetPoint
   - BossJoint
+  - Vat
+  - Img
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -24,8 +27,8 @@ TagManager:
   - 
   - PostProcessing
   - PlayerLayer
-  - 
-  - 
+  - Item
+  - ItemZone
   - 
   - 
   - 

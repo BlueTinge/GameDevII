@@ -22,7 +22,7 @@ public class WallZoom : MonoBehaviour
     {
         RaycastHit right;
         RaycastHit left;
-        int mask = LayerMask.GetMask("Ignore Raycast", "PlayerLayer");
+        int mask = LayerMask.GetMask("Ignore Raycast", "PlayerLayer", "Item");
         mask = ~mask;
         bool rightHit = Physics.Raycast(parent.position + parent.right * offset, parent.TransformDirection(startDir), out right, startDist, mask);
         bool leftHit = Physics.Raycast(parent.position - parent.right * offset, parent.TransformDirection(startDir), out left, startDist, mask);

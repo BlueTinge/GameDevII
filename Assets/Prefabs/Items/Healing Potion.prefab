@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 334598408}
   - component: {fileID: 334598409}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,8 @@ GameObject:
   - component: {fileID: 1994556438}
   - component: {fileID: 1994556439}
   - component: {fileID: 1994556433}
-  m_Layer: 0
+  - component: {fileID: 7454550596355415951}
+  m_Layer: 10
   m_Name: Healing Potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +133,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9faf93ef9ea8ed40960d232033f689a, type: 3}
+  - {fileID: 2100000, guid: 74a455960dd961d42980dbde37b7f843, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4928,3 +4929,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canCollect: 1
+--- !u!114 &7454550596355415951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994556432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ba70b56160b434ab4eb5ab61f43d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

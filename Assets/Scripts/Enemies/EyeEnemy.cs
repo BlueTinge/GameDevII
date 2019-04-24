@@ -30,6 +30,9 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     [SerializeField]private float coolDown;
     [SerializeField]private float range;
     [SerializeField]private GameObject spawnOnDeath;
+    [SerializeField] private GameObject DeathParticlePrefab;
+    [SerializeField] private float dropChance;
+    [SerializeField] private GameObject randomDrop;
 
     public Image HealthBar;
 
@@ -46,20 +49,37 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     private Color[] colors;
     private float goalDistance;
     private bool playedHurt;
+    private PlayerController pc;
 
     void Awake()
     {
         laserCharge = GetComponentInChildren<EyeCharge>();
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    
         accel = Vector3.zero;
         canMove = true;
         playedHurt = false;
+    }
+
+    void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        rb = GetComponent<Rigidbody>();
+        renderer = GetComponent<MeshRenderer>();
+        colors = renderer.materials.Select(m => m.color).ToArray();
+        healthStats = GetComponent<HealthStats>();
+        healthStats.OnDeath = (overkill) => {Die();};
+        healthStats.OnDamage = (damage) => {StartCoroutine(TakeDamage());};
+        healthStats.OnImmunityEnd = OnImmunityEnd;
+        audio = GetComponent<AudioSource>();
+        pc = target.gameObject.GetComponent<PlayerController>();
+
         behaviorTree = new BehaviorTree
         (
             new SelectorTask(new ITreeTask[]
             {
                 new SequenceTask(new ITreeTask[]
                 {
+                    new PlayerLiving(pc),
                     new CloseTo(transform, target, range),
                     new CallTask(CanSeePlayer),
                     new CallTask(() => {goalDistance = Random.Range(minGoalDistance, maxGoalDistance);  return true;}),
@@ -79,18 +99,6 @@ public class EyeEnemy : MonoBehaviour, IEnemy
                 new CallTask(() => {EndMove(); EndTurn(); return true;})
             })
         );
-    }
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        renderer = GetComponent<MeshRenderer>();
-        colors = renderer.materials.Select(m => m.color).ToArray();
-        healthStats = GetComponent<HealthStats>();
-        healthStats.OnDeath = (overkill) => {Die();};
-        healthStats.OnDamage = (damage) => {StartCoroutine(TakeDamage());};
-        healthStats.OnImmunityEnd = OnImmunityEnd;
-        audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -239,6 +247,11 @@ public class EyeEnemy : MonoBehaviour, IEnemy
     private void Die()
     {
         if(spawnOnDeath) Instantiate(spawnOnDeath, transform.position, Quaternion.identity);
+        if(DeathParticlePrefab) Instantiate(DeathParticlePrefab, transform.position, Quaternion.identity);
+        if(randomDrop != null && Random.value <= dropChance)
+        {
+           Instantiate(randomDrop, transform.position, Quaternion.identity); 
+        }
         Destroy(gameObject);
     }
 

@@ -80,6 +80,9 @@ public class BossEnemy : MonoBehaviour, IEnemy
 {
 
     [SerializeField] private AudioSource audio;
+    [SerializeField] private GameObject musicplayer;
+    [SerializeField] private GameObject gate;
+    [SerializeField] private GameObject particles;
     [SerializeField] private AudioClip step1;
     [SerializeField] private AudioClip step2;
     [SerializeField] private AudioClip step3;
@@ -114,6 +117,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private float heavyCooldown;
     [SerializeField] private float lightDamage;
     [SerializeField] private float heavyDamage;
+    [SerializeField] private float chargeArmor;
     [SerializeField] private float maxAccel;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float slowRadius;
@@ -124,7 +128,9 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private float slowDistance;
     [SerializeField] private float flickerSpeed;
     [SerializeField] private float flickerAlpha;
-    [SerializeField] private GameObject attackObject;  
+    [SerializeField] private GameObject attackObject;
+
+    [SerializeField] private GameObject DeathParticlePrefab;
 
     private Transform player;
     private Rigidbody rb;
@@ -139,6 +145,8 @@ public class BossEnemy : MonoBehaviour, IEnemy
     private bool isAlive;
     private bool isFlickering;
     Material[] materials;
+    private float normalArmor;
+    private PlayerController pc;
 
     void Start()
     {
@@ -157,8 +165,10 @@ public class BossEnemy : MonoBehaviour, IEnemy
         heavyswings.Add(heavyswing2);
 
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        pc = player.gameObject.GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody>();
         healthStats = GetComponent<HealthStats>();
+        normalArmor = healthStats.Defense;
         healthStats.OnDeath = OnDeath;
         healthStats.OnDamage = OnDamage;
         healthStats.OnImmunityEnd = OnImmunityEnd;
@@ -172,6 +182,11 @@ public class BossEnemy : MonoBehaviour, IEnemy
         isFlickering = false;
         animator = GetComponentInChildren<Animator>();
         List<Material> mats = new List<Material>();
+        foreach(SkinnedMeshRenderer s in GetComponentsInChildren<SkinnedMeshRenderer>())
+        {
+            mats.AddRange(s.materials);
+        }
+
         foreach(MeshRenderer mr in GetComponentsInChildren<MeshRenderer>())
         {
             mats.AddRange(mr.materials);
@@ -182,6 +197,10 @@ public class BossEnemy : MonoBehaviour, IEnemy
         (
             new SelectorTask(new ITreeTask[]
             {
+                new NotTask
+                (
+                    new PlayerLiving(pc)
+                ),
                 new SequenceTask(new ITreeTask[]
                 {
                     new CallTask(()=>{animator.SetBool("windupDone", false); return true;}),
@@ -198,9 +217,11 @@ public class BossEnemy : MonoBehaviour, IEnemy
                     new RandomSelectTask(enrageWeights, new ITreeTask[]{
                         new SequenceTask(new ITreeTask[] {
                             new DashTask(this, Vector3.back, dashTime),
+                            new CallTask(()=>{healthStats.Defense = chargeArmor; return true;}),
                             new CallTask(()=>{HeavyWindup(); return true;}),
                             new DelayTask(heavyWindup),
                             new HeavyAttack(this, heavyAttackTime),
+                            new CallTask(()=>{healthStats.Defense = normalArmor; return true;}),
                             new DelayTask(heavyCooldown),
                             new CallTask(()=>{animator.SetBool("heavyAttack", false); return true;}),
                         }),
@@ -272,8 +293,12 @@ public class BossEnemy : MonoBehaviour, IEnemy
             }
         }
 
-        behaviorTree.Update();
-        animator.SetBool("moving", canMove);
+        if(isAlive)
+        {
+            behaviorTree.Update();
+        }
+
+        animator.SetBool("moving", rb.velocity.sqrMagnitude > 0.5f);
     }
 
     void FixedUpdate() {
@@ -363,7 +388,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
 
     private void Arrive()
     {
-        if (audio.isPlaying == false)
+        if (audio.isPlaying == false && isAlive == true)
         {
             randomer = UnityEngine.Random.Range(0, 5);
             audio.clip = steps[randomer];
@@ -511,6 +536,9 @@ public class BossEnemy : MonoBehaviour, IEnemy
         audio.Stop();
         audio.clip = dies;
         audio.Play();
+        particles.SetActive(false);
+        musicplayer.GetComponent<bossthemescript>().fadeoutvoid();
+        gate.GetComponent<Gate>().Activate();
         isFlickering = false;
         foreach(Material m in materials)
         {
@@ -529,14 +557,18 @@ public class BossEnemy : MonoBehaviour, IEnemy
         GetComponent<Collider>().enabled = false;
         SetJointsActive(true);
 
+        //death particles
+        Instantiate(DeathParticlePrefab, transform.position, Quaternion.identity);
+        //Destroy(gameObject);
+
         //you can restart after a few seconds
-        StartCoroutine(FadeOutAndExit());
-        
+        //StartCoroutine(FadeOutAndExit());
+
     }
 
-    private IEnumerator FadeOutAndExit()
+    public IEnumerator FadeOutAndExit()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0f);
         SceneManager.LoadScene(4);
     }
 

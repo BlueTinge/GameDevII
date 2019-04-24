@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed;
     public float camRotationSpeed;
     public float DashSpeed;
+    public float SlowdownIncrement;
     [Tooltip("Time dash movement takes (does not count recovery)")]
     public float DashTime;
     [Tooltip("Time dash recovery takes (period after dash finishes)")]
@@ -39,8 +40,10 @@ public class PlayerController : MonoBehaviour
     public float HeavyAttackForce;
     public long InteractCooldown = 500;
 
-    [Tooltip("If player's distance to enemy is less than this, targeting is attempted")]
+    [Tooltip("If player's distance to enemy is less than this, targeting is attempted (light attack)")]
     public float Target_Range = 3f;
+    [Tooltip("If player's distance to enemy is less than this, targeting is attempted (heav yattack)")]
+    public float Target_Heavy_Range = 3f;
     [Tooltip("If player's angle to enemy is less than this, targeting is attempted")]
     public float Target_Angular_Range = 180;
     [Tooltip("# of fixed frames to attempt targeting for. 60fps")]
@@ -56,6 +59,7 @@ public class PlayerController : MonoBehaviour
     public float FlickerAlpha = 0.5f;
     private bool isFlickering = false;
 
+    public bool CamDriftEnabled = false;
     public float CamSnapIncrement;
     public float CamDriftRange;
     public float CamCooldown;
@@ -107,6 +111,7 @@ public class PlayerController : MonoBehaviour
 
     private Transform PlayerRightHand;
     private GameObject ItemZone;
+    private GameObject ItemZoneArea;
     private HealthStats PlayerHealth;
     private Material[] PlayerMaterials;
 
@@ -137,14 +142,31 @@ public class PlayerController : MonoBehaviour
     public List<AudioClip> steps = new List<AudioClip>();
     int randomer;
 
+    private float init_max_speed;
+
+    private void Awake()
+    {
+        if (Manager.GetWeapon() != null)
+        {
+            print(Manager.GetWeapon());
+            GameObject oldWeapon = GetComponent<Equipment>().CurrentWeapon;
+            Transform t = oldWeapon.transform;
+            GameObject newWeapon = Instantiate(Manager.GetWeapon(), t.position, t.rotation, t.parent);
+            oldWeapon.transform.position = new Vector3(-10000, -10000, -100000);
+            GetComponent<Equipment>().Equip(newWeapon);
+            Destroy(oldWeapon);
+        }
+        init_max_speed = MaxSpeed;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         PlayerRightHand = GetComponent<Equipment>().DomHand;
         ItemZone = GetComponent<Equipment>().ItemZone;
-        //ItemZoneArea = Instantiate(ItemZone, ItemZone.transform);
-        //ItemZoneArea.tag = "ItemZoneArea";
-        //ItemZoneArea.GetComponent<Collider>().enabled = true;
+        ItemZoneArea = Instantiate(ItemZone, ItemZone.transform);
+        ItemZoneArea.tag = "ItemZoneArea";
+        ItemZoneArea.GetComponent<Collider>().enabled = true;
 
         camRot = ReferenceFrame.transform.rotation;
 
@@ -206,7 +228,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-            }else if ((!lastCamMovement.IsRunning || lastCamMovement.ElapsedMilliseconds > CamCooldown) && !CamIsDrifting)
+            }else if ((!lastCamMovement.IsRunning || lastCamMovement.ElapsedMilliseconds > CamCooldown) && !CamIsDrifting && CamDriftEnabled)
             {
                 CamIsDrifting = true;
                 StartCoroutine(DriftCamToCardinalDirection());
@@ -219,7 +241,7 @@ public class PlayerController : MonoBehaviour
                 State = PlayerState.LIGHT_ATTACKING;
                 //Body.velocity = new Vector3(0, 0, 0); //turn off (or make coroutine) for skid
 
-                StartCoroutine(TargetNearestEnemy());
+                StartCoroutine(TargetNearestEnemy(false));
                 Invoke("EnsureAttackComplete",1f);
             }
 
@@ -232,6 +254,11 @@ public class PlayerController : MonoBehaviour
                 audio.clip = heavyswing;
                 audio.Play();
                 Invoke("EnsureAttackComplete", 1f);
+                Invoke("EnsureAttackComplete", 2f);
+                Invoke("EnsureAttackComplete", 3f);
+                Invoke("EnsureAttackComplete", 4f);
+                Invoke("EnsureAttackComplete", 5f);
+                StartCoroutine(TargetNearestEnemy(true));
 
             }
 
@@ -249,7 +276,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if ((!lastHeal.IsRunning || lastHeal.ElapsedMilliseconds > InteractCooldown) && Input.GetButton(HealButton))
+            if ((!lastHeal.IsRunning || lastHeal.ElapsedMilliseconds > InteractCooldown) && Input.GetButton(HealButton) && State != PlayerState.DEATH && State != PlayerState.HURT )
             {
                 lastHeal.Restart();
                 StartCoroutine(UsePotion());
@@ -273,16 +300,27 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if(State == PlayerState.DEATH && Input.GetButtonDown(LightAttackButton) && (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown))
+            if(State == PlayerState.DEATH && (Input.GetButtonDown(LightAttackButton) || Input.GetButtonDown(HeavyAttackButton)) && (!lastInteract.IsRunning || lastInteract.ElapsedMilliseconds > InteractCooldown))
             {
                 StartCoroutine(LoadFromCheckpoint());
             }
+
+            //cheatz
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.Insert))
+            {
+                MaxSpeed = init_max_speed * 10;
+            }
+            else MaxSpeed = init_max_speed;
         }
     }
 
     //Check for player input for physics stuff every fixed update
     void FixedUpdate()
     {
+        //this is a bad and lazy fix
+        //and I should feel bad for writing it
+        Body.AddForce(Physics.gravity * 0.5f);
+
         if (UIManager.isInputEnabled)
         {
             //whitelist of states we can move in
@@ -305,7 +343,7 @@ public class PlayerController : MonoBehaviour
 
                         //Move the player in the direction of the control stick relative to the camera
                         //TODO: Evaluate whether player should be moved via forces, or just have its velocity modified directly.
-                        Body.AddForce(moveDirection * inputForce * WalkForce /* * Time.deltaTime*/);
+                        Body.AddForce(moveDirection * inputForce * WalkForce/* * Time.deltaTime*/);
 
                         if (audio.isPlaying == false)
                         {
@@ -330,7 +368,7 @@ public class PlayerController : MonoBehaviour
                             else sign = -1;
                         }
 
-                        if (Mathf.Abs(angFrom.y - angTo.y) < rotationSpeed * inputForce.magnitude)
+                        if (Mathf.Abs(angFrom.y - angTo.y) < rotationSpeed/* * inputForce.magnitude*/)
                         {
                             Body.MoveRotation(Quaternion.Euler(new Vector3(angTo.x, angTo.y, angTo.z)));
                         }
@@ -341,16 +379,48 @@ public class PlayerController : MonoBehaviour
                 {
                     State = PlayerState.IDLE;
                     PlayerAnimator.SetBool("IsWalking", false);
+
+                    //gradually move towards zero velocity
+                    float threshhold = SlowdownIncrement * 2;
+                    Vector3 NewV = Vector3.zero;
+                    if(Mathf.Abs(Body.velocity.x) > threshhold)
+                    {
+                        NewV.x = Body.velocity.x - Mathf.Sign(Body.velocity.x) * SlowdownIncrement;
+                    }
+                    else
+                    {
+                        NewV.x = 0;
+                    }
+                    NewV.y = Body.velocity.y;
+                    if (Mathf.Abs(Body.velocity.z) > threshhold)
+                    {
+                        NewV.z = Body.velocity.z - Mathf.Sign(Body.velocity.z) * SlowdownIncrement;
+                    }
+                    else
+                    {
+                        NewV.z = 0;
+                    }
+                    Body.velocity = NewV;
                 }
 
                 //max speed: the lazy way
                 //note that this does not apply in non-movement states (e.g. you can go flying if hurt, or go faster if dashing)
                 if (State == PlayerState.IDLE || State == PlayerState.WALKING)
                 {
-                    if (Body.velocity.x > MaxSpeed) Body.velocity = new Vector3(MaxSpeed, Body.velocity.y, Body.velocity.z);
-                    if (Body.velocity.z > MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, MaxSpeed);
-                    if (Body.velocity.x < -MaxSpeed) Body.velocity = new Vector3(-MaxSpeed, Body.velocity.y, Body.velocity.z);
-                    if (Body.velocity.z < -MaxSpeed) Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y, -MaxSpeed);
+                    Vector2 NonGraV = new Vector2(Body.velocity.x, Body.velocity.z);
+                    if(NonGraV.magnitude > MaxSpeed)
+                    {
+                        if (NonGraV.magnitude < MaxSpeed*2.5)
+                        {
+                            NonGraV = NonGraV.normalized * MaxSpeed;
+                            Body.velocity = new Vector3(NonGraV.x, Body.velocity.y, NonGraV.y);
+                        }
+                        else
+                        {
+                            NonGraV = NonGraV.normalized * (NonGraV.magnitude - 2);
+                            Body.velocity = new Vector3(NonGraV.x, Body.velocity.y, NonGraV.y);
+                        }
+                    }
                 }
             }
         }
@@ -496,7 +566,7 @@ public class PlayerController : MonoBehaviour
 
     //Snap to nearest enemy and attack
     //Both turn towards it and move towards it, depending on tweakables.
-    public IEnumerator TargetNearestEnemy()
+    public IEnumerator TargetNearestEnemy(bool isHeavyAttack)
     {
         //find closest enemy within range
         GameObject closestEnemy = null;
@@ -518,7 +588,10 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (closestEnemy != null && closestEnemyDistance <= Target_Range)
+        float range = Target_Range;
+        if (isHeavyAttack) range = Target_Heavy_Range;
+
+        if (closestEnemy != null && closestEnemyDistance <= range)
         {
             bool break1 = false;
             bool break2 = false;
@@ -526,6 +599,7 @@ public class PlayerController : MonoBehaviour
             //FOR some loop of fixed size
             for (int i = 0; i < NumFramesTarget; i++)
             {
+                if(closestEnemy == null) yield break;
                 Vector3 MoveDirection = closestEnemy.transform.position - transform.position;
 
                 //Find amount and direction player should rotate to/in
@@ -594,7 +668,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator BounceBack(Vector3 knockback)
     {
 
-        if (State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
+        if (State == PlayerState.IDLE || State == PlayerState.LIGHT_ATTACKING || State == PlayerState.HEAVY_ATTACKING)
         {
             audio.Stop();
             audio.clip = clangsound;
@@ -604,7 +678,11 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(knockback);
 
             yield return new WaitForSeconds(.5f);
-            if (State == PlayerState.BOUNCE_BACK) State = PlayerState.IDLE;
+            if (State == PlayerState.BOUNCE_BACK)
+            {
+                State = PlayerState.IDLE;
+                PlayerAnimator.ResetTrigger("Bounce");
+            }
         }
         yield return null;
     }
@@ -671,6 +749,9 @@ public class PlayerController : MonoBehaviour
         //un-parent camera
         ReferenceFrame.transform.SetParent(null);
 
+        //clear interact text
+        img.gameObject.SetActive(false);
+
         //you can restart after a few seconds
         lastInteract.Restart();
     }
@@ -711,19 +792,26 @@ public class PlayerController : MonoBehaviour
         bool isSecondSwing = false;
         if (e.stringParameter == "LightSwing2") isSecondSwing = true;
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeLightAttack(ttl, isSecondSwing);
-        yield return new WaitForSeconds(ttl);
-        if (State == PlayerState.LIGHT_ATTACKING) State = PlayerState.IDLE;
         if (isSecondSwing == true)
         {
+            print("SECOND SWING");
             audio.Stop();
             audio.clip = secondswing;
             audio.Play();
         }
+        yield return new WaitForSeconds(ttl);
+        if (State == PlayerState.LIGHT_ATTACKING) State = PlayerState.IDLE;
+        //if (isSecondSwing == true)
+        //{
+        //    print("SECOND SWING");
+        //    audio.Stop();
+        //    audio.clip = secondswing;
+        //    audio.Play();
+        //}
     }
 
     public IEnumerator MakeHeavyAttack(float ttl)
     {
-        StartCoroutine(TargetNearestEnemy());
         GetComponent<Equipment>().CurrentWeapon.GetComponent<Weapon>().MakeHeavyAttack(ttl);
         Body.AddRelativeForce(Vector3.forward * HeavyAttackForce);
         yield return new WaitForSeconds(ttl);
@@ -756,5 +844,37 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    //debug purposes only
+    /**
+    void OnGUI()
+    {
+        int w = Screen.width, h = Screen.height;
+
+        GUIStyle style = new GUIStyle();
+
+        Rect rect = new Rect(0, 0, w, h * 2 / 100);
+        style.alignment = TextAnchor.UpperRight;
+        style.fontSize = h * 4 / 100;
+        style.normal.textColor = new Color(1f, 1f, 1f, 1f);
+        float msec = Time.unscaledDeltaTime * 1000.0f;
+        float fps = 1.0f / Time.unscaledDeltaTime;
+        string text = "";
+        text = string.Concat(text,"\n",string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps));
+        Vector3 cam = camRot.eulerAngles;
+        text = string.Concat(text,"\n",string.Format("Camera Rotation: {0:0.0}, {1:0.0}, {2:0.0}", cam.x, cam.y, cam.z));
+        text = string.Concat(text, "\n", string.Format("Movement input: {0:0.00}, {1:0.00}", Input.GetAxis(MoveHoriz), Input.GetAxis(MoveVert)));
+        Vector3 inputForce = new Vector3(Input.GetAxis(MoveHoriz), 0, Input.GetAxis(MoveVert));
+        Quaternion moveDirection = Quaternion.Euler(0, camRot.eulerAngles.y, 0);
+        inputForce =  moveDirection * inputForce;
+        Vector3 camDir = moveDirection * Vector3.forward;
+        text = string.Concat(text, "\n", string.Format("Camera Direction: {0:0.000}, {1:0.000}, {2:0.000}", camDir.x, camDir.y, camDir.z));
+        text = string.Concat(text, "\n", string.Format("Move Direction: {0:0.000}, {1:0.000}, {2:0.000}", inputForce.x, inputForce.y, inputForce.z));
+        Vector3 v = Body.velocity;
+        text = string.Concat(text, "\n", string.Format("Player Velocity: {0:0.000}, {1:0.000}, {2:0.000}", v.x, v.y, v.z));
+        text = string.Concat(text, "\n", string.Format("\nPlayer State: {0}", State.ToString()));
+        GUI.Label(rect, text, style);
+    }
+    **/
 }
 

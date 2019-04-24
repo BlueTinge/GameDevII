@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class Lever : Activatable
+public class Lever : Activatable, IInteractable
 {
     [Tooltip("Set grates, wires, other levers, etc. that are activated by this lever here:")]
     public Activatable[] Connected;
@@ -18,7 +18,8 @@ public class Lever : Activatable
     private bool isChanging = false;
 
     public AudioSource audio;
-    public AudioClip clunk;
+    public AudioClip clunkdown;
+    public AudioClip clunkup;
 
     void Awake()
     {
@@ -48,7 +49,7 @@ public class Lever : Activatable
 
     public override void Activate()
     {
-        audio.clip = clunk;
+        audio.clip = clunkdown;
         audio.Play();
 
         //invariant: lowered is active
@@ -64,12 +65,18 @@ public class Lever : Activatable
         }
 
         isChanging = false;
+
+        if (!CanDeactivate) GetComponent<DisplaysInteractText>()?.ClearText();
     }
 
     public override void Deactivate()
     {
         if (CanDeactivate)
         {
+
+            audio.clip = clunkup;
+            audio.Play();
+
             //invariant: raised is inactive
             Animator.SetBool("Raised", true);
 
@@ -84,5 +91,15 @@ public class Lever : Activatable
 
             isChanging = false;
         }
+    }
+
+    string IInteractable.GetInteractText()
+    {
+        return "Press E(Keyboard)/ X(Controller) to move lever";
+    }
+
+    bool IInteractable.CanInteract()
+    {
+        return (!GetIsActivated() || CanDeactivate) ;
     }
 }

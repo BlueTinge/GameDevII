@@ -140,7 +140,8 @@ GameObject:
   - component: {fileID: 2402216583460982676}
   - component: {fileID: 7220177056699628595}
   - component: {fileID: 8817931633227953385}
-  m_Layer: 9
+  - component: {fileID: 5153533884290939459}
+  m_Layer: 10
   m_Name: Start Sword
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -177,7 +178,8 @@ MonoBehaviour:
   audio: {fileID: 8817931633227953385}
   swing: {fileID: 0}
   BaseDamage: 5
-  BaseKnockback: 400
+  BaseKnockback: 200
+  WeaponName: your old sword (5 ATK)
   IsPhysical: 0
 --- !u!54 &7220177056699628595
 Rigidbody:
@@ -194,7 +196,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!82 &8817931633227953385
 AudioSource:
   m_ObjectHideFlags: 0
@@ -292,6 +294,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5153533884290939459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48751658028696348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ba70b56160b434ab4eb5ab61f43d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2307965772412354569
 GameObject:
   m_ObjectHideFlags: 0
@@ -4185,7 +4199,7 @@ GameObject:
   - component: {fileID: 3707587458340098284}
   - component: {fileID: 6280949925969908598}
   - component: {fileID: 3487445071226197154}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Character Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4318,7 +4332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7176674446937536229}
   - component: {fileID: 7176674446937536218}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: ItemZone
   m_TagString: ItemZone
   m_Icon: {fileID: 0}
@@ -4417,24 +4431,27 @@ MonoBehaviour:
   PlayerCollider: {fileID: 771962008}
   WalkForce: 100
   MaxSpeed: 3
-  rotationSpeed: 8
+  rotationSpeed: 16
   camRotationSpeed: 100
   DashSpeed: 60
+  SlowdownIncrement: 0.2
   DashTime: 0.05
   DashRecoveryTime: 0.1
-  DashCooldown: 500
+  DashCooldown: 1000
   LightCooldown: 200
   HeavyCooldown: 1000
-  HeavyAttackForce: 500
+  HeavyAttackForce: 700
   InteractCooldown: 500
   Target_Range: 3.5
+  Target_Heavy_Range: 5
   Target_Angular_Range: 270
   NumFramesTarget: 10
-  TargetRotationSpeed: 8
+  TargetRotationSpeed: 16
   Target_Min_Range: 2
   Target_Move_Increment: 0.035
   FlickerSpeed: 10
   FlickerAlpha: 0.3
+  CamDriftEnabled: 0
   CamSnapIncrement: 0.4
   CamDriftRange: 25
   CamCooldown: 200
