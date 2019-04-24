@@ -63,7 +63,7 @@ MonoBehaviour:
   audio: {fileID: 0}
   swing: {fileID: 0}
   BaseDamage: 8
-  BaseKnockback: 100
+  BaseKnockback: 400
   WeaponName: Knight's Blade (8 ATK)
   IsPhysical: 0
 --- !u!54 &2589489412956487513
