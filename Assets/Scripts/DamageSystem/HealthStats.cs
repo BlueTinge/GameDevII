@@ -67,6 +67,13 @@ public class HealthStats : MonoBehaviour
         {
             float damage = attack.GetDamageFor(gameObject);
 
+            if (attack.SecondLightSwing)
+            {
+                //2nd attack can pierce def
+                attack.SecondLightSwing = false;
+                isImmune = false;
+            }
+
             if (TakeDamage(damage) > 0)
             {
                 //immunity period

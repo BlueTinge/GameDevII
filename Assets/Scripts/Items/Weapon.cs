@@ -112,7 +112,7 @@ public class Weapon : MonoBehaviour, IInteractable
     {
         //TODO: use rotation instead of velocity somehow
         gameObject.AddComponent<Attack>().Initialize(BaseDamage, (Holder.GetComponent<Rigidbody>().rotation * Vector3.forward) * BaseKnockback, ttl, Holder);
-
+        if (isSecondSwing) gameObject.GetComponent<Attack>().SecondLightSwing = true;
         if (!isSecondSwing) audio.Play();
         //else audio.Play();
 

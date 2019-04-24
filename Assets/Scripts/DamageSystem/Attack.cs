@@ -11,6 +11,8 @@ public class Attack : MonoBehaviour
     public Vector3 Knockback { get; private set; }
     public GameObject Origin { get; private set; }
 
+    public bool SecondLightSwing = false;
+
     //delegates used to provide more customizability on a per-enemy-type basis
     //e.g. holy sword more effective vs. undead, or something
 
