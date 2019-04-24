@@ -400,14 +400,14 @@ public class PlayerController : MonoBehaviour
                     Vector2 NonGraV = new Vector2(Body.velocity.x, Body.velocity.z);
                     if(NonGraV.magnitude > MaxSpeed)
                     {
-                        if (NonGraV.magnitude < MaxSpeed*2)
+                        if (NonGraV.magnitude < MaxSpeed*2.5)
                         {
                             NonGraV = NonGraV.normalized * MaxSpeed;
                             Body.velocity = new Vector3(NonGraV.x, Body.velocity.y, NonGraV.y);
                         }
                         else
                         {
-                            NonGraV = NonGraV.normalized * (NonGraV.magnitude - 1);
+                            NonGraV = NonGraV.normalized * (NonGraV.magnitude - 2);
                             Body.velocity = new Vector3(NonGraV.x, Body.velocity.y, NonGraV.y);
                         }
                     }

@@ -181,6 +181,11 @@ public class BossEnemy : MonoBehaviour, IEnemy
         isFlickering = false;
         animator = GetComponentInChildren<Animator>();
         List<Material> mats = new List<Material>();
+        foreach(SkinnedMeshRenderer s in GetComponentsInChildren<SkinnedMeshRenderer>())
+        {
+            mats.AddRange(s.materials);
+        }
+
         foreach(MeshRenderer mr in GetComponentsInChildren<MeshRenderer>())
         {
             mats.AddRange(mr.materials);
