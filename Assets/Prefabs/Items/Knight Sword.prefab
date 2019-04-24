@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 2589489412956487516}
   - component: {fileID: 6313986532888956611}
   m_Layer: 10
-  m_Name: Other Sword
+  m_Name: Knight Sword
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   swing: {fileID: 0}
   BaseDamage: 8
   BaseKnockback: 100
-  WeaponName: Knight's Blade (+3 ATK)
+  WeaponName: Knight's Blade (8 ATK)
   IsPhysical: 0
 --- !u!54 &2589489412956487513
 Rigidbody:
@@ -197,6 +197,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2589489412956487519}
     m_Modifications:
+    - target: {fileID: 100000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
+      propertyPath: m_Name
+      value: Character Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -252,14 +260,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
       propertyPath: m_LocalScale.z
       value: 4.2343
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
-      propertyPath: m_Name
-      value: Character Sword
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
       propertyPath: m_Materials.Array.data[0]

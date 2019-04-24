@@ -62,7 +62,6 @@ public class DeathParticles : MonoBehaviour
                 else
                 {
                     particles[i].remainingLifetime = 0;
-                    print("kill "+particles[i].ToString());
                 }
 
                 if(particles[i].remainingLifetime > 0)
@@ -78,7 +77,6 @@ public class DeathParticles : MonoBehaviour
 
         }
 
-        print("dunn");
 
         yield return new WaitForSeconds(3);
 
