@@ -82,6 +82,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     [SerializeField] private AudioSource audio;
     [SerializeField] private GameObject musicplayer;
     [SerializeField] private GameObject gate;
+    [SerializeField] private GameObject particles;
     [SerializeField] private AudioClip step1;
     [SerializeField] private AudioClip step2;
     [SerializeField] private AudioClip step3;
@@ -535,6 +536,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
         audio.Stop();
         audio.clip = dies;
         audio.Play();
+        particles.SetActive(false);
         musicplayer.GetComponent<bossthemescript>().fadeoutvoid();
         gate.GetComponent<Gate>().Activate();
         isFlickering = false;

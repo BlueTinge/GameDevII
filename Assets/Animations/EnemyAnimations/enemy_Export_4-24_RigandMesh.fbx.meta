@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 63ce2effa4d42c54a949ba711a03d5a9
+guid: 9e67ab07221a9734ab3a9b529e1b8cda
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -29,7 +29,6 @@ ModelImporter:
     100046: Reference_EnemyOnly1:thumb2
     100048: Reference_EnemyOnly1:thumb3
     100050: Reference_EnemyOnly1:wrist
-    100052: squash2Handle
     400000: //RootNode
     400002: Reference_EnemyOnly1:AbominationCntrl
     400004: Reference_EnemyOnly1:AbominationSkeleton
@@ -56,7 +55,6 @@ ModelImporter:
     400046: Reference_EnemyOnly1:thumb2
     400048: Reference_EnemyOnly1:thumb3
     400050: Reference_EnemyOnly1:wrist
-    400052: squash2Handle
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -89,7 +87,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 20
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1

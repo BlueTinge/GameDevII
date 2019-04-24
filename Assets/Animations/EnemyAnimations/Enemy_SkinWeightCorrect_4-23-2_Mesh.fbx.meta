@@ -1,62 +1,60 @@
 fileFormatVersion: 2
-guid: 63ce2effa4d42c54a949ba711a03d5a9
+guid: ed34492a2c4170143b2a381ec5efea8e
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Reference_EnemyOnly1:AbominationCntrl
-    100004: Reference_EnemyOnly1:AbominationSkeleton
-    100006: Reference_EnemyOnly1:arm1
-    100008: Reference_EnemyOnly1:arm2
-    100010: Reference_EnemyOnly1:arm2_1
-    100012: Reference_EnemyOnly1:arm2_2
-    100014: Reference_EnemyOnly1:arm3
-    100016: Reference_EnemyOnly1:index1
-    100018: Reference_EnemyOnly1:index2
-    100020: Reference_EnemyOnly1:index3
-    100022: Reference_EnemyOnly1:middle1
-    100024: Reference_EnemyOnly1:middle2
-    100026: Reference_EnemyOnly1:middle3
-    100028: Reference_EnemyOnly1:pinky1
-    100030: Reference_EnemyOnly1:pinky2
-    100032: Reference_EnemyOnly1:pinky3
-    100034: Reference_EnemyOnly1:ring1
-    100036: Reference_EnemyOnly1:ring2
-    100038: Reference_EnemyOnly1:ring3
-    100040: Reference_EnemyOnly1:root
-    100042: Reference_EnemyOnly1:Tail
-    100044: Reference_EnemyOnly1:thumb1
-    100046: Reference_EnemyOnly1:thumb2
-    100048: Reference_EnemyOnly1:thumb3
-    100050: Reference_EnemyOnly1:wrist
-    100052: squash2Handle
+    100002: Reference_EnemyOnly1:AbominationSkeleton
+    100004: Reference_EnemyOnly1:arm1
+    100006: Reference_EnemyOnly1:arm2
+    100008: Reference_EnemyOnly1:arm2_1
+    100010: Reference_EnemyOnly1:arm2_2
+    100012: Reference_EnemyOnly1:arm3
+    100014: Reference_EnemyOnly1:index1
+    100016: Reference_EnemyOnly1:index2
+    100018: Reference_EnemyOnly1:index3
+    100020: Reference_EnemyOnly1:middle1
+    100022: Reference_EnemyOnly1:middle2
+    100024: Reference_EnemyOnly1:middle3
+    100026: Reference_EnemyOnly1:pinky1
+    100028: Reference_EnemyOnly1:pinky2
+    100030: Reference_EnemyOnly1:pinky3
+    100032: Reference_EnemyOnly1:ring1
+    100034: Reference_EnemyOnly1:ring2
+    100036: Reference_EnemyOnly1:ring3
+    100038: Reference_EnemyOnly1:root
+    100040: Reference_EnemyOnly1:Tail
+    100042: Reference_EnemyOnly1:thumb1
+    100044: Reference_EnemyOnly1:thumb2
+    100046: Reference_EnemyOnly1:thumb3
+    100048: Reference_EnemyOnly1:wrist
+    100050: squash2Handle
     400000: //RootNode
-    400002: Reference_EnemyOnly1:AbominationCntrl
-    400004: Reference_EnemyOnly1:AbominationSkeleton
-    400006: Reference_EnemyOnly1:arm1
-    400008: Reference_EnemyOnly1:arm2
-    400010: Reference_EnemyOnly1:arm2_1
-    400012: Reference_EnemyOnly1:arm2_2
-    400014: Reference_EnemyOnly1:arm3
-    400016: Reference_EnemyOnly1:index1
-    400018: Reference_EnemyOnly1:index2
-    400020: Reference_EnemyOnly1:index3
-    400022: Reference_EnemyOnly1:middle1
-    400024: Reference_EnemyOnly1:middle2
-    400026: Reference_EnemyOnly1:middle3
-    400028: Reference_EnemyOnly1:pinky1
-    400030: Reference_EnemyOnly1:pinky2
-    400032: Reference_EnemyOnly1:pinky3
-    400034: Reference_EnemyOnly1:ring1
-    400036: Reference_EnemyOnly1:ring2
-    400038: Reference_EnemyOnly1:ring3
-    400040: Reference_EnemyOnly1:root
-    400042: Reference_EnemyOnly1:Tail
-    400044: Reference_EnemyOnly1:thumb1
-    400046: Reference_EnemyOnly1:thumb2
-    400048: Reference_EnemyOnly1:thumb3
-    400050: Reference_EnemyOnly1:wrist
-    400052: squash2Handle
+    400002: Reference_EnemyOnly1:AbominationSkeleton
+    400004: Reference_EnemyOnly1:arm1
+    400006: Reference_EnemyOnly1:arm2
+    400008: Reference_EnemyOnly1:arm2_1
+    400010: Reference_EnemyOnly1:arm2_2
+    400012: Reference_EnemyOnly1:arm3
+    400014: Reference_EnemyOnly1:index1
+    400016: Reference_EnemyOnly1:index2
+    400018: Reference_EnemyOnly1:index3
+    400020: Reference_EnemyOnly1:middle1
+    400022: Reference_EnemyOnly1:middle2
+    400024: Reference_EnemyOnly1:middle3
+    400026: Reference_EnemyOnly1:pinky1
+    400028: Reference_EnemyOnly1:pinky2
+    400030: Reference_EnemyOnly1:pinky3
+    400032: Reference_EnemyOnly1:ring1
+    400034: Reference_EnemyOnly1:ring2
+    400036: Reference_EnemyOnly1:ring3
+    400038: Reference_EnemyOnly1:root
+    400040: Reference_EnemyOnly1:Tail
+    400042: Reference_EnemyOnly1:thumb1
+    400044: Reference_EnemyOnly1:thumb2
+    400046: Reference_EnemyOnly1:thumb3
+    400048: Reference_EnemyOnly1:wrist
+    400050: squash2Handle
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -89,7 +87,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 20
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
