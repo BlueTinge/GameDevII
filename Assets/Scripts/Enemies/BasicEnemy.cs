@@ -29,6 +29,8 @@ public class BasicEnemy : MonoBehaviour, IEnemy
     [SerializeField] private float KnockbackFactor;
     [SerializeField] private AnimationCurve deathFade;
     [SerializeField] private GameObject hurtBox;
+    [SerializeField] private float dropChance;
+    [SerializeField] private GameObject randomDrop;
     
     private Transform target;
     private Rigidbody targetRb;
@@ -279,6 +281,10 @@ public class BasicEnemy : MonoBehaviour, IEnemy
             StandardShaderUtils.ChangeRenderMode(m, StandardShaderUtils.BlendMode.Fade);
         }
         Instantiate(DeathParticlePrefab,transform.position, Quaternion.identity);
+        if(randomDrop != null && Random.value <= dropChance)
+        {
+           Instantiate(randomDrop, transform.position, Quaternion.identity); 
+        }
     }
 
     private Vector3 CalcAccel()

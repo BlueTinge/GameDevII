@@ -180,8 +180,12 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PauseMenu.gameObject.SetActive(false);
+        MenuState -= 1;
+        isInputEnabled = true;
         Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 
     public void MainMenu()
