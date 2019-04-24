@@ -3453,7 +3453,7 @@ MonoBehaviour:
   heavyAttackDistance: 8
   heavyCooldown: 0.5
   lightDamage: 3
-  heavyDamage: 15
+  heavyDamage: 12
   chargeArmor: 4
   maxAccel: 14
   maxSpeed: 7
