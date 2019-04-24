@@ -54,9 +54,8 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         myEventSystem = GameObject.Find("EventSystem");
-        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().firstSelectedGameObject = ContinueButton;
-        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(ContinueButton);
-        // UnityEngine.Debug.Log(myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().firstSelectedGameObject);
+        //myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().firstSelectedGameObject = ContinueButton;
+        //myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(ContinueButton);
         NumPotions = Player.GetComponent<PlayerController>().NumPotions;
     }
 
@@ -70,6 +69,7 @@ public class UIManager : MonoBehaviour
             {
                 PauseMenu.gameObject.SetActive(true);
                 //Player.GetComponent<PlayerController>().img.text = "";
+                myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
                 myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(ContinueButton);
                 Time.timeScale = 0f;
                 MenuState += 1;
@@ -88,6 +88,7 @@ public class UIManager : MonoBehaviour
             {
                 JournalMenu.gameObject.SetActive(false);
                 PauseMenu.gameObject.SetActive(true);
+                myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
                 myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(ContinueButton);
                 MenuState -= 1;
             }
@@ -95,13 +96,14 @@ public class UIManager : MonoBehaviour
             else if (PauseMenu.gameObject.activeInHierarchy == false & MenuState == 3)
             {
                 Player.GetComponent<PlayerController>().img.gameObject.SetActive(false);
+                JournalMenu.gameObject.SetActive(false);
+                JournalMenu.gameObject.SetActive(true);
+                myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
                 myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(GetLastButton(JournalNum));
                 JournalBackground.gameObject.SetActive(false);
                 if (IsJournalCollected[0] == true)
                 {
-                    myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(Journal1Button);
                     Journal1Button.gameObject.SetActive(true);
-
                 }
                 if (IsJournalCollected[1] == true)
                 {
@@ -192,9 +194,11 @@ public class UIManager : MonoBehaviour
         PauseMenu.gameObject.SetActive(false);
         JournalMenu.gameObject.SetActive(true);
         MenuState += 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(BackButton);
         if (IsJournalCollected[0] == true)
         {
+            myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
             myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(Journal1Button);
             Journal1Button.gameObject.SetActive(true);
 
@@ -254,8 +258,9 @@ public class UIManager : MonoBehaviour
         Journal9Button.gameObject.SetActive(false);
         Journal10Button.gameObject.SetActive(false);
         JournalBackButton.gameObject.SetActive(true);
-        JournalNum = 0;
+        JournalNum = 1;
         MenuState += 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(JournalBackButton);
     }
 
@@ -275,8 +280,9 @@ public class UIManager : MonoBehaviour
         Journal9Button.gameObject.SetActive(false);
         Journal10Button.gameObject.SetActive(false);
         JournalBackButton.gameObject.SetActive(true);
-        JournalNum = 1;
+        JournalNum = 2;
         MenuState += 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(JournalBackButton);
     }
 
@@ -296,8 +302,9 @@ public class UIManager : MonoBehaviour
         Journal9Button.gameObject.SetActive(false);
         Journal10Button.gameObject.SetActive(false);
         JournalBackButton.gameObject.SetActive(true);
-        JournalNum = 2;
+        JournalNum = 3;
         MenuState += 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(JournalBackButton);
     }
 
@@ -317,8 +324,9 @@ public class UIManager : MonoBehaviour
         Journal9Button.gameObject.SetActive(false);
         Journal10Button.gameObject.SetActive(false);
         JournalBackButton.gameObject.SetActive(true);
-        JournalNum = 3;
+        JournalNum = 4;
         MenuState += 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(JournalBackButton);
     }
 
@@ -338,8 +346,9 @@ public class UIManager : MonoBehaviour
         Journal9Button.gameObject.SetActive(false);
         Journal10Button.gameObject.SetActive(false);
         JournalBackButton.gameObject.SetActive(true);
-        JournalNum = 4;
+        JournalNum = 5;
         MenuState += 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(JournalBackButton);
     }
 
@@ -359,8 +368,9 @@ public class UIManager : MonoBehaviour
         Journal9Button.gameObject.SetActive(false);
         Journal10Button.gameObject.SetActive(false);
         JournalBackButton.gameObject.SetActive(true);
-        JournalNum = 5;
+        JournalNum = 6;
         MenuState += 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(JournalBackButton);
     }
     public void Journal7Menu()
@@ -379,8 +389,9 @@ public class UIManager : MonoBehaviour
         Journal9Button.gameObject.SetActive(false);
         Journal10Button.gameObject.SetActive(false);
         JournalBackButton.gameObject.SetActive(true);
-        JournalNum = 6;
+        JournalNum = 7;
         MenuState += 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(JournalBackButton);
     }
     public void Journal8Menu()
@@ -399,8 +410,9 @@ public class UIManager : MonoBehaviour
         Journal9Button.gameObject.SetActive(false);
         Journal10Button.gameObject.SetActive(false);
         JournalBackButton.gameObject.SetActive(true);
-        JournalNum = 7;
+        JournalNum = 8;
         MenuState += 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(JournalBackButton);
     }
     public void Journal9Menu()
@@ -419,8 +431,9 @@ public class UIManager : MonoBehaviour
         Journal9Button.gameObject.SetActive(false);
         Journal10Button.gameObject.SetActive(false);
         JournalBackButton.gameObject.SetActive(true);
-        JournalNum = 8;
+        JournalNum = 9;
         MenuState += 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(JournalBackButton);
     }
     public void Journal10Menu()
@@ -439,8 +452,9 @@ public class UIManager : MonoBehaviour
         Journal9Button.gameObject.SetActive(false);
         Journal10Button.gameObject.SetActive(false);
         JournalBackButton.gameObject.SetActive(true);
-        JournalNum = 9;
+        JournalNum = 10;
         MenuState += 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(JournalBackButton);
     }
     public void Back()
@@ -448,6 +462,7 @@ public class UIManager : MonoBehaviour
         JournalMenu.gameObject.SetActive(false);
         PauseMenu.gameObject.SetActive(true);
         MenuState -= 1;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(ContinueButton);
     }
 
@@ -455,11 +470,13 @@ public class UIManager : MonoBehaviour
     {
         if (Player.GetComponent<PlayerController>().img == true)
         {
+            myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
             myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(GetLastButton(JournalNum));
             Player.GetComponent<PlayerController>().img.gameObject.SetActive(false);
             JournalBackground.gameObject.SetActive(false);
             if (IsJournalCollected[0] == true)
             {
+                myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
                 myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(Journal1Button);
                 Journal1Button.gameObject.SetActive(true);
 
@@ -557,25 +574,25 @@ public class UIManager : MonoBehaviour
     {
         switch (JournalNum)
         {
-            case 0:
-                return Journal1Button;
             case 1:
-                return Journal2Button;
+                return Journal1Button;
             case 2:
-                return Journal3Button;
+                return Journal2Button;
             case 3:
-                return Journal4Button;
+                return Journal3Button;
             case 4:
-                return Journal5Button;
+                return Journal4Button;
             case 5:
-                return Journal6Button;
+                return Journal5Button;
             case 6:
-                return Journal7Button;
+                return Journal6Button;
             case 7:
-                return Journal8Button;
+                return Journal7Button;
             case 8:
-                return Journal9Button;
+                return Journal8Button;
             case 9:
+                return Journal9Button;
+            case 10:
                 return Journal10Button;
             default:
                 return BackButton;

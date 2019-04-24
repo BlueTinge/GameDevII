@@ -38,7 +38,7 @@ public class JournalPage : MonoBehaviour, IInteractable
     public void CollectThis(PlayerController pl)
     {
         UIManager.IsJournalCollected[JournalNum] = true;
-        GameManager.GetComponent<UIManager>().JournalNum = JournalNum;
+        GameManager.GetComponent<UIManager>().JournalNum = JournalNum +1;
 
         canCollect = false;
 
