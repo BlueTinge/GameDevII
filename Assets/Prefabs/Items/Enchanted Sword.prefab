@@ -119,8 +119,8 @@ MonoBehaviour:
   audio: {fileID: 0}
   swing: {fileID: 0}
   BaseDamage: 7
-  BaseKnockback: 8000
-  WeaponName: the Enchanted Sword (7 ATK, x4 KNBCK)
+  BaseKnockback: 600
+  WeaponName: the Enchanted Sword (7 ATK, x2 KNBCK)
   IsPhysical: 0
 --- !u!54 &342653121808429953
 Rigidbody:
