@@ -46,6 +46,7 @@ public class Vat : MonoBehaviour
         if (Manager.GetCheckpoint(SceneManager.GetActiveScene().name))
         {
             VatHealth.CurrentHealth = -1;
+            Destroy(gameObject);
         }
 
         hasShaken = false;

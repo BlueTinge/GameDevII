@@ -14,6 +14,7 @@ public class Manager : MonoBehaviour
     public static readonly int INITIAL_POTION_NUM = 3;
 
     private static Dictionary<string, bool> Checkpoints = null;
+    private static HashSet<Vector3>[] DeadEnemies = null;
     private static int NumPotions;
     private static float PlayerHealth;
     private static bool IsInitialized = false;
@@ -31,6 +32,11 @@ public class Manager : MonoBehaviour
      public static void Reset()
      {
         Checkpoints = new Dictionary<string, bool>();
+        DeadEnemies = new HashSet<Vector3>[LEVEL_ORDER.Length];
+        for(int i = 0; i < LEVEL_ORDER.Length; i++)
+        {
+            DeadEnemies[i] = new HashSet<Vector3>();
+        }
         NumPotions = INITIAL_POTION_NUM;
         PlayerHealth = 0;
         IsInitialized = true;
@@ -80,6 +86,17 @@ public class Manager : MonoBehaviour
             {
                 if(SceneName.Equals(LEVEL_ORDER[0])) Destroy(Weapon);
                 Time.timeScale = 1f;
+                if (!GetCheckpoint(SceneName))
+                {
+                    for (int i = 0; i < LEVEL_ORDER.Length; i++)
+                    {
+                        if (LEVEL_ORDER[i].Equals(SceneName))
+                        {
+                            DeadEnemies[i].Clear();
+                            break;
+                        }
+                    }
+                }
                 SceneManager.LoadScene(SceneName);
                 break;
             }
@@ -133,5 +150,39 @@ public class Manager : MonoBehaviour
             Reset();
         }
         return Weapon;
+    }
+
+    public static void RecordDeath(Vector3 position)
+    {
+        if (!IsInitialized)
+        {
+            Reset();
+        }
+
+        for (int i = 0; i < LEVEL_ORDER.Length; i++)
+        {
+            if (LEVEL_ORDER[i].Equals(SceneManager.GetActiveScene().name))
+            {
+                DeadEnemies[i].Add(position);
+                break;
+            }
+        }
+    }
+
+    public static bool IsEnemyDead(Vector3 position)
+    {
+        for (int i = 0; i < LEVEL_ORDER.Length; i++)
+        {
+            if (LEVEL_ORDER[i].Equals(SceneManager.GetActiveScene().name))
+            {
+                if (GetCheckpoint(LEVEL_ORDER[i]))
+                {
+                    return DeadEnemies[i].Contains(position);
+                }
+                else return false;
+            }
+        }
+
+        return false;
     }
 }
