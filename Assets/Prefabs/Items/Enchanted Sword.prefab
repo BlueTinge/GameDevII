@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2220001504389392805}
   - component: {fileID: 6466000795190169603}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,12 +24,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26613542763511509}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.017, y: 1.157, z: -0.008}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.09, y: 0.004014709, z: -0.0018893643}
+  m_LocalScale: {x: 0.2361667, y: 0.23616664, z: 0.2361666}
   m_Children: []
-  m_Father: {fileID: 342653121808429967}
-  m_RootOrder: 1
+  m_Father: {fileID: 5273933451068897908}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &6466000795190169603
 Light:
@@ -42,7 +42,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0, g: 0.9510727, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_Range: 4
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 342653121808429953}
   - component: {fileID: 342653121808429966}
   - component: {fileID: 5498293900368119901}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enchanted Sword
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -101,7 +101,6 @@ Transform:
   m_LocalScale: {x: 0.6, y: 1.5, z: 0.5}
   m_Children:
   - {fileID: 5273933451068897908}
-  - {fileID: 2220001504389392805}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 74.894005, y: -36.332, z: -130.703}
@@ -119,9 +118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 0}
   swing: {fileID: 0}
-  BaseDamage: 5
+  BaseDamage: 7
   BaseKnockback: 300
-  WeaponName: the Enchanted Sword (x3 KNOCKBACK)
+  WeaponName: the Enchanted Sword (7 ATK, x3 KNBCK)
   IsPhysical: 0
 --- !u!54 &342653121808429953
 Rigidbody:
@@ -267,6 +266,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 342653121808429967}
     m_Modifications:
+    - target: {fileID: 100000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
+      propertyPath: m_Name
+      value: Character Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -322,10 +329,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
       propertyPath: m_LocalScale.z
       value: 4.2343
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
-      propertyPath: m_Name
-      value: Character Sword
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: dd413981c0b940b41b759c187d9c1041, type: 3}
       propertyPath: m_Materials.Array.data[0]

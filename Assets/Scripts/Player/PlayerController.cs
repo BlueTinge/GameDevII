@@ -330,7 +330,7 @@ public class PlayerController : MonoBehaviour
 
                         //Move the player in the direction of the control stick relative to the camera
                         //TODO: Evaluate whether player should be moved via forces, or just have its velocity modified directly.
-                        Body.AddForce(moveDirection * inputForce * WalkForce /* * Time.deltaTime*/);
+                        Body.AddForce(moveDirection * inputForce * WalkForce/* * Time.deltaTime*/);
 
                         if (audio.isPlaying == false)
                         {
