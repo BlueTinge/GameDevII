@@ -21,6 +21,7 @@ public class JournalPage : MonoBehaviour, IInteractable
         Player = GameObject.FindGameObjectWithTag("Player");
         GameManager = GameObject.FindGameObjectWithTag("GameManager");
         myEventSystem = GameObject.Find("EventSystem");
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class JournalPage : MonoBehaviour, IInteractable
     public void CollectThis(PlayerController pl)
     {
         UIManager.IsJournalCollected[JournalNum] = true;
+        GameManager.GetComponent<UIManager>().JournalNum = JournalNum;
 
         canCollect = false;
 

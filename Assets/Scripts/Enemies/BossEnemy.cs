@@ -145,6 +145,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
     private bool isFlickering;
     Material[] materials;
     private float normalArmor;
+    private PlayerController pc;
 
     void Start()
     {
@@ -163,6 +164,7 @@ public class BossEnemy : MonoBehaviour, IEnemy
         heavyswings.Add(heavyswing2);
 
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        pc = player.gameObject.GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody>();
         healthStats = GetComponent<HealthStats>();
         normalArmor = healthStats.Defense;
@@ -189,6 +191,10 @@ public class BossEnemy : MonoBehaviour, IEnemy
         (
             new SelectorTask(new ITreeTask[]
             {
+                new NotTask
+                (
+                    new PlayerLiving(pc)
+                ),
                 new SequenceTask(new ITreeTask[]
                 {
                     new CallTask(()=>{animator.SetBool("windupDone", false); return true;}),
@@ -281,8 +287,12 @@ public class BossEnemy : MonoBehaviour, IEnemy
             }
         }
 
-        behaviorTree.Update();
-        animator.SetBool("moving", rb.velocity.sqrMagnitude > 0.25f * 0.25f);
+        if(isAlive)
+        {
+            behaviorTree.Update();
+        }
+
+        animator.SetBool("moving", rb.velocity.sqrMagnitude > 0.5f);
     }
 
     void FixedUpdate() {

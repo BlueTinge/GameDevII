@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25105,6 +25105,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerBounceFactor: -1
+--- !u!1 &1454953684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1510307445, guid: b97cde854caedb34cab3e6594f04461a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1735252983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1457109856
 GameObject:
   m_ObjectHideFlags: 0
@@ -29801,6 +29807,11 @@ PrefabInstance:
       propertyPath: Potions
       value: 
       objectReference: {fileID: 346700587}
+    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+        type: 3}
+      propertyPath: JournalBackground
+      value: 
+      objectReference: {fileID: 1454953684}
     - target: {fileID: 413507912588426026, guid: c119d869d92cc2e46900dfd67003bf09,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30373,110 +30384,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2069775955}
-    - target: {fileID: 346700587, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 1576792757, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
     - target: {fileID: 259459844, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 433720363, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 495541966, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 1047827720, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 1777876510, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 2088799504, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 2135541624, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 4920214083023381609, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 693173073061773985, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 8630775930333491502, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 2830861912244037569, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 6693254778180612318, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 6984078396764164899, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 6984078395075271619, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 6984078395459941260, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 6984078396467813795, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
-    - target: {fileID: 6984078396651094373, guid: b97cde854caedb34cab3e6594f04461a,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b67b02c1c0c978c4ebbf071407d9eb6e,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
 --- !u!1 &1735252984 stripped
