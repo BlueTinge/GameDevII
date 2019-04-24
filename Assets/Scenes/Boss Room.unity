@@ -607,6 +607,11 @@ PrefabInstance:
       propertyPath: Journal10Data
       value: 
       objectReference: {fileID: 4900000, guid: 0291d2ea22e34c2458fd3e5dd4ae92c3, type: 3}
+    - target: {fileID: 413507912588426027, guid: c119d869d92cc2e46900dfd67003bf09,
+        type: 3}
+      propertyPath: JournalBackground
+      value: 
+      objectReference: {fileID: 994826915}
     - target: {fileID: 413507912588426026, guid: c119d869d92cc2e46900dfd67003bf09,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2363,6 +2368,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97cde854caedb34cab3e6594f04461a, type: 3}
+--- !u!1 &994826915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1510307445, guid: b97cde854caedb34cab3e6594f04461a,
+    type: 3}
+  m_PrefabInstance: {fileID: 994826914}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &994826916 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 346700587, guid: b97cde854caedb34cab3e6594f04461a,
