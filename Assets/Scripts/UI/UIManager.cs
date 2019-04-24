@@ -63,7 +63,7 @@ public class UIManager : MonoBehaviour
     {
         NumPotions = Player.GetComponent<PlayerController>().NumPotions;
         Potions.text = "Potions: " + NumPotions.ToString();
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel") || Input.GetButtonDown("Back"))
         {
             if (PauseMenu.gameObject.activeInHierarchy == false & MenuState == 0)
             {
